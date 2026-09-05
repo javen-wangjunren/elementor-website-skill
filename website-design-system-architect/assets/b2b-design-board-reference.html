@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B2B Design Board Reference</title>
+  <style>
+    :root {
+      --primary: #176f91;
+      --primary-dark: #125875;
+      --signal: #e6ad20;
+      --ink: #172229;
+      --muted: #63727a;
+      --paper: #f4f5f3;
+      --surface: #fff;
+      --line: #cbd5d8;
+      --soft: #eaf3f6;
+      --r-button: 8px;
+      --r-card: 12px;
+      --space: 24px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 Arial, sans-serif; }
+    main { width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: 64px 0; }
+    section { padding: 42px 0; border-top: 1px solid var(--line); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 760px; font-size: clamp(42px, 6vw, 70px); line-height: .98; letter-spacing: -.04em; }
+    h2 { font-size: 32px; letter-spacing: -.025em; }
+    h3 { font-size: 18px; }
+    .eyebrow { color: var(--primary); font: 700 12px/1.2 ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; }
+    .lead, .note { color: var(--muted); max-width: 70ch; }
+    .panel { padding: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); }
+    .grid { display: grid; gap: var(--space); }
+    .g4 { grid-template-columns: repeat(4, 1fr); }
+    .g3 { grid-template-columns: repeat(3, 1fr); }
+    .g2 { grid-template-columns: repeat(2, 1fr); }
+    .swatch { min-height: 130px; padding: 18px; border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between; }
+    .swatch.primary { background: var(--primary); color: #fff; }
+    .swatch.signal { background: var(--signal); }
+    .swatch.ink { background: var(--ink); color: #fff; }
+    .swatch.paper { background: var(--paper); border: 1px solid var(--line); }
+    .type-sample + .type-sample { margin-top: 24px; }
+    .display { font-size: 48px; line-height: 1; font-weight: 750; letter-spacing: -.035em; }
+    .scale { display: flex; align-items: end; gap: 16px; min-height: 150px; }
+    .scale i { display: block; flex: 1; background: var(--primary); border-radius: 3px 3px 0 0; }
+    .tokens { margin: 0; padding: 0; list-style: none; }
+    .tokens li { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    button { min-height: 44px; padding: 0 20px; border: 1px solid var(--primary); border-radius: var(--r-button); background: var(--surface); color: var(--ink); font-weight: 700; }
+    button.primary { background: var(--primary); color: #fff; }
+    button.hover { background: var(--primary-dark); color: #fff; }
+    button.active { background: #0f4961; color: #fff; transform: translateY(1px); }
+    button.focus { outline: 3px solid #9ed6e8; outline-offset: 2px; }
+    button:disabled { border-color: #aac5d0; background: #aac5d0; color: #fff; }
+    a { color: var(--primary); text-underline-offset: 4px; }
+    .chip { display: inline-flex; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font-weight: 700; }
+    .icon-row { display: flex; gap: 24px; margin-top: 24px; }
+    .icon { width: 28px; height: 28px; color: var(--primary); fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .card { overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); }
+    .card-media { aspect-ratio: 4/3; display: grid; place-items: center; background: linear-gradient(135deg, #dce9ec, #a8cbd5); color: var(--primary-dark); font-weight: 700; }
+    .card-body { padding: 20px; }
+    .list-set { margin: 0; padding-left: 22px; }
+    .list-set li { padding: 8px 0; border-bottom: 1px solid var(--line); }
+    .semantic { list-style: none; padding-left: 0; }
+    .semantic li::before { content: "✓"; display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 10px; border-radius: 50%; background: var(--soft); color: var(--primary); }
+    .tabs { display: flex; gap: 24px; border-bottom: 1px solid var(--line); }
+    .tab { padding: 12px 0; color: var(--muted); }
+    .tab.active { color: var(--primary); font-weight: 700; border-bottom: 3px solid var(--primary); }
+    details { padding: 16px 0; border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; font-weight: 700; }
+    .table-wrap { overflow: hidden; border: 1px solid var(--primary); border-radius: var(--r-card); background: var(--surface); }
+    table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    th { background: var(--primary); color: #fff; text-align: left; }
+    th, td { padding: 15px 18px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    th:last-child, td:last-child { border-right: 0; }
+    tr:last-child td { border-bottom: 0; }
+    @media (max-width: 760px) { .g4, .g3, .g2 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">B2B Design Board / Structural Reference</p>
+    <h1>Precision industrial design language.</h1>
+    <p class="lead">A neutral reference for component structure and proportion. Color values and typefaces are placeholders, not a prescribed brand.</p>
+  </header>
+
+  <section>
+    <p class="eyebrow">01 / Color</p><h2>Roles before values</h2>
+    <div class="grid g4">
+      <div class="swatch primary"><b>Primary</b><small>Interaction / information</small></div>
+      <div class="swatch signal"><b>Signal</b><small>Priority, not default CTA</small></div>
+      <div class="swatch ink"><b>Ink</b><small>Text / dark surface</small></div>
+      <div class="swatch paper"><b>Paper</b><small>Primary canvas</small></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">02 / Typography</p><h2>Technical clarity first</h2>
+    <div class="panel">
+      <div class="type-sample"><span class="eyebrow">Display</span><div class="display">Built for exacting work.</div></div>
+      <div class="type-sample"><span class="eyebrow">Heading</span><h2>Manufacturing knowledge meets process control</h2></div>
+      <div class="type-sample"><span class="eyebrow">Body</span><p>Use readable measures, stable line height and tabular numerals for technical information.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">03 / Grid · Spacing · Shape</p><h2>Repeatable geometry</h2>
+    <div class="grid g2">
+      <div class="panel"><div class="scale"><i style="height:12%"></i><i style="height:20%"></i><i style="height:28%"></i><i style="height:40%"></i><i style="height:56%"></i><i style="height:76%"></i></div></div>
+      <div class="panel"><ul class="tokens"><li><span>Grid</span><b>12 columns / 24px gap</b></li><li><span>Button radius</span><b>8px</b></li><li><span>Card radius</span><b>12px</b></li><li><span>Elevation</span><b>Only when needed</b></li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">04 / Actions · Links · Chips · Icons</p><h2>One clear emphasis</h2>
+    <div class="panel">
+      <div class="actions"><button class="primary">Default</button><button class="hover">Hover</button><button class="active">Active</button><button class="focus">Focus</button><button disabled>Disabled</button></div>
+      <p class="actions" style="margin-top:24px"><a href="#">Primary link</a><a href="#">Download data</a><span class="chip">Material</span><span class="chip">Process</span></p>
+      <div class="icon-row" aria-label="Linear icon examples">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 12h16M12 4v16"/></svg>
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg>
+      </div>
+      <p class="note">Linear icons: 24–28px, 1.5–1.75px stroke. Background containers only when they carry function or status.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">05 / Gallery Cards · Lists</p><h2>Common website patterns</h2>
+    <div class="grid g3">
+      <article class="card"><div class="card-media">4:3 image area</div><div class="card-body"><h3>Material card</h3><p class="note">Consistent image and content rhythm.</p></div></article>
+      <article class="card"><div class="card-media">4:3 image area</div><div class="card-body"><h3>Capability card</h3><p class="note">Equal height and action position.</p></div></article>
+      <article class="card"><div class="card-media">4:3 image area</div><div class="card-body"><h3>Project card</h3><p class="note">Soft radius, restrained border.</p></div></article>
+    </div>
+    <div class="grid g3" style="margin-top:24px">
+      <div class="panel"><h3>Bullet</h3><ul class="list-set"><li>Clear grouping</li><li>Scannable facts</li></ul></div>
+      <div class="panel"><h3>Numbered</h3><ol class="list-set"><li>Confirm requirements</li><li>Review evidence</li></ol></div>
+      <div class="panel"><h3>Semantic icon</h3><ul class="list-set semantic"><li>Verified information</li><li>Delivery support</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">06 / Tabs · Accordion</p><h2>Compact disclosure patterns</h2>
+    <div class="grid g2">
+      <div class="panel"><div class="tabs"><span class="tab active">Overview</span><span class="tab">Specifications</span><span class="tab">Documents</span></div><p style="margin-top:20px">Active content remains on the main surface.</p></div>
+      <div class="panel"><details open><summary>What belongs in an accordion?</summary><p class="note">Secondary technical detail.</p></details><details><summary>How are states communicated?</summary></details></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">07 / Table</p><h2>Technical data readability</h2>
+    <div class="table-wrap"><table><thead><tr><th>Sample grade</th><th>Form</th><th>Thickness</th><th>Status</th></tr></thead><tbody><tr><td>Grade A</td><td>Sheet</td><td>1.00 mm</td><td>Example</td></tr><tr><td>Grade B</td><td>Plate</td><td>6.00 mm</td><td>Example</td></tr><tr><td>Grade C</td><td>Bar</td><td>12.00 mm</td><td>Example</td></tr></tbody></table></div>
+  </section>
+</main>
+</body>
+</html>

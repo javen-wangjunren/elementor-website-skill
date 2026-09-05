@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Elementor Site Skills workflow</title>
+  <desc id="desc">A three-part workflow: verify B2B business facts and evidence, confirm page and module design, then implement maintainable Elementor widgets.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f4f7f6"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif">
+    <text x="56" y="70" fill="#17242c" font-size="44" font-weight="800">从真实业务到 Elementor Widget</text>
+    <text x="56" y="108" fill="#56646b" font-size="23">每一步先解决一种关键不确定性；方向确认后，再进入下一步。</text>
+  </g>
+  <g stroke="#98a8ae" stroke-width="4" fill="none">
+    <path d="M394 282H446"/>
+    <path d="M754 282H806"/>
+  </g>
+  <g fill="#98a8ae">
+    <path d="M446 282l-14-9v18z"/><path d="M806 282l-14-9v18z"/>
+  </g>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif">
+    <g transform="translate(54 158)">
+      <rect width="340" height="200" rx="20" fill="#ffffff" stroke="#cad3d6" stroke-width="2"/>
+      <text x="28" y="42" fill="#0b83b8" font-size="21" font-weight="800" letter-spacing="2">01 · FACTS</text>
+      <text x="28" y="88" fill="#17242c" font-size="30" font-weight="800">先确认业务与证据</text>
+      <text x="28" y="128" fill="#56646b" font-size="21">Company Intake</text>
+      <text x="28" y="158" fill="#56646b" font-size="21">真实能力、素材与公开边界</text>
+    </g>
+    <g transform="translate(446 158)">
+      <rect width="308" height="200" rx="20" fill="#17242c"/>
+      <text x="28" y="42" fill="#5ac0e8" font-size="21" font-weight="800" letter-spacing="2">02 · DESIGN</text>
+      <text x="28" y="88" fill="#ffffff" font-size="30" font-weight="800">再确认页面与模块</text>
+      <text x="28" y="128" fill="#c7d0d4" font-size="21">Content · System · UI</text>
+      <text x="28" y="158" fill="#f2bd27" font-size="21" font-weight="700">Design Review</text>
+    </g>
+    <g transform="translate(806 158)">
+      <rect width="340" height="200" rx="20" fill="#ffffff" stroke="#cad3d6" stroke-width="2"/>
+      <text x="28" y="42" fill="#0b83b8" font-size="21" font-weight="800" letter-spacing="2">03 · IMPLEMENT</text>
+      <text x="28" y="88" fill="#17242c" font-size="30" font-weight="800">最后实现为组件</text>
+      <text x="28" y="128" fill="#56646b" font-size="21">HTML Review → Widget</text>
+      <text x="28" y="158" fill="#56646b" font-size="21">最小字段卡与 Elementor 验收</text>
+    </g>
+    <g transform="translate(56 431)">
+      <circle cx="10" cy="0" r="8" fill="#f2bd27"/>
+      <text x="32" y="8" fill="#56646b" font-size="21">黄色标记代表需要你确认的方向；文件存在不等于已经确认。</text>
+    </g>
+  </g>
+</svg>

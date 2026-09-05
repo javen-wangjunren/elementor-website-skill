@@ -1,0 +1,26 @@
+interface:
+  display_name: "Website Page Content Architect"
+  short_description: "按客户决策路径完整规划页面，并输出精简可排版文案"
+  default_prompt: "Use $website-page-content-architect before visual design to plan a complete page around the customer decision flow, produce concise UI-ready copy and content requirements, run the content architecture review, and submit the framework for user confirmation."
+
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - openai
+    - claude
+    - generic
+    - vscode
+  activation:
+    mode: "manual"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    missing_business_evidence: "Mark the gap, reduce or remove unsupported claims, and ask only for facts that materially change the page framework."
+    unavailable_research: "Disclose skipped external research and continue with verified project evidence and the built-in content review method."
+    missing_design_system: "Content planning may continue; visual design must wait for website-design-system-architect."

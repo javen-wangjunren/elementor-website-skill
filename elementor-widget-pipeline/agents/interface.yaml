@@ -1,0 +1,25 @@
+interface:
+  display_name: "Elementor Widget Pipeline"
+  short_description: "把确认版设计稿以最少必要字段实现为插件式 Elementor Widget"
+  default_prompt: "Use $elementor-widget-pipeline with the approved standalone module HTML or the explicitly selected Section from an approved full-page HTML. Inherit its confirmed canonical module slug without renaming, implement only one Widget at a time, first propose a conservative minimum field card and stop for confirmation, then incrementally implement and verify it in the target plugin."
+
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - openai
+    - claude
+    - generic
+    - vscode
+  activation:
+    mode: "manual"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    missing_html: "Route unconfirmed visual input to website-ui-architect unless the user explicitly approves direct implementation."
+    missing_plugin: "Stop Widget implementation and route to elementor-site-initialize; resume only after the plugin scaffold and Flat or Grouped structure are confirmed."

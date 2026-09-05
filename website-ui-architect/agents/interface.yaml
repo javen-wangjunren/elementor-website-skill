@@ -1,0 +1,26 @@
+interface:
+  display_name: "Website UI Architect"
+  short_description: "先确认整页构图，再生成视觉方向与 HTML 设计稿"
+  default_prompt: "Use $website-ui-architect after an approved Design System and confirmed page content exist. For a complete page, first create and confirm a Page UI Architecture Map. When image direction is useful, use an overview plus realistic-density segments for pages longer than about six sections, follow the flexible media-ratio guidance, and complete the visual-direction review before user confirmation. Then choose either a page-first or module-first HTML workflow and preserve the confirmed Section boundaries and canonical slugs."
+
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - openai
+    - claude
+    - generic
+    - vscode
+  activation:
+    mode: "manual"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    missing_advisors: "Disclose skipped advisors and continue with the approved Design System, project evidence, and built-in review criteria."
+    missing_design_system: "Stop module design and route the task to website-design-system-architect; do not invent replacement visual rules."
+    missing_page_content: "For full-page work, stop visual design and route to website-page-content-architect; a clear single-module brief may continue without a page framework file."

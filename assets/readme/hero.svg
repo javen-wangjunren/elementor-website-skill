@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="410" viewBox="0 0 1200 410" role="img" aria-labelledby="title desc">
+  <title id="title">Elementor Site Skills</title>
+  <desc id="desc">A B2B website workflow that moves from verified business facts to a reviewed website design and maintainable Elementor widgets.</desc>
+  <rect width="1200" height="410" rx="28" fill="#17242c"/>
+  <path d="M718 44V366" stroke="#3a4850" stroke-width="2"/>
+  <g transform="translate(58 58)" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif">
+    <text x="0" y="20" fill="#5ac0e8" font-size="20" font-weight="800" letter-spacing="3">AI × B2B WEBSITE × ELEMENTOR</text>
+    <text x="0" y="96" fill="#f7f8f6" font-size="62" font-weight="800">Elementor Site Skills</text>
+    <text x="0" y="145" fill="#f2bd27" font-size="31" font-weight="750">从真实业务到可维护 Widget 的建站方法</text>
+    <text x="0" y="204" fill="#c7d0d4" font-size="25">不只生成页面，而是先把内容、设计和证据想清楚，</text>
+    <text x="0" y="240" fill="#c7d0d4" font-size="25">再高还原地实现为 Elementor 自定义组件。</text>
+    <g transform="translate(0 282)">
+      <rect width="472" height="48" rx="24" fill="#22343e" stroke="#3b4d56"/>
+      <text x="24" y="31" fill="#f7f8f6" font-size="20" font-weight="700">为可信 B2B 企业站而设计</text>
+    </g>
+  </g>
+  <g transform="translate(766 58)" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif">
+    <text x="0" y="20" fill="#9eabb1" font-size="20" font-weight="800" letter-spacing="2">WHAT YOU GET</text>
+    <g transform="translate(0 48)">
+      <rect width="376" height="76" rx="14" fill="#22343e" stroke="#3b4d56"/>
+      <circle cx="29" cy="38" r="12" fill="#5ac0e8"/>
+      <text x="58" y="31" fill="#f7f8f6" font-size="24" font-weight="800">01 · 真实业务与证据</text>
+      <text x="58" y="57" fill="#b8c2c7" font-size="20">让客户先理解，也先信任</text>
+    </g>
+    <g transform="translate(0 138)">
+      <rect width="376" height="76" rx="14" fill="#22343e" stroke="#3b4d56"/>
+      <circle cx="29" cy="38" r="12" fill="#f2bd27"/>
+      <text x="58" y="31" fill="#f7f8f6" font-size="24" font-weight="800">02 · 页面与模块设计</text>
+      <text x="58" y="57" fill="#b8c2c7" font-size="20">先确认，再进入真实 HTML</text>
+    </g>
+    <g transform="translate(0 228)">
+      <rect width="376" height="76" rx="14" fill="#22343e" stroke="#3b4d56"/>
+      <circle cx="29" cy="38" r="12" fill="#5ac0e8"/>
+      <text x="58" y="31" fill="#f7f8f6" font-size="24" font-weight="800">03 · Elementor Widget</text>
+      <text x="58" y="57" fill="#b8c2c7" font-size="20">高还原、可编辑、可维护</text>
+    </g>
+  </g>
+</svg>

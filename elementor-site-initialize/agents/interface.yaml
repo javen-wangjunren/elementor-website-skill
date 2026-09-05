@@ -1,0 +1,27 @@
+interface:
+  display_name: "Elementor Site Initialize"
+  short_description: "按预计规模初始化 Flat 或 Grouped Elementor Widget 插件骨架"
+  default_prompt: "Use $elementor-site-initialize in the current project workspace. Treat theme context as optional and read-only, infer naming and expected Widget scale, recommend Flat or Grouped structure, confirm the local plugin path and structure once, then create and verify the plugin scaffold and handoff workspace. Return to the orchestrator or original task afterward so the next stage follows the user's original goal instead of always starting Design System work."
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "openai"
+    - "claude"
+    - "generic"
+    - "vscode"
+  activation:
+    mode: "manual"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    openai: "metadata-adapter"
+    claude: "neutral-source-plus-adapter"
+    generic: "neutral-source"
+    vscode: "agent-skills-source-with-vscode-notes"
+    missing_theme: "Continue with confirmed project and plugin naming; set theme evidence to unavailable and do not invent theme facts."

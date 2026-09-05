@@ -1,0 +1,11 @@
+/*
+ * Replace placeholders with the confirmed design values.
+ * Keep every selector inside this Widget namespace.
+ */
+.your-widget {
+  /* Section padding, background, color and typography come from the approved draft. */
+}
+
+.your-widget__container {
+  /* Container width and inline spacing come from the approved draft. */
+}

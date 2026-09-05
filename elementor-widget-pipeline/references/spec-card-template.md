@@ -1,0 +1,51 @@
+# 最小字段确认卡
+
+在对话中填写并交给用户微调。它只用于确认哪些内容需要在 Elementor 中编辑，不是 DOM Contract，也不默认保存为文件。
+
+```text
+MODULE TITLE:
+MODULE SLUG:
+PLUGIN:
+WIDGET NAME: <same as MODULE SLUG>
+WIDGET TITLE:
+DESIGN SOURCE:
+
+CONTENT FIELDS:
+- field key / label / control type / default / empty behavior
+
+REPEATER:
+- 是否需要：No / Yes
+- 子字段：
+- 默认数量：
+- 是否允许增减：
+
+OPTIONAL STYLE CONTROLS:
+- None（默认）
+
+FIXED IN CODE:
+- 背景、字体、间距、圆角、阴影
+- 布局结构与响应式
+- 装饰性元素
+
+INTERACTION:
+ASSETS:
+```
+
+## 输出规则
+
+- `MODULE SLUG` 继承确认版设计稿；`WIDGET NAME` 必须完全一致，不在字段确认阶段重新命名。
+- 如果 Slug 缺失、与设计稿文件名不一致或发生冲突，先单独确认名称，再输出字段初稿；不得发明临时版本名。
+- 先给一份克制的字段初稿，并简短说明为什么这些内容需要编辑。
+- 明确列出保持固定的内容，让用户看得出 AI 没有把所有元素都字段化。
+- 用户可以删除、增加或合并字段，也可以要求某一组内容改为 Repeater。
+- 输出后停止；用户确认前不创建或修改 Widget 文件。
+- 默认只在当前对话保留确认结果；用户明确要求时才写 Markdown。
+
+## Control 选择
+
+- 单行短文本使用 `TEXT`；多行纯文本优先 `TEXTAREA`，确需富文本时才用 `WYSIWYG`。
+- 图片使用 `MEDIA`；按钮目标使用 `URL`，按钮文字单独使用 `TEXT`。
+- 数量稳定且不需要运营增减的项目保持固定，不自动使用 Repeater。
+- 使用 Repeater 时只加入运营真正需要修改的子字段，并填写真实默认内容和默认数量。
+- 不自动添加 `TAB_STYLE`。颜色、Typography、padding、margin、radius、shadow 和背景保持固定，除非用户明确确认开放。
+- 不为了“以后可能有用”增加开关、对齐、列数、动画或响应式控制。

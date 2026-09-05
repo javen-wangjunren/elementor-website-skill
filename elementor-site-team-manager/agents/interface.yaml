@@ -1,0 +1,26 @@
+interface:
+  display_name: "Elementor Site Team Manager"
+  short_description: "协调页面内容、设计系统、整页或模块设计与 Elementor Widget 实现"
+  default_prompt: "Use $elementor-site-team-manager as the single entry point for this custom Elementor Widget site task. Infer the current stage from minimal evidence, coordinate page content and the Design System, then let UI use either a page-first or module-first design path. Route one confirmed Section at a time into the Widget Pipeline and preserve all user confirmation gates."
+
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - openai
+    - claude
+    - generic
+    - vscode
+  activation:
+    mode: "manual"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    uncertain_confirmation: "Treat files as evidence, not proof of user approval; ask only for the unresolved gate."
+    missing_specialist: "Disclose the unavailable specialist and stop at the current stage rather than improvising its rules."
+    out_of_scope: "Explain the boundary and recommend an external workflow without adding it to the managed five-skill process."
