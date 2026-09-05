@@ -11,12 +11,12 @@
 下面这个 B2B 首页不是从模板直接套出来的，而是经过内容、Design System、Architecture Map、视觉方向和 HTML Review 一步步完成的。
 
 <p align="center">
-  <a href="./assets/readme/homepage-demo.mp4">
-    <img src="./assets/readme/homepage-demo-poster.png" width="100%" alt="Linsy Copper B2B 首页设计成果，点击查看约 20 秒完整录屏">
+  <a href="https://github.com/javen-wangjunren/elementor-website-skill/releases/download/v0.1.0/homepage-demo.mp4">
+    <img src="./assets/readme/demo-video-cover.png" width="100%" alt="Linsy Copper B2B 首页设计成果，点击下载约 20 秒完整录屏">
   </a>
 </p>
 
-<p align="center"><strong>点击图片查看约 20 秒完整页面录屏</strong></p>
+<p align="center"><strong>点击图片下载约 20 秒完整页面录屏</strong></p>
 
 它的终点也不只是设计稿或 HTML。确认后的模块会沉淀为 Elementor 自定义 Widget：可以在组件面板中搜索和插入，也只开放真正需要编辑的字段。
 
