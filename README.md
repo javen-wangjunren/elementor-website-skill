@@ -66,7 +66,7 @@
 
 ## 👋 Hi，我是 Javen
 
-我目前在一家 CNC 公司 RapidDirect 做外贸运营。工作中经常需要参与网站页面的策划和制作，这让我开始接触 AI 建站，也一路摸索出一些从网页设计到 Elementor Widget 落地的方法。
+我目前在 CNC 公司 RapidDirect 负责网站运营，并长期参与网站页面的策划与建设。目前 GSC 月度自然搜索流量超过 10 万，DR 约为 70。我在年初开始接触 AI 建站，目前摸索出一套从页面设计到 Elementor Widget 落地的方法。
 
 我把自己在真实 B2B 企业站项目中反复使用的做法整理成了这组 Skills。它会陪你从业务事实、页面内容、Design System 和 UI 构图，一路走到真实 HTML 与 Elementor 实现，把确认后的网页设计沉淀成可复用、可维护的自定义 Widget。
 
