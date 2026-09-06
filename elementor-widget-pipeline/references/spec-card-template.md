@@ -9,6 +9,13 @@ PLUGIN:
 WIDGET NAME: <same as MODULE SLUG>
 WIDGET TITLE:
 DESIGN SOURCE:
+SOURCE MODE: confirmed-html / strong-reference-fast-path
+
+REFERENCE INTERPRETATION:（仅 Fast Path）
+- 保留：
+- 页面适配：
+- 移动端降级：
+- 不复刻：
 
 CONTENT FIELDS:
 - field key / label / control type / default / empty behavior
@@ -33,12 +40,13 @@ ASSETS:
 
 ## 输出规则
 
-- `MODULE SLUG` 继承确认版设计稿；`WIDGET NAME` 必须完全一致，不在字段确认阶段重新命名。
-- 如果 Slug 缺失、与设计稿文件名不一致或发生冲突，先单独确认名称，再输出字段初稿；不得发明临时版本名。
+- Confirmed HTML Path 的 `MODULE SLUG` 继承确认版设计稿；Fast Path 缺少 Slug 时只提出一个稳定候选。两者都必须经字段卡确认，`WIDGET NAME` 与最终 Slug 完全一致。
+- 如果 Slug 与设计稿文件名不一致或发生冲突，先确认名称；不得发明临时版本名。
 - 先给一份克制的字段初稿，并简短说明为什么这些内容需要编辑。
 - 明确列出保持固定的内容，让用户看得出 AI 没有把所有元素都字段化。
 - 用户可以删除、增加或合并字段，也可以要求某一组内容改为 Repeater。
 - 输出后停止；用户确认前不创建或修改 Widget 文件。
+- Fast Path 的字段卡同时确认参考解释、固定结构、响应式降级和 Slug，不额外创建 HTML 或设计合同。
 - 默认只在当前对话保留确认结果；用户明确要求时才写 Markdown。
 
 ## Control 选择

@@ -4,7 +4,7 @@
 
 设计师自查用于提高 Design Board 和 Active Baseline Design System 的首次交付质量。它不是 QA，不产生验收等级，也不检查响应式、溢出、浏览器兼容、性能、真实交互或生产实现。
 
-模块 HTML 与整页 HTML 的实现 QA 属于 `website-ui-architect`。
+模块 HTML 与整页 HTML 的实现 QA 属于 `website-html-prototyper`；视觉方案与方向确认属于 `website-ui-architect`。
 
 ## 自动修正规则
 

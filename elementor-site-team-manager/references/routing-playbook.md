@@ -26,8 +26,8 @@
 - 尚未确认来源的 Style Board；
 - 页面内容框架的目标页面、版本和用户确认状态；
 - 多个或来源不明的 Design System；
-- 模块图片方向、模块 current HTML 和最终整页 current HTML；
-- 模块设计方向、Canonical Module Slug 和最终 HTML；
+- Overview/Segment 或模块视觉方向的确认状态；
+- Canonical Module Slug、模块 current HTML 和最终整页 current HTML；
 - Pipeline 的最小字段卡；
 - 配置与真实插件结构不一致时采用哪一方。
 
@@ -44,13 +44,15 @@
   └─ 插件不存在 → Initialize ─────────────────┤
                                               ├→ Widget Pipeline
 需要完整页面设计 → Page Content ─┐            │
-                                  ├→ UI Architect ─┘
+                                  ├→ UI Architect → HTML Prototyper ─┘
                     Design System ┘
 
-内容职责明确的单模块设计 → Design System → UI Architect
+内容职责明确的单模块设计 → Design System → UI Architect → HTML Prototyper（按目标）
 
-UI Architect（完整页面）：
-Page UI Architecture Map → 整页视觉方向（按需；长页面 Overview + 分段稿） → 整页优先或模块优先 HTML First Draft → HTML Design Review → Browser / Implementation QA → 逐个 Widget Pipeline
+完整页面：
+UI Architect：Page UI Architecture Map → Overview + Segment → 视觉确认与 Slug
+→ HTML Prototyper：整页优先或模块优先 HTML First Draft → HTML Design Review → Browser / Implementation QA
+→ 逐个 Widget Pipeline
 ```
 
 - 初始化是 Pipeline 的插件前置，不是建立 Design System 的技术前置。
@@ -59,8 +61,9 @@ Page UI Architecture Map → 整页视觉方向（按需；长页面 Overview + 
 - Design System 是 UI Architect 的设计前置。
 - 完整页面必须先确认 Page UI Architecture Map；它确定 Section 构图、媒体关系、素材比例建议、CTA 和整页节奏，不由总控提前代写。
 - 单模块已有明确任务、真实内容和页面上下文时，不强制创建整页内容框架。
-- Pipeline 需要现有插件和用户确认的实现源；由 UI 产生时还应继承已确认的 Canonical Module Slug。
-- 完整页面可直接从确认的图片方向生成整页 HTML，也可逐个模块设计后拼接；单模块 HTML 仅在用户需要保留、复用或单独打磨时生成。
+- HTML Prototyper 需要已确认设计包；完整页面缺少确认的 Overview/Segment 时返回 UI Architect。
+- Pipeline 需要现有插件和用户确认的 HTML 实现源，并继承 UI Architect 确认的 Canonical Module Slug。
+- Prototyper 可从确认视觉方向直接生成整页 HTML，也可逐个模块实现后拼接；单模块 HTML 是否保留取决于复用与打磨需要。
 - Pipeline 的单模块验证不包含 Elementor 整页组装。用户保留整页组装和最终视觉验收责任时，该人工门禁就是完整流程的一部分，不得标记为 Skill 缺失。
 - 用户目标已经满足时停止，不自动追加后续阶段。
 
@@ -76,12 +79,14 @@ Page UI Architecture Map → 整页视觉方向（按需；长页面 Overview + 
 | 完整页面设计，但内容框架缺失或未确认 | `website-page-content-architect` | 确认后检查 Design System，再进入 UI |
 | 提炼老站风格或建立新站视觉方向 | `website-design-system-architect` | 用户确认 Style Board 并形成 Design System |
 | 完整页面内容已确认，但 Design System 缺失或未确认 | `website-design-system-architect` | 确认后继续 UI Architect |
-| 完整页面内容与 Design System 均已确认 | `website-ui-architect` | 先确认 Page UI Architecture Map；再按需确认整页视觉方向，选择整页优先或模块优先路径，完成 HTML Design Review、Browser / Implementation QA、Section 边界与 Slug |
-| 单模块任务、真实内容和上下文明确，Design System 已确认 | `website-ui-architect` | 不强制整页框架；确认方向、Slug 和 current HTML |
+| 完整页面内容与 Design System 均已确认 | `website-ui-architect` | 确认 Map、Overview/Segment 与 Canonical Module Slug；原目标含 HTML 时继续 Prototyper |
+| 单模块任务、真实内容和上下文明确，Design System 已确认 | `website-ui-architect` | 不强制整页框架；确认方案、方向与 Slug |
+| 完整页面视觉包已确认但没有 HTML | `website-html-prototyper` | 生成整页或模块优先 HTML，完成 Review、Browser QA 与 Section 边界确认 |
+| 单模块设计已确认但没有 HTML | `website-html-prototyper` | 有方向图，或满足强参考 + 完整方案 + 无歧义例外时生成模块 HTML |
 | 已有确认版 HTML 和现有插件 | `elementor-widget-pipeline` | 用户确认字段卡后实现并验证 |
 | 当前模块最终 HTML 来源、Section 边界与 Slug 已确认 | `elementor-widget-pipeline` | 可使用独立模块稿或整页中的当前 Section；按顺序逐个实现并确认字段卡 |
 | 只有截图/Figma，且模块内容职责未确认 | `website-page-content-architect` | 先确认内容任务；不直接进入 UI 或 Pipeline |
-| 只有截图/Figma，但模块任务与内容已确认 | `website-ui-architect` | 不直接进入 Pipeline |
+| 只有截图/Figma，但模块任务与内容已确认、方向未确认 | `website-ui-architect` | 先完成设计确认，不直接进入 HTML 或 Pipeline |
 | 不知道下一步 | 先检查最少证据 | 读取总控状态并简短说明当前阶段，再采用缺失依赖对应的 Skill |
 
 如果用户明确允许 Pipeline 从截图/Figma 直接实现，仍遵守 Pipeline 自己的例外规则；总控不能自行替用户作出该确认。
@@ -102,7 +107,7 @@ Page UI Architecture Map → 整页视觉方向（按需；长页面 Overview + 
 
 Company Intake 完成后，根据原始目标向 `website-page-content-architect`、`website-design-system-architect` 或两者传递已确认的公司资料文件、相关事实、证据状态、素材缺口和禁止主张。不要把 Intake 变成页面 Section Map，也不要提前决定视觉 Form。
 
-完整页面设计进入 Pipeline 时，一次只派发当前模块：确认版独立模块 HTML，或确认版整页 HTML 中边界明确的当前 Section；同时传递 Canonical Module Slug、目标插件、必要页面上下文和已知风险。整页 HTML 不授权 Pipeline 同时实现所有模块。当前 Widget 完成后，再通过下一张字段卡进入下一个 Widget。
+完整页面设计进入 Pipeline 时，一次只派发当前模块：Prototyper 确认的独立模块 HTML，或确认版整页 HTML 中边界明确的当前 Section；同时传递 Canonical Module Slug、目标插件、必要页面上下文和已知风险。整页 HTML 不授权 Pipeline 同时实现所有模块。当前 Widget 完成后，再通过下一张字段卡进入下一个 Widget。
 
 ## 5. 最小派工包
 
@@ -118,7 +123,7 @@ NEXT USER GATE:
 KNOWN RISKS:
 ```
 
-只填写当前专项工作必需的信息。页面内容框架交给 UI 时传递确认文件、Section ID、Section Job、顺序、内容边界、证据状态和开放问题；不传递尚未决定的视觉 Form。Architecture Map 确认后，再将其作为视觉方向和 HTML 的构图依据。不要复制其他 Skill 的完整规则；不要把未确认推断包装成已确认输入。
+只填写当前专项工作必需的信息。页面内容框架交给 UI 时传递确认文件、Section ID、Section Job、顺序、内容边界、证据状态和开放问题；不传递尚未决定的视觉 Form。视觉包交给 Prototyper 时传递确认 Map、Overview/Segment、Slug、Correction Notes 和素材真实性边界。不要复制其他 Skill 的完整规则；不要把未确认推断包装成已确认输入。
 
 ## 6. 收口与外围流程
 

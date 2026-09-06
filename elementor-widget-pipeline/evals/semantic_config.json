@@ -1,0 +1,39 @@
+{
+  "fallback_positive_concepts": ["widget_implementation", "confirmed_html", "simple_reference"],
+  "positive_concepts": {
+    "widget_implementation": {
+      "weight": 0.4,
+      "phrases": ["elementor widget", "widget pipeline", "实现当前", "做成 widget", "开发", "elementor 字段"]
+    },
+    "confirmed_html": {
+      "weight": 0.3,
+      "phrases": ["confirmed standalone module html", "确认版模块 html", "确认的整页 html", "当前 cta section"]
+    },
+    "simple_reference": {
+      "weight": 0.3,
+      "phrases": ["simple strong reference", "简单强参考", "明确图片", "简单 cta widget", "简单提示条", "按当前 figma 直接实现"]
+    }
+  },
+  "negative_concepts": {
+    "design_exploration": {
+      "weight": 0.9,
+      "exclusive": true,
+      "phrases": ["应该怎么设计", "三个布局方向", "gallery 怎么浏览还没决定", "模糊参考图"]
+    },
+    "html_prototype": {
+      "weight": 0.9,
+      "exclusive": true,
+      "phrases": ["生成静态 html", "生成可审核的模块 html", "还没有 html"]
+    },
+    "batch_page": {
+      "weight": 0.9,
+      "exclusive": true,
+      "phrases": ["整个页面的所有 section", "一次性做成 widgets"]
+    },
+    "bugfix_release": {
+      "weight": 0.9,
+      "exclusive": true,
+      "phrases": ["面板中找不到", "php 报错", "编辑器白屏", "发布插件", "清理缓存"]
+    }
+  }
+}

@@ -4,7 +4,7 @@
 
 请求：“我什么都不懂，帮我从零做一套 Elementor 自定义模块。”
 
-期望：先进入 `elementor-site-initialize`；路径/Profile 确认后，按完整目标继续页面内容框架与 Design System，二者确认后进入 UI 和 Pipeline。适用的五个门禁均不得跳过。
+期望：先进入 `elementor-site-initialize`；路径/Profile 确认后，按完整目标继续页面内容框架与 Design System，二者确认后进入 UI Architect、HTML Prototyper 和 Pipeline。适用门禁均不得跳过。
 
 ## 2. 现有基础上的模块设计
 
@@ -64,7 +64,7 @@
 
 请求：发布插件、排查旧 Widget、修改主题 `functions.php` 或安装 Elementor。
 
-期望：说明不属于五个核心 Skill 并推荐外围流程；不误用专项 Skill 执行。
+期望：说明不属于六个核心 Skill 并推荐外围流程；不误用专项 Skill 执行。
 
 ## 12. 持续接管
 
@@ -82,7 +82,7 @@
 
 请求：用户提供已确认的页面内容框架和 Design System，希望完成包含多个模块的页面。
 
-期望：总控先判断是否需要整页图片方向稿，再允许选择整页优先或模块优先路径。整页优先可以直接生成整页 HTML；模块优先逐个确认后拼接。两者完成整页 QA 后都按顺序交给 Pipeline。
+期望：总控先由 UI Architect 完成 Map、强制的 Overview/Segment 与视觉确认，再交给 Prototyper 选择整页优先或模块优先 HTML 路径。两者完成整页 QA 后都按顺序交给 Pipeline。
 
 ## 15. 多 Widget 顺序开发
 
@@ -96,11 +96,11 @@
 
 期望：把它视为已定义的用户责任和最终门禁，不评价为 Pipeline 或 Skill 体系的缺口，不自动新增页面组装 Skill。
 
-## 17. Delivery Contract 为可选
+## 17. Prototype Handoff 为可选
 
-请求：普通静态模块已有用户确认的 current HTML 和 Canonical Module Slug，但没有独立 Delivery Contract。
+请求：普通静态模块已有用户确认的 current HTML 和 Canonical Module Slug，但没有独立 Prototype Handoff。
 
-期望：可正常进入 Pipeline 的字段确认门禁；不把 Delivery Contract 当作强制前置。只有复杂交互、锁定 DOM 或跨会话交接时才建议使用。
+期望：可正常进入 Pipeline 的字段确认门禁；不把 Prototype Handoff 当作强制前置。只有复杂交互、锁定 DOM 或跨会话交接时才建议使用。
 
 ## 18. 内部流程状态
 
@@ -143,3 +143,21 @@
 请求：用户只设计一个任务、内容、素材与上下文都已明确的模块。
 
 期望：总控直接路由到 `website-ui-architect` 的单模块路径，不强制生成 Page UI Architecture Map。
+
+## 25. 已确认设计但缺少 HTML
+
+请求：完整页面已有确认 Map、Overview、Segment 和 Canonical Module Slug，但尚未生成 HTML。
+
+期望：直接进入 `website-html-prototyper`；不重新生成方向图，也不直接进入 Pipeline。
+
+## 26. 完整页面视觉尚未确认
+
+请求：Map 已确认但 Overview/Segment 尚未确认，用户要求做 HTML。
+
+期望：继续采用 `website-ui-architect` 完成视觉方向确认；不得让 Prototyper 绕过门禁。
+
+## 27. 端到端同任务切换
+
+请求：用户最初要求从页面设计一直做到确认版 HTML。
+
+期望：UI Architect 的视觉方向经用户确认后，总控在同一任务中加载 Prototyper 继续，不要求用户重新调用 Skill。

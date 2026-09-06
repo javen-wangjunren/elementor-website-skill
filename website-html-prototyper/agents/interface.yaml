@@ -1,0 +1,26 @@
+interface:
+  display_name: "Website HTML Prototyper"
+  short_description: "将确认的视觉方向转化为可审查的 HTML 设计稿并完成浏览器验证"
+  default_prompt: "Use $website-html-prototyper to turn a confirmed UI Architecture Map and visual direction into a static HTML page or module, review the rendered design, and complete browser implementation QA without redesigning it."
+
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - openai
+    - claude
+    - generic
+    - vscode
+  activation:
+    mode: "manual"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    missing_visual_direction: "Route to website-ui-architect; do not invent a page or module design during HTML implementation."
+    missing_design_system: "Route to website-design-system-architect; do not invent replacement visual tokens."
+    missing_page_content: "For full pages, route to website-page-content-architect; a confirmed single-module brief may continue."

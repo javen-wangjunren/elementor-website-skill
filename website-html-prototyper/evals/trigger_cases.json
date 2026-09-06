@@ -1,0 +1,32 @@
+{
+  "skill": "website-html-prototyper",
+  "recommended_threshold": 0.28,
+  "should_trigger": [
+    "根据已经确认的首页 Architecture Map、Overview 和 Segment 生成整页 HTML 设计稿",
+    "把这几个已经确认的模块 HTML 拼成一个完整页面并检查节奏",
+    "检查当前静态 HTML 的桌面、移动端、键盘和交互问题",
+    "方向已经确认，请按 Segment 修正当前模块 HTML",
+    "把确认的模块设计实现为一个可浏览的静态 HTML 原型"
+  ],
+  "should_not_trigger": [
+    "为首页规划 Architecture Map 并生成视觉方向图",
+    "重新设计这个看起来很普通的 How It Works 模块",
+    "整理页面内容框架和英文文案",
+    "创建网站 Design System 和 Style Board",
+    "把确认的 HTML 开发成 Elementor Widget 并规划 Controls"
+  ],
+  "near_neighbor": [
+    {
+      "text": "我只有页面文案，请先整理内容框架，不要做 HTML",
+      "family": "content_only"
+    },
+    {
+      "text": "Map 已确认，但 Overview 和 Segment 还没确认，先完善视觉方向",
+      "family": "unconfirmed_visual"
+    },
+    {
+      "text": "确认的 HTML 已有，请直接开发 Elementor Widget 和 Controls",
+      "family": "platform_implementation"
+    }
+  ]
+}

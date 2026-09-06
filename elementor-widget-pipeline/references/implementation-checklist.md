@@ -1,6 +1,6 @@
 # 实现清单
 
-先确认字段卡，再执行本清单。确认版设计稿决定结构与视觉，模板只提供 Elementor 接线骨架。
+先确认字段卡，再执行本清单。Confirmed HTML Path 以确认 HTML 为依据；Fast Path 以用户确认的参考解释为依据。模板只提供 Elementor 接线骨架。
 
 ## PHP
 
@@ -10,7 +10,7 @@
 - 只有确认存在 JS 交互时才实现 `get_script_depends()`。
 - `register_controls()` 只输出用户确认的字段；默认不创建 `TAB_STYLE`。
 - Repeater 只包含确认的子字段、真实默认项和合理的 `title_field`。
-- `render()` 使用 `get_settings_for_display()`，主要把静态内容替换为 Settings，不随意改变确认稿的信息结构和类名。
+- `render()` 使用 `get_settings_for_display()`；Confirmed HTML Path 不随意改变确认稿结构和类名，Fast Path 不超出已确认的参考解释发明结构。
 - 文本用 `esc_html()`，属性用 `esc_attr()`，URL 用 `esc_url()`；只有确认允许的富文本才使用 `wp_kses_post()`。
 - 空字段按字段卡决定隐藏、保留占位或使用默认值，不临时发明行为。
 - 只有交互模块才在根节点加入实例标识和 JS 所需 `data-*`。
@@ -20,7 +20,7 @@
 - CSS 根类允许增加项目 CSS Prefix，但必须保留完整 Canonical Module Slug，并与确认设计稿对应。
 - 所有选择器位于唯一模块命名空间内，例如 `.rd-xxx` 或 `.mml-xxx`。
 - 不污染 `:root`、`body`、`.container`、裸 `h1-h6/p/a/button` 或 `.elementor-*`。
-- padding、背景、容器宽度、颜色、Typography、圆角和响应式值来自确认设计稿；通用模板不提供固定视觉默认值。
+- padding、背景、容器宽度、颜色、Typography、圆角和响应式值来自确认 HTML，或 Fast Path 已确认的参考解释与现有页面上下文；通用模板不提供固定视觉默认值。
 - 网站已经加载正确字体时可以继承；否则把缺失的网站级字体能力报告给用户，不修改主题或在单个 Widget 中偷偷重复加载。
 - 避免全局 reset，补齐 hover、focus、长内容、空内容和目标断点。
 

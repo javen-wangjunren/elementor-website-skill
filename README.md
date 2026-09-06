@@ -39,6 +39,30 @@
 
 </details>
 
+## 🚀 从本地工作区到 WordPress
+
+这不是一个下载后立刻安装的通用 Widget 插件，而是一套帮你为**当前网站项目**设计并生成自定义插件的 Skills。你可以把它理解为：先在本地把网站和组件做对，再把生成的插件交给 WordPress 使用。
+
+最简单的使用路径是：
+
+1. 新建一个本地项目工作区，例如 `my-b2b-site/`；它不需要是 WordPress 根目录。
+2. 调用 `elementor-site-team-manager`，告诉它你的公司资料、计划页面和目标；总控会判断当前该走内容、视觉、HTML 还是 Widget 实现。
+3. 第一次需要自定义 Widget 时，`elementor-site-initialize` 会在你确认的本地路径创建插件骨架；后续由设计、HTML 和 Widget Skills 按确认结果逐个补齐组件。
+4. Widget 完成并在本地验证后，将**完整插件目录**复制到 WordPress 的 `wp-content/plugins/`，或把该插件目录压缩成 ZIP，在 WordPress 后台的“插件 → 安装插件 → 上传插件”中上传并启用。
+
+> 只压缩生成的插件目录，不要把整个项目工作区、设计稿或 `docs/` 一起打包上传。使用前请确保目标 WordPress 已安装 Elementor。
+
+你可以直接这样开始：
+
+```text
+使用 elementor-site-team-manager，帮助我从当前项目状态开始完成一个 B2B 企业站。
+
+公司资料位于：<path>
+计划页面：<pages>
+项目工作区：<local-project-path>
+目标：完成页面设计，并将确认模块实现为可维护的 Elementor 自定义 Widget 插件。
+```
+
 ## 👋 Hi，我是 Javen
 
 我目前在一家CNC公司 RapidDirect 做外贸运营。工作中经常需要参与网站页面的策划和制作，这让我开始接触 AI 建站，也一路摸索出一些从网页设计到 Elementor 组件落地的方法。
@@ -123,13 +147,13 @@ Confirmed Page Content + Active Baseline Design System
 → Module Design Review + 用户确认
 → Overview + 分段视觉方向稿
 → Visual Direction Review（A / B / C 分流）
-→ 整页优先或逐模块优先 HTML
+→ Website HTML Prototyper：整页优先或逐模块优先 HTML
 → HTML Design Review
 → Browser / Implementation QA
 → Elementor Widget Pipeline
 ```
 
-## 🧭 你会用到的 1 个总控和 5 个专项 Skills
+## 🧭 你会用到的 1 个总控和 6 个专项 Skills
 
 | Skill | 角色 | 解决的问题 | 主要产物 |
 | --- | --- | --- | --- |
@@ -137,7 +161,8 @@ Confirmed Page Content + Active Baseline Design System
 | `elementor-site-initialize` | 工程初始化 | Widget 应进入什么插件结构？ | 项目配置、Flat / Grouped 插件骨架 |
 | `website-page-content-architect` | 内容架构 | 页面为谁服务、先说什么、需要什么证据？ | UI-ready Page Content Framework |
 | `website-design-system-architect` | 视觉系统 | 整个网站应使用什么视觉语言？ | Design Board、Active Baseline Design System |
-| `website-ui-architect` | 页面与模块设计 | 每个 Section 如何表达，整页是否成立？ | Architecture Map、方向稿、HTML、Module Slug |
+| `website-ui-architect` | 页面与模块设计 | 每个 Section 如何表达，整页是否成立？ | Architecture Map、方向稿、Module Slug |
+| `website-html-prototyper` | HTML 设计稿与 QA | 如何把确认设计做成可浏览、可交接的 HTML？ | 页面/模块 HTML、HTML Review、Browser QA |
 | `elementor-widget-pipeline` | Elementor 实现 | 哪些内容可编辑，如何稳定实现？ | 字段卡、PHP、CSS、可选 JS、验证结果 |
 
 > `Company Intake` 是总控里轻量的事实收集步骤，不是第七个独立 Skill。
@@ -150,7 +175,7 @@ Confirmed Page Content + Active Baseline Design System
 
 ### 2. 内容和视觉，各自先确认好
 
-Page Content 负责“说什么、先说什么”，Design System 负责“全站用什么视觉语言”。这两件事确认后，`website-ui-architect` 再来处理页面构图，过程会稳很多。
+Page Content 负责“说什么、先说什么”，Design System 负责“全站用什么视觉语言”。这两件事确认后，`website-ui-architect` 先处理页面构图与视觉方向；方向确认后，再由 `website-html-prototyper` 将设计转为 HTML，过程会稳很多。
 
 ### 3. 生图前，先聊清楚模块方案
 
@@ -191,11 +216,11 @@ Architecture Map 不只是布局清单。我会陪你从下面四层看每个 Se
 
 ### 整页优先
 
-如果方向已经成熟、模块关系也清楚，或者你想尽快看到完整页面，可以先完成整页 HTML Review，再从边界清楚的 Section 进入 Widget Pipeline。
+如果方向已经成熟、模块关系也清楚，或者你想尽快看到完整页面，`website-html-prototyper` 可以先完成整页 HTML Review，再从边界清楚的 Section 进入 Widget Pipeline。
 
 ### 逐模块优先
 
-如果页面比较复杂、局部方向还想慢慢确认，或者模块需要跨页面复用，可以一次只设计、审查和实现一个模块，最后再拼成整页。
+如果页面比较复杂、局部方向还想慢慢确认，或者模块需要跨页面复用，`website-html-prototyper` 可以一次只设计、审查和实现一个模块，最后再拼成整页。
 
 两条路可以切换；只是进入 Pipeline 前，我们要先确认当前 Widget 最终以哪份 HTML 为实现源。
 
@@ -225,6 +250,9 @@ docs/
 ├── directions/<page-slug>/
 ├── pages/<page-slug>.html
 └── modules/<module-slug>.html
+
+<用户确认的插件路径>/
+└── <plugin-slug>/                 # 最终复制或压缩后上传到 WordPress
 ```
 
 Elementor 插件会采用 `Flat` 或 `Grouped` 结构，我会根据预计 Widget 数量和业务分组来建议你选择；确认后，不会在后续实现时悄悄迁移结构。

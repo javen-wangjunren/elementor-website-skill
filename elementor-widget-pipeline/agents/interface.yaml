@@ -1,7 +1,7 @@
 interface:
   display_name: "Elementor Widget Pipeline"
-  short_description: "把确认版设计稿以最少必要字段实现为插件式 Elementor Widget"
-  default_prompt: "Use $elementor-widget-pipeline with the approved standalone module HTML or the explicitly selected Section from an approved full-page HTML. Inherit its confirmed canonical module slug without renaming, implement only one Widget at a time, first propose a conservative minimum field card and stop for confirmation, then incrementally implement and verify it in the target plugin."
+  short_description: "从确认 HTML 或简单强参考，以最少字段实现单个 Elementor Widget"
+  default_prompt: "Use $elementor-widget-pipeline to implement one Widget from confirmed HTML, or use its controlled Simple Reference-led Fast Path for one unambiguous module in an existing Elementor page. Confirm the source mode, conservative field card, reference interpretation when applicable, and canonical slug before implementation."
 
 compatibility:
   canonical_format: "agent-skills"
@@ -21,5 +21,5 @@ compatibility:
     remote_inline_execution: "forbid"
     remote_metadata_policy: "allow-metadata-only"
   degradation:
-    missing_html: "Route unconfirmed visual input to website-ui-architect unless the user explicitly approves direct implementation."
+    missing_html: "Use the Simple Reference-led Fast Path only when all eligibility rules pass and the user explicitly approves it; otherwise route confirmed design to website-html-prototyper or unresolved design to website-ui-architect."
     missing_plugin: "Stop Widget implementation and route to elementor-site-initialize; resume only after the plugin scaffold and Flat or Grouped structure are confirmed."

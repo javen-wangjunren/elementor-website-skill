@@ -1,7 +1,7 @@
 interface:
   display_name: "Website UI Architect"
-  short_description: "先确认整页构图，再生成视觉方向与 HTML 设计稿"
-  default_prompt: "Use $website-ui-architect after an approved Design System and confirmed page content exist. For a complete page, first create and confirm a Page UI Architecture Map. When image direction is useful, use an overview plus realistic-density segments for pages longer than about six sections, follow the flexible media-ratio guidance, and complete the visual-direction review before user confirmation. Then choose either a page-first or module-first HTML workflow and preserve the confirmed Section boundaries and canonical slugs."
+  short_description: "确认页面与模块设计方案，并生成可审核的视觉方向初稿"
+  default_prompt: "Use $website-ui-architect to turn confirmed content and a Design System into a qualified UI Architecture Map and confirmed visual-direction images before HTML implementation."
 
 compatibility:
   canonical_format: "agent-skills"

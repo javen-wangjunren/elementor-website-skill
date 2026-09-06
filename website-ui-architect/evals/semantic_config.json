@@ -1,0 +1,39 @@
+{
+  "fallback_positive_concepts": ["design_solution", "architecture_map", "visual_direction"],
+  "positive_concepts": {
+    "design_solution": {
+      "weight": 0.34,
+      "phrases": ["design and visually validate", "module design solutions", "设计模块", "首页设计", "设计方案", "视觉方案", "信息策略", "视觉叙事", "重新评估"]
+    },
+    "architecture_map": {
+      "weight": 0.33,
+      "phrases": ["ui architecture maps", "architecture map", "map", "页面架构"]
+    },
+    "visual_direction": {
+      "weight": 0.33,
+      "phrases": ["visual-direction images", "direction review", "visual direction", "overview", "segment", "视觉方向", "方向图", "图片比例", "媒体尺寸", "gallery 布局"]
+    }
+  },
+  "negative_concepts": {
+    "html_implementation": {
+      "weight": 0.8,
+      "exclusive": true,
+      "phrases": ["只需要按 segment 写 html", "生成静态 html", "移动端是否溢出", "browser qa", "html implementation"]
+    },
+    "content_only": {
+      "weight": 0.8,
+      "exclusive": true,
+      "phrases": ["内容框架", "英文文案", "content strategy"]
+    },
+    "design_system_only": {
+      "weight": 0.8,
+      "exclusive": true,
+      "phrases": ["建立网站 design system", "design system 和 style board"]
+    },
+    "platform_code": {
+      "weight": 0.9,
+      "exclusive": true,
+      "phrases": ["elementor controls", "widget php", "开发 widget"]
+    }
+  }
+}

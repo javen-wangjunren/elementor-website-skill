@@ -50,7 +50,7 @@ description: Create or evolve an implementation-agnostic website design system f
 ## 职责边界
 
 - 本 Skill 定义基础视觉语言、基础组件规则，以及正式 Design System 中的平台中立媒体、响应式、动效与可访问性基线。
-- `website-ui-architect` 负责页面构图、模块表达、完整模块、页面级视觉节奏，以及模块 HTML 与整页 HTML 的实现 QA。
+- `website-ui-architect` 负责页面构图、模块表达、页面级视觉节奏和视觉方向确认；`website-html-prototyper` 负责模块/整页 HTML 与实现 QA。
 - 实现 Skill 负责平台字段、模板、CSS、JS 和验收。
 - Form 默认由插件负责，不进入首版基础组件规则；只有用户明确要求统一定制时才补充。
 - 禁止在本文档中写平台专属控件、Widget slug、PHP 类名或 CSS selector。
