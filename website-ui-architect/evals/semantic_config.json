@@ -11,7 +11,7 @@
     },
     "visual_direction": {
       "weight": 0.33,
-      "phrases": ["visual-direction images", "direction review", "visual direction", "overview", "segment", "视觉方向", "方向图", "图片比例", "媒体尺寸", "gallery 布局"]
+      "phrases": ["visual-direction images", "direction review", "visual direction", "segment", "segment set", "section correction", "composite preview", "视觉方向", "分段方向图", "图片比例", "媒体尺寸", "gallery 布局"]
     }
   },
   "negative_concepts": {

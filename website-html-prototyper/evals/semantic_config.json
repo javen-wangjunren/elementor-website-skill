@@ -18,7 +18,7 @@
     "unconfirmed_visual": {
       "weight": 0.9,
       "exclusive": true,
-      "phrases": ["overview 和 segment 还没确认", "完善视觉方向", "重新设计", "布局方案", "生成视觉方向图"]
+      "phrases": ["segment set 还没完整确认", "section correction 还没确认", "完善视觉方向", "重新设计", "布局方案", "生成视觉方向图"]
     },
     "content_only": {
       "weight": 0.9,

@@ -9,7 +9,7 @@ description: Build, review, and browser-test static website page or module HTML 
 
 ## 输入门禁
 
-- 完整页面必须具有已确认的 Page Content、Design System、Page UI Architecture Map 和 Overview/Segment 方向图。方向未确认时返回 `website-ui-architect`。
+- 完整页面必须具有已确认的 Page Content、Design System、Page UI Architecture Map，以及覆盖全部 Section 的 Structure Approved Segment Set；受影响 Section 可由已确认 Section Correction 覆盖。AI Overview 或 Composite Preview 均不是门禁。方向未确认时返回 `website-ui-architect`。
 - 单模块必须有完整 Module Design Solution，以及已确认方向图或无歧义的强参考。仅有截图/Figma 但内容任务不清时返回 `website-page-content-architect`；任务清楚但方向未确认时返回 `website-ui-architect`。
 - Design System 缺失或冲突时返回 `website-design-system-architect`。
 - Canonical Module Slug 由 `website-ui-architect` 在视觉确认后生成，本 Skill 原样继承，不擅自重命名。
@@ -22,11 +22,12 @@ description: Build, review, and browser-test static website page or module HTML 
 | 颜色、字体、间距、组件基线 | Design System |
 | 结构、主次、证据归属、媒体和响应式叙事 | Architecture Map |
 | 明确的实现修正 | `visual-direction-notes.md` |
+| 当前 Section 的已确认局部修正 | Section Correction |
 | 局部构图、密度和视觉重量 | Segment |
-| 整页 Surface、顺序和节奏 | Overview |
+| 整页 Surface、顺序和节奏 | Architecture Map + 相邻 Segment |
 
-- Segment 与 Overview 的局部表达冲突时以 Segment 为准；整页节奏只由 Overview 辅助判断。
-- 方向图与 Architecture Map 冲突时以 Map 为准；只有明确 Correction Notes 可覆盖方向图中的已知偏差。
+- Section Correction 只在标明的 Section 范围内优先于基础 Segment；不得扩散到相邻模块。
+- 方向图与 Architecture Map 冲突时以 Map 为准；只有明确 Correction Notes 可覆盖方向图中的已知偏差。可选 Composite Preview 只用于浏览，不作为实现权威。
 - 可访问性与硬约束高于所有视觉参考。
 
 ## 唯一流程

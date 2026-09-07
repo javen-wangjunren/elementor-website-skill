@@ -94,7 +94,7 @@
 
 ## Visual Direction Review
 
-生图后先检查 Solution Fidelity，再检查 Map Fidelity 和 Media Fitness，反向验证 Map 的设计假设视觉化后是否仍然成立：
+生图后把 `Structure Fidelity` 与 `Visual Language Approval` 分开记录。用户认可配色、图片风格或设计感，不代表错误的 Section 身份、条目、证据或信息关系已确认。先检查结构，再检查 Solution Fidelity、Map Fidelity 和 Media Fitness：
 
 - Section Job 是否一眼可见；
 - 单一记忆点、视觉叙事和推荐扫读路径是否被清晰呈现；
@@ -102,7 +102,7 @@
 - 证据是否真正可看，而不只是存在；
 - 内容关系和视觉主次是否一致；
 - 模块高度和强度是否匹配业务价值；
-- Overview 和分段稿中的前后节奏是否成立；
+- 相邻 Segment 的 Section 边界、Surface 与前后节奏是否成立；
 - 是否出现为了“丰富”而增加的无价值图片、卡片、序号或装饰。
 
 方向稿不需要精美。Review 只需阻止会导致 HTML 明显返工的设计问题。
@@ -121,7 +121,7 @@
 - 图片低于 Media Display Contract 的最小有效查看尺寸；Layout 与真实素材方向明显冲突；图片承担识别或证明任务却被压成缩略图。
 - Map 虽记录 `4:3` 等比例，但实际构图没有给予媒体相应面积或同屏数量导致图片不可辨认。
 
-先回写 Architecture Map，再只重新生成受影响的分段稿，最多一轮。不批量补生独立模块图。
+先回写 Architecture Map，然后停止继续生图并向用户说明受影响 Section、可保留部分与修正建议。用户确认后只生成对应 Section Correction；只有该 Section 无法脱离相邻上下文判断时，才经用户明确同意重生原 Segment。不得自动重生整段或无提示增加候选。
 
 ### B. 记录为 HTML Correction Notes
 
@@ -138,6 +138,8 @@
 - `4:3` 接近 `3:2` 或 `5:4`，但仍保持正常横向构图；
 - 明确标记的占位图细节与真实企业不完全一致；
 - 不影响模块任务、证据、主次和页面节奏判断的轻微偏差。
+
+错换整个 Section、改变条目类型或数量、把未验证主张画成可信证据，不属于文字噪声，必须判为 A 类 Structure Failure。失败图片可以保留为视觉语言参考，但不得列入最终结构输入。
 
 方向、构图、证据可见性和整页节奏已足以指导 HTML，且 A 类问题已消除时立即停止生图。
 

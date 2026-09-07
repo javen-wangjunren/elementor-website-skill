@@ -26,7 +26,7 @@
 - 尚未确认来源的 Style Board；
 - 页面内容框架的目标页面、版本和用户确认状态；
 - 多个或来源不明的 Design System；
-- Overview/Segment 或模块视觉方向的确认状态；
+- Segment Set、Section Correction 或模块视觉方向的结构与视觉确认状态；
 - Canonical Module Slug、模块 current HTML 和最终整页 current HTML；
 - Pipeline 的最小字段卡；
 - 配置与真实插件结构不一致时采用哪一方。
@@ -50,7 +50,7 @@
 内容职责明确的单模块设计 → Design System → UI Architect → HTML Prototyper（按目标）
 
 完整页面：
-UI Architect：Page UI Architecture Map → Overview + Segment → 视觉确认与 Slug
+UI Architect：Page UI Architecture Map → Segment Set → 结构与视觉确认 → Slug
 → HTML Prototyper：整页优先或模块优先 HTML First Draft → HTML Design Review → Browser / Implementation QA
 → 逐个 Widget Pipeline
 ```
@@ -61,7 +61,7 @@ UI Architect：Page UI Architecture Map → Overview + Segment → 视觉确认�
 - Design System 是 UI Architect 的设计前置。
 - 完整页面必须先确认 Page UI Architecture Map；它确定 Section 构图、媒体关系、素材比例建议、CTA 和整页节奏，不由总控提前代写。
 - 单模块已有明确任务、真实内容和页面上下文时，不强制创建整页内容框架。
-- HTML Prototyper 需要已确认设计包；完整页面缺少确认的 Overview/Segment 时返回 UI Architect。
+- HTML Prototyper 需要已确认设计包；完整页面存在未被 Structure Approved 的 Segment/Section Correction 覆盖的 Section 时返回 UI Architect。AI Overview 或 Composite Preview 均不是门禁。
 - Pipeline 需要现有插件和用户确认的 HTML 实现源，并继承 UI Architect 确认的 Canonical Module Slug。
 - Prototyper 可从确认视觉方向直接生成整页 HTML，也可逐个模块实现后拼接；单模块 HTML 是否保留取决于复用与打磨需要。
 - Pipeline 的单模块验证不包含 Elementor 整页组装。用户保留整页组装和最终视觉验收责任时，该人工门禁就是完整流程的一部分，不得标记为 Skill 缺失。
@@ -79,7 +79,7 @@ UI Architect：Page UI Architecture Map → Overview + Segment → 视觉确认�
 | 完整页面设计，但内容框架缺失或未确认 | `website-page-content-architect` | 确认后检查 Design System，再进入 UI |
 | 提炼老站风格或建立新站视觉方向 | `website-design-system-architect` | 用户确认 Style Board 并形成 Design System |
 | 完整页面内容已确认，但 Design System 缺失或未确认 | `website-design-system-architect` | 确认后继续 UI Architect |
-| 完整页面内容与 Design System 均已确认 | `website-ui-architect` | 确认 Map、Overview/Segment 与 Canonical Module Slug；原目标含 HTML 时继续 Prototyper |
+| 完整页面内容与 Design System 均已确认 | `website-ui-architect` | 确认 Map、覆盖全部 Section 的 Segment Set 与 Canonical Module Slug；原目标含 HTML 时继续 Prototyper |
 | 单模块任务、真实内容和上下文明确，Design System 已确认 | `website-ui-architect` | 不强制整页框架；确认方案、方向与 Slug |
 | 完整页面视觉包已确认但没有 HTML | `website-html-prototyper` | 生成整页或模块优先 HTML，完成 Review、Browser QA 与 Section 边界确认 |
 | 单模块设计已确认但没有 HTML | `website-html-prototyper` | 有方向图，或满足强参考 + 完整方案 + 无歧义例外时生成模块 HTML |
@@ -123,7 +123,7 @@ NEXT USER GATE:
 KNOWN RISKS:
 ```
 
-只填写当前专项工作必需的信息。页面内容框架交给 UI 时传递确认文件、Section ID、Section Job、顺序、内容边界、证据状态和开放问题；不传递尚未决定的视觉 Form。视觉包交给 Prototyper 时传递确认 Map、Overview/Segment、Slug、Correction Notes 和素材真实性边界。不要复制其他 Skill 的完整规则；不要把未确认推断包装成已确认输入。
+只填写当前专项工作必需的信息。页面内容框架交给 UI 时传递确认文件、Section ID、Section Job、顺序、内容边界、证据状态和开放问题；不传递尚未决定的视觉 Form。视觉包交给 Prototyper 时传递确认 Map、最终 Segment Set、按需的 Section Correction、Slug、Correction Notes 和素材真实性边界；可选 Composite Preview 不作为权威输入。不要复制其他 Skill 的完整规则；不要把未确认推断包装成已确认输入。
 
 ## 6. 收口与外围流程
 

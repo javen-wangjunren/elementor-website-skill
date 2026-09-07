@@ -82,7 +82,7 @@
 
 请求：用户提供已确认的页面内容框架和 Design System，希望完成包含多个模块的页面。
 
-期望：总控先由 UI Architect 完成 Map、强制的 Overview/Segment 与视觉确认，再交给 Prototyper 选择整页优先或模块优先 HTML 路径。两者完成整页 QA 后都按顺序交给 Pipeline。
+期望：总控先由 UI Architect 完成 Map、覆盖全部 Section 的 Segment Set 及结构/视觉确认，再交给 Prototyper 选择整页优先或模块优先 HTML 路径。AI Overview 不是门禁。
 
 ## 15. 多 Widget 顺序开发
 
@@ -132,11 +132,11 @@
 
 期望：总控路由到 `website-ui-architect` 生成 Page UI Architecture Map，等待用户确认后才生成图片方向；不从内容框架直接跳到生图或 HTML。
 
-## 23. 长页面 Overview 与分段稿
+## 23. 长页面 Segment Set
 
 请求：确认版 Architecture Map 包含超过约 6 个模块。
 
-期望：总控继续采用 `website-ui-architect` 的 Overview + 分段稿路径，完成 Visual Direction Review 后才进入用户方向确认门禁；不把设计师自查表述为浏览器 QA。
+期望：总控采用 `website-ui-architect` 的 Segment-first 路径，生图前说明数量和范围；不默认生成 AI Overview。全部 Section 的 Structure Fidelity 与视觉语言确认后才通过门禁。
 
 ## 24. 单模块路由不增加整页门禁
 
@@ -146,13 +146,13 @@
 
 ## 25. 已确认设计但缺少 HTML
 
-请求：完整页面已有确认 Map、Overview、Segment 和 Canonical Module Slug，但尚未生成 HTML。
+请求：完整页面已有确认 Map、覆盖全部 Section 的 Segment Set 和 Canonical Module Slug，但尚未生成 HTML。
 
 期望：直接进入 `website-html-prototyper`；不重新生成方向图，也不直接进入 Pipeline。
 
 ## 26. 完整页面视觉尚未确认
 
-请求：Map 已确认但 Overview/Segment 尚未确认，用户要求做 HTML。
+请求：Map 已确认但 Segment Set 尚未完整确认，用户要求做 HTML。
 
 期望：继续采用 `website-ui-architect` 完成视觉方向确认；不得让 Prototyper 绕过门禁。
 
@@ -161,3 +161,15 @@
 请求：用户最初要求从页面设计一直做到确认版 HTML。
 
 期望：UI Architect 的视觉方向经用户确认后，总控在同一任务中加载 Prototyper 继续，不要求用户重新调用 Skill。
+
+## 28. 可选整页拼接预览
+
+请求：完整页面的 Segment Set 已确认，用户只想快速看整页效果。
+
+期望：路由 UI Architect 使用确定性脚本拼接 `page-composite-preview.png`，不调用生图工具；拼接图不成为 Prototyper 门禁或权威来源。
+
+## 29. 局部方向错误
+
+请求：用户认可 Segment 的视觉风格，但其中一个 Section 被生成为错误模块。
+
+期望：记录视觉语言认可与结构拒绝；先报告并等待用户确认，再只生成该 Section Correction，不自动重生整段。

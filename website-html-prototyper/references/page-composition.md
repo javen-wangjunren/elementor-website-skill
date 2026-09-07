@@ -4,8 +4,8 @@
 
 ## 整页优先
 
-1. 按确认的 Page Content、Design System、Architecture Map、Overview 与 Segment 生成 `设计稿/pages/<page-slug>.html`。
-2. Segment 决定局部构图与密度，Overview 辅助整页 Surface 与节奏；二者与 Map 冲突时以 Map 为准。
+1. 按确认的 Page Content、Design System、Architecture Map、Segment Set 与按需 Section Correction 生成 `设计稿/pages/<page-slug>.html`。
+2. Segment 决定局部构图与密度；Section Correction 仅在指定 Section 内覆盖基础 Segment；Architecture Map 与相邻 Segment 共同决定整页 Surface 和节奏。可选 Composite Preview 不作为权威。
 3. 执行 HTML Design Review，再执行 Browser / Implementation QA。
 4. 整页确认前只维护一个整页实现源，不默认抽取独立模块文件。
 5. 确认后记录每个 Section 的边界和继承的 Canonical Module Slug。
@@ -24,4 +24,3 @@
 - 若整页与模块文件并存，进入下游前明确哪个文件和哪个 Section 是 current source。
 - 不因拼接重复创建 QA 报告、设计文档或平台字段契约。
 - 整页确认不授权下游一次实现全部组件；Widget Pipeline 仍按用户选择的单个 Section 处理。
-

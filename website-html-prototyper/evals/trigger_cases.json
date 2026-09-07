@@ -2,7 +2,7 @@
   "skill": "website-html-prototyper",
   "recommended_threshold": 0.28,
   "should_trigger": [
-    "根据已经确认的首页 Architecture Map、Overview 和 Segment 生成整页 HTML 设计稿",
+    "根据已经确认的首页 Architecture Map 和完整 Segment Set 生成整页 HTML 设计稿",
     "把这几个已经确认的模块 HTML 拼成一个完整页面并检查节奏",
     "检查当前静态 HTML 的桌面、移动端、键盘和交互问题",
     "方向已经确认，请按 Segment 修正当前模块 HTML",
@@ -21,7 +21,7 @@
       "family": "content_only"
     },
     {
-      "text": "Map 已确认，但 Overview 和 Segment 还没确认，先完善视觉方向",
+      "text": "Map 已确认，但 Segment Set 还没完整确认，先完善视觉方向",
       "family": "unconfirmed_visual"
     },
     {

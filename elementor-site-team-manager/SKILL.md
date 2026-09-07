@@ -48,7 +48,7 @@ description: Coordinate the custom Elementor Widget site workflow for users who 
 ```text
 读取页面内容框架与 Design System
 → 生成并确认 Page UI Architecture Map
-→ 生成并确认 Overview + Segment；长页面按叙事拆成多张 Segment
+→ 按叙事生成并确认覆盖全部 Section 的 Segment Set
 → 完成 Visual Direction Review 并确认方向
 → 交给 website-html-prototyper
 → A. 直接生成整页 HTML First Draft
@@ -61,7 +61,7 @@ description: Coordinate the custom Elementor Widget site workflow for users who 
 → 每个 Widget 分别经过字段确认、实现和验证
 ```
 
-- `website-ui-architect` 负责 Module Design Solution、Page UI Architecture Map、媒体契约、视觉方向审查与 Canonical Module Slug。完整页面必须确认 Overview/Segment 后才能进入 HTML；简单单模块只有在强参考、完整方案与无歧义方向均成立并经用户确认时才可跳过单独生图。
+- `website-ui-architect` 负责 Module Design Solution、Page UI Architecture Map、媒体契约、Segment 方向审查与 Canonical Module Slug。完整页面必须由 Structure Approved 的 Segment/Section Correction 覆盖全部 Section 后才能进入 HTML；AI Overview 不再是门禁。简单单模块只有在强参考、完整方案与无歧义方向均成立并经用户确认时才可跳过单独生图。
 - `website-html-prototyper` 负责整页或模块 HTML、Section 边界、HTML Design Review 与 Browser / Implementation QA；它继承设计包，不重新设计。
 - 整页优先路径可只维护确认版页面 HTML；模块优先路径可逐个打磨并保留模块 HTML。单模块 HTML 是可选设计产物，不是 Pipeline 的固定前置。
 - `elementor-widget-pipeline` 是单模块、顺序执行的实现流程。多个 Widget 不合并跳过门禁；每个 Widget 都分别确认最小字段卡，再完成 PHP/CSS/可选 JS 和单模块验证。

@@ -1,7 +1,7 @@
 interface:
   display_name: "Website UI Architect"
-  short_description: "确认页面与模块设计方案，并生成可审核的视觉方向初稿"
-  default_prompt: "Use $website-ui-architect to turn confirmed content and a Design System into a qualified UI Architecture Map and confirmed visual-direction images before HTML implementation."
+  short_description: "确认页面与模块设计方案，并生成可审核的分段视觉方向"
+  default_prompt: "Use $website-ui-architect to turn confirmed content and a Design System into a qualified UI Architecture Map and a confirmed Segment-based visual direction before HTML implementation."
 
 compatibility:
   canonical_format: "agent-skills"

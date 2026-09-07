@@ -3,14 +3,16 @@
   "recommended_threshold": 0.28,
   "should_trigger": [
     "帮我为首页做 UI Architecture Map 和每个模块的设计方案",
-    "根据 Design System 生成 Overview 和 Segment 视觉方向图",
+    "根据 Design System 和确认 Map 生成分段视觉方向图",
     "这个 How It Works 模块太简单了，重新评估信息策略和视觉叙事",
     "检查 PCB Types 的图片比例、媒体尺寸和 Gallery 布局是否合理",
     "审查当前视觉方向图是否忠实于 Map",
+    "不要重新生 Overview，把已经确认的 Segment 拼成整页预览",
+    "这个 Segment 只有 Factory 模块错了，先保留风格并规划局部修正",
     "我想端到端完成首页设计和 HTML，先把视觉方案确认好"
   ],
   "should_not_trigger": [
-    "根据已确认的 Overview 和 Segment 生成静态 HTML",
+    "根据已确认的 Segment Set 和 Map 生成静态 HTML",
     "检查当前 HTML 在移动端是否溢出并修复键盘交互",
     "规划 Elementor Controls 并开发 Widget PHP",
     "为 About 页面整理内容框架和英文文案",
@@ -18,7 +20,7 @@
   ],
   "near_neighbor": [
     {
-      "text": "视觉已经确认，只需要按 Segment 写 HTML 和做 Browser QA",
+      "text": "视觉已经确认，只需要按 Segment Set 写 HTML 和做 Browser QA",
       "family": "confirmed_html_implementation"
     },
     {
