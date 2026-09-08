@@ -1,0 +1,21 @@
+{
+  "skill": "elementor-site-team-manager",
+  "recommended_threshold": 0.25,
+  "should_trigger": [
+    "我不知道从哪里开始，帮我完整做一套 Elementor B2B 网站",
+    "这个老站要增加新页面并保持风格，帮我安排完整流程",
+    "继续上次的网站任务，先判断当前处于哪个阶段",
+    "从公司资料、设计到多个 Widgets 全程协调"
+  ],
+  "should_not_trigger": [
+    "只把确认的 Design System 映射成 Elementor Style Contract",
+    "只实现这个确认 HTML Widget",
+    "只提取老站 Design System",
+    "只初始化一个插件骨架",
+    "发布插件到服务器"
+  ],
+  "near_neighbor": [
+    {"text": "我已明确只需要一个单独的 Design Board", "family": "single_specialist"},
+    {"text": "Style Contract 已确认，只做 CTA Widget", "family": "widget_pipeline"}
+  ]
+}

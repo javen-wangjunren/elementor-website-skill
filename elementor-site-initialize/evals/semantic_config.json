@@ -1,0 +1,11 @@
+{
+  "fallback_positive_concepts": ["plugin_scaffold", "workspace_init"],
+  "positive_concepts": {
+    "plugin_scaffold": {"weight": 0.6, "phrases": ["插件骨架", "flat or grouped", "widget plugin scaffold", "初始化本地 elementor", "项目配置", "项目工作区", "新站还是老站", "grouped", "注册骨架"]},
+    "workspace_init": {"weight": 0.4, "phrases": ["初始化 elementor 项目", "项目配置", "elementor-project.json"]}
+  },
+  "negative_concepts": {
+    "style_mapping": {"weight": 0.9, "exclusive": true, "phrases": ["global colors mapping", "style contract", "site settings"]},
+    "implementation": {"weight": 0.9, "exclusive": true, "phrases": ["实现 widget", "发布", "设计页面"]}
+  }
+}

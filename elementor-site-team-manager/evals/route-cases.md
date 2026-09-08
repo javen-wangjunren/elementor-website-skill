@@ -4,7 +4,7 @@
 
 请求：“我什么都不懂，帮我从零做一套 Elementor 自定义模块。”
 
-期望：先进入 `elementor-site-initialize`；路径/Profile 确认后，按完整目标继续页面内容框架与 Design System，二者确认后进入 UI Architect、HTML Prototyper 和 Pipeline。适用门禁均不得跳过。
+期望：先进入 `elementor-site-initialize`；路径/Profile 确认后，按完整目标继续页面内容框架与 Design System。Design System 确认后由 Style Adapter 建立项目合同，再进入 UI Architect、HTML Prototyper 和 Pipeline。适用门禁均不得跳过。
 
 ## 2. 现有基础上的模块设计
 
@@ -14,7 +14,7 @@
 
 ## 3. 直接实现确认版 HTML
 
-请求：用户提供确认版 HTML、Canonical Module Slug 和现有插件路径。
+请求：用户提供确认版 HTML、Canonical Module Slug、现有插件路径和 Confirmed Style Contract。
 
 期望：直接进入 `elementor-widget-pipeline`，先输出最小字段卡并停顿。
 
@@ -22,7 +22,7 @@
 
 请求：用户要把确认版 HTML 做成 Widget，但没有插件骨架。
 
-期望：先进入 `elementor-site-initialize`；完成后直接回 Pipeline，不重做 Design System 或 UI。
+期望：先进入 `elementor-site-initialize`；完成后检查 Style Contract。已确认或用户明确记录 isolated local exception 时回 Pipeline，否则先转 Style Adapter；不重做已经确认的 Design System 或 UI。
 
 ## 5. 模块设计缺少 Design System
 
@@ -64,7 +64,7 @@
 
 请求：发布插件、排查旧 Widget、修改主题 `functions.php` 或安装 Elementor。
 
-期望：说明不属于六个核心 Skill 并推荐外围流程；不误用专项 Skill 执行。
+期望：说明不属于八个核心 Skill 并推荐外围流程；不误用专项 Skill 执行。
 
 ## 12. 持续接管
 
@@ -74,7 +74,7 @@
 
 ## 13. 直接实现确认版 HTML
 
-请求：页面内容框架未知，但用户已提供确认版 HTML、Canonical Module Slug 和现有插件路径。
+请求：页面内容框架未知，但用户已提供确认版 HTML、Canonical Module Slug、现有插件路径和适用的 Confirmed Style Contract。
 
 期望：直接进入 `elementor-widget-pipeline`；不强迫重做内容框架、Design System 或 UI。
 
@@ -173,3 +173,87 @@
 请求：用户认可 Segment 的视觉风格，但其中一个 Section 被生成为错误模块。
 
 期望：记录视觉语言认可与结构拒绝；先报告并等待用户确认，再只生成该 Section Correction，不自动重生整段。
+
+## 30. 新站进入 Elementor 实现
+
+请求：新站 Design System 和 Board 已确认，准备开始做 Widgets。
+
+期望：先路由 `elementor-site-style-adapter`，确认项目 Global Style 与继承合同后再进入 Pipeline；不直接修改 Elementor。
+
+## 31. 完全重建旧站
+
+请求：旧站不要保留原视觉，从零重建 Elementor 网站。
+
+期望：Site Mode 为 `rebuild`，Style Authority 为 Project Design System；不错误路由 Existing Site 风格继承。
+
+## 32. 老站保持风格，只有 URL
+
+请求：给现有站增加一个页面，保持现在的设计，这是 URL。
+
+期望：先路由 Design System Architect 提取 Existing Design System 与 Board；不能凭 URL 直接进入 Pipeline。
+
+## 33. 老站已有视觉基线但缺后台证据
+
+请求：Existing Design System 已确认，请让 Widget 精确继承 Elementor Global Style，但没有 Site Settings 截图或 Kit。
+
+期望：路由 Style Adapter，合同最多为 `Observed Only`，请求最小后台证据后才能提出精确映射。
+
+## 34. 老站证据完整
+
+请求：URL、渲染审计、Existing Design System、Board 和 Site Settings 截图均已确认。
+
+期望：Style Adapter 提出 Elementor Site Settings Mapping 和继承规则；用户确认后把 Confirmed Contract 交给 Pipeline。
+
+## 35. 纯设计任务
+
+请求：只整理 Design System 和方向图，不进入 Elementor。
+
+期望：不强制调用 Style Adapter。
+
+## 36. 明确隔离模块
+
+请求：老站新增一次性活动条，不继承当前样式，也不要改 Site Settings。
+
+期望：记录 isolated local exception，可跳过 Style Adapter；所有样式限制在当前 Widget Wrapper。
+
+## 37. 同行业参考普通但目标要求品牌感
+
+请求：PCB 行业网站都很模板化，希望跨行业找更有设计感的参考。
+
+期望：条件路由 `website-reference-researcher`；按设计问题相似性建立 5–8 个候选，用户确认 3–5 个后研究，再把同一 Brief 分领域交给 Page Content、Design System 与 UI Architect。
+
+## 38. 用户已指定最终参考 URL
+
+请求：只研究用户列出的四个网站。
+
+期望：把明确名单视为候选确认，直接进入真实浏览器研究，不补充网站、不再次要求确认。
+
+## 39. 已有适用 Brief
+
+请求：继续同一站点的首页 Design System，站点级 Brief 已存在且 Scope 仍匹配。
+
+期望：复用 Brief 并只传 Design System 所需字段，不重复研究。
+
+## 40. 普通内容页目标清晰
+
+请求：为已有成熟内容模板的隐私政策页写内容框架。
+
+期望：跳过 Reference Researcher，直接采用原目标 Skill。
+
+## 41. 老站原样扩展
+
+请求：保持现有站风格增加页面，并提供现站 URL。
+
+期望：路由 Existing Design System 提炼，不把现站 URL 误判为跨行业参考研究。
+
+## 42. 单模块持续怪异
+
+请求：Applications 模块多轮方案仍不合理，需要跨行业寻找媒体浏览范式。
+
+期望：只生成模块级 Visual Reference Brief；不重做站点级研究，不直接产出 UI Map。
+
+## 43. Brief 不新增最终门禁
+
+请求：参考研究已完成，继续页面内容与视觉方向。
+
+期望：Brief 作为证据直接进入原流程；Page Content、Design Board 与 UI Architecture 仍分别执行自己的确认门禁。

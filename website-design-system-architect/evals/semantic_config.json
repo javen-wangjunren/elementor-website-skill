@@ -1,0 +1,11 @@
+{
+  "fallback_positive_concepts": ["design_system", "existing_site_extraction"],
+  "positive_concepts": {
+    "design_system": {"weight": 0.55, "phrases": ["design system", "design board", "视觉基线", "颜色字体组件规则", "老站 url", "提取现有设计风格", "保持一致"]},
+    "existing_site_extraction": {"weight": 0.45, "phrases": ["提取老站风格", "existing site visual system", "保持现有设计风格", "老站 url", "提取现有设计风格", "保持一致"]}
+  },
+  "negative_concepts": {
+    "elementor_mapping": {"weight": 0.9, "exclusive": true, "phrases": ["site settings mapping", "elementor site settings", "映射到 elementor", "elementor token", "global style contract"]},
+    "implementation": {"weight": 0.9, "exclusive": true, "phrases": ["实现 widget", "插件骨架", "architecture map"]}
+  }
+}

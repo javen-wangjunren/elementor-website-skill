@@ -1,6 +1,6 @@
 ---
 name: elementor-site-team-manager
-description: Coordinate the custom Elementor Widget site workflow for users who do not know which specialist or stage to use. Invoke for kickoff, lightweight company intake, uncertain next steps, resuming an existing project, or continuous routing across initialization, content, Design Systems, visual UI design, static HTML prototyping, and Elementor Widget implementation. Do not use for release, old-Widget troubleshooting, theme development, Elementor installation, or WordPress environment management.
+description: Coordinate the custom Elementor Widget site workflow for users who do not know which specialist or stage to use. Invoke for kickoff, lightweight company intake, conditional cross-industry reference research, new-versus-existing site style routing, uncertain next steps, resuming a project, or continuous routing across initialization, content, Design Systems, Elementor style contracts, visual UI design, HTML prototyping, and Widget implementation. Do not use for release, old-Widget troubleshooting, theme development, or remote WordPress management.
 ---
 
 # Elementor Site Team Manager
@@ -9,11 +9,13 @@ description: Coordinate the custom Elementor Widget site workflow for users who 
 
 ## 管理范围
 
-只协调以下六个 Skill：
+只协调以下八个 Skill：
 
 - `elementor-site-initialize`
+- `website-reference-researcher`
 - `website-page-content-architect`
 - `website-design-system-architect`
+- `elementor-site-style-adapter`
 - `website-ui-architect`
 - `website-html-prototyper`
 - `elementor-widget-pipeline`
@@ -28,8 +30,10 @@ description: Coordinate the custom Elementor Widget site workflow for users who 
 2. 先理解用户本次目标，再按需检查当前工作区证据；不要为了形式扫描所有目录。
 3. 多阶段任务或恢复任务时，先读取 `docs/workflow-status.md`（存在时），再结合当前对话与项目证据推导当前阶段、已完成内容、当前门禁和缺失输入。文件存在只是证据，不能替代无法证明的用户确认。
 4. 若目标涉及企业站内容框架、新站 Design System 或后续完整页面，先判断是否已有已确认且足够支撑当前任务的公司资料；不足时执行轻量 Company Intake，确认后按原始目标继续路由。
-5. 选择一个当前专项 Skill，完整读取其 `SKILL.md` 以及该任务要求的 references，然后直接按它继续工作。
-6. 不要只告诉用户“请调用某 Skill”，也不要同时加载六套专项规则。
+5. 检查是否存在与当前站点、页面或模块范围匹配的 `docs/research/*-visual-reference-brief.md`。仅在同行参考不足、品牌目标较高、中心叙事缺失、视觉方向持续模板化、关键模块缺少表达方式，或用户明确给出参考网站时，路由 `website-reference-researcher`；已有适用简报时复用，不重复研究。
+6. 目标包含 Elementor 实现时确认 Site Mode 与 Style Authority：新站/完全重建由项目 Design System 主导；老站扩展且用户要求保持风格时先提炼 Existing Design System，再建立 Elementor Style Contract。
+7. 选择一个当前专项 Skill，完整读取其 `SKILL.md` 以及该任务要求的 references，然后直接按它继续工作。
+8. 不要只告诉用户“请调用某 Skill”，也不要同时加载八套专项规则。
 
 需要验证阶段路由或门禁行为时，读取 [路由用例](evals/route-cases.md)。
 
@@ -46,7 +50,10 @@ description: Coordinate the custom Elementor Widget site workflow for users who 
 完整页面在视觉确认后支持两种 HTML 实现路径，由复用需求与页面复杂度决定：
 
 ```text
-读取页面内容框架与 Design System
+读取公司事实
+→ 按条件完成或复用 Visual Reference Brief
+→ 读取页面内容框架与 Design System
+→ 若目标进入 Elementor，确认 Elementor Style Contract
 → 生成并确认 Page UI Architecture Map
 → 按叙事生成并确认覆盖全部 Section 的 Segment Set
 → 完成 Visual Direction Review 并确认方向
@@ -54,31 +61,38 @@ description: Coordinate the custom Elementor Widget site workflow for users who 
 → A. 直接生成整页 HTML First Draft
   或
 → B. 逐个完成模块 HTML，再拼成整页 First Draft
-→ 完成 HTML Design Review 并自动修正一轮明确问题
+→ 完成基于真实渲染的 HTML Visual QA，并自动修正一轮明确实现问题
+→ 设计源问题返回 UI Architect；系统规则问题返回 Design System Architect
 → 完成 Browser / Implementation QA
 → 确认整页设计与当前 Widget 实现源
 → 逐个交给 Pipeline
 → 每个 Widget 分别经过字段确认、实现和验证
 ```
 
+- `website-reference-researcher` 只建立可迁移的参考证据，输出共享 Visual Reference Brief；它不生成 Page Content、Design System、UI Map 或 HTML。深度研究前确认 3–5 个参考对象，但简报本身不新增跨阶段最终确认门禁。
 - `website-ui-architect` 负责 Module Design Solution、Page UI Architecture Map、媒体契约、Segment 方向审查与 Canonical Module Slug。完整页面必须由 Structure Approved 的 Segment/Section Correction 覆盖全部 Section 后才能进入 HTML；AI Overview 不再是门禁。简单单模块只有在强参考、完整方案与无歧义方向均成立并经用户确认时才可跳过单独生图。
-- `website-html-prototyper` 负责整页或模块 HTML、Section 边界、HTML Design Review 与 Browser / Implementation QA；它继承设计包，不重新设计。
+- `website-design-system-architect` 负责新站基线或老站真实渲染视觉系统；`elementor-site-style-adapter` 只在目标进入 Elementor 时把确认基线转译为 Site Settings 与 Widget 继承合同，不修改 WordPress。
+- `website-html-prototyper` 负责整页或模块 HTML、Section 边界、基于真实渲染的 HTML Visual QA 与 Browser / Implementation QA；它继承设计包，不重新设计。实现适配问题在 HTML 内修正，核心构图问题返回 UI Architect，重复出现的共享视觉规则问题返回 Design System Architect。
 - 整页优先路径可只维护确认版页面 HTML；模块优先路径可逐个打磨并保留模块 HTML。单模块 HTML 是可选设计产物，不是 Pipeline 的固定前置。
 - `elementor-widget-pipeline` 是单模块、顺序执行的实现流程。多个 Widget 不合并跳过门禁；每个 Widget 都分别确认最小字段卡，再完成 PHP/CSS/可选 JS 和单模块验证。
+- 初始化阶段确认的 Elementor 面板可发现性配置（项目分类、统一角标和基础搜索关键词）是插件级契约；总控在进入 Pipeline 时必须原样传递，并要求新增 Widget 继承，具体实现由 Initialize 与 Pipeline 管理。
 - Pipeline 的实现源可以是确认版独立模块 HTML，也可以是确认版整页 HTML 中边界明确的当前 Section；两者同时存在时必须先明确最终版本。Prototype Handoff 仅在跨会话或结构需要锁定时按需生成。
 - 用户负责在 Elementor 中组装整页，并根据确认版页面 HTML 做最终整页视觉检查。这是保留的人工验收门禁，不是 Pipeline 缺口；除非用户另行请求，总控不自动增加页面组装 Skill，也不宣称整页验收尚待 Pipeline 完成。
 
 ## 不可跳过的门禁
 
 1. 公司资料确认（企业站内容依赖公司事实且当前没有可靠来源时）；
-2. 插件本地路径与 `Flat / Grouped` 结构确认（需要插件时）；
-3. 页面内容框架确认（完整页面或内容职责尚未确定时）；
-4. Style Board 确认后才能形成有效 Design System；
-5. 完整页面的 Page UI Architecture Map 确认；单模块任务不强制整页 Map；
-6. 当前页面或模块视觉方向确认；图片方向稿在用户确认前先完成设计师视角自查；
-7. HTML First Draft 在交付用户前完成 HTML Design Review 与 Browser / Implementation QA；详细原则由 `website-html-prototyper` 管理；
-8. 进入 Pipeline 的当前模块 Canonical Module Slug、Section 边界和最终 HTML 实现源确认；实现源可来自独立模块稿或整页稿；
-9. 每个 Widget 的最小 Elementor 字段卡确认后才能实现该 Widget。
+2. 条件触发参考研究时，深度研究前确认候选名单；用户明确提供最终 URL 清单即视为已确认；
+3. 插件本地路径与 `Flat / Grouped` 结构确认（需要插件时）；
+4. 页面内容框架确认（完整页面或内容职责尚未确定时）；
+5. Style Board 确认后才能形成有效 Design System；
+6. 目标包含 Elementor 实现时，Site Mode 与 Style Authority 必须确认；需要继承全局样式时，Elementor Style Contract 必须为 Confirmed；
+7. 老站扩展并保持风格时，先完成 Existing Design System；精确继承还必须有 URL 渲染证据和 Site Settings/Kit 后台证据；
+8. 完整页面的 Page UI Architecture Map 确认；单模块任务不强制整页 Map；
+9. 当前页面或模块视觉方向确认；图片方向稿在用户确认前先完成设计师视角自查；
+10. HTML First Draft 在交付用户前完成 HTML Design Review 与 Browser / Implementation QA；详细原则由 `website-html-prototyper` 管理；
+11. 进入 Pipeline 的当前模块 Canonical Module Slug、Section 边界、最终 HTML 实现源、项目面板可发现性配置和 Site Style Context 确认；
+12. 每个 Widget 的最小 Elementor 字段卡确认后才能实现该 Widget。
 
 不能仅因 `docs/company/about-company.md`、页面框架、`style-board.html`、Design System、HTML 或插件文件存在，就声称相关主观门禁已通过。若来源和确认状态无法可靠证明，直接询问用户。内容框架与 Design System 可以并行完成，但完整页面进入 UI 前两者都必须确认。
 
@@ -95,13 +109,18 @@ description: Coordinate the custom Elementor Widget site workflow for users who 
 已确认：
 待确认：
 下一步：
+Site Mode:
+Style Authority:
+Style Contract Status:
+Backend Style Evidence:
 ```
 
 ## 边界处理
 
-- 发布或缓存清理：说明不属于核心六项能力，可推荐 `elementor-widget-release-sop`，但不自动纳入当前流程。
+- 发布或缓存清理：说明不属于核心八项能力，可推荐 `elementor-widget-release-sop`，但不自动纳入当前流程。
 - 旧 Widget 面板不可见、白屏或交互失效：转独立故障排查，不误用 Pipeline。
 - 主题 `functions.php`、模板或全站字体修改：转主题或 WordPress 开发任务。
 - Elementor 未安装、WordPress 环境缺失：说明前置条件，不在本 Skill 中安装或配置。
+- 用户要求直接写入 Elementor Site Settings：说明 Style Adapter 只生成本地合同，远程或后台修改属于外围执行，不自动扩大权限。
 
-外围请求与核心任务同时出现时，先说明边界；只继续用户已授权且属于核心六项能力的部分。
+外围请求与核心任务同时出现时，先说明边界；只继续用户已授权且属于核心八项能力的部分。

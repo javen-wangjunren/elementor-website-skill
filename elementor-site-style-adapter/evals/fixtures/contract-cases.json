@@ -1,0 +1,40 @@
+{
+  "cases": [
+    {
+      "id": "greenfield-confirmed-design",
+      "mode": "greenfield",
+      "authority": "project-design-system",
+      "policy": "initialize-global-style",
+      "evidence": ["active-baseline", "confirmed-board"],
+      "expectedContractStatus": "Mapping Proposed",
+      "expectedProjectStatus": "pending"
+    },
+    {
+      "id": "rebuild-with-child-theme-context",
+      "mode": "rebuild",
+      "authority": "project-design-system",
+      "policy": "initialize-global-style",
+      "evidence": ["active-baseline", "confirmed-board", "child-theme-context"],
+      "expectedContractStatus": "Mapping Proposed",
+      "expectedProjectStatus": "pending"
+    },
+    {
+      "id": "existing-url-only",
+      "mode": "existing-extension",
+      "authority": "existing-site",
+      "policy": "inherit-existing",
+      "evidence": ["active-baseline", "confirmed-board", "rendered-url-audit"],
+      "expectedContractStatus": "Observed Only",
+      "expectedProjectStatus": "observed"
+    },
+    {
+      "id": "existing-full-evidence-confirmed",
+      "mode": "existing-extension",
+      "authority": "existing-site",
+      "policy": "inherit-existing",
+      "evidence": ["active-baseline", "confirmed-board", "rendered-url-audit", "site-settings-evidence", "user-mapping-confirmation"],
+      "expectedContractStatus": "Confirmed",
+      "expectedProjectStatus": "confirmed"
+    }
+  ]
+}

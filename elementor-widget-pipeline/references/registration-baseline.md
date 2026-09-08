@@ -28,7 +28,7 @@ Grouped 项目把当前 Widget 放入已经存在的业务分组，并按现有 
 
 ## 已有插件：只做增量修改
 
-先读取现有入口并沿用它的类前缀、分类、handle、版本策略和组织方式。只增加当前 Widget 需要的内容：
+先读取现有入口和 `elementor-project.json`（存在时），沿用其类前缀、项目分类、角标、marker class、基础关键词、handle、版本策略和组织方式。只增加当前 Widget 需要的内容：
 
 - CSS handle 与 `wp_register_style()`；
 - 有交互时才增加 JS handle 与 `wp_register_script()`；
@@ -47,11 +47,16 @@ Grouped 项目把当前 Widget 放入已经存在的业务分组，并按现有 
 - 只使用现代 `elementor/widgets/register` 注册 Widget。
 - 避免 legacy `elementor/widgets/widgets_registered`。
 - 使用 `elementor/elements/categories_registered` 注册自定义分类。
+- 编辑器专用角标样式使用 `elementor/editor/after_register_styles` 与 `elementor/editor/after_enqueue_styles`，不得加载到网站前台。
 - 使用 `wp_register_style()` / `wp_register_script()` 注册资源。
 - Widget 通过 `get_style_depends()` 和可选的 `get_script_depends()` 按需加载资源。
-- `get_categories()` 返回项目分类，并保留 `general` 兜底。
+- `get_categories()` 只返回项目分类；不要同时加入 `general`，避免同一个 Widget 在面板重复出现或混入通用分类。
+- `get_icon()` 在 Elementor 图标 class 后追加项目 marker class，共享编辑器 CSS 据此显示统一角标。
+- `get_keywords()` 至少包含项目基础关键词，并追加 Widget title、模块职责和常用同义词对应的精简关键词。
 - 路径使用 `plugin_dir_path()`、`plugin_dir_url()` 或 `plugins_url()`，不写本机绝对路径。
 - 资源 handle、真实文件名、Widget 声明和入口注册必须一致。
 - 资源和 PHP 文件可以按现有插件约定增加职责后缀，但不得改变 Canonical Module Slug。
+
+旧插件若已有项目分类但缺少角标资产或关键词契约，可在实现当前 Widget 时做一次插件级最小补齐；不得借机改名、迁移目录或重构全部 Registry。
 
 注册完成不等于发布完成。本 Skill 只完成本地实现和最低验证，不处理上传、缓存环境或线上发布。

@@ -28,6 +28,8 @@ description: Create or audit a complete, concise, UI-ready website page content 
 3. 当前对话中用户已确认的信息；
 4. 现有页面中的候选事实，必须标明是否已验证。
 
+相关 `docs/research/*-visual-reference-brief.md` 是参考证据而不是企业事实来源。只读取其中的 `Brand Narrative`、`Narrative Architecture`、`Content Editing` 与证据策略；外站内容、数据、客户、能力和主张不得转写为本企业事实。
+
 开始写作前，内部确认下列最小输入。只询问会改变页面结构、主张或 CTA 且无法从资料推导的问题：
 
 ```text
@@ -61,27 +63,24 @@ UNKNOWN:
 - 事实输入不足时才使用 `Framework only`，并列出最少的阻塞问题。
 - 面向访客的文案集中放在对应模块的 `页面文案` 小节，不把整个框架逐行中英双写。
 
-## 按需研究
+## 参考研究接口
 
-以下情形才研究 3–5 个同行或相邻行业页面：
-
-- 用户提供 URL 或明确要求参考；
-- 行业或页面类型陌生；
-- 内部事实不足以判断常见决策问题和内容覆盖；
-- 需要区分站内页面与同行常见叙事。
-
-研究只提炼页面任务、信息顺序、证据类型和内容缺口。不要复制外站文案、品牌语言、事实主张或视觉设计。记录来源与观察，并把行业惯例标为参考而不是企业事实。
+- 当前范围已有适用 Visual Reference Brief 时复用，不重复浏览或重做同行深度研究。
+- 同行业参考不足、页面缺少中心叙事、用户要求品牌型体验或明确提供参考网站，且当前没有适用简报时，返回总控并路由 `website-reference-researcher`。
+- 普通转化页、内容任务清晰或已有可靠参考时直接进行内容规划，不为形式触发研究。
+- Brief 只帮助选择叙事、内容取舍与证据策略；最终页面命题、Section 顺序和文案仍由本 Skill 基于已确认企业事实决定。
 
 ## 工作流程
 
 1. 读取业务资料并完成事实充分性检查；不足时先执行轻量 Content Intake。
-2. 在内部建立 Page Brief 与 Evidence Inventory；最终文档只保留影响用户判断的结论。
-3. 根据访客决策问题选择叙事策略，不机械套固定段落。
-4. 如存在两个会实质改变模块顺序的合理策略，先给出两个轻量候选；用户确认后只展开一个。
-5. 确定完整 Section 顺序，按 `Core / Recommended / Optional` 标记模块优先级；素材尚未整理不自动删除重要模块。
-6. 为每个模块写一句任务、精简 UI-ready 文案、内容与素材要求和必要 CTA。
-7. 按 [Content Architecture Review](references/content-architecture-review.md) 检查客户浏览顺序、整页任务闭环、模块重复与文案可扫读性；明确问题自动修正一轮。
-8. 创建或更新 `docs/page-content/<page-slug>.md`。首次写入标记 `STATUS: Draft`；用户确认后更新为 `STATUS: Confirmed`。
+2. 检查当前范围是否有适用 Visual Reference Brief，按上述接口选择性消费；需要研究但缺失时返回总控。
+3. 在内部建立 Page Brief 与 Evidence Inventory；最终文档只保留影响用户判断的结论。
+4. 根据访客决策问题选择叙事策略，不机械套固定段落。
+5. 如存在两个会实质改变模块顺序的合理策略，先给出两个轻量候选；用户确认后只展开一个。
+6. 确定完整 Section 顺序，按 `Core / Recommended / Optional` 标记模块优先级；素材尚未整理不自动删除重要模块。
+7. 为每个模块写一句任务、精简 UI-ready 文案、内容与素材要求和必要 CTA。
+8. 按 [Content Architecture Review](references/content-architecture-review.md) 检查客户浏览顺序、整页任务闭环、模块重复与文案可扫读性；明确问题自动修正一轮。
+9. 创建或更新 `docs/page-content/<page-slug>.md`。首次写入标记 `STATUS: Draft`；用户确认后更新为 `STATUS: Confirmed`。
 
 页面文件存在不等于用户已确认。未能证明确认状态时，停在内容框架门禁，不交给 UI。
 

@@ -1,7 +1,7 @@
 interface:
   display_name: "Elementor Widget Pipeline"
-  short_description: "从确认 HTML 或简单强参考，以最少字段实现单个 Elementor Widget"
-  default_prompt: "Use $elementor-widget-pipeline to implement one Widget from confirmed HTML, or use its controlled Simple Reference-led Fast Path for one unambiguous module in an existing Elementor page. Confirm the source mode, conservative field card, reference interpretation when applicable, and canonical slug before implementation."
+  short_description: "按确认设计与站点样式契约实现单个 Elementor Widget"
+  default_prompt: "Use $elementor-widget-pipeline to implement one Widget from confirmed HTML or an eligible simple reference. Confirm the source mode, site-style contract or explicit local exception, conservative field card, and canonical slug before implementation."
 
 compatibility:
   canonical_format: "agent-skills"

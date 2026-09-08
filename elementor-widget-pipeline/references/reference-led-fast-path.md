@@ -10,6 +10,7 @@
 - 参考能明确判断结构、层级、视觉重点和基本响应式降级；页面容器、字体、颜色或相邻背景可从现有页面或用户说明获得。
 - 模块信息结构简单，只有一个合理实现方向；不包含复杂 Gallery、流程证据、数据关系、媒体浏览策略或显著交互设计。
 - 目标插件和当前 Widget 边界可确认；插件不存在时仍先转 `elementor-site-initialize`。
+- 老站要求保持现有风格时，Existing Design System 与 Confirmed Elementor Style Contract 均已存在；一张参考图不能替代站点样式审计。
 
 常见适用：单一 CTA Banner、提示条、简短标题 + 正文 + 按钮、简单 Logo Strip、无交互的单图宣传块。
 
@@ -19,8 +20,9 @@
 - 需要重新决定信息主次、证据归属、图片比例、Gallery/Carousel/Viewer、移动端叙事或前后 Section 关系。
 - 多状态 Tabs、复杂 Accordion、筛选、表单流程、业务计算或其他需要先验证体验的交互。
 - 内容、素材真实性、页面宽度或关键视觉规则不足，直接实现会产生明显猜测。
+- 老站希望继承原风格，但只有 URL、截图或参考图，没有确认的 Existing Design System / Style Contract。
 
-退出动作：设计问题转 `website-ui-architect`；设计已确认但需要可审核 HTML 时转 `website-html-prototyper`。只返回缺失环节，不强迫整页流程。
+退出动作：设计问题转 `website-ui-architect`；设计已确认但需要可审核 HTML 时转 `website-html-prototyper`；老站视觉系统缺失时转 `website-design-system-architect`；平台映射缺失时转 `elementor-site-style-adapter`。只返回缺失环节，不强迫整页流程。
 
 ## 参考解释与确认
 
@@ -45,5 +47,5 @@ NOT RECREATED:
 
 - 与确认的参考解释比较结构、层级、视觉重点和响应式降级，不声称像素级复制。
 - 同时放入现有页面上下文检查容器、背景、字体继承和相邻间距。
+- 按 Confirmed Style Contract 检查继承值与 fallback；不得因参考图视觉明确而跳过站点样式来源。
 - 若真实实现暴露出需要重新设计的问题，停止修补并退出快速通道。
-

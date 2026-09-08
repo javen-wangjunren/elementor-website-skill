@@ -94,7 +94,7 @@ Design Board 只回答：
 
 正式 `design-system.md` 至少包含：
 
-1. `Status: Active Baseline`、版本、来源与最近确认日期；
+1. `Status: Active Baseline`、版本、来源、最近确认日期、`Site Mode` 与 `Style Authority Intent`；
 2. 希望给人的感觉 / 不希望给人的感觉；
 3. 颜色角色与语义颜色；
 4. Typography 层级；
@@ -106,6 +106,10 @@ Design Board 只回答：
 10. Motion、Responsive 与 Accessibility 基线；
 11. `Locked / Flexible / Open`；
 12. 已知例外与待验证项。
+
+`Style Authority Intent` 只表达设计权威：`Project Design System` 或 `Existing Site`。它不包含 Elementor Global Token、Theme Style 字段或平台 CSS Variable；这些由 `elementor-site-style-adapter` 映射。
+
+Existing Site 还应记录代表 URL、查看日期、渲染证据可信度，并把关键规则区分为 `Observed Rendering / Probable Source / Backend Verification Required`。无法从公开页面证明的平台事实必须保留为待验证项。
 
 Form 默认标记为插件负责，不纳入首版基础组件规则；确有跨页面统一定制需求时再增加。
 

@@ -13,7 +13,9 @@ description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既
 - 截图、Figma、图片和页面 DOM 默认只是辅助证据。只有既有 Elementor 页面新增简单独立模块、参考足够明确且用户明确批准直接实现时，才可进入 [Simple Reference-led Widget Fast Path](references/reference-led-fast-path.md)。
 - 已有确认视觉设计包但没有 HTML，且不满足快速通道时转 `website-html-prototyper`；需要信息策略、布局、媒体或页面关系设计时转 `website-ui-architect`。
 - 同时出现整页稿、模块稿或多个版本时，先确认当前 Widget 使用的最终实现源。
-- 从对话或用户指定中确认目标插件目录、plugin slug、当前 Section 边界、Canonical Module Slug 和 Widget title；不要自行猜测多个可能目标。
+- 从对话或用户指定中确认目标插件目录、plugin slug、当前 Section 边界、Canonical Module Slug、Widget title，以及项目的 Elementor 分类、角标与基础搜索关键词；不要自行猜测多个可能目标。
+- 确认 `elementor-project.json.siteStyle` 与 `docs/elementor/elementor-style-contract.md`。新站/重建站默认要求 Confirmed 项目合同；老站要求保持现有风格时必须有 Confirmed Existing Site 合同。用户明确要求完全隔离且不继承站点样式的单次模块可记录为局部例外后跳过。
+- 老站缺少 Existing Design System 时转 `website-design-system-architect`；已有系统但合同缺少后台证据或未确认时转 `elementor-site-style-adapter`。不得在当前 Widget 中临时猜一套站点样式。
 - 插件可以在任意本地目录开发，正式使用时完整目录位于 `wp-content/plugins/<plugin>/`。
 
 需要验证输入路由、整页 Section 边界或实现例外时，读取 [路由用例](evals/route-cases.md)。
@@ -25,7 +27,7 @@ description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既
 
 两条路径汇合后执行同一个实现流程：
 
-1. 确认当前 `SOURCE MODE`、实现边界、真实内容、固定视觉、交互和 Canonical Module Slug；快速通道的 Slug 在字段卡中提出并由用户确认。
+1. 确认当前 `SOURCE MODE`、实现边界、真实内容、固定视觉、交互、Canonical Module Slug 和 `SITE STYLE CONTEXT`；快速通道的 Slug 在字段卡中提出并由用户确认。
 2. 按 [最小字段确认卡](references/spec-card-template.md) 在对话中提出字段初稿和来源解释。
 3. **停止并等待用户增删、微调和确认字段。确认前不得开始 PHP/CSS/JS 实现。**
 4. 读取 [注册基线](references/registration-baseline.md)，确认目标插件已存在并向其增量接入；插件不存在时停止本流程，转交 `elementor-site-initialize`。
@@ -36,6 +38,8 @@ description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既
 
 - 只开放运营确实需要编辑的内容；数量稳定的内容固定，只有需要增减时才用 Repeater。
 - `OPTIONAL STYLE CONTROLS` 默认 `None`；Layout/Style Controls 只有明确复用需求且用户确认时才添加。
+- 字体、颜色与基础视觉默认遵守 Confirmed Elementor Style Contract。可直接继承的属性使用 `inherit`；固定 CSS 只使用合同确认的 Elementor CSS Variables，并提供对应 Design System fallback。
+- 确有运营覆盖需求时才新增 Style Control，且使用合同确认的 Elementor Global Style 作为默认绑定；这不改变“默认无 Style Controls”。
 - 已确认的视觉和响应式规则固定在命名空间 CSS；不得为字段实现改变信息结构。
 
 ## 实现原则
@@ -43,7 +47,8 @@ description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既
 - Confirmed HTML Path 原样继承设计稿 Slug；Fast Path 只提出一个语义化 Slug，并随字段卡由用户确认。确认后 `get_name()` 与它完全一致。
 - 使用整页 HTML 时只实现当前 Section；相邻模块只作上下文。
 - Slug 不一致或冲突时先确认，不擅自增加版本词或数字。
-- 沿用现有 Flat/Grouped 结构并只做增量注册；CSS 必须位于当前 Widget 命名空间，不修改主题。
+- 沿用现有 Flat/Grouped 结构并只做增量注册；Widget 必须继承插件级面板可发现性契约，模块 CSS 必须位于当前 Widget 命名空间，不修改主题。
+- 老站不得因实现一个 Widget 修改 Site Settings、主题或全局 CSS；局部独立风格只作用于当前 Wrapper，也不反向更新站点合同。
 - 无交互不创建 JS；有交互时支持同页多实例和 Elementor 编辑器重新渲染。
 
 ## 输出
@@ -62,6 +67,7 @@ description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既
 ## 不负责
 
 - 设计方向探索或 Design System 建立；
+- Elementor Site Settings 映射、Existing Site 样式来源审计或全局配置写入；
 - 旧 Widget 面板不可见、交互失效等独立故障诊断；
 - Elementor 安装、主题修改或网站级字体/容器配置；
 - 上传、缓存清理、生产发布和 `elementor-widget-release-sop` 的工作。

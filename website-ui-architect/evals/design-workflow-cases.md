@@ -73,6 +73,16 @@
 | 76 | 候选有拼写错误但结构、数量和证据归属正确 | 作为 C 类记录，使用真实 Page Content 进入 HTML，不继续生图。 |
 | 77 | 交付视觉包 | Notes 列出最终 Segment、Section 状态、Correction 覆盖和唯一 HTML 输入集合，不列失败候选为 confirmed source。 |
 
+## 跨行业参考接口
+
+| ID | 场景 | 必须行为 |
+| --- | --- | --- |
+| 78 | 当前页面已有适用 Visual Reference Brief | 只消费 Page / Module Architecture、媒体策略与响应式迁移原则，不重复浏览原始案例。 |
+| 79 | 同行业无合理模块范式且当前无 Brief | 返回总控并路由 `website-reference-researcher`，按当前页面或模块 Scope 研究。 |
+| 80 | Brief 已研究站点级规律，单模块问题可由其回答 | 复用现有 Brief，不为同一问题创建重复模块研究。 |
+| 81 | 外站模块结构看起来适用 | 仍用 Section Job、真实内容、Design System、素材能力和认知成本验证；不得直接复制完整模块。 |
+| 82 | Brief 中包含颜色与字体观察 | UI Architect 不把它们当视觉权威；颜色和排版只服从已确认 Design System。 |
+
 ## 覆盖核对
 
 原设计用例 `1–3、7–8、14–24、33–56` 均保留；原 HTML 用例 `4–6、9–13、25–32` 已迁移到 Prototyper。两个 Skill 的职责用例不得重复定义所有权。

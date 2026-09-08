@@ -8,6 +8,8 @@
 
 读取 [浏览器证据协议](browser-research.md)，用真实渲染页面采集当前站点证据；Existing Site 不建立同行候选池。若真实浏览器不可用，按协议降级并披露可信度。
 
+用户要求新页面或新模块继承现站风格时，网站 URL 是第一阶段必要输入。URL 无法访问时必须取得足以覆盖代表页面的用户截图或浏览器接管；只有零散截图或文本抓取时不得宣布已形成可靠 Existing Design System。
+
 优先收集：
 
 - 网站 URL 与 3–5 个代表页面；
@@ -16,6 +18,14 @@
 - 用户对现状“喜欢、不能改、不满意、不确定”的意见。
 
 截图只作研究证据，DOM/CSS 只抽查关键规则。URL 与截图是页面事实，用户品牌资料是品牌事实；两者冲突时记录冲突，不擅自裁决。
+
+每条关键视觉发现还要区分：
+
+- **Observed Rendering**：浏览器最终看到的值或关系；
+- **Probable Source**：从 DOM/CSS 推测的主题、Elementor、页面局部或 Custom CSS 来源；
+- **Backend Verification Required**：只有 Site Settings、Kit 或等价后台证据才能确认的 Elementor Token。
+
+公开页面不能证明后台 Global Token 名称、ID 或当前 Kit 配置。本阶段不要求用户提供后台证据，也不因此阻塞 Existing Design System；平台映射由后续 Style Adapter 处理。
 
 ## 2. 盘点并分类
 
@@ -70,10 +80,14 @@
 - 保留 `Preserve / Normalize / Retire / Unknown`；
 - 明确 `Locked / Flexible / Open`；
 - 写入媒体、真实性、响应式和可访问性基线。
+- 记录 `Site Mode: existing-extension`、`Style Authority Intent: Existing Site`、代表 URL、查看日期和渲染证据可信度。
+- 保留关键规则的 Observed Rendering、Probable Source 与 Backend Verification Required 状态，但不写 Elementor 字段或 Token 映射。
 
 正式交付前再次按 [设计师自查](design-review.md) 检查规则追溯、`Locked / Flexible / Open`、内部一致性与已否决模式回退。明确问题最多自动修正一轮；仍需品牌或业务决定的项目保留为 `Open`。
 
 页面实践中的更新遵循 [Design System 标准](design-system-standard.md) 的受控演进规则。
+
+原始目标包含 Elementor 实现时，将 URL、渲染证据、确认的 Existing Design System 与 Board 交给 `elementor-site-style-adapter`。精确继承必须在该阶段补充 Site Settings 截图、可信 Kit 或等价后台证据。
 
 由总控调度时，在证据采集、方向选择、Board 用户确认或交接状态变化后返回最小状态信号，由总控更新 `docs/workflow-status.md`。
 

@@ -12,12 +12,13 @@ description: Design and visually validate implementation-agnostic website pages 
 - 完整页面必须读取已确认的 `docs/design-system/design-system.md` 和 `docs/page-content/<page-slug>.md`；缺失时分别返回 `website-design-system-architect` 或 `website-page-content-architect`。
 - 单模块在真实内容、页面上下文和 Design System 同等明确时可不要求整页 Page Content。
 - 按需读取 Style Board、真实素材、截图、URL、Figma、现有渲染和相邻 Section；不默认扫描全项目。
-- Design System 是视觉规则来源，Page Content 是业务事实与文案来源，参考只用于辅助构图与扫读判断。
+- 按需读取适用的 `docs/research/*-visual-reference-brief.md`，且只消费 `Page / Module Architecture`、媒体策略与响应式迁移原则。已有简报时不重复研究原始案例。
+- Design System 是视觉规则来源，Page Content 是业务事实与文案来源，Visual Reference Brief 只是构图参考证据，不能覆盖前两者。
 
 ## 唯一流程
 
-1. 提取 Section Job、客户问题、真实内容与证据、页面上下文和品牌约束。
-2. 每个 Section 先完成紧凑的 Module Design Solution，包含沟通目标、信息层级、证据归属、扫读路径、视觉叙事、UI Composition、响应式叙事、禁止方案和成功标准，再确定 Layout。媒体 Section 同时完成 Media Display Contract。
+1. 提取 Section Job、客户问题、真实内容与证据、页面上下文和品牌约束；检查是否有适用 Visual Reference Brief，并只提取本 Skill 负责的字段。
+2. 每个 Section 先读取 [布局与构图原则](references/layout-composition-principles.md)，再完成紧凑的 Module Design Solution，包含沟通目标、信息层级、证据归属、扫读路径、视觉叙事、UI Composition、响应式叙事、禁止方案和成功标准，最后根据任务、内容关系和认知成本确定 Layout。媒体 Section 同时完成 Media Display Contract。
 3. 完整页面写入 Page UI Architecture Map，执行 Module Solution Qualification 与 Media Fitness Review，明确问题自动修正一轮后交给用户确认。单模块可使用同等明确的 Brief。
 4. 从确认 Map 按叙事关系编译 Segment 提示词；通常每张覆盖 2–4 个 Section，复杂 Section 可独占一张。生图前先告知预计数量、Section 范围与文件名；每个 Segment 默认只生成一个候选，不生成 AI Overview。
 5. 对方向稿分别执行 Structure Fidelity 与 Visual Language Review，再检查 Solution、Map 和 Media Fidelity。A 类问题先报告并停止生图；用户确认修正后只生成受影响 Section 的 Correction Direction。B 类写入 HTML Correction Notes；C 类噪声不阻塞确认。
@@ -35,11 +36,11 @@ description: Design and visually validate implementation-agnostic website pages 
 
 | 当前任务 | 读取 |
 | --- | --- |
-| 完整页面 Map | [Page UI Architecture Map](references/page-ui-architecture-map.md) + [Module Design Review](references/module-design-review.md) |
-| 整页或模块图片方向 | [Visual Direction](references/visual-direction.md) |
+| 完整页面 Map | [Page UI Architecture Map](references/page-ui-architecture-map.md) + [Module Design Review](references/module-design-review.md) + [布局与构图原则](references/layout-composition-principles.md) |
+| 整页或模块图片方向 | [Visual Direction](references/visual-direction.md) + [布局与构图原则](references/layout-composition-principles.md) |
 | 用户明确需要整页图片预览 | [Visual Direction](references/visual-direction.md) + `scripts/compose_segments.py` |
 | B2B、企业站或证据驱动模块 | [证据驱动设计](references/evidence-led-design.md) |
-| 方案不明确、需比较，或用户认为结果简单/普通/怪异 | [设计探索](references/design-exploration.md)；按条件可选调用 Product Design `ideate` |
+| 方案不明确、需比较，或用户认为结果简单/普通/怪异 | [设计探索](references/design-exploration.md)；按条件返回 `website-reference-researcher`，或可选调用 Product Design `ideate` |
 | 视觉确认后命名 | [模块命名](references/module-naming.md) |
 | 验证设计门禁与回归行为 | [行为用例](evals/design-workflow-cases.md) |
 

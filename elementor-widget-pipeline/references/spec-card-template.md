@@ -10,6 +10,15 @@ WIDGET NAME: <same as MODULE SLUG>
 WIDGET TITLE:
 DESIGN SOURCE:
 SOURCE MODE: confirmed-html / strong-reference-fast-path
+SITE MODE: greenfield / rebuild / existing-extension
+STYLE AUTHORITY: project-design-system / existing-site / isolated-local-exception
+STYLE CONTRACT: <path and Confirmed status> / Not applicable with explicit reason
+STYLE INHERITANCE:
+- Fonts:
+- Colors:
+- Button / Surface / Border:
+- Confirmed Elementor variables:
+- Design System fallbacks:
 
 REFERENCE INTERPRETATION:（仅 Fast Path）
 - 保留：
@@ -30,7 +39,7 @@ OPTIONAL STYLE CONTROLS:
 - None（默认）
 
 FIXED IN CODE:
-- 背景、字体、间距、圆角、阴影
+- 结构性背景、间距、圆角、阴影；字体和颜色仅限合同确认的继承与 fallback
 - 布局结构与响应式
 - 装饰性元素
 
@@ -47,6 +56,7 @@ ASSETS:
 - 用户可以删除、增加或合并字段，也可以要求某一组内容改为 Repeater。
 - 输出后停止；用户确认前不创建或修改 Widget 文件。
 - Fast Path 的字段卡同时确认参考解释、固定结构、响应式降级和 Slug，不额外创建 HTML 或设计合同。
+- Site Style Contract 必需但缺失时，不得用字段卡临时创造全局 Token；先返回 Style Adapter。
 - 默认只在当前对话保留确认结果；用户明确要求时才写 Markdown。
 
 ## Control 选择
@@ -56,4 +66,5 @@ ASSETS:
 - 数量稳定且不需要运营增减的项目保持固定，不自动使用 Repeater。
 - 使用 Repeater 时只加入运营真正需要修改的子字段，并填写真实默认内容和默认数量。
 - 不自动添加 `TAB_STYLE`。颜色、Typography、padding、margin、radius、shadow 和背景保持固定，除非用户明确确认开放。
+- 增加 Style Control 时，默认值绑定合同确认的 Elementor Global Style；不得仅为暴露颜色选择器而复制整套视觉系统。
 - 不为了“以后可能有用”增加开关、对齐、列数、动画或响应式控制。

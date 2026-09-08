@@ -1,9 +1,10 @@
 /*
- * Replace placeholders with the confirmed design values.
+ * Replace placeholders with the confirmed design and Elementor Style Contract.
  * Keep every selector inside this Widget namespace.
  */
 .your-widget {
-  /* Section padding, background, color and typography come from the approved draft. */
+  /* Prefer inherit or contract-approved Elementor variables with Design System fallbacks. */
+  /* Section spacing and module-specific surfaces still come from the approved draft. */
 }
 
 .your-widget__container {

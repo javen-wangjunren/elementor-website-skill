@@ -1,7 +1,7 @@
 interface:
   display_name: "Elementor Site Team Manager"
-  short_description: "协调页面内容、设计系统、整页或模块设计与 Elementor Widget 实现"
-  default_prompt: "Use $elementor-site-team-manager as the single entry point for this custom Elementor Widget site task. Infer the current stage, coordinate content and the Design System, route visual design to Website UI Architect, confirmed design to Website HTML Prototyper, and one confirmed HTML Section at a time to the Widget Pipeline."
+  short_description: "协调新老站设计系统、Elementor 样式契约与 Widget 实现"
+  default_prompt: "Use $elementor-site-team-manager as the single entry point. Determine the site mode and style authority, coordinate content and the Design System, map it through the Elementor Site Style Adapter when implementation requires inheritance, then route confirmed design and one Widget at a time."
 
 compatibility:
   canonical_format: "agent-skills"
@@ -23,4 +23,4 @@ compatibility:
   degradation:
     uncertain_confirmation: "Treat files as evidence, not proof of user approval; ask only for the unresolved gate."
     missing_specialist: "Disclose the unavailable specialist and stop at the current stage rather than improvising its rules."
-    out_of_scope: "Explain the boundary and recommend an external workflow without adding it to the managed six-skill process."
+    out_of_scope: "Explain the boundary and recommend an external workflow without adding it to the managed seven-skill process."

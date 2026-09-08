@@ -1,0 +1,22 @@
+{
+  "skill": "elementor-site-style-adapter",
+  "recommended_threshold": 0.3,
+  "should_trigger": [
+    "把确认的 Design System 映射成 Elementor Global Colors 和 Global Fonts 设置清单",
+    "老站要保持当前风格，请根据 Site Settings 截图整理 Widget 继承契约",
+    "新站已经有设计系统，帮我映射 Elementor Site Settings 和 Widget 继承规则",
+    "审核这份 Elementor Style Contract 是否能让 Widget 稳定继承全局样式"
+  ],
+  "should_not_trigger": [
+    "帮我设计一套新的网站视觉系统和 Design Board",
+    "把确认版 HTML 实现成 Elementor Widget",
+    "直接登录 WordPress 修改 Site Settings",
+    "生成首页 Architecture Map 和 Segment 方向图",
+    "把插件 ZIP 发布到服务器"
+  ],
+  "near_neighbor": [
+    {"text": "只有老站 URL，帮我整理原网站 Design System", "family": "existing_design_system"},
+    {"text": "Style Contract 已确认，请让当前 Widget 继承这些 Token", "family": "widget_implementation"},
+    {"text": "通过 REST API 自动更新 Elementor 全局设置", "family": "remote_mutation"}
+  ]
+}

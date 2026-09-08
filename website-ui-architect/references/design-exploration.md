@@ -14,6 +14,17 @@
 
 用户认为结果“简单、普通、怪异”时，先检查 Architecture Map 是否只有 Layout 而缺少合格的 Module Design Solution。缺失时先补齐客户问题、信息关联、视觉叙事、UI Composition 和成功标准，不直接重生图片。
 
+## Visual Reference Brief 路由
+
+若问题不是方案写得不完整，而是同行缺少高质量范式、关键模块没有合理表达方式，或用户明确要求跨行业参考，则先检查当前 Scope 的 Visual Reference Brief：
+
+- 有适用 Brief：只读取 `Page / Module Architecture`、媒体策略、响应式迁移原则和禁止照搬内容，不重新浏览原站。
+- 无适用 Brief：返回总控，路由 `website-reference-researcher` 生成站点级、页面级或当前模块级简报，再恢复本 Skill。
+- 用户已给出最终 URL 清单：Researcher 可直接研究，不重复候选确认。
+- 普通模块任务明确、内部已有可靠范式：跳过研究，继续内部候选方向。
+
+Brief 只回答“哪些构图原理值得迁移”，不直接指定本项目 Layout。最终方案仍须通过 Section Job、真实内容、Design System、媒体能力与认知成本验证；不得照搬外站 DOM、完整模块、品牌素材或响应式行为。
+
 ## 候选方向
 
 内部比较 2–3 个真实不同的方向，差异应来自沟通策略、信息顺序、视觉叙事、UI Composition、视觉焦点、媒体比例、浏览方式或移动端组织，而不只是换 Layout、颜色、圆角和阴影。

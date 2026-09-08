@@ -1,7 +1,7 @@
 interface:
   display_name: "Website Design System Architect"
-  short_description: "为新站或老站建立跨技术栈的网站设计系统"
-  default_prompt: "Use $website-design-system-architect to research or extract the visual direction, confirm one text direction, validate it with one Design Board, and then establish an evolving Active Baseline Design System."
+  short_description: "建立新站基线或提炼老站真实视觉系统"
+  default_prompt: "Use $website-design-system-architect to establish a new-site baseline or extract an existing site's rendered visual system, confirm one direction and Design Board, and record the site mode and style-authority intent without inventing Elementor mappings."
 
 compatibility:
   canonical_format: "agent-skills"

@@ -29,12 +29,13 @@ description: Build, review, and browser-test static website page or module HTML 
 - Section Correction 只在标明的 Section 范围内优先于基础 Segment；不得扩散到相邻模块。
 - 方向图与 Architecture Map 冲突时以 Map 为准；只有明确 Correction Notes 可覆盖方向图中的已知偏差。可选 Composite Preview 只用于浏览，不作为实现权威。
 - 可访问性与硬约束高于所有视觉参考。
+- 不直接读取或研究原始品牌案例、第三方 `DESIGN.md` 或 Visual Reference Brief 来新增设计决策。参考原则必须先由 Page Content、Design System 或 UI Architecture 吸收并经过各自门禁，之后本 Skill 才按上表实现。
 
 ## 唯一流程
 
 1. 执行输入门禁，确认整页或单模块路径、最终源文件、Section 边界和 Canonical Module Slug。
 2. 按输入权威顺序编写真实内容的 HTML First Draft。默认使用原生 HTML/CSS/按需 JS，CSS/JS 内嵌在单一 HTML 文件；用户明确指定技术时才调整。
-3. 读取 [HTML Design Review](references/html-design-review.md)，在真实渲染中检查 Section、Neighbors 和 Full Page，并自动修正一轮明确的实现层问题。
+3. 读取 [HTML Design Review](references/html-design-review.md) 和 [Visual QA Standard](references/visual-qa-standard.md)，在真实渲染中依次检查 Full Page、Section + Neighbors、Section，并自动修正一轮明确的实现层问题。视觉判断必须给出可观察证据，不得只使用“高级感”“不好看”等结论。
 4. 读取 [Browser / Implementation QA](references/browser-implementation-qa.md)，验证桌面/移动断点、溢出、真实长内容、资源、键盘与 Focus、交互、reduced motion 和基础兼容。
 5. 用户确认 HTML 后，交付最终实现源、Section 边界、Slug 和简短 QA 结论。原始目标包含 Elementor Widget 时，在同一任务中继续采用 `elementor-widget-pipeline`。
 
@@ -43,6 +44,7 @@ description: Build, review, and browser-test static website page or module HTML 
 - A 类：Section Job、信息主次、证据归属、核心构图或媒体契约需要变更。停止重新设计，返回 `website-ui-architect`。
 - B 类：真实文案适配、尺寸、间距、换行、对齐、精确裁切、断点或可访问性实现。在 HTML 内修正。
 - C 类：不影响任务、可读性、交互或响应式的轻微差异。不阻塞交付。
+- D 类：颜色角色、Surface、排版、间距尺度或共享组件规则在真实页面中系统性失效。保留渲染证据并返回 `website-design-system-architect` 受控更新 Active Baseline；更新后重新验证受影响页面。单页例外不得升级为 D 类。
 
 ## 路径与 References
 

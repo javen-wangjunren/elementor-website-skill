@@ -1,0 +1,11 @@
+{
+  "fallback_positive_concepts": ["elementor_mapping", "site_style_contract"],
+  "positive_concepts": {
+    "elementor_mapping": {"weight": 0.55, "phrases": ["elementor global style", "site settings mapping", "global colors", "global fonts", "样式映射"]},
+    "site_style_contract": {"weight": 0.45, "phrases": ["elementor style contract", "widget inheritance contract", "样式继承契约", "existing site style source", "映射成 elementor", "global colors", "global fonts", "site settings 截图", "widget 继承契约", "generatepress", "谁负责样式"]}
+  },
+  "negative_concepts": {
+    "visual_design": {"weight": 0.9, "exclusive": true, "phrases": ["设计新风格", "design board", "页面方向图"]},
+    "implementation": {"weight": 0.9, "exclusive": true, "phrases": ["实现 widget", "修改 wordpress", "rest api", "发布插件"]}
+  }
+}

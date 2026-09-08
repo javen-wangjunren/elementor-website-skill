@@ -2,7 +2,7 @@
 
 仅在执行初始化时读取本文件。
 
-## 1. 项目工作区与可选主题证据
+## 1. 项目工作区与可选主题技术上下文
 
 把当前工作目录视为项目工作区，不向上寻找 WordPress 根目录。插件可以创建在工作区内，也可以使用用户确认的其他本地路径。
 
@@ -11,9 +11,9 @@
 - `style.css`：`Theme Name`、`Text Domain`、`Template`、版本；
 - `functions.php`：主题入口、主要 include/require、资源加载方式；
 - 存在时按需查看 `inc/`、`src/`、`assets/`、`dist/`、`package.json` 和 Tailwind/LESS/Sass 配置；
-- 搜索字体声明、字体文件、CSS Variables、容器和主要 CSS/JS enqueue。
+- 按需确认与插件加载有关的主要 CSS/JS enqueue；不为推断 Elementor 视觉规则而扫描字体、Token、容器或全量 CSS。
 
-主题扫描始终只读。只记录有文件证据的结论；`Template` 存在时可判断为子主题，类型无法可靠识别时写 `custom/unknown`。没有主题上下文时不要阻塞初始化，也不要猜主题、字体、容器或后台激活状态。
+主题读取始终只读。只记录有文件证据的命名和技术集成结论；`Template` 存在时可判断为子主题，类型无法可靠识别时写 `custom/unknown`。没有主题上下文时不要阻塞初始化，也不要猜后台激活状态、Elementor Site Settings 或视觉冲突。
 
 ## 2. 结构 Profile 裁决
 
@@ -71,6 +71,9 @@ PHP Prefix: <PROJECT>
 CSS Prefix: <project>
 Elementor Category Slug: <project>
 Elementor Category Title: <Project> Widgets
+Elementor Badge Label: CUSTOM
+Elementor Marker Class: <project>-custom-widget
+Elementor Base Keywords: custom, <project>
 Expected Widget Scale: small (1–20) / large (21+)
 Structure Profile: flat / grouped
 Grouping Strategy: none / business-domain
@@ -79,6 +82,11 @@ Registration Strategy: explicit-main-file / manifest-registry
 Local Plugin Path:
 Design Root: 设计稿/
 Theme Evidence: detected / user-provided / unavailable
+Site Mode: greenfield / rebuild / existing-extension
+Style Authority: project-design-system / existing-site
+Global Style Policy: initialize-global-style / inherit-existing
+Elementor Style Contract: docs/elementor/elementor-style-contract.md
+Style Contract Status: pending
 ```
 
 规则：
@@ -91,6 +99,10 @@ Theme Evidence: detected / user-provided / unavailable
 - 当前工作区是主题项目时，本地路径默认推荐 `plugins/<plugin-slug>/`；普通工作区默认推荐工作区内 `<plugin-slug>/`。用户可以改为任意明确本地路径。
 - 目标路径在工作区内时保存相对路径；在工作区外时保存用户确认的绝对路径，不用主题目录代替。
 - Grouped 的分组 slug 使用小写 kebab-case；默认共用一个 Elementor 面板分类，文件分组不自动变成多个 Elementor 分类。
+- 完全新站默认 `greenfield + project-design-system + initialize-global-style`。
+- 用户明确从零重建已有网站时使用 `rebuild + project-design-system + initialize-global-style`，不自动继承旧站视觉。
+- 老站新增页面或模块并要求保持现有风格时使用 `existing-extension + existing-site + inherit-existing`。
+- 仅根据项目目录或主题存在不能把站点判为 existing-extension；以用户本次目标为准。
 
 必须先展示确认卡。用户确认前不创建文件。
 
@@ -113,7 +125,10 @@ Theme Evidence: detected / user-provided / unavailable
   "elementor": {
     "assumedInstalled": true,
     "categorySlug": "example",
-    "categoryTitle": "Example Widgets"
+    "categoryTitle": "Example Widgets",
+    "badgeLabel": "CUSTOM",
+    "markerClass": "example-custom-widget",
+    "baseKeywords": ["custom", "example"]
   },
   "plugin": {
     "name": "Example Elementor Widgets",
@@ -132,6 +147,13 @@ Theme Evidence: detected / user-provided / unavailable
     "system": "docs/design-system/design-system.md",
     "modules": "设计稿/modules",
     "pages": "设计稿/pages"
+  },
+  "siteStyle": {
+    "mode": "greenfield",
+    "authority": "project-design-system",
+    "policy": "initialize-global-style",
+    "contract": "docs/elementor/elementor-style-contract.md",
+    "status": "pending"
   },
   "assets": {
     "strategy": "plain-css-js",
@@ -154,17 +176,18 @@ Grouped 项目把对应值改为：
 
 上面是 `plugin` 对象中的字段片段，不是第二份配置。JSON 必须有效。工作区内路径使用相对路径；只有用户明确选择工作区外路径时使用绝对路径。
 
-## 5. 主题扫描摘要（可选）
+## 5. 主题技术摘要（可选）
 
 只有存在主题证据时才创建 `docs/elementor/theme-profile.md`，简洁记录：
 
 - 主题/父主题证据；
 - CSS、JS 和字体从哪些文件或钩子加载；
-- 已发现的全局字体、CSS Variables、容器或断点；
-- 后续 Design System 可以复用的事实；
+- 与插件集成直接相关的资源加载事实；
 - 仍未知的内容。
 
-该文件是观察结果，不是 Design System。没有主题证据时配置写 `profile: null`，不创建空摘要，也不把零散旧样式直接升级为新站规则。
+该文件是技术上下文，不是 Design System 或样式冲突报告。没有主题证据时配置写 `profile: null`，不创建空摘要，也不把零散旧样式升级为站点规则。
+
+GeneratePress、父主题或子主题的存在不构成冲突证据。初始化不检查 Elementor Site Settings，也不从本地主题代码判断最终视觉；样式映射由 Style Adapter 依据 Design System 与 Elementor 后台证据完成。真实页面出现明确偏差时，再进入专项样式诊断。
 
 ## 6. 本地插件骨架
 
@@ -175,10 +198,18 @@ Grouped 项目把对应值改为：
 - 使用 PHP Prefix 命名的插件主类；
 - `plugins_loaded` 初始化；
 - `elementor/elements/categories_registered` 分类注册；
+- 使用 `elementor/editor/after_register_styles` 与 `elementor/editor/after_enqueue_styles` 注册并加载仅作用于编辑器面板的角标 CSS；
 - 单一现代 `elementor/widgets/register` 注册入口；
 - `wp_enqueue_scripts`、`elementor/frontend/after_register_styles`、`elementor/frontend/after_register_scripts` 资源注册入口；
 - 暂为空的 `register_assets()` 与 `register_widgets()` 扩展点；
 - 方法参数的对象与方法存在性保护。
+
+插件骨架必须建立统一的面板可发现性契约：
+
+- 所有项目 Widget 只归入确认的项目分类，不额外挂入 `general`，避免面板重复和混杂；
+- 创建一份共享的编辑器 CSS，通过确认的 marker class 为 Widget 卡片右上角显示角标；默认文案为 `CUSTOM`，用户可在确认卡修改；
+- marker class 由各 Widget 追加到 `get_icon()` 返回值，角标 CSS 据此识别 Widget，因此在分类区和搜索结果中都可见；
+- 各 Widget 的 `get_keywords()` 继承基础关键词，并追加模块语义关键词。初始化只保存契约，不创建示例 Widget。
 
 Flat 创建 `widgets/` 与 `assets/` 空目录，入口显式保留增量注册位置。
 
@@ -197,7 +228,7 @@ Grouped 主插件入口必须读取 Registry，并按以后每项记录的 `clas
 不要：
 
 - 写示例 Widget；
-- 创建无用途的 CSS/JS；
+- 创建共享编辑器角标 CSS 以外的无用途 CSS/JS；
 - 使用 legacy `elementor/widgets/widgets_registered`；
 - 修改主题加载插件；WordPress 激活插件后会自行加载入口文件；
 - 检查、安装或激活 Elementor。
@@ -210,14 +241,16 @@ Grouped 主插件入口必须读取 Registry，并按以后每项记录的 `clas
 - 对生成的 PHP 执行 `php -l`；
 - Grouped 同时检查 Registry PHP 语法和主入口可以读取空 Registry；
 - 检查 JSON 可解析；
-- 确认插件 slug、类前缀、Text Domain、分类、路径、Profile、分组和注册策略一致；
+- 确认插件 slug、类前缀、Text Domain、分类、角标、marker class、基础关键词、路径、Profile、分组和注册策略一致；
+- 确认 `siteStyle.mode`、`authority`、`policy`、合同路径和 `pending` 状态与确认卡一致；
 - 确认 Flat 没有多余 Registry，Grouped 的所有确认分组在 `widgets/` 与 `assets/` 两侧成对存在；
 - 最终说明这只是本地插件骨架，尚未创建 Design System、设计稿和 Widget。
 
 初始化完成后返回调用它的总控或原始任务，不固定指定下一阶段：
 
-- 原始目标是实现已有确认版 HTML：直接返回 `elementor-widget-pipeline`；
+- 原始目标是实现已有确认版 HTML：先检查是否需要 Confirmed Style Contract；需要且缺失时返回 `elementor-site-style-adapter`，否则进入 Pipeline；
 - 原始目标是继续完整页面设计且缺少视觉规则：进入 `website-design-system-architect`；
+- 原始目标包含 Elementor 实现且 Design System 已确认、Style Contract 缺失：进入 `elementor-site-style-adapter`；
 - 原始目标只是创建插件骨架：完成验证后收口；
 - 其他情况由 `elementor-site-team-manager` 根据原始目标和现有依赖重新路由。
 

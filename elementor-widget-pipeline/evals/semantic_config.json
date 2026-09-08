@@ -3,7 +3,7 @@
   "positive_concepts": {
     "widget_implementation": {
       "weight": 0.4,
-      "phrases": ["elementor widget", "widget pipeline", "实现当前", "做成 widget", "开发", "elementor 字段"]
+      "phrases": ["elementor widget", "widget pipeline", "实现当前", "做成 widget", "开发", "elementor 字段", "继承 style contract", "style contract 已确认", "继承现有 global style"]
     },
     "confirmed_html": {
       "weight": 0.3,
@@ -34,6 +34,11 @@
       "weight": 0.9,
       "exclusive": true,
       "phrases": ["面板中找不到", "php 报错", "编辑器白屏", "发布插件", "清理缓存"]
+    },
+    "site_style_mapping": {
+      "weight": 0.9,
+      "exclusive": true,
+      "phrases": ["elementor style contract", "映射 global colors", "site settings mapping"]
     }
   }
 }

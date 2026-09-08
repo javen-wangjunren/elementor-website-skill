@@ -1,0 +1,4 @@
+interface:
+  display_name: "Elementor Site Style Adapter"
+  short_description: "将已确认设计系统映射为 Elementor 样式继承契约"
+  default_prompt: "Use $elementor-site-style-adapter to map the confirmed Design System to a safe Elementor Site Settings and Widget inheritance contract."

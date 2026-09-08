@@ -1,0 +1,21 @@
+{
+  "skill": "elementor-site-initialize",
+  "recommended_threshold": 0.3,
+  "should_trigger": [
+    "从零初始化本地 Elementor 自定义组件插件和项目配置",
+    "还没有 Widget 插件骨架，帮我选择 Flat 或 Grouped 并创建目录",
+    "先建立 Elementor 项目工作区并确认新站还是老站扩展",
+    "创建 Grouped Elementor Widget 插件注册骨架"
+  ],
+  "should_not_trigger": [
+    "提取老站 Design System",
+    "映射 Elementor Global Colors 和 Fonts",
+    "把确认 HTML 实现成 Widget",
+    "生成页面 Segment 方向图",
+    "发布插件到服务器"
+  ],
+  "near_neighbor": [
+    {"text": "插件已存在，只缺 Elementor Style Contract", "family": "style_adapter"},
+    {"text": "旧 Widget 在面板里找不到", "family": "bugfix"}
+  ]
+}

@@ -4,19 +4,25 @@
 
 ## New Site
 
-1. **用户未提供网站**：AI 推荐 5–8 个候选，只给类型和一句理由，并停在名单确认门禁。
-2. **用户提供 2 个种子网站**：AI 保留种子并补充候选，不在用户确认前进行深度研究。
-3. **用户明确限定名单**：只研究指定网站，不擅自补充。
-4. **公司事实不足**：行业、目标客户或主要转化无法判断时，返回总控 Company Intake。
-5. **确认名单后研究**：默认深入 3–5 个网站，使用真实浏览器证据，备忘录保持一到两页。
-6. **DESIGN.md 输入**：只作核心参考的辅助证据，不复制为项目规则。
+1. **触发研究且无 Brief**：返回总控并路由 `website-reference-researcher`；本 Skill 不自行建立候选池。
+2. **已有适用 Brief**：只消费 Art Direction、Visual System 与迁移边界，不重复浏览原始案例。
+3. **普通轻量页面且方向清晰**：允许跳过 Researcher，直接提出符合项目事实的文字方向。
+4. **用户提供 URL**：传给 Researcher 判断为种子或最终名单；本 Skill 不直接把 URL 样式写成项目规则。
+5. **公司事实不足**：行业、目标客户或主要转化无法判断时，返回总控 Company Intake。
+6. **DESIGN.md 输入**：没有真实页面观察与 Visual Reference Brief 时不能直接成为项目规则；即使进入 Brief 也只作辅助证据。
 7. **方向门禁**：先输出 2–3 个简短文字方向，不生成 HTML；用户未选择时不整理临时规则草稿。
+8. **Site Mode**：完全新站记录 `greenfield`；从零重建旧站记录 `rebuild`，两者均以 Project Design System 为视觉权威。
+9. **主题上下文**：GeneratePress、父主题或子主题的存在不触发视觉冲突扫描，也不改变 Project Design System 的权威；真实异常留给后续专项诊断。
+10. **历史行业文件**：`industry-ui-research.md` 不再作为跨阶段权威，也不要求强制迁移。
 
 ## Existing Site
 
 1. 直接采集现站代表页面证据，不触发同行候选池。
 2. 桌面、移动和关键交互使用共享浏览器协议，DOM/CSS 只抽查关键规则。
 3. 有多个改进方向时先给文字方向供用户选择，最后只生成一个 Proposed Baseline Board。
+4. 用户要求保持老站风格时必须有可访问 URL 或足量替代视觉证据；只有文本抓取不能完成风格提炼。
+5. 最终渲染、推测来源和需要后台验证的 Elementor Token 必须分开记录。
+6. 只有 URL 时仍可完成 Existing Design System；不得声称识别了后台 Global Token，平台映射交给 Style Adapter。
 
 ## Board and Design System Gates
 
@@ -42,6 +48,7 @@
 6. Board 经用户确认并生成 Active Baseline 后，执行第二次设计师自查：检查追溯性、规则一致性、完整的 `Locked / Flexible / Open` 和已否决模式回退。
 7. 未在 Board 确认的 Media、Responsive、Motion、Accessibility 细节在正式系统中保持 `Flexible` 或 `Open`。
 8. 正式系统不包含页面布局、业务模块、Elementor 控件、PHP 类名或 CSS Selector，UI Architect 可直接据此设计模块。
+9. 正式系统包含 Site Mode 与 Style Authority Intent，但不包含 Elementor Site Settings 映射。
 
 ## Brand Override
 
@@ -54,7 +61,7 @@
 1. 本 Skill 不创建专项状态文件。
 2. 由总控调度时，在关键门禁变化后返回最小状态信号，由总控更新唯一的 `docs/workflow-status.md`。
 3. 独立调用本 Skill 时不强制创建总控状态文件；不能因文件存在自行判断已确认。
-4. New Site 顾问按默认条件调用；明确方向或轻量请求可以跳过。Existing Site 仅在改版或视觉冲突时调用。顾问不可用不阻塞流程。
+4. New Site 顾问按默认条件调用；明确方向或轻量请求可以跳过。Existing Site 在改版、视觉冲突，或老站扩展要求保持风格但尚无确认基线时调用。顾问不可用不阻塞流程。
 
 ## Controlled Evolution
 

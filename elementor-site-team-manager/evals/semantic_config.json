@@ -1,0 +1,11 @@
+{
+  "fallback_positive_concepts": ["orchestration", "uncertain_stage"],
+  "positive_concepts": {
+    "orchestration": {"weight": 0.6, "phrases": ["完整流程", "全程协调", "从设计到 widgets", "elementor 建站"]},
+    "uncertain_stage": {"weight": 0.4, "phrases": ["不知道从哪里开始", "下一步是什么", "继续上次任务", "继续上次的网站任务", "判断当前", "哪个阶段"]}
+  },
+  "negative_concepts": {
+    "single_specialist": {"weight": 0.9, "exclusive": true, "phrases": ["只实现", "只提取", "只初始化", "只映射"]},
+    "release": {"weight": 0.9, "exclusive": true, "phrases": ["发布插件", "上传服务器"]}
+  }
+}

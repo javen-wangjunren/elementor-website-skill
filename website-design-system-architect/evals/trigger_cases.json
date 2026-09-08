@@ -1,0 +1,21 @@
+{
+  "skill": "website-design-system-architect",
+  "recommended_threshold": 0.28,
+  "should_trigger": [
+    "从零建立这个 B2B 新站的 Design System 和 Design Board",
+    "根据这个老站 URL 提取现有设计风格，后续新页面要保持一致",
+    "整理网站颜色字体组件规则并确认一个视觉基线",
+    "完全重建旧站，先建立新的跨技术栈 Design System"
+  ],
+  "should_not_trigger": [
+    "把确认 Design System 映射到 Elementor Site Settings",
+    "把首页设计成 Architecture Map 和 Segment",
+    "实现一个 Elementor Widget",
+    "初始化本地 Elementor 插件目录",
+    "直接修改线上网站的 Global Colors"
+  ],
+  "near_neighbor": [
+    {"text": "老站 Design System 已确认，现在整理 Elementor Token 继承合同", "family": "elementor_style_mapping"},
+    {"text": "只有一个 CTA 的确认 HTML，直接做 Widget", "family": "widget_implementation"}
+  ]
+}

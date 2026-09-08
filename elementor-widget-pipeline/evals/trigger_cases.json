@@ -6,14 +6,16 @@
     "从确认的整页 HTML 里只实现当前 CTA Section",
     "现有 Elementor 页面照这张明确图片补一个简单 CTA Widget，文案链接都确定了",
     "这个简单提示条按当前 Figma 直接实现，不需要独立 HTML",
-    "先给这个确认模块规划最少 Elementor 字段，我确认后再开发"
+    "先给这个确认模块规划最少 Elementor 字段，我确认后再开发",
+    "老站的 Style Contract 已确认，让这个新 Widget 继承现有 Global Style"
   ],
   "should_not_trigger": [
     "这个服务模块应该怎么设计，先给我三个布局方向",
     "根据确认的 Map 和 Segment 生成静态 HTML",
     "把整个页面的所有 Section 一次性做成 Widgets",
     "旧 Widget 在 Elementor 面板中找不到，帮我排错",
-    "发布插件到服务器并清理缓存"
+    "发布插件到服务器并清理缓存",
+    "把 Design System 映射成 Elementor Site Settings 合同"
   ],
   "near_neighbor": [
     {
@@ -27,7 +29,10 @@
     {
       "text": "修改现有 Widget 的 PHP 报错和编辑器白屏",
       "family": "bugfix"
+    },
+    {
+      "text": "老站只有 URL，还没有整理 Design System，就按截图直接做 CTA Widget",
+      "family": "missing_existing_style_system"
     }
   ]
 }
-

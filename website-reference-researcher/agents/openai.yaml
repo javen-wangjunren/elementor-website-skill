@@ -1,0 +1,4 @@
+interface:
+  display_name: "Website Reference Researcher"
+  short_description: "研究可迁移的品牌叙事、页面架构、艺术指导与视觉规则"
+  default_prompt: "Use $website-reference-researcher to research transferable cross-industry website references for this project."

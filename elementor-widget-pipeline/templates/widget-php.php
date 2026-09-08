@@ -13,11 +13,15 @@ if ( ! class_exists( 'YOUR_Widget_Class_Name' ) ) {
 		}
 
 		public function get_icon() {
-			return 'eicon-code';
+			return 'eicon-code your-project-custom-widget';
 		}
 
 		public function get_categories() {
-			return [ 'your-category', 'general' ];
+			return [ 'your-category' ];
+		}
+
+		public function get_keywords() {
+			return [ 'custom', 'your-project', 'your-widget-keyword' ];
 		}
 
 		public function get_style_depends() {
