@@ -22,7 +22,7 @@
 设计稿/directions/<page-slug>/page-segment-02-s5-s8.png
 ```
 
-- 用户明确需要整页图片预览时，才运行 `scripts/compose_segments.py` 把已确认 Segment 纵向拼接为 `page-composite-preview.png`。拼接不调用生图、不改变顺序、不裁切内容，也不成为设计权威。
+- 用户明确需要整页图片预览时，才运行 `scripts/compose_segments.py` 把已确认 Segment 按比例缩放、不裁切地纵向拼接为 `page-composite-preview.png`。拼接不调用生图、不改变顺序，也不成为设计权威。
 
 ## Image Generation Prompt Contract
 

@@ -47,7 +47,7 @@ description: Design and visually validate implementation-agnostic website pages 
 ## 交付与边界
 
 - 完整页面交付 `设计稿/directions/<page-slug>/<page-slug>-ui-architecture-map.md`、覆盖全部 Section 的已确认 Segment Set、按需的 Section Correction、Canonical Module Slug，以及按需生成的 `visual-direction-notes.md`。AI Overview 不属于默认交付。
-- 用户明确要求整页预览时，才用脚本把已确认 Segment 无损拼接为 `page-composite-preview.png`；它不是新的设计权威。
+- 用户明确要求整页预览时，才用脚本把已确认 Segment 按比例缩放、不裁切地纵向拼接为 `page-composite-preview.png`；它不是新的设计权威。
 - `visual-direction-notes.md` 在存在 Correction、B 类 HTML 修正、被保留的视觉语言参考或需跨会话交接时生成；Module Design Solution 默认紧凑写在 Map 内，不为每个模块新建文档。
 - 不编写或修改 HTML/CSS/JS，不执行 Browser QA，不规划 Elementor 字段，不实现 WordPress、React、Shopify 或其他平台代码。
 - 生成图只用于方向或明确占位，不得冒充真实工厂、设备、人员、证书、客户或结果证据。
