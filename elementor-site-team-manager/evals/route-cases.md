@@ -257,3 +257,21 @@
 请求：参考研究已完成，继续页面内容与视觉方向。
 
 期望：Brief 作为证据直接进入原流程；Page Content、Design Board 与 UI Architecture 仍分别执行自己的确认门禁。
+
+## 44. 明确单阶段不加载完整路由
+
+请求：插件、Style Contract、确认版 HTML 和 Slug 都已明确，只实现当前 Widget。
+
+期望：总控直接读取 `elementor-widget-pipeline`，不为形式读取完整 Routing Playbook 或 Workflow Contract；Pipeline 的字段门禁仍保留。
+
+## 45. 恢复任务按需加载路由
+
+请求：继续上次的整站任务，但当前阶段不清楚。
+
+期望：先读取 `docs/workflow-status.md`，再读取 Routing Playbook 核验依赖和确认依据；不能只凭候选文件恢复为 Confirmed。
+
+## 46. 跨阶段加载工作流合同
+
+请求：用户刚确认完整页面视觉方向，原目标还包含 HTML 与 Widget 实现。
+
+期望：读取 Workflow Contract，更新总状态并用最小派工包进入 HTML Prototyper；不重新读取无关阶段规则，也不同时派发多个 Widget。

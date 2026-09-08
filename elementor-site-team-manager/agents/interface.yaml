@@ -23,4 +23,4 @@ compatibility:
   degradation:
     uncertain_confirmation: "Treat files as evidence, not proof of user approval; ask only for the unresolved gate."
     missing_specialist: "Disclose the unavailable specialist and stop at the current stage rather than improvising its rules."
-    out_of_scope: "Explain the boundary and recommend an external workflow without adding it to the managed seven-skill process."
+    out_of_scope: "Explain the boundary and recommend an external workflow without adding it to the managed eight-skill process."
