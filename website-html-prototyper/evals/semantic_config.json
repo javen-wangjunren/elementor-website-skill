@@ -3,7 +3,7 @@
   "positive_concepts": {
     "static_html": {
       "weight": 0.4,
-      "phrases": ["static website page or module html", "html first drafts", "静态 html", "html 设计稿", "模块 html", "生成整页 html", "html 原型"]
+      "phrases": ["interactive website page or module html", "restrained motion implementation", "html first drafts", "静态 html", "交互 html", "html 设计稿", "模块 html", "生成整页 html", "html 原型"]
     },
     "render_review": {
       "weight": 0.3,

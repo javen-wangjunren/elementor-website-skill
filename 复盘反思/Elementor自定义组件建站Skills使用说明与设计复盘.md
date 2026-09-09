@@ -16,16 +16,19 @@ Widget 的 PHP、CSS 和字段接线相对明确。最难的部分始终是设�
 
 ## 一、整套体系由什么组成
 
-总控 `elementor-site-team-manager` 只协调五个专项 Skill，另外承担一个轻量的 Company Intake：
+总控 `elementor-site-team-manager` 协调八个专项 Skill，并承担一个轻量的 Company Intake。它们不是一条每次都全量执行的流水线，而是按项目证据与不确定性条件路由：
 
 | 角色 | Skill | 核心问题 | 主要产物 |
 | --- | --- | --- | --- |
 | 项目经理 / 路由总控 | `elementor-site-team-manager` | 现在处于哪个阶段，下一步该由谁做？ | 路由、门禁、`docs/workflow-status.md` |
 | 业务资料整理 | 总控内置 Company Intake | 我们到底能说什么，有什么证据和素材？ | `docs/company/about-company.md` |
 | 工程初始化 | `elementor-site-initialize` | Widget 应放进什么插件结构？ | `elementor-project.json`、插件骨架、交接目录 |
+| 参考研究 | `website-reference-researcher` | 哪些跨行业案例值得借鉴，能迁移什么？ | Visual Reference Brief |
 | 内容架构 | `website-page-content-architect` | 页面要完成什么决策任务，按什么顺序说？ | UI-ready Page Content Framework |
-| 视觉系统 | `website-design-system-architect` | 整个网站应该使用什么视觉语言？ | 行业研究、Design Board、Design System |
-| 页面与模块设计 | `website-ui-architect` | 每个 Section 怎么表达，设计假设和整页组合是否成立？ | UI Architecture Map、方向稿、Correction Notes、HTML、Module Slug |
+| 视觉系统 | `website-design-system-architect` | 整个网站应该使用什么视觉语言？ | Design Board、Design System |
+| 样式适配 | `elementor-site-style-adapter` | 已确认的视觉系统如何落到 Elementor / 主题边界？ | 平台样式适配规则 |
+| 页面与模块设计 | `website-ui-architect` | 每个 Section 怎么表达，设计假设和整页组合是否成立？ | UI Architecture Map、方向稿、Correction Notes、Module Slug |
+| HTML 原型与视觉 QA | `website-html-prototyper` | 真实渲染后设计是否成立？ | 确认版 HTML、HTML Design Review、Browser QA |
 | Elementor 实现 | `elementor-widget-pipeline` | 哪些内容可编辑，如何忠实实现为 Widget？ | 字段卡、PHP、CSS、可选 JS、验证结果 |
 
 用户通常只需要调用总控，不需要记住所有专项 Skill。总控根据目标和已有证据选择当前唯一需要的专项能力；一个阶段确认后，再继续计算下一步，而不是一次加载全部规则。
@@ -91,14 +94,22 @@ Company Intake 只在内容规划或新站视觉方向缺少可靠公司资料�
 
 它不决定布局，不写 HTML，也不生成 Canonical Module Slug。内容的职责先确定，视觉形式留给后续设计。
 
-### 5. `website-design-system-architect`：建立全站视觉语言
+### 5. `website-reference-researcher`：把参考网站变成可迁移证据
 
-这个 Skill 不设计某个页面，而是定义所有页面共享的视觉基线。新站从品牌、行业和同行证据开始；旧站则从真实页面中区分哪些视觉规则应该保留、统一、淘汰或继续观察。
+它不是静态“品牌网站收藏夹”，也不负责复制别人的 Design System。只有同行参考不足、目标需要更强的品牌或体验表达、页面缺少中心叙事、视觉方向持续模板化、关键模块没有合适表达，或用户明确给出参考网站时，才触发研究。
+
+它会先按“设计问题相似性”而不是行业标签选择 3–5 个真实网站：通常包括同行、相邻行业、品牌叙事和专项模块参考。研究输出是一份 Visual Reference Brief，分别记录品牌叙事、页面架构、内容取舍、Art Direction、视觉系统，以及哪些是 `Observed / Inferred / Transferable / Not Transferable`。
+
+下游只读取自己需要的字段：内容架构读取叙事与证据策略；视觉系统读取 Art Direction 与视觉边界；UI Architect 读取模块构图、媒体和响应式迁移原则。外站的事实、专属素材、品牌身份和完整风格都不能照搬进项目。
+
+### 6. `website-design-system-architect`：建立全站视觉语言
+
+这个 Skill 不设计某个页面，而是定义所有页面共享的视觉基线。新站从品牌、真实素材与适用的 Visual Reference Brief 开始；旧站则从真实页面中区分哪些视觉规则应该保留、统一、淘汰或继续观察。
 
 标准生命周期是：
 
 ```text
-行业与品牌输入
+公司与品牌输入 +（条件触发时）Visual Reference Brief
 → 2–3 个文字方向
 → 用户选定一个方向
 → 对话内形成临时规则草稿
@@ -115,9 +126,9 @@ Design Board 不是页面稿，也不是营销 Landing Page。它只验证 Butto
 
 亮点是 **先规则、后组合验证、再正式固化**。正式系统还会把规则分成 `Locked / Flexible / Open`，避免 AI 把尚未验证的细节伪装成既定规范。
 
-### 6. `website-ui-architect`：把内容和规则变成真正的页面
+### 7. `website-ui-architect`：把内容和规则变成真正的页面
 
-这是整套体系中最复杂的 Skill。它读取已确认的 Page Content Framework、Design System、真实素材和参考，把“应该说什么”与“网站应该像什么”转化为具体构图、方向稿和 HTML。
+这是整套体系中最复杂的 Skill。它读取已确认的 Page Content Framework、Design System、真实素材，以及适用的 Visual Reference Brief，把“应该说什么”与“网站应该像什么”转化为具体构图、方向稿和可交给 HTML 原型阶段的实现决策。
 
 完整页面必须先生成 Page UI Architecture Map。Map 会逐个 Section 规定：模块任务、访客只需记住什么、内容之间属于并列、主从、分类、过程还是对比、核心证据、证据的查看方式与优先级、推荐 Layout、媒体关系、图片比例、CTA 层级、Surface 衔接、移动端顺序和需要避免的重复形式。它不锁定像素和 DOM，但必须让下一步不再重新猜构图。
 
@@ -130,7 +141,7 @@ Map 交给用户确认前，先执行一次 **Module Design Review**，从四层
 
 “方向图忠实还原了 Map”不等于设计合理。如果 Map 已把五项并列设备证据写成永久“一张大图、四张小图”，生图越忠实，后续 HTML 返工反而越确定。正确做法是先将其定义为等权证据；Viewer 可以一次放大一项，但每张图都必须能切换到相同查看尺寸，默认 Active Item 不代表业务优先级。
 
-Map 通过审查并由用户确认后，才按需生成图片方向稿。长页面默认使用一张 Overview 加数张分段稿：Overview 看整页顺序、色彩与 Surface 节奏；分段稿看真实密度、留白、构图、证据可见性和素材比例。这样避免为了把十几个模块塞进一张长图而压扁 Section、缩小文字或把图片改成失真的横条。
+Map 通过审查并由用户确认后，才按需生成图片方向稿。长页面以 2–4 个 Section 为一组生成分段稿，用来判断真实密度、留白、构图、证据可见性和素材比例；整页 Composite Preview 只在用户明确需要时，基于已确认分段拼合。这样避免为了把十几个模块塞进一张长图而压扁 Section、缩小文字或把图片改成失真的横条。
 
 方向稿是低成本设计假设，不是设计师终稿，也不是 HTML 的逐像素合同。它只需让人判断模块构图、证据主次、大致比例、密度、留白和节奏，不需要把接近 `4:3` 的横图反复生成为精确 `4:3`。精确比例、Section 高度、文字换行与最终裁切应在 HTML 中控制。
 
@@ -142,16 +153,21 @@ Map 通过审查并由用户确认后，才按需生成图片方向稿。长页�
 
 当 A 类问题已经消除，方向足以指导 HTML 时立即停止生图。Review 的目标是降低后续重写成本，不是把图片初稿打磨成最终设计文件。
 
-方向确认后，有两条 HTML 路径：
-
-- **整页优先**：方向已经成熟时，直接生成整页 HTML First Draft，再进行整页审查与 QA；
-- **逐模块优先**：复杂、需要复用或仍有局部不确定时，逐个模块设计、确认，再拼成整页。
-
-两条路径都不是偷懒版或高级版，而是针对不同不确定性的选择。用户可以中途切换，但进入 Pipeline 前必须确认最终实现源。HTML 生成时先执行方向稿留下的 Correction Notes，再结合真实文案、真实素材和相邻 Section 做 HTML Design Review，而不是机械复刻生图中的错误。
+方向确认后，UI Architect 将 Map、方向稿和 Correction Notes 交给 HTML Prototyper。它不再直接写 HTML，以免同一角色一边定义设计、一边在浏览器中为实现妥协而掩盖上游问题。
 
 这个 Skill 还负责确定 Canonical Module Slug。Slug 同时约束设计稿 basename、Widget `get_name()` 和相关资源文件，从设计一直贯穿到代码，避免出现 `final-v2-new` 式版本漂移。
 
-### 7. `elementor-widget-pipeline`：克制地实现，而不是二次设计
+### 8. `website-html-prototyper`：用真实页面完成视觉 QA
+
+HTML Prototyper 以确认的 UI Architecture Map、Design System、真实文案和真实素材为输入，生成或迭代 HTML First Draft，并在浏览器中完成 HTML Design Review 与 Browser QA。它验证的不是“图片像不像”，而是颜色在整页是否和谐、排版和留白是否成立、模块的真实内容密度是否合理、断点是否溢出、图片裁切与交互是否可靠。
+
+它将问题回退到正确层：核心构图、证据关系和页面节奏回到 UI Architect；全站共享的配色、字体、Surface 或组件问题回到 Design System；公司事实和内容取舍回到 Page Content；仅属于尺寸、换行、裁切、断点或实现的内容留在 HTML 阶段修正。确认版 HTML 才是 Widget Pipeline 的实现源。
+
+### 9. `elementor-site-style-adapter`：明确平台边界
+
+Style Adapter 在进入 Elementor 实现前，将已确认的通用视觉系统映射为可执行的平台规则：哪些由 Widget CSS 承担，哪些必须遵守主题或 Elementor 的既有边界，避免 Pipeline 在实现时重新发明视觉语言。
+
+### 10. `elementor-widget-pipeline`：克制地实现，而不是二次设计
 
 Pipeline 一次只实现一个已经确认的 Section。它首先读取最终 HTML 实现源，然后提出一张最小字段确认卡，明确哪些内容允许用户在 Elementor 编辑，哪些布局和视觉规则固定在代码中。
 
@@ -192,13 +208,13 @@ Pipeline 一次只实现一个已经确认的 Section。它首先读取最终 HT
 每一层只解决一种不确定性：
 
 1. **事实层**解决“能不能这样说”；
-2. **内容层**解决“应该说什么、先说什么”；
-3. **Design System 层**解决“整个网站使用什么视觉语言”；
-4. **Architecture Map 层**解决“每个 Section 如何构图、证据如何查看、整页如何形成节奏”；
-5. **Map Review 层**在生图前解决“这个设计方案本身是否合理”；
-6. **方向稿层**低成本验证“假设视觉化以后是否仍然成立”，并区分哪些问题必须重生、哪些留给 HTML；
-7. **HTML Review 层**用真实内容与上下文验证“设计是否真正成立”；
-8. **实现层**验证断点、溢出、交互、无障碍和 Elementor 接线是否可靠。
+2. **参考研究层（条件触发）**解决“外部案例中哪些原则可迁移”；
+3. **内容层**解决“应该说什么、先说什么”；
+4. **Design System 层**解决“整个网站使用什么视觉语言”；
+5. **Architecture Map 层**解决“每个 Section 如何构图、证据如何查看、整页如何形成节奏”；
+6. **Map Review 与方向稿层**在低成本阶段验证设计假设；
+7. **HTML Review 层**用真实内容、真实浏览器和整页上下文验证“设计是否真正成立”；
+8. **平台实现层**验证 Elementor 接线和可编辑性是否可靠。
 
 这不是为了流程而流程。它的价值在于让昂贵的返工尽可能发生在更早、更便宜的阶段：方向不对，在文字方向阶段改；构图不对，在 Map 或方向稿阶段改；真实内容导致拥挤和空洞，在 HTML Review 阶段改；平台接线问题，最后才进入 Pipeline 处理。
 
@@ -208,7 +224,7 @@ Pipeline 一次只实现一个已经确认的 Section。它首先读取最终 HT
 
 ### 1. 不允许内容、视觉和实现互相越权
 
-内容 Skill 不提前决定 Layout；Design System 不设计业务 Section；UI Architect 不发明公司事实；Pipeline 不为了接字段而改变设计。职责边界使每个决定都能追溯到正确来源。
+研究 Skill 不把外站事实变成项目事实；内容 Skill 不提前决定 Layout；Design System 不设计业务 Section；UI Architect 不发明公司事实；HTML Prototyper 不用 CSS 掩盖上游构图问题；Pipeline 不为了接字段而改变设计。职责边界使每个决定都能追溯到正确来源。
 
 ### 2. 不是一次 QA，而是四个不同的审查门
 
@@ -237,7 +253,7 @@ AI 负责发现和修正有充分证据的问题；用户负责业务真实性�
 
 ### 5. 每个主观阶段都有用户门禁
 
-同行研究名单、文字方向、Design Board、内容框架、UI Architecture Map、视觉方向、最终 HTML 和 Elementor 字段，都在各自最合适的时点由用户确认。文件存在只证明产物存在，不证明用户已确认。
+文字方向、Design Board、内容框架、UI Architecture Map、视觉方向、最终 HTML 和 Elementor 字段，都在各自最合适的时点由用户确认。Reference Research 仅在触发时确认研究对象；其简报是证据输入，不额外增加最终决策门禁。文件存在只证明产物存在，不证明用户已确认。
 
 门禁不是让用户审批每个内部检查表，而是让用户只决定那些 AI 无法替代的业务事实、审美偏好与编辑需求。内部 QA 可以严格，用户交互必须轻量。
 
@@ -285,13 +301,13 @@ Layout 必须匹配真实信息的数量、长度和类型。短数字不应为�
 
 ### 6. 长页面不压缩进一张生图
 
-Overview 与分段稿分工，避免 AI 为适应画布而压扁模块、削弱留白、缩小文字和破坏正常素材比例。方向图只需要证明方向成立，精确比例和真实换行留给 HTML。
+分段稿优先，避免 AI 为适应单张长画布而压扁模块、削弱留白、缩小文字和破坏正常素材比例。Composite Preview 仅用于用户需要整体浏览时，并且只能由确认分段拼合；精确比例和真实换行留给 HTML。
 
 ### 7. 设计判断由当前体系内部完成
 
 当前流程不再依赖额外的通用设计顾问 Skill。Design System 的设计师自查负责视觉语言、基础组件和一致性；Module Design Review 负责商业任务、证据结构、信息几何和页面上下文；HTML Design Review 与 Browser QA 分别负责真实渲染和实现验证。这些规则已经覆盖实际项目需要，也更贴近 B2B 网站的业务与证据环境。
 
-删除通用顾问并不代表降低审美要求，而是避免引入与当前任务重复、缺少项目上下文或带有绝对审美偏好的建议。需要新的设计方向时，应优先回到同行证据、真实素材、Design System 和当前页面任务，而不是再叠加一层泛化评审。
+删除通用顾问并不代表降低审美要求，而是避免引入与当前任务重复、缺少项目上下文或带有绝对审美偏好的建议。需要新的设计方向时，应优先回到适用的 Visual Reference Brief、真实素材、Design System 和当前页面任务，而不是再叠加一层泛化评审。
 
 最终要避免的不是某个具体组件，而是 **没有内容理由、没有证据理由、没有上下文理由的设计决定**。
 
@@ -305,6 +321,7 @@ Overview 与分段稿分工，避免 AI 为适应画布而压扁模块、削弱�
 
 ```text
 Company Intake（资料不足时）
+→ Reference Research（仅在同行参考不足、品牌/体验目标较高或用户提供参考时）
 ├→ Page Content
 └→ Design System
 
@@ -317,10 +334,9 @@ Page Content + Design System 均确认
 → 图片视觉方向（按需）
 → Visual Direction Review（A/B/C 分流）
 → 用户确认视觉方向
-→ 整页优先或逐模块优先 HTML
-→ 执行 Correction Notes + HTML Design Review
-→ Browser / Implementation QA
+→ HTML Prototyper：执行 Correction Notes + HTML Design Review + Browser QA
 → 用户确认页面与当前 Widget 实现源
+→ Style Adapter：确认平台样式边界
 → Pipeline 逐个实现 Widget
 → 用户在 Elementor 中组装并做最终整页验收
 ```
@@ -329,7 +345,7 @@ Page Content + Design System 均确认
 
 ### 场景二：只做一个独立模块
 
-如果已有明确的真实内容、页面上下文和确认版 Design System，不必先创建整页内容框架或 Architecture Map。可以直接由 UI Architect 完成模块方向、HTML 和 Canonical Module Slug，再交给 Pipeline。
+如果已有明确的真实内容、页面上下文和确认版 Design System，不必先创建整页内容框架或 Architecture Map。可以由 UI Architect 完成模块方向与 Canonical Module Slug，再交给 HTML Prototyper 完成模块 HTML 与视觉 QA，最后进入 Pipeline。
 
 ### 场景三：已有确认版 HTML，只想实现 Widget
 
@@ -345,7 +361,7 @@ Page Content + Design System 均确认
 
 > 使用 `elementor-site-team-manager`，继续完成这个企业站的首页设计和自定义 Widget。请根据当前项目状态判断下一步，不重做已经确认的内容；每到需要我决定的门禁时，给我简短说明和推荐意见。
 
-用户不需要把所有步骤一次说全，也不需要手动切换五个专项 Skill。
+用户不需要把所有步骤一次说全，也不需要手动切换各个专项 Skill。
 
 ---
 

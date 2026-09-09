@@ -4,6 +4,7 @@
 
 - 对新增和修改的 PHP 执行 `php -l`。
 - 有 JS 时执行语法检查；无交互时确认没有 JS 文件、script handle 和 `get_script_depends()`。
+- 有 Motion 时核对字段卡的 Motion Source、Layer、Trigger、Mobile、Reduced Motion 和 Runtime Requirements 均来自确认 HTML/合同，没有新增动画 Controls 或临时改动目的。
 - 核对入口中的资源 handle、文件路径、`require_once`、类名和注册语句。
 - Confirmed HTML Path 核对设计稿 basename；Fast Path 核对已确认字段卡。两条路径都要确保 `MODULE SLUG`、Widget `get_name()`、PHP/CSS/可选 JS 文件名一致。
 - 核对 Widget 的 `get_name()`、Elementor `element_ready` hook 与 JS 选择器一致。
@@ -20,9 +21,11 @@
 4. 验证空值、长标题、长正文、无图片，以及 Repeater 的 0、1、默认数量和较多条目（仅适用时）。
 5. 在桌面、平板和移动端确认无裁切或意外横向滚动。
 6. 同页放入多个实例，确认样式和状态互不串台。
-7. 有交互时，在前台和 Elementor 编辑器重新渲染后验证鼠标、键盘、ARIA 状态和 reduced-motion。
-8. 确认浏览器控制台无新增错误。
-9. 新站确认项目 Global Style 生效；老站确认 Widget 在代表页面继承现有字体、颜色、按钮与 Surface，且没有改变其他模块。
+7. 有交互时，在前台和 Elementor 编辑器重新渲染后验证鼠标、键盘、Touch、ARIA 状态和 reduced-motion。
+8. 同一 Widget 重复编辑、删除、重新拖入并切换预览，确认 Observer、监听、Timer、RAF 和视频不会重复运行或继续占用；无可靠销毁 Hook 的任务会在根节点断开后自终止。
+9. 禁用 JavaScript 时核心内容仍可见；移动端按合同简化/移除，视频离屏暂停且非当前视频不播放。
+10. 确认浏览器控制台无新增错误。
+11. 新站确认项目 Global Style 生效；老站确认 Widget 在代表页面继承现有字体、颜色、按钮与 Surface，且没有改变其他模块。
 
 ## 交付结果
 

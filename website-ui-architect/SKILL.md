@@ -1,6 +1,6 @@
 ---
 name: website-ui-architect
-description: Design and visually validate implementation-agnostic website pages or modules from an approved Design System and confirmed content. Use for Module Design Solutions, Page UI Architecture Maps, media and evidence decisions, visual-direction images, and direction review before HTML. Do not use to write or review HTML/CSS/JS, run browser implementation QA, plan platform fields, or implement CMS components.
+description: Design and visually validate implementation-agnostic website pages or modules from an approved Design System and confirmed content. Use for Module Design Solutions, Page UI Architecture Maps, media, evidence, page motion budgets, section motion intent, visual-direction images, and direction review before HTML. Do not use to write or review HTML/CSS/JS, run browser implementation QA, plan platform fields, or implement CMS components.
 ---
 
 # Website UI Architect
@@ -18,8 +18,8 @@ description: Design and visually validate implementation-agnostic website pages 
 ## 唯一流程
 
 1. 提取 Section Job、客户问题、真实内容与证据、页面上下文和品牌约束；检查是否有适用 Visual Reference Brief，并只提取本 Skill 负责的字段。
-2. 每个 Section 先读取 [布局与构图原则](references/layout-composition-principles.md)，再完成紧凑的 Module Design Solution，包含沟通目标、信息层级、证据归属、扫读路径、视觉叙事、UI Composition、响应式叙事、禁止方案和成功标准，最后根据任务、内容关系和认知成本确定 Layout。媒体 Section 同时完成 Media Display Contract。
-3. 完整页面写入 Page UI Architecture Map，执行 Module Solution Qualification 与 Media Fitness Review，明确问题自动修正一轮后交给用户确认。单模块可使用同等明确的 Brief。
+2. 每个 Section 先读取 [布局与构图原则](references/layout-composition-principles.md)，再完成紧凑的 Module Design Solution，包含沟通目标、信息层级、证据归属、扫读路径、视觉叙事、UI Composition、响应式叙事、禁止方案和成功标准，最后根据任务、内容关系和认知成本确定 Layout。媒体 Section 同时完成 Media Display Contract；存在交互、内容显现或页面动态需求时按 [Motion Intent Contract](references/motion-intent-contract.md) 定义目的与降级。
+3. 完整页面写入 Page UI Architecture Map，同时定义 Page Motion Budget，执行 Module Solution Qualification、Media Fitness 与 Motion Fitness Review，明确问题自动修正一轮后交给用户确认。单模块可使用同等明确的 Brief。
 4. 从确认 Map 按叙事关系编译 Segment 提示词；通常每张覆盖 2–4 个 Section，复杂 Section 可独占一张。生图前先告知预计数量、Section 范围与文件名；每个 Segment 默认只生成一个候选，不生成 AI Overview。
 5. 对方向稿分别执行 Structure Fidelity 与 Visual Language Review，再检查 Solution、Map 和 Media Fidelity。A 类问题先报告并停止生图；用户确认修正后只生成受影响 Section 的 Correction Direction。B 类写入 HTML Correction Notes；C 类噪声不阻塞确认。
 6. 用户确认视觉方向后生成 Canonical Module Slug，交付确认的视觉设计包。原始目标包含 HTML 时，在同一任务中继续采用 `website-html-prototyper`，不要求用户重新调用 Skill。
@@ -36,17 +36,18 @@ description: Design and visually validate implementation-agnostic website pages 
 
 | 当前任务 | 读取 |
 | --- | --- |
-| 完整页面 Map | [Page UI Architecture Map](references/page-ui-architecture-map.md) + [Module Design Review](references/module-design-review.md) + [布局与构图原则](references/layout-composition-principles.md) |
+| 完整页面 Map | [Page UI Architecture Map](references/page-ui-architecture-map.md) + [Module Design Review](references/module-design-review.md) + [布局与构图原则](references/layout-composition-principles.md) + [Motion Intent Contract](references/motion-intent-contract.md) |
 | 整页或模块图片方向 | [Visual Direction](references/visual-direction.md) + [布局与构图原则](references/layout-composition-principles.md) |
 | 用户明确需要整页图片预览 | [Visual Direction](references/visual-direction.md) + `scripts/compose_segments.py` |
 | B2B、企业站或证据驱动模块 | [证据驱动设计](references/evidence-led-design.md) |
+| 页面太静态、需要增加活力或设计 Signature | [Motion Intent Contract](references/motion-intent-contract.md)；只补受影响页面/Section，不让 HTML 临时发明 |
 | 方案不明确、需比较，或用户认为结果简单/普通/怪异 | [设计探索](references/design-exploration.md)；按条件返回 `website-reference-researcher`，或可选调用 Product Design `ideate` |
 | 视觉确认后命名 | [模块命名](references/module-naming.md) |
 | 验证设计门禁与回归行为 | [行为用例](evals/design-workflow-cases.md) |
 
 ## 交付与边界
 
-- 完整页面交付 `设计稿/directions/<page-slug>/<page-slug>-ui-architecture-map.md`、覆盖全部 Section 的已确认 Segment Set、按需的 Section Correction、Canonical Module Slug，以及按需生成的 `visual-direction-notes.md`。AI Overview 不属于默认交付。
+- 完整页面交付 `设计稿/directions/<page-slug>/<page-slug>-ui-architecture-map.md`（含 Page Motion Budget 与 Section Motion Intent）、覆盖全部 Section 的已确认 Segment Set、按需的 Section Correction、Canonical Module Slug，以及按需生成的 `visual-direction-notes.md`。AI Overview 不属于默认交付。
 - 用户明确要求整页预览时，才用脚本把已确认 Segment 按比例缩放、不裁切地纵向拼接为 `page-composite-preview.png`；它不是新的设计权威。
 - `visual-direction-notes.md` 在存在 Correction、B 类 HTML 修正、被保留的视觉语言参考或需跨会话交接时生成；Module Design Solution 默认紧凑写在 Map 内，不为每个模块新建文档。
 - 不编写或修改 HTML/CSS/JS，不执行 Browser QA，不规划 Elementor 字段，不实现 WordPress、React、Shopify 或其他平台代码。

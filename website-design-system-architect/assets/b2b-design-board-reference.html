@@ -74,7 +74,24 @@
     th, td { padding: 15px 18px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     th:last-child, td:last-child { border-right: 0; }
     tr:last-child td { border-bottom: 0; }
+    .motion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space); }
+    .motion-sample { min-height: 190px; display: flex; flex-direction: column; justify-content: space-between; }
+    .motion-action { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; transition: transform 180ms cubic-bezier(.22,1,.36,1), background 180ms ease; }
+    .motion-action span { transition: transform 180ms cubic-bezier(.22,1,.36,1); }
+    .motion-action:hover, .motion-action:focus-visible { transform: translateY(-2px); }
+    .motion-action:hover span, .motion-action:focus-visible span { transform: translateX(3px); }
+    .motion-reveal { padding: 18px; border-left: 3px solid var(--primary); background: var(--soft); }
+    .motion-reveal.is-playing { animation: motion-reveal 600ms cubic-bezier(.22,1,.36,1) both; }
+    .motion-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .motion-tabs button { min-height: 38px; padding: 0 14px; border-color: var(--line); transition: color 320ms ease, border-color 320ms ease, background 320ms ease; }
+    .motion-tabs button[aria-selected="true"] { border-color: var(--primary); background: var(--soft); color: var(--primary-dark); }
+    @keyframes motion-reveal { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .motion-reveal { opacity: 1; transform: none; }
+    }
     @media (max-width: 760px) { .g4, .g3, .g2 { grid-template-columns: 1fr; } }
+    @media (max-width: 760px) { .motion-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -149,9 +166,35 @@
   </section>
 
   <section>
-    <p class="eyebrow">07 / Table</p><h2>Technical data readability</h2>
+    <p class="eyebrow">07 / Motion Preview</p><h2>Restrained movement with a purpose</h2>
+    <div class="motion-grid">
+      <div class="panel motion-sample"><div><h3>Feedback · 180ms</h3><p class="note">Small movement confirms an actionable control.</p></div><button class="primary motion-action">Review capability <span aria-hidden="true">→</span></button></div>
+      <div class="panel motion-sample"><div><h3>Reveal · 600ms</h3><p class="note">Use once when order supports understanding.</p></div><div class="motion-reveal" data-motion-reveal>Evidence stays visible without JavaScript.</div><button type="button" data-motion-replay>Replay</button></div>
+      <div class="panel motion-sample"><div><h3>State · 320ms</h3><p class="note">The selected state remains explicit.</p></div><div class="motion-tabs" role="tablist" aria-label="Motion state example"><button type="button" role="tab" aria-selected="true">Overview</button><button type="button" role="tab" aria-selected="false">Data</button></div></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">08 / Table</p><h2>Technical data readability</h2>
     <div class="table-wrap"><table><thead><tr><th>Sample grade</th><th>Form</th><th>Thickness</th><th>Status</th></tr></thead><tbody><tr><td>Grade A</td><td>Sheet</td><td>1.00 mm</td><td>Example</td></tr><tr><td>Grade B</td><td>Plate</td><td>6.00 mm</td><td>Example</td></tr><tr><td>Grade C</td><td>Bar</td><td>12.00 mm</td><td>Example</td></tr></tbody></table></div>
   </section>
 </main>
+<script>
+  document.querySelectorAll('[data-motion-replay]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var target = button.parentElement.querySelector('[data-motion-reveal]');
+      if (!target) return;
+      target.classList.remove('is-playing');
+      requestAnimationFrame(function () { target.classList.add('is-playing'); });
+    });
+  });
+  document.querySelectorAll('.motion-tabs [role="tab"]').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tab.parentElement.querySelectorAll('[role="tab"]').forEach(function (item) {
+        item.setAttribute('aria-selected', String(item === tab));
+      });
+    });
+  });
+</script>
 </body>
 </html>

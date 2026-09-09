@@ -25,3 +25,4 @@
 4. 只有截图但缺少 Active Baseline：保持 `Pending Evidence`，先返回 Design System 阶段。
 5. 文件存在但无法证明用户确认：不得写成 `Confirmed`。
 6. 只有子主题目录和 CSS 文件、没有可观察样式异常：不得生成“潜在冲突”结论，也不得阻塞 Style Mapping。
+7. Design System 包含 Motion Token 与页面 Signature：不映射成 Elementor Global Token；合同注明继续由 UI Map、确认 HTML 与 Widget Pipeline 负责。

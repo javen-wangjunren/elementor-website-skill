@@ -4,13 +4,13 @@
   "should_trigger": [
     "根据已经确认的首页 Architecture Map 和完整 Segment Set 生成整页 HTML 设计稿",
     "把这几个已经确认的模块 HTML 拼成一个完整页面并检查节奏",
-    "检查当前静态 HTML 的桌面、移动端、键盘和交互问题",
+    "检查当前交互 HTML 的桌面、移动端、键盘、动效和 reduced-motion 问题",
     "方向已经确认，请按 Segment 修正当前模块 HTML",
-    "把确认的模块设计实现为一个可浏览的静态 HTML 原型"
+    "把确认的模块设计和 Motion Intent 实现为一个可浏览的交互 HTML 原型"
   ],
   "should_not_trigger": [
     "为首页规划 Architecture Map 并生成视觉方向图",
-    "重新设计这个看起来很普通的 How It Works 模块",
+    "重新设计这个看起来很普通的 How It Works 模块并决定为什么要动",
     "整理页面内容框架和英文文案",
     "创建网站 Design System 和 Style Board",
     "把确认的 HTML 开发成 Elementor Widget 并规划 Controls"

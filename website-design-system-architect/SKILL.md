@@ -1,6 +1,6 @@
 ---
 name: website-design-system-architect
-description: Create or evolve an implementation-agnostic website design system from existing-site evidence, verified brand inputs, and an optional Visual Reference Brief. Use to establish a new visual baseline, extract an existing site's rendered visual system for style-preserving extensions, validate one selected baseline with a compact Design Board, or update shared visual rules before page/module design. Do not conduct cross-industry reference research, map Elementor settings, create page layouts, design modules, or implement production code.
+description: Create or evolve an implementation-agnostic website design system from existing-site evidence, verified brand inputs, and an optional Visual Reference Brief. Use to establish visual and restrained-motion baselines, extract an existing site's rendered system for style-preserving extensions, validate one selected baseline with a compact Design Board, or update shared rules before page/module design. Do not conduct cross-industry reference research, map Elementor settings, create page layouts, design modules, or implement production code.
 ---
 
 # Website Design System Architect
@@ -35,7 +35,7 @@ description: Create or evolve an implementation-agnostic website design system f
    - **Rebuild**：虽有旧站，但用户明确从零重建设计时按 New Site 处理；旧站只作经确认的内容或参考证据，不自动成为视觉权威。
 2. New Site / Rebuild 只选择性读取适用 Visual Reference Brief 的 `Art Direction`、`Visual System / DESIGN.md` 与迁移边界；需要跨行业研究但简报缺失时返回总控并路由 `website-reference-researcher`，已有简报时不重复研究。Existing Site 的本体提炼仍按现有站证据工作。
 3. Existing Site 涉及网页证据采集时，读取 [共享浏览器研究协议](references/browser-research.md)。
-4. 两条路径都遵守 [Design System 标准](references/design-system-standard.md)；形成临时规则草稿、生成 Design Board 或处理共享视觉规则时读取 [视觉系统原则](references/visual-system-principles.md)。
+4. 两条路径都遵守 [Design System 标准](references/design-system-standard.md)；形成临时规则草稿、生成 Design Board 或处理共享视觉规则时读取 [视觉系统原则](references/visual-system-principles.md)。建立或提炼跨页面动效基线时同时读取 [Motion System Standard](references/motion-system-standard.md)。
 5. 生成 Design Board 时读取 [B2B Design Board 默认模式](references/design-board-pattern.md)。
 6. 交付 Design Board 或 Active Baseline 前读取并执行 [设计师自查](references/design-review.md)，并用视觉系统原则验证色彩角色、明度、饱和度、排版、空间、Surface 与组件状态是否形成同一语言。
 7. 当 `website-html-prototyper` 提交 D 类系统问题时，核对它是否在多个位置重复出现且根因属于共享规则；成立时只更新受影响 token、语义角色或共享规则，记录渲染证据和影响范围，再交回原页面复验。单页例外不修改全局系统。
@@ -53,7 +53,7 @@ description: Create or evolve an implementation-agnostic website design system f
 
 ## 职责边界
 
-- 本 Skill 定义基础视觉语言、基础组件规则，以及正式 Design System 中的平台中立媒体、响应式、动效与可访问性基线。
+- 本 Skill 定义基础视觉语言、基础组件规则，以及正式 Design System 中的平台中立媒体、响应式、Motion Foundation 与可访问性基线；不决定页面或 Section 的具体动画。
 - 本 Skill 记录 `Style Authority Intent` 与可追溯视觉证据，但不把公开页面观察伪装成 Elementor Global Token，也不输出平台设置映射。
 - `website-ui-architect` 负责页面构图、模块表达、页面级视觉节奏和视觉方向确认；`website-html-prototyper` 负责模块/整页 HTML 与实现 QA。
 - `elementor-site-style-adapter` 在需要 Elementor 实现时把已确认 Design System 映射为 Site Settings 与 Widget 继承契约。

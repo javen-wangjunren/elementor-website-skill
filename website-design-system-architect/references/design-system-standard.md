@@ -45,7 +45,8 @@ Design Board 只回答：
 - Container、Grid 与 Spacing；
 - Border、Radius 与 Shadow；
 - Button、Link、Heading、Text、Badge/Chip、Card、List、Icon、Tabs、Accordion、Table；
-- 必要的 Hover、Focus、Active、Disabled 状态。
+- 必要的 Hover、Focus、Active、Disabled 状态；
+- 一个紧凑 Motion Preview Strip：Layer 1 按钮/链接反馈、Layer 2 内容显现和 Tabs/Accordion 状态过渡。它只验证运动性格，不包含业务 Section 或 Layer 3 Signature。
 
 默认组件结构与表现遵循 [B2B Design Board 默认模式](design-board-pattern.md)。具体品牌色、字体、密度与形状可被已确认品牌规范和用户决定覆盖；默认示例不等于强制视觉主题。
 
@@ -103,7 +104,7 @@ Design Board 只回答：
 7. 基础组件规则与状态；
 8. 图片比例、裁切、Caption 与 Media Rules；
 9. Evidence Guardrails：事实型媒体必须与已确认资料匹配；
-10. Motion、Responsive 与 Accessibility 基线；
+10. Motion Foundation、Responsive 与 Accessibility 基线；Motion Foundation 至少包含 Motion Level、Token、三层职责、默认禁止项、移动端与 Reduced Motion；
 11. `Locked / Flexible / Open`；
 12. 已知例外与待验证项。
 
@@ -113,7 +114,7 @@ Existing Site 还应记录代表 URL、查看日期、渲染证据可信度，�
 
 Form 默认标记为插件负责，不纳入首版基础组件规则；确有跨页面统一定制需求时再增加。
 
-Board 未展示 Media、Responsive、Motion 与 Accessibility，不代表正式系统删除这些领域。未经用户确认的具体细节必须标为 `Flexible` 或 `Open`，不得伪装成已确认规则。
+Board 不展示 Media、Responsive 与 Accessibility，也不展示页面级 Signature。Motion Preview Strip 只确认基础运动性格；未经用户确认的具体页面动效必须标为 `Flexible` 或 `Open`，不得伪装成已确认规则。
 
 ## 7. Active Baseline 设计师自查
 

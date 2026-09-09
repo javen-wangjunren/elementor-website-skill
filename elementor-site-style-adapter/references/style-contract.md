@@ -91,6 +91,7 @@ Widget Action: inherit / Elementor variable + fallback / approved local override
 - Layout：记录 Content Width、Container Padding、Widget Gap 和已确认断点；未知项保持 `Open`。
 - Form 在 Design System 未定义时保持 `Open` 或继承现站，不临时发明。
 - Lightbox、Page Transition、Background 等仅在项目明确需要时加入人工清单。
+- Motion Token、Section Motion Intent 和 Signature 不映射为 Elementor Global Style。合同只注明它们由 Design System、UI Map、确认 HTML 与 Widget Pipeline 继续传递；若 Elementor 没有对应全局能力，不创建伪 Global Token。
 
 ## Widget Inheritance Contract
 

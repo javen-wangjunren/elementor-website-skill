@@ -63,7 +63,8 @@ DIRECTION:
 - 颜色、字体、间距、容器和形状；
 - 图片处理；
 - 基础组件及状态；
-- 初步 `Locked / Flexible / Open`。
+- 初步 `Locked / Flexible / Open`；
+- 按 [Motion System Standard](motion-system-standard.md) 采用或调整 `Motion Level: Restrained`、三层职责与默认 Token。
 
 草稿只保留在对话中，不创建 `design-system-draft.md`，也不称为正式 Design System。
 
@@ -77,6 +78,7 @@ DIRECTION:
 - 公司名称、Logo 和品牌必须来自已确认输入；
 - 示例事实必须已验证，否则使用明显中性的演示文字；
 - 不设置方向切换，不复制多套 CSS 或组件。
+- 增加一个紧凑 Motion Preview Strip，只演示 Layer 1 Feedback、Layer 2 Reveal 和状态切换；不设计页面级 Signature。
 
 ## 6. 设计师自查、用户查看与确认
 
@@ -92,6 +94,7 @@ Design Board 只用于判断设计风格与基础组件组合，不承担实现�
 - 记录当前已确认规则；
 - 写明 `Locked / Flexible / Open`；
 - 保留媒体、真实性、响应式与可访问性基线；
+- 写入 Motion Foundation、Token、三层职责、移动端与 Reduced Motion 基线；
 - 说明首版已知限制。
 - 记录 `Site Mode` 与 `Style Authority Intent: Project Design System`。
 

@@ -11,7 +11,9 @@ SECTION BOUNDARY:
 CONFIRMED DESIGN SOURCES:
 ASSET / TRUTH BOUNDARY:
 RESPONSIVE BEHAVIOR:
+MOTION CONTRACT SOURCE:
 INTERACTION:
+MOTION RUNTIME / CLEANUP:
 LOCKED DOM:
 OPEN QUESTIONS:
 ```
@@ -23,6 +25,8 @@ OPEN QUESTIONS:
 - `SECTION BOUNDARY` 应能让下游准确定位目标 Section，不要求额外拆文件。
 - `ASSET / TRUTH BOUNDARY` 区分真实素材、生成占位与缺失素材。
 - `CONFIRMED DESIGN SOURCES` 只列 Structure Approved 的 Segment 与按需 Section Correction；失败候选和可选 Composite Preview 不得作为权威源。
+- 复杂交互或 Layer 3 才需要填写 Motion Runtime / Cleanup；普通 Hover 或一次性 Reveal 不为形式创建独立 Handoff。
+- `MOTION CONTRACT SOURCE` 指向 Design System Motion Foundation 与当前 Map/Notes 的 Motion Intent，不重新定义动画目的。
 - 只锁定改变后会破坏阅读顺序、交互、响应式重排或 Surface 的 DOM；不要锁定装饰 wrapper。
 - 不规划 Elementor Controls、WordPress 字段、React Props、Shopify Schema 或其他平台实现。
 - 无必要内容写 `None`，不为填满模板制造约束。

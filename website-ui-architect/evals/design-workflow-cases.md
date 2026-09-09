@@ -83,6 +83,19 @@
 | 81 | 外站模块结构看起来适用 | 仍用 Section Job、真实内容、Design System、素材能力和认知成本验证；不得直接复制完整模块。 |
 | 82 | Brief 中包含颜色与字体观察 | UI Architect 不把它们当视觉权威；颜色和排版只服从已确认 Design System。 |
 
+## Motion Contract 回归
+
+| ID | 场景 | 必须行为 |
+| --- | --- | --- |
+| 83 | New Site / Rebuild 未特别说明动效 | 继承 Design System 的 `Restrained`，先写 Page Motion Budget；普通 Section 默认 Motion None，不自动全页淡入。 |
+| 84 | 用户说页面太静态、希望增加一点活力 | 只为受影响页面/Section补 Motion Intent；不让 Prototyper 临时创造动画，也不重开无关内容门禁。 |
+| 85 | 首页有三个高动态候选 | 选择最多一个能解释核心价值或建立品牌记忆的 Signature，其余降级或移除，并记录 Page-level rejected motion。 |
+| 86 | 普通内页没有动态叙事需要 | `Signature Moment: None`，只保留基础交互 Feedback。 |
+| 87 | 方向图看起来像视差或视频 | 不把静态图片当作 Trigger、时间和滚动行为证据；以 Map Motion Intent 为权威。 |
+| 88 | Layer 2 Reveal 覆盖全部 Section | Motion Fitness 不通过；只保留有顺序、叙事或数据表达价值的 Section，约 30%–50% 只是校准目标。 |
+| 89 | Desktop Signature 在移动端成本过高 | Map 明确 Simplify 或 Remove，并提供保留内容和 CTA 的静态 fallback。 |
+| 90 | 旧版确认 Map 没有 Motion 字段 | 不阻塞既有流程；未要求增强时只交接基础 Hover、Focus 和必要状态。 |
+
 ## 覆盖核对
 
 原设计用例 `1–3、7–8、14–24、33–56` 均保留；原 HTML 用例 `4–6、9–13、25–32` 已迁移到 Prototyper。两个 Skill 的职责用例不得重复定义所有权。

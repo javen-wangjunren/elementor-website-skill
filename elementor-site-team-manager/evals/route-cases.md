@@ -275,3 +275,33 @@
 请求：用户刚确认完整页面视觉方向，原目标还包含 HTML 与 Widget 实现。
 
 期望：读取 Workflow Contract，更新总状态并用最小派工包进入 HTML Prototyper；不重新读取无关阶段规则，也不同时派发多个 Widget。
+
+## 47. 新站默认克制动效
+
+请求：新建 B2B 企业站，用户没有特别说明动画。
+
+期望：Design System 默认建立 `Motion Level: Restrained`；UI Architect 仍逐 Section 判断 Motion Intent，不给全页机械添加 Reveal，也不新增独立 Motion 门禁。
+
+## 48. 页面太静态
+
+请求：确认方向图后、HTML 前，用户说页面太静态，希望增加一点活力。
+
+期望：路由 UI Architect，只补受影响页面/Section 的 Page Motion Budget 与 Motion Intent；不让 Prototyper自行发明，也不重开 Page Content。
+
+## 49. 已确认动效的实现问题
+
+请求：Map 已确认 Reveal，但 HTML 中内容闪烁、Reduced Motion 仍有位移。
+
+期望：路由 HTML Prototyper 做实现层修正和复验，不返回 Design System 或重新生图。
+
+## 50. 动态 Widget 重复运行
+
+请求：同页两个 Widget 状态串台，Elementor 编辑后计时器重复。
+
+期望：路由 Widget Pipeline，修正实例作用域、重初始化和 cleanup；不改变 Motion Purpose。
+
+## 51. 旧版 Map 无 Motion 字段
+
+请求：继续一个已经确认的旧项目，Map 没有 Motion Contract，用户没有要求增强动态。
+
+期望：不阻塞原流程；Prototyper 只保留 Hover、Focus 和必要状态。只有用户要求升级时才返回 UI Architect 补 Motion Intent。

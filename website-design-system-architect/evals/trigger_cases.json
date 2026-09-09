@@ -5,7 +5,8 @@
     "从零建立这个 B2B 新站的 Design System 和 Design Board",
     "根据这个老站 URL 提取现有设计风格，后续新页面要保持一致",
     "整理网站颜色字体组件规则并确认一个视觉基线",
-    "完全重建旧站，先建立新的跨技术栈 Design System"
+    "完全重建旧站，先建立新的跨技术栈 Design System",
+    "为新企业站定义全站克制动效等级、Motion Token 和禁用规则"
   ],
   "should_not_trigger": [
     "把确认 Design System 映射到 Elementor Site Settings",

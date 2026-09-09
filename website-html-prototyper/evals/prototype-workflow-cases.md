@@ -34,3 +34,17 @@
 | 71 | Segment 01 的 S3 有已确认 Section Correction | S3 使用 Correction；S1、S2、S4 继续使用 Segment 01，不把修正扩散到整段。 |
 | 72 | 同时提供 `page-composite-preview.png` | 只用于快速浏览，不改变 Map、Correction 与 Segment 的权威顺序。 |
 | 73 | 某候选只标记 Visual Language Approved、Structure Rejected | 不作为 HTML 输入，返回 Architect 补齐结构确认。 |
+
+## Motion Implementation
+
+| ID | 场景 | 必须行为 |
+| --- | --- | --- |
+| 74 | New Site Map 已确认 Restrained Motion Contract | 按 Token 与 Section Intent 实现，不为 Motion None 的 Section 自动添加 Reveal。 |
+| 75 | 用户在 HTML 阶段说“页面太静态”但 Map 没有对应意图 | 判为 A 类，返回 UI Architect 只补受影响页面/Section Motion Intent。 |
+| 76 | 旧版确认 Map 没有 Motion 字段且用户未要求增强 | 不阻塞；只保留基础 Hover、Focus 和必要状态，不发明 Reveal/Signature。 |
+| 77 | JavaScript 加载失败 | 核心文案、证据、CTA 和交互内容保持可见或有静态可用路径。 |
+| 78 | Reduced Motion 开启 | Reveal 立即可见，无视差、滚动绑定、自动轮播、自动视频或强制平滑滚动。 |
+| 79 | 多个视频轮播 | 只有当前且可见视频播放，其他暂停；提供 poster，并按移动端合同降级。 |
+| 80 | 确认的滚动 Signature | 每页共用一个 RAF 调度，离屏/隐藏时停止，不劫持滚轮，不锁死阅读。 |
+| 81 | Layer 2 内容显现 | 只有初始化成功后进入待显现状态；一次命中后 unobserve，累计 stagger 不超过合同上限。 |
+| 82 | Hover 展示关键信息 | 不合格；提供 Focus、点击或 Touch 等价路径，使 Hover 不是唯一入口。 |

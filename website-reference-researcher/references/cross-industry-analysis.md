@@ -83,6 +83,21 @@ Available evidence and media:
 - 色温、视角、主体、裁切、动效与文字叠加方式；
 - 当前项目是否具备相近的真实素材与制作能力。
 
+与当前设计问题有关时，为每个关键动态模式补充：
+
+```text
+Trigger: viewport / scroll progress / click / hover / continuous media
+Moving element:
+Purpose: emphasis / explanation / transition / feedback / decoration
+Frequency and page prominence:
+Mobile behavior observed:
+Reduced-motion behavior observed / Unknown:
+Asset and runtime cost:
+Transfer boundary:
+```
+
+只记录真实浏览器中观察到的行为；静态截图、营销文案或第三方摘要不能证明时间、Trigger、移动端降级和 Reduced Motion。持续视频、强 Sticky、视差或滚轮改写必须同时记录内容理由与性能/可用性成本，不能因为“炫酷”直接标为可迁移。
+
 ### Visual System / DESIGN.md
 
 - 色彩角色、排版、空间、Surface、形状、组件与状态；
@@ -111,3 +126,4 @@ Available evidence and media:
 
 只能回答“因为它好看”的建议应删除。
 
+Motion 建议还必须回答：它是跨页面运动性格、Section 设计意图，还是纯实现细节；分别交给 Design System、UI Architecture 或不进入下游。外站专属视频、3D、品牌角色和高成本连续特效不得作为当前项目资产。

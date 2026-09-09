@@ -29,7 +29,7 @@
 
 ## 2. 盘点并分类
 
-观察颜色、字体、内容宽度、间距、形状、层次、基础组件、图片、图标、动效、响应式和可访问性。每条发现归入：
+观察颜色、字体、内容宽度、间距、形状、层次、基础组件、图片、图标、动效、响应式和可访问性。动效需按真实浏览器证据记录 Trigger、运动对象、频率、移动端与 Reduced Motion；静态证据无法证明的行为标记 `Unknown`。每条发现归入：
 
 - **Preserve**：稳定、有效且有品牌或业务价值；
 - **Normalize**：方向正确但页面之间不一致；
@@ -69,6 +69,7 @@
 - 可用简短标注说明规则来自哪些现站证据，但不复制一套 `Current Evidence` UI；
 - 项目身份和示例事实必须真实；
 - 不设置多方向切换或多套组件副本。
+- 只有动效证据足够时才增加 Motion Preview Strip；证据不足不以 New Site 的 Signature 覆盖现站。
 
 ## 6. 设计师自查、用户确认与写入
 
@@ -80,6 +81,7 @@
 - 保留 `Preserve / Normalize / Retire / Unknown`；
 - 明确 `Locked / Flexible / Open`；
 - 写入媒体、真实性、响应式和可访问性基线。
+- 按 [Motion System Standard](motion-system-standard.md) 写入可追溯的 Motion Foundation；证据不足的具体动态保持 `Unknown / Open`。
 - 记录 `Site Mode: existing-extension`、`Style Authority Intent: Existing Site`、代表 URL、查看日期和渲染证据可信度。
 - 保留关键规则的 Observed Rendering、Probable Source 与 Backend Verification Required 状态，但不写 Elementor 字段或 Token 映射。
 

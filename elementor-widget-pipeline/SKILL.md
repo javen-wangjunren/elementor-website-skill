@@ -27,7 +27,7 @@ description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既
 
 两条路径汇合后执行同一个实现流程：
 
-1. 确认当前 `SOURCE MODE`、实现边界、真实内容、固定视觉、交互、Canonical Module Slug 和 `SITE STYLE CONTEXT`；快速通道的 Slug 在字段卡中提出并由用户确认。
+1. 确认当前 `SOURCE MODE`、实现边界、真实内容、固定视觉、Motion / 交互、Canonical Module Slug 和 `SITE STYLE CONTEXT`；快速通道的 Slug 在字段卡中提出并由用户确认。
 2. 按 [最小字段确认卡](references/spec-card-template.md) 在对话中提出字段初稿和来源解释。
 3. **停止并等待用户增删、微调和确认字段。确认前不得开始 PHP/CSS/JS 实现。**
 4. 读取 [注册基线](references/registration-baseline.md)，确认目标插件已存在并向其增量接入；插件不存在时停止本流程，转交 `elementor-site-initialize`。
@@ -38,6 +38,7 @@ description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既
 
 - 只开放运营确实需要编辑的内容；数量稳定的内容固定，只有需要增减时才用 Repeater。
 - `OPTIONAL STYLE CONTROLS` 默认 `None`；Layout/Style Controls 只有明确复用需求且用户确认时才添加。
+- 动画速度、位移、缓动和 Layer 默认不开放为 Elementor Controls；固定继承确认 HTML 与 Motion Contract。只有运营确有跨实例配置需求且用户在字段卡明确批准时例外。
 - 字体、颜色与基础视觉默认遵守 Confirmed Elementor Style Contract。可直接继承的属性使用 `inherit`；固定 CSS 只使用合同确认的 Elementor CSS Variables，并提供对应 Design System fallback。
 - 确有运营覆盖需求时才新增 Style Control，且使用合同确认的 Elementor Global Style 作为默认绑定；这不改变“默认无 Style Controls”。
 - 已确认的视觉和响应式规则固定在命名空间 CSS；不得为字段实现改变信息结构。
@@ -49,7 +50,8 @@ description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既
 - Slug 不一致或冲突时先确认，不擅自增加版本词或数字。
 - 沿用现有 Flat/Grouped 结构并只做增量注册；Widget 必须继承插件级面板可发现性契约，模块 CSS 必须位于当前 Widget 命名空间，不修改主题。
 - 老站不得因实现一个 Widget 修改 Site Settings、主题或全局 CSS；局部独立风格只作用于当前 Wrapper，也不反向更新站点合同。
-- 无交互不创建 JS；有交互时支持同页多实例和 Elementor 编辑器重新渲染。
+- 无交互不创建 JS；有交互时支持同页多实例和 Elementor 编辑器重新渲染。Observer、定时器、RAF、视频与全局监听必须按实例保存并在重初始化、DOM 移除或页面生命周期结束时停止；无法获得可靠销毁 Hook 时使用会检查 `root.isConnected` 的自终止任务，避免常驻全局资源。
+- Motion 不写入 Elementor Global Style；Style Contract 只负责视觉继承，当前模块的 Motion Source、Layer、Trigger、Mobile、Reduced Motion 与运行要求由字段卡和确认 HTML 传递。
 
 ## 输出
 

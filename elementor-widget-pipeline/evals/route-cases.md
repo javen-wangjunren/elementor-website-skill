@@ -38,6 +38,8 @@
 - 设计稿已有 Canonical Module Slug：Widget 完整继承；Slug 缺失、不一致或冲突时先确认，不自行增加版本号。
 - 目标插件不存在：停止 Widget 实现，转 `elementor-site-initialize`；初始化完成后再继续。
 - 无交互模块：只生成 PHP/CSS，不创建空 JS 或 `get_script_depends()`。
+- 确认 HTML 含 Motion：字段卡记录 Source、Layer、Trigger、Mobile、Reduced Motion 和 Runtime；不默认新增动画 Controls。
+- 用户只说“让 Widget 更有动感”但确认 HTML/Map 没有 Motion Intent：返回 `website-ui-architect`，不在 Pipeline 临时设计。
 
 ## 快速通道行为不变量
 
@@ -46,3 +48,5 @@
 - 不创建独立 HTML、设计方案文档或交付合同；参考解释保留在字段确认卡。
 - 用户确认字段卡前不写 PHP/CSS/JS；确认后仍执行注册、命名空间、静态检查和 Elementor 手动验证。
 - 实现中暴露出需要重新设计的问题时停止，不用 CSS 小修掩盖结构歧义。
+- 同页多个动态 Widget：每个实例独立状态；编辑器重渲染和 DOM 移除时清理或自终止 Observer、Timer、RAF、视频与全局监听。
+- Reduced Motion 或无 JavaScript：核心内容和操作保持可用，滚动绑定、自动轮播和自动视频停用。

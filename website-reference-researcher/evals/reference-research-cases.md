@@ -14,4 +14,7 @@
 | Design System 消费简报 | 只读取 Art Direction、Visual System 和迁移边界，不复制品牌 token。 |
 | UI Architecture 消费简报 | 只读取页面/模块、媒体、构图和响应式模式，不直接复刻外站 Section。 |
 | HTML Prototyper 开始实现 | 不读取原始网站或 `DESIGN.md`，只继承已确认的 Design System、Map 和方向。 |
-
+| 用户提供 Motion Sites 页面并希望企业站更有活力 | 记录可观察的 Trigger、对象、目的、频率、移动端与成本；只迁移能支持当前任务的机制，不复制专属视频、长距离 Sticky、滚轮劫持或品牌特效。 |
+| 参考只有 Hero 截图但看起来“像有视差” | 标记 Motion 为 `Unavailable / Unknown`，不把视觉层叠推断成已观察到的滚动行为。 |
+| 真实页面有多个自动播放视频 | 同时记录信息价值、加载与注意力成本；不能因动态强烈直接推荐给 B2B 项目。 |
+| Motion 结论进入下游 | 跨页面运动性格交给 Design System，Section Trigger 与叙事模式交给 UI Architecture；不把具体 JS 实现交给两者。 |

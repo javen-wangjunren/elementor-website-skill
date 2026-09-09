@@ -9,10 +9,11 @@
     "审查当前视觉方向图是否忠实于 Map",
     "不要重新生 Overview，把已经确认的 Segment 拼成整页预览",
     "这个 Segment 只有 Factory 模块错了，先保留风格并规划局部修正",
-    "我想端到端完成首页设计和 HTML，先把视觉方案确认好"
+    "我想端到端完成首页设计和 HTML，先把视觉方案确认好",
+    "这个页面太静态了，先设计一个克制的主场景和各模块 Motion Intent"
   ],
   "should_not_trigger": [
-    "根据已确认的 Segment Set 和 Map 生成静态 HTML",
+    "根据已确认的 Segment Set、Map 和 Motion Intent 生成交互 HTML",
     "检查当前 HTML 在移动端是否溢出并修复键盘交互",
     "规划 Elementor Controls 并开发 Widget PHP",
     "为 About 页面整理内容框架和英文文案",

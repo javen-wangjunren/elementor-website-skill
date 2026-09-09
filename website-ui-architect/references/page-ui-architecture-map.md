@@ -12,7 +12,17 @@
 
 ## 必备内容
 
-先写明整页的用户浏览逻辑、Surface 节奏、主要 CTA 与防重复原则。然后为每个 Section 先完成 Module Design Solution，再记录由它推导出的 Layout、媒体和页面衔接决策：
+先写明整页的用户浏览逻辑、Surface 节奏、主要 CTA、防重复原则与 Page Motion Budget。然后为每个 Section 先完成 Module Design Solution，再记录由它推导出的 Layout、媒体、Motion Intent 和页面衔接决策。
+
+Page Motion Budget 按 [Motion Intent Contract](motion-intent-contract.md) 记录：
+
+```text
+Motion Level:
+Signature Moment:
+Sections using content reveal:
+Continuous / autoplay media:
+Page-level rejected motion:
+```
 
 - Section ID、任务、模块等级和访客应记住的核心信息；
 - 内容之间是并列、主从、分类、过程还是对比，以及是否存在真实业务主次；
@@ -25,6 +35,7 @@
 - CTA 层级与所属区域；
 - 背景 Surface 与前后模块衔接；
 - 移动端内容顺序和降级原则；
+- Motion Purpose、Layer、Trigger、Sequence、移动端行为、Reduced Motion / 静态 fallback 与禁止动效；
 - 需要避免的重复形式、模板化结构或虚构证据。
 
 Map 必须能让方向稿执行者不再重新猜测卡片形式、信息主次、证据位置、扫读路径、视觉主线或媒体重量。默认 Active Item 不自动代表业务优先级；并列证据不得在没有理由时被设计成永久一大多小。
@@ -57,6 +68,14 @@ Desktop presentation:
 Mobile narrative:
 Rejected treatments:
 Success criteria:
+
+Motion purpose: Emphasis / Explanation / Transition / Feedback / None
+Motion layer: 1 / 2 / 3 / None
+Trigger and affected elements:
+Sequence and token:
+Mobile behavior: Preserve / Simplify / Remove
+Reduced-motion and static fallback:
+Rejected motion:
 ```
 
 - 先完成内容的删除、合并、关联和主次判断，再选择 Grid、Split、Timeline、Carousel 或其他 Layout。
@@ -66,6 +85,8 @@ Success criteria:
 - 无图片需求时仍须记录替代视觉装置，例如路径、数字层级、对比轴或文档结构；不默认退化为普通文字横排。
 - `Rejected treatments` 记录会造成信息重复、虚假主次、证据错位或与相邻 Section 冲突的方案。
 - `Success criteria` 必须可观察，例如“访客 10 秒内能把 24h 报价关联到 Engineering Review”，不使用“感觉高级”。
+- 普通 Section 默认 `Motion purpose: None`；不能为了填字段给全部模块添加相同 Reveal。Layer 2 只在顺序或叙事确有价值时使用，Layer 3 通常只出现在重点页面的一个 Signature Moment。
+- 图片方向稿不能证明时间、Trigger、滚动行为或降级；Motion Intent 以 Map 和必要 Notes 为权威。
 - `Recommended Layout` 放在该 Contract 之后，作为沟通与视觉决策的空间实现结论，不代替设计方案。
 
 合格的 Contract 应使两位设计师产生相同的信息结构、视觉主线和重点，只在字号、间距、圆角等样式细节上有所差异。
@@ -147,4 +168,6 @@ Affected desktop and mobile layout:
 
 ## 确认范围
 
-请用户确认每个 Section 的核心信息、视觉叙事、UI Composition、Layout、媒体关系、比例调整建议、CTA 层级和整页节奏，不要把像素细节、最终裁切或实现技术提前锁死。
+请用户确认每个 Section 的核心信息、视觉叙事、UI Composition、Layout、媒体关系、Motion Intent、比例调整建议、CTA 层级和整页节奏，不要把像素细节、最终裁切或实现技术提前锁死。
+
+旧版已确认 Map 没有 Motion 字段时不阻塞既有流程。用户未要求增强动态时，下游只保留基础 Hover、Focus 和必要状态；用户反馈“太静态”或需要 Signature 时，只为受影响页面/Section 补 Motion Intent。

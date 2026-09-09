@@ -28,7 +28,7 @@ URL 只能证明最终视觉，不能证明后台 Global Token。缺少后台证
 1. 读取 [Style Contract](references/style-contract.md)，确定模式、证据状态和样式权威。
 2. 建立 Elementor Site Settings Mapping，确认 Global Colors、Global Fonts、Theme Style 与 Layout 的角色和值。
 3. 映射 Typography、Buttons、Form Fields 与 Layout；只映射 Design System 已确认的规则。
-4. 定义 Widget 的继承、fallback、局部覆盖和禁止修改规则。
+4. 定义 Widget 的继承、fallback、局部覆盖和禁止修改规则。Motion 不映射为 Elementor Global Style；只记录它继续由确认 HTML、UI Motion Intent 与 Widget 交互合同负责。
 5. 在对话中展示 Mapping Proposed 摘要，等待用户确认；确认前不写成 `Confirmed`。
 6. 生成或更新 `docs/elementor/elementor-style-contract.md`，并同步 `elementor-project.json.siteStyle` 状态；合同的 `Pending Evidence / Mapping Proposed` 对应项目 `pending`，`Observed Only` 对应 `observed`，`Confirmed` 对应 `confirmed`。目标文件已有人工内容时保留并做最小更新。
 7. 完成合同一致性检查，返回总控或原始任务。

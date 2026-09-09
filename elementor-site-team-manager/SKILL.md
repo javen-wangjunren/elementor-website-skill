@@ -14,8 +14,8 @@ description: Coordinate the custom Elementor Widget site workflow for kickoff, l
 - `website-page-content-architect`：规划页面叙事与内容职责；
 - `website-design-system-architect`：建立新站或提炼老站视觉系统；
 - `elementor-site-style-adapter`：把确认基线转译为 Elementor 样式合同；
-- `website-ui-architect`：设计页面与模块的构图、媒体关系和视觉方向；
-- `website-html-prototyper`：实现确认设计并完成浏览器 QA；
+- `website-ui-architect`：设计页面与模块的构图、媒体关系、Motion Intent 和视觉方向；
+- `website-html-prototyper`：实现确认设计与 Motion Contract 并完成浏览器 QA；
 - `elementor-widget-pipeline`：把确认 HTML 顺序实现为单个 Widget。
 
 发布、旧 Widget 排错、主题开发、Elementor 安装及远程 WordPress 管理属于外围流程，不因调用总控而自动纳入。
@@ -49,6 +49,8 @@ description: Coordinate the custom Elementor Widget site workflow for kickoff, l
 - `website-ui-architect` 确认的 Canonical Module Slug 必须由 HTML Prototyper 和 Widget Pipeline 原样继承。
 - 进入 Pipeline 时一次只派发一个当前模块；每个 Widget 分别经过最小字段卡确认、实现和验证。
 - 目标进入 Elementor 且需要继承站点样式时，必须先确认 Site Mode、Style Authority 和适用的 Elementor Style Contract。
+- New Site / Rebuild 默认从 Design System 继承 `Motion Level: Restrained`；Existing Extension 只继承可验证的现站动态。旧产物缺少 Motion 字段不自动失效。
+- “页面太静态、希望增加活力”若涉及为什么动、强度或 Signature，路由 `website-ui-architect`；已确认意图的 timing、性能和可访问性属于 Prototyper，Elementor 多实例与编辑器生命周期属于 Pipeline。
 - 用户在 Elementor 中组装整页并对照确认版 HTML 完成最终视觉验收，是保留的人工门禁，不自动扩展为新的核心 Skill。
 - 外部写入、发布、上传、缓存清理和远程后台修改仍需独立范围与授权。
 

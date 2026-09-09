@@ -44,6 +44,12 @@ FIXED IN CODE:
 - 装饰性元素
 
 INTERACTION:
+- Motion source: <confirmed HTML + Design System / Map path> / None
+- Motion layer: 1 / 2 / 3 / None
+- Trigger / state:
+- Mobile behavior: preserve / simplify / remove
+- Reduced-motion fallback:
+- Runtime requirements: observer / timer / RAF / video / cleanup / None
 ASSETS:
 ```
 
@@ -67,4 +73,4 @@ ASSETS:
 - 使用 Repeater 时只加入运营真正需要修改的子字段，并填写真实默认内容和默认数量。
 - 不自动添加 `TAB_STYLE`。颜色、Typography、padding、margin、radius、shadow 和背景保持固定，除非用户明确确认开放。
 - 增加 Style Control 时，默认值绑定合同确认的 Elementor Global Style；不得仅为暴露颜色选择器而复制整套视觉系统。
-- 不为了“以后可能有用”增加开关、对齐、列数、动画或响应式控制。
+- 不为了“以后可能有用”增加开关、对齐、列数、动画或响应式控制。动画速度、位移、缓动与 Layer 默认固定在代码中，不新增 Controls。

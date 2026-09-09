@@ -47,6 +47,7 @@ Media Display Contract:
   Crop / contain
   Real assets / placeholders / forbidden evidence
 Desktop and mobile presentation:
+Motion Intent summary (text authority; image does not prove timing or trigger):
 Success criteria:
 ```
 
@@ -55,6 +56,7 @@ Success criteria:
 - 无媒体 Section 明确写 `Media Display Contract: None`，并使用 Map 指定的替代视觉装置。
 - 不得自行拆分 KPI、制造卡片、添加图标或改变证据归属。
 - 有 Style Board、真实素材或已确认视觉语言参考时可附加，但必须声明其用途是 `Visual Language Reference`、`Structure Reference` 或两者，防止错误结构被继承。
+- 方向图片只能表达静态构图、层次与媒体状态，不能确认 Trigger、duration、scroll behavior、视频播放规则或 Reduced Motion。上述内容必须继续来自 Map 的 Motion Intent。
 
 ## 双重确认状态
 
@@ -117,6 +119,7 @@ SECTION CORRECTION SCOPE:
 REJECTED / REFERENCE-ONLY CANDIDATES:
 HTML VISUAL INPUT SET:
 HTML CORRECTION NOTES:
+MOTION CONTRACT SOURCE:
 ```
 
 失败候选可以说明“视觉语言被采用”，但不得出现在 `FINAL SEGMENT SET` 或 `HTML VISUAL INPUT SET`。
@@ -140,6 +143,7 @@ SECTION CORRECTIONS AND COVERAGE:
 REJECTED / REFERENCE-ONLY CANDIDATES:
 HTML CORRECTION NOTES:
 FINAL VISUAL INPUTS FOR HTML:
+MOTION CONTRACT SOURCE:
 ```
 
 同一文件不得同时出现在 `FINAL VISUAL INPUTS` 与 `REJECTED`。可选 Composite 只能列为 preview，不能列入权威输入。

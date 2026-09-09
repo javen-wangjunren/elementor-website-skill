@@ -16,9 +16,18 @@
 - Button、Link、Chip、Icon；
 - Card、List；
 - Tabs、Accordion；
-- Table。
+- Table；
+- 紧凑 Motion Preview Strip。
 
-不展示 Media、Responsive、Hero、Header、Footer、Form、完整 Gallery、CTA 或其他业务模块。Board 是基础设计语言参考，不是缩小版页面设计稿。
+不展示 Media、Responsive、Hero、Header、Footer、Form、完整 Gallery、CTA、页面级 Signature 或其他业务模块。Board 是基础设计语言参考，不是缩小版页面设计稿。
+
+### Motion Preview Strip
+
+- 只演示一个按钮/链接 Feedback、一个短距离 Content Reveal，以及 Tabs 或 Accordion 的状态过渡。
+- New Site / Rebuild 默认采用 `Motion Level: Restrained` 与 [Motion System Standard](motion-system-standard.md) Token；品牌或用户决定可覆盖。
+- 提供明确的 Replay 或直接交互入口，不依赖持续自动循环展示效果。
+- 内容默认可见；脚本失败或 `prefers-reduced-motion: reduce` 时仍能查看全部组件和状态。
+- 不使用视频、视差、滚轮绑定、长距离 Sticky 或业务模块来展示 Motion Foundation。
 
 ## 默认组件规则
 
@@ -67,3 +76,4 @@
 - 阴影只用于确有层级需要的元素，B2B 信息容器优先依靠留白与边框。
 - 示例必须接近真实网站使用方式；不为“显得设计过”制造古怪结构。
 - 下游 UI Architect 应能从 Board 直接推断模块中的基础控件，而无需重新决定按钮、卡片、列表或表格语言。
+- UI Architect 应能读出基础运动性格与 Token，但仍负责页面级 Motion Budget 和 Section Motion Intent。

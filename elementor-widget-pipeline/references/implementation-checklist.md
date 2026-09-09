@@ -35,7 +35,12 @@
 - 普通前台在 `DOMContentLoaded` 后初始化。
 - 在 `elementor/frontend/init` 后注册 `frontend/element_ready/<widget-name>.default`。
 - Elementor 编辑器替换为新 DOM 时可以初始化新实例。
-- 支持键盘操作、必要的 ARIA 状态和 `prefers-reduced-motion`。
+- 每个实例保存自己的 Observer、AbortController/监听、Timer、RAF、视频状态与 cleanup；重初始化前先清理旧实例。
+- 使用目标 Elementor 版本可用的销毁生命周期完成 teardown；没有可靠 Hook 时避免常驻全局资源，并让 RAF/Timer/Observer callback 在 `root.isConnected === false` 时自终止。
+- Layer 2 一次命中后及时 `unobserve`；Layer 3 不创建多个独立 RAF 循环。页面隐藏、实例离屏或 Reduced Motion 时停止连续任务。
+- 视频只播放当前可见实例中的当前视频，其他视频暂停；保留 poster 与移动端降级。
+- 支持键盘操作、必要的 ARIA 状态、Touch 等价路径和 `prefers-reduced-motion`；核心内容不依赖 JS 初始化后才可见。
+- 禁止劫持滚轮、全局改写滚动、向 `document/body` 添加无法清理的状态，或让多个 Widget 实例共享可变状态。
 
 ## 插件入口
 

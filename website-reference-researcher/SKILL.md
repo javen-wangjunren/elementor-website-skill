@@ -36,7 +36,7 @@ description: Research 3–5 confirmed same-industry or cross-industry websites a
 1. 定义 Research Scope、触发原因和当前待解决的设计问题；站点、页面和模块研究不得混成无边界的案例集合。
 2. 读取 [跨行业分析方法](references/cross-industry-analysis.md)，根据设计问题相似性建立 5–8 个候选。用户已明确给出最终限定名单时直接使用；否则请用户确认最终 3–5 个后才深度研究。
 3. 使用真实浏览器查看确认网站的首页或与范围直接相关的代表页面。记录 URL、查看日期、可见内容、截图或渲染观察；单一网站只查看解决当前问题所需的最少页面。
-4. 按六层分析参考：Brand Narrative、Narrative Architecture、Content Editing、Page / Module Architecture、Art Direction、Visual System / `DESIGN.md`。
+4. 按六层分析参考：Brand Narrative、Narrative Architecture、Content Editing、Page / Module Architecture、Art Direction、Visual System / `DESIGN.md`。当页面动态与当前设计问题有关时，在 Page / Module Architecture 与 Art Direction 中记录 Motion / Interaction Evidence，不把静态截图推断成真实行为。
 5. 将每项结论标记为 `Observed / Inferred / Transferable / Not Transferable`，说明跨行业相似点、迁移理由和适用边界。
 6. 按 [共享简报合同](references/visual-reference-brief-contract.md) 写入一份 Visual Reference Brief，并执行证据、职责和反复刻自查。
 7. 把同一简报的最小相关部分分别交给 Page Content、Design System 或 UI Architecture；简报本身不是新的确认门禁。
@@ -52,7 +52,7 @@ description: Research 3–5 confirmed same-industry or cross-industry websites a
 
 - 真实页面观察高于第三方 `DESIGN.md`、图库摘要或营销说明。
 - `DESIGN.md` 只在 1–2 个核心参考确有帮助时作为视觉系统辅助证据；不能直接复制为项目 Design System。
-- 静态截图不能证明 Hover、Focus、动效、响应式或完整交互；无法观察时标记缺口。
+- 静态截图不能证明 Hover、Focus、动效、响应式或完整交互；无法观察时标记缺口。真实观察到的动效需记录 Trigger、运动对象、目的、频率、移动端表现、素材/运行成本及 Reduced Motion 证据（若可见）。
 - 外站事实、品牌命题、专属视觉资产、Logo、角色、摄影和文案不得成为当前企业事实或可直接复制资产。
 - 相似色值、圆角或组件不是跨行业迁移的充分理由；必须说明共享的用户任务、决策成本、证据类型或素材角色。
 - 无法访问的网站保留为 `Unavailable`，不根据记忆补写观察结论。
@@ -60,7 +60,7 @@ description: Research 3–5 confirmed same-industry or cross-industry websites a
 ## 交付边界
 
 - 本 Skill 只交付研究证据与迁移建议，不选择最终品牌方向，不生成 Page Content、Design Board、Design System、Architecture Map、方向图或 HTML。
-- Page Content 只消费品牌命题、叙事、内容取舍和证据策略；Design System 只消费 Art Direction、Visual System 和迁移边界；UI Architecture 只消费页面/模块结构、媒体、构图和响应式模式。
+- Page Content 只消费品牌命题、叙事、内容取舍和证据策略；Design System 只消费 Art Direction、Visual System、跨页面 Motion 性格和迁移边界；UI Architecture 只消费页面/模块结构、媒体、构图、响应式与可迁移的 Motion / Interaction 模式。
 - 用户不需要单独确认研究简报。所有最终取舍仍由下游原有门禁确认。
 
 需要验证触发、证据和跨阶段边界时读取 [行为用例](evals/reference-research-cases.md)。

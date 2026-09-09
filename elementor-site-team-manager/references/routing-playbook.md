@@ -13,7 +13,7 @@
 - `docs/page-content/*.md`：页面内容框架、页面 slug 和确认状态；
 - `设计稿/design-system/style-board.html` 与 `docs/design-system/design-system.md`：视觉候选与当前基线；
 - `docs/elementor/elementor-style-contract.md`：Site Mode、Style Authority、继承策略和状态；
-- `设计稿/directions/<page-slug>/`：页面或模块视觉方向证据；
+- `设计稿/directions/<page-slug>/`：页面或模块视觉方向证据、Page Motion Budget 与 Section Motion Intent；
 - `设计稿/pages/*.html`、`设计稿/modules/*.html`：当前 HTML 与 Section 边界候选；
 - 当前对话：用户提供的目标、素材、截图、HTML、版本选择和明确确认。
 
@@ -53,6 +53,8 @@ URL → Existing Design System + Board → 后台样式证据 → Style Adapter
 - 新站或完全重建由项目 Design System 主导；老站扩展且要求保持风格时由 Existing Site 主导。
 - 只有公开 URL 可形成 Existing Design System，但精确继承 Elementor Token 还需要 Site Settings、可信 Kit 或等价后台证据。
 - HTML Prototyper 需要已确认设计包；未完成视觉确认时返回 UI Architect。
+- New Site / Rebuild 默认由 Design System 提供 `Motion Level: Restrained`；它不等于全页 Reveal。Existing Extension 的动态证据不足时不新增 Signature。
+- 页面为什么动、Motion Layer、Signature 和移动端动态叙事属于 UI Architect；timing、Observer、视频、性能和可访问性实现属于 Prototyper；Elementor 多实例、重渲染和清理属于 Pipeline。
 - Pipeline 需要插件、确认 HTML 实现源、Canonical Module Slug，以及适用的 Confirmed Style Contract 或用户明确确认的隔离例外。
 - 用户目标已经满足时停止，不自动追加后续阶段。
 
@@ -77,10 +79,13 @@ URL → Existing Design System + Board → 后台样式证据 → Style Adapter
 | 截图 / Figma 的内容职责未确认 | `website-page-content-architect` | 先确认内容任务，不直接实现 |
 | 截图 / Figma 的内容明确但视觉方向未确认 | `website-ui-architect` | 先完成设计确认 |
 | 不知道下一步或恢复历史任务 | 检查最小证据与状态 | 选择缺失依赖对应的唯一阶段 |
+| 用户说页面太静态、希望增加一点活力，Motion Intent 未确认 | `website-ui-architect` | 只补受影响页面/Section 的 Motion Budget 与 Intent |
+| Motion Intent 已确认但 timing、显现、视频或 Reduced Motion 实现异常 | `website-html-prototyper` | 最小实现修正并复验 |
+| 动态 Widget 在多实例或 Elementor 编辑器中重复运行 | `elementor-widget-pipeline` | 修复实例作用域、重初始化与 cleanup |
 
 ## 4. Reference Brief 消费边界
 
 - Page Content 只消费 Brand Narrative、Narrative Architecture、Content Editing 与证据策略；
 - Design System 只消费 Art Direction、Visual System 与迁移边界；
-- UI Architect 只消费 Page / Module Architecture、媒体策略与响应式迁移原则；
+- UI Architect 只消费 Page / Module Architecture、媒体策略、响应式与可迁移的 Motion / Interaction 模式；
 - 外站内容不得作为企业事实，完整 Brief 不成为新的设计权威，也不交给 HTML Prototyper 重新解释。

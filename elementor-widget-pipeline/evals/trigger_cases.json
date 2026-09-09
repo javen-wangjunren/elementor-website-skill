@@ -7,7 +7,8 @@
     "现有 Elementor 页面照这张明确图片补一个简单 CTA Widget，文案链接都确定了",
     "这个简单提示条按当前 Figma 直接实现，不需要独立 HTML",
     "先给这个确认模块规划最少 Elementor 字段，我确认后再开发",
-    "老站的 Style Contract 已确认，让这个新 Widget 继承现有 Global Style"
+    "老站的 Style Contract 已确认，让这个新 Widget 继承现有 Global Style",
+    "把确认 HTML 中的克制动效保真迁移到支持多实例的 Elementor Widget"
   ],
   "should_not_trigger": [
     "这个服务模块应该怎么设计，先给我三个布局方向",
