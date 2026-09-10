@@ -43,13 +43,13 @@ FIXED IN CODE:
 - 布局结构与响应式
 - 装饰性元素
 
-INTERACTION:
-- Motion source: <confirmed HTML + Design System / Map path> / None
-- Motion layer: 1 / 2 / 3 / None
-- Trigger / state:
-- Mobile behavior: preserve / simplify / remove
-- Reduced-motion fallback:
-- Runtime requirements: observer / timer / RAF / video / cleanup / None
+INTERACTION: None / Native — <interaction or reveal inherited from confirmed HTML> / Advanced Motion
+
+ADVANCED MOTION:（仅确认的 Layer 3 使用第三方库时追加）
+- Library + version:
+- Required capability:
+- Loading / cleanup:
+- Mobile / reduced-motion fallback:
 ASSETS:
 ```
 
@@ -74,3 +74,4 @@ ASSETS:
 - 不自动添加 `TAB_STYLE`。颜色、Typography、padding、margin、radius、shadow 和背景保持固定，除非用户明确确认开放。
 - 增加 Style Control 时，默认值绑定合同确认的 Elementor Global Style；不得仅为暴露颜色选择器而复制整套视觉系统。
 - 不为了“以后可能有用”增加开关、对齐、列数、动画或响应式控制。动画速度、位移、缓动与 Layer 默认固定在代码中，不新增 Controls。
+- 普通模块、Layer 1/2 和原生 Layer 3 省略 `ADVANCED MOTION`；第三方库只继承确认 HTML/Handoff，字段卡不得临时选择动画库或插件。

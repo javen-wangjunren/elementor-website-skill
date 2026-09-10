@@ -48,3 +48,10 @@
 | 80 | 确认的滚动 Signature | 每页共用一个 RAF 调度，离屏/隐藏时停止，不劫持滚轮，不锁死阅读。 |
 | 81 | Layer 2 内容显现 | 只有初始化成功后进入待显现状态；一次命中后 unobserve，累计 stagger 不超过合同上限。 |
 | 82 | Hover 展示关键信息 | 不合格；提供 Focus、点击或 Touch 等价路径，使 Hover 不是唯一入口。 |
+| 83 | FAQ、Accordion、Tabs、Header 或普通 Reveal | 使用原生 CSS/JS，不因项目允许 Layer 3 而引入 GSAP 或 Motion。 |
+| 84 | 首页确认的产品状态与媒体滚动联动 | 原生实现明显增加脆弱调度时，提出 GSAP + ScrollTrigger Advanced Motion Runtime Note；未确认前不新增依赖。 |
+| 85 | 老项目已稳定使用 Motion | 记录为 Existing-project runtime 并继承，不额外引入 GSAP。 |
+| 86 | 确认使用 GSAP 的普通时间轴 | 只读取官方 gsap-core/gsap-timeline 相关资料，不读取 ScrollTrigger 或其他插件资料。 |
+| 87 | 确认使用 GSAP 的滚动 Signature | 按需追加 ScrollTrigger；移动端和 Reduced Motion 按合同不建立滚动绑定。 |
+| 88 | Carousel 或已有 Lottie 素材 | 分别使用专用 Swiper/Lottie 能力，不把它们误判为通用 Layer 3 Runtime。 |
+| 89 | 普通模块或原生 Layer 1/2/3 | 不生成 Runtime 字段、依赖状态或独立 Handoff；只按确认意图实现和验证。 |

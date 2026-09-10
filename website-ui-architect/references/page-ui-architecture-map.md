@@ -12,9 +12,15 @@
 
 ## 必备内容
 
-先写明整页的用户浏览逻辑、Surface 节奏、主要 CTA、防重复原则与 Page Motion Budget。然后为每个 Section 先完成 Module Design Solution，再记录由它推导出的 Layout、媒体、Motion Intent 和页面衔接决策。
+先写明整页的用户浏览逻辑、Surface 节奏、主要 CTA 与防重复原则。然后为每个 Section 先完成 Module Design Solution，再记录由它推导出的 Layout、媒体和页面衔接决策；Motion 只做轻量机会检查，确认采用显式 Layer 2/3 后才补 Budget / Intent。
 
-Page Motion Budget 按 [Motion Intent Contract](motion-intent-contract.md) 记录：
+Motion 默认不增加字段。只有存在有价值的可选建议时记录：
+
+```text
+Optional Motion Suggestions: <Section ID + Layer + value> / None
+```
+
+用户确认采用显式 Layer 2/3 后，才按 [Motion Intent Contract](motion-intent-contract.md) 记录 Page Motion Budget：
 
 ```text
 Motion Level:
@@ -69,13 +75,10 @@ Mobile narrative:
 Rejected treatments:
 Success criteria:
 
-Motion purpose: Emphasis / Explanation / Transition / Feedback / None
-Motion layer: 1 / 2 / 3 / None
-Trigger and affected elements:
-Sequence and token:
-Mobile behavior: Preserve / Simplify / Remove
-Reduced-motion and static fallback:
-Rejected motion:
+Motion: <omit for None and inherited Layer 1> / Layer 2 — <purpose; trigger + elements; mobile / reduced fallback>
+Signature purpose: <Layer 3 only>
+Required behavior: <Layer 3 only: timeline / scroll-linked / SVG / media-state-sync>
+Mobile / reduced-motion fallback: <Layer 3 only>
 ```
 
 - 先完成内容的删除、合并、关联和主次判断，再选择 Grid、Split、Timeline、Carousel 或其他 Layout。
@@ -85,7 +88,7 @@ Rejected motion:
 - 无图片需求时仍须记录替代视觉装置，例如路径、数字层级、对比轴或文档结构；不默认退化为普通文字横排。
 - `Rejected treatments` 记录会造成信息重复、虚假主次、证据错位或与相邻 Section 冲突的方案。
 - `Success criteria` 必须可观察，例如“访客 10 秒内能把 24h 报价关联到 Engineering Review”，不使用“感觉高级”。
-- 普通 Section 默认 `Motion purpose: None`；不能为了填字段给全部模块添加相同 Reveal。Layer 2 只在顺序或叙事确有价值时使用，Layer 3 通常只出现在重点页面的一个 Signature Moment。
+- 普通 Section 省略 Motion 字段，Layer 1 继承 Design System；不能为了填字段给全部模块添加相同 Reveal。Layer 2 只用一行记录有价值的显现意图，Layer 3 默认 `None`，只有确认 Signature 才展开三个最小字段；页面类型只是候选资格，不是自动授权。
 - 图片方向稿不能证明时间、Trigger、滚动行为或降级；Motion Intent 以 Map 和必要 Notes 为权威。
 - `Recommended Layout` 放在该 Contract 之后，作为沟通与视觉决策的空间实现结论，不代替设计方案。
 
@@ -168,6 +171,6 @@ Affected desktop and mobile layout:
 
 ## 确认范围
 
-请用户确认每个 Section 的核心信息、视觉叙事、UI Composition、Layout、媒体关系、Motion Intent、比例调整建议、CTA 层级和整页节奏，不要把像素细节、最终裁切或实现技术提前锁死。
+请用户确认每个 Section 的核心信息、视觉叙事、UI Composition、Layout、媒体关系、比例调整建议、CTA 层级和整页节奏；存在可选 Motion 建议时随同确认，不增加独立门禁，也不要把像素细节、最终裁切或实现技术提前锁死。
 
 旧版已确认 Map 没有 Motion 字段时不阻塞既有流程。用户未要求增强动态时，下游只保留基础 Hover、Focus 和必要状态；用户反馈“太静态”或需要 Signature 时，只为受影响页面/Section 补 Motion Intent。

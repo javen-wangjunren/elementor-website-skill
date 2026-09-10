@@ -38,6 +38,8 @@
 - 每个实例保存自己的 Observer、AbortController/监听、Timer、RAF、视频状态与 cleanup；重初始化前先清理旧实例。
 - 使用目标 Elementor 版本可用的销毁生命周期完成 teardown；没有可靠 Hook 时避免常驻全局资源，并让 RAF/Timer/Observer callback 在 `root.isConnected === false` 时自终止。
 - Layer 2 一次命中后及时 `unobserve`；Layer 3 不创建多个独立 RAF 循环。页面隐藏、实例离屏或 Reduced Motion 时停止连续任务。
+- 只有字段卡包含 `ADVANCED MOTION` 时才处理第三方 Runtime。使用 GSAP 时在插件入口统一注册固定版本的 GSAP/已批准插件，Widget 通过 `get_script_depends()` 声明 handle，不重复加载或在实例脚本中重复注册。
+- Advanced Motion 的 GSAP 选择器限定在当前根节点；每个实例保存 context、timeline 和 ScrollTrigger，重初始化前执行对应 `revert/kill`。Elementor 编辑器替换 DOM、删除 Widget 或页面结束时完成 teardown；无可靠销毁 Hook 时回调检测 `root.isConnected` 并自终止。
 - 视频只播放当前可见实例中的当前视频，其他视频暂停；保留 poster 与移动端降级。
 - 支持键盘操作、必要的 ARIA 状态、Touch 等价路径和 `prefers-reduced-motion`；核心内容不依赖 JS 初始化后才可见。
 - 禁止劫持滚轮、全局改写滚动、向 `document/body` 添加无法清理的状态，或让多个 Widget 实例共享可变状态。
@@ -45,6 +47,7 @@
 ## 插件入口
 
 - 已有插件只增加当前资源、文件引入和 Widget 注册，不覆盖其他组件。
+- Swiper 只在确认模块本身是 Carousel/Touch Slider 时注册；Lottie 只承载已确认素材。两者不得被当作通用 Layer 3 运行库，项目已有 Motion 时继承而不叠加 GSAP。
 - 已有插件缺少共享编辑器角标资产时，按项目配置最小补齐 editor-only CSS 的注册与加载，不把角标样式混入前台资源。
 - 无现有插件时停止实现，转交 `elementor-site-initialize`；初始化完成后再继续。
 - 不在主题 `functions.php` 或模板中加入 Widget 注册代码。

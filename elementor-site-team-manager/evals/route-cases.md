@@ -280,7 +280,7 @@
 
 请求：新建 B2B 企业站，用户没有特别说明动画。
 
-期望：Design System 默认建立 `Motion Level: Restrained`；UI Architect 仍逐 Section 判断 Motion Intent，不给全页机械添加 Reveal，也不新增独立 Motion 门禁。
+期望：Design System 默认建立 `Motion Level: Restrained` 的 Layer 1 基础；UI Architect 只做轻量机会检查，普通 Section 不写 Motion 字段，不给全页机械添加 Reveal，也不新增独立门禁。
 
 ## 48. 页面太静态
 
@@ -305,3 +305,21 @@
 请求：继续一个已经确认的旧项目，Map 没有 Motion Contract，用户没有要求增强动态。
 
 期望：不阻塞原流程；Prototyper 只保留 Hover、Focus 和必要状态。只有用户要求升级时才返回 UI Architect 补 Motion Intent。
+
+## 52. Layer 3 提议第三方运行库
+
+请求：首页 Map 已确认一个滚动 Signature，但用户没有指定动画库，项目也没有既有 Runtime。
+
+期望：进入 HTML Prototyper；原生实现不产生 Runtime 字段，如提议 GSAP，才随 HTML 动效方案确认 Advanced Motion Runtime Note，不由 UI Architect 或 Pipeline 直接添加依赖。
+
+## 53. 现有项目已有 Motion
+
+请求：旧项目已稳定使用 Motion，新模块需要同类状态动效。
+
+期望：在确实需要高级动效时继承现有 Motion；普通模块不创建 Runtime 状态，也不为了偏好叠加 GSAP。
+
+## 54. 普通模块误触发高级库
+
+请求：给 FAQ、Accordion、Header 和普通内容显现增加克制动效。
+
+期望：Layer 1/2 使用原生 CSS/JS；不读取 GSAP 条件 Reference，不新增第三方依赖，也不在状态或派工包加入 Runtime 字段。

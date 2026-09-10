@@ -11,6 +11,23 @@
 
 默认使用原生 CSS、IntersectionObserver 和少量 JavaScript。未经用户或项目约束确认，不新增 GSAP、Framer Motion 或其他动画依赖。
 
+## Layer 3 第三方运行说明
+
+Layer 3 仍先判断原生实现是否足够。FAQ、Accordion、Tabs、Header、普通 Reveal 和简单数字变化保持原生；多阶段精确时间轴、滚动进度、克制 Sticky、SVG 绘制或媒体状态同步可提出 GSAP。原生实现不创建 Runtime 字段；只有确认引入第三方库时记录：
+
+```text
+Advanced Motion Runtime:
+- Library + version:
+- Required capability:
+- Loading / cleanup:
+- Mobile / reduced-motion fallback:
+```
+
+- 用户已明确指定 GSAP，或确认项目已有稳定运行库时，记录来源后执行；否则在写入第三方依赖前随当前 HTML 动效方案确认这份 Advanced Motion Runtime Note。
+- 已有项目运行库能可靠实现时优先继承，不为统一技术栈叠加 GSAP。
+- 选择 GSAP 后读取 [GSAP Layer 3 Runtime](gsap-layer3-runtime.md)；未选择时不读取，也不安装任何 GSAP Skill。
+- Swiper 只承担 Carousel/Touch Slider，Lottie 只承载已有动画素材；二者不是通用 Layer 3 Runtime。Motion 只在项目已经采用时继承。
+
 ## CSS 与显现
 
 - 优先动画 `transform`、`opacity`；避免持续动画布局属性、滤镜或大面积阴影。
@@ -55,4 +72,3 @@ JS 失败：内容保持默认可见
 - Desktop、Mobile、Reduced Motion、无 JavaScript 和低性能降级是否都保留理解与操作。
 
 改变 Motion Purpose、Layer、Signature 或移动端叙事属于 A 类，返回 UI Architect。修正 timing、位移、Observer、视频暂停、Focus 或运行性能属于 B 类，可在 HTML 内最小修正一轮后复验。
-

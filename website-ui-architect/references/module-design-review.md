@@ -26,7 +26,7 @@
 - 已处理相邻 Section 的重复、衔接与焦点竞争；
 - 桌面与移动端的组织方式都保留原有信息叙事；
 - 包含会导致错误结果的禁止方案和可观察的成功标准；
-- 动效有明确目的、层级、Trigger、移动端与 Reduced Motion fallback，或明确记录 `None`；不以统一淡入替代设计判断；
+- Motion 默认可省略；若提出可选 Layer 2/3，必须有明确目的与移动端/Reduced Motion fallback，不以统一淡入替代设计判断；
 - 能直接编译为生图提示词，无需执行者再决定卡片形式、证据位置、信息主次或视觉主线。
 
 验收测试：两位设计师依据同一方案，应得到相同的信息结构、视觉主线和重点，只在样式细节上存在差异。只提供 Layout、栏位数量或组件名称的 Section 不合格。
@@ -71,10 +71,10 @@
 - 素材比例、密度和留白是否让模块可扫读；
 - 移动端降级是否保留原有信息优先级。
 
-### 5. Motion Fitness
+### 5. Motion Fitness（按需）
 
 - 动效是否服务理解、状态、承接或单一品牌记忆，而非掩盖静态构图问题；
-- Page Motion Budget 是否避免多个 Signature、多个持续媒体或相邻运动焦点竞争；
+- 已确认显式 Layer 2/3 时，Page Motion Budget 是否避免多个 Signature、多个持续媒体或相邻运动焦点竞争；
 - Layer 2 是否只用于有顺序或叙事价值的内容，不机械覆盖所有 Section；
 - Trigger、运动对象、Sequence 与 Section Job 是否一致；
 - Mobile、Reduced Motion 与静态 fallback 是否保留内容、证据和 CTA；
@@ -98,7 +98,7 @@
 - 核心、支撑、辅助与转化模块是否形成合理强弱；
 - 连续 Section 是否重复相同证据、构图或视觉重量；
 - 推荐 Layout 是否有内容关系和证据需求支持；
-- Motion Budget 与每个 Section 的 Motion Intent 是否完整、克制且可交给 HTML 实现，不需要执行者重新决定为什么动；
+- 已确认显式 Layer 2/3 时，其 Motion Budget / Intent 是否足够交给 HTML 实现；未采用时不要求 Motion 字段；
 - UI 执行者是否仍需要重新猜测信息主次、证据归属、扫读路径、视觉叙事、查看方式或模块重量。
 
 明确问题自动修正一轮后再交给用户。多个 Layout 都能合理完成任务时，提供建议、理由和影响，不自动追求唯一答案。

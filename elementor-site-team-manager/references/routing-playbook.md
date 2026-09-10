@@ -13,7 +13,7 @@
 - `docs/page-content/*.md`：页面内容框架、页面 slug 和确认状态；
 - `设计稿/design-system/style-board.html` 与 `docs/design-system/design-system.md`：视觉候选与当前基线；
 - `docs/elementor/elementor-style-contract.md`：Site Mode、Style Authority、继承策略和状态；
-- `设计稿/directions/<page-slug>/`：页面或模块视觉方向证据、Page Motion Budget 与 Section Motion Intent；
+- `设计稿/directions/<page-slug>/`：页面或模块视觉方向证据；只有用户采用显式 Layer 2/3 时才含 Page Motion Budget 与 Section Motion Intent；
 - `设计稿/pages/*.html`、`设计稿/modules/*.html`：当前 HTML 与 Section 边界候选；
 - 当前对话：用户提供的目标、素材、截图、HTML、版本选择和明确确认。
 

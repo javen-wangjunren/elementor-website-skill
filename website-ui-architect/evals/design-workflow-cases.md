@@ -87,7 +87,8 @@
 
 | ID | 场景 | 必须行为 |
 | --- | --- | --- |
-| 83 | New Site / Rebuild 未特别说明动效 | 继承 Design System 的 `Restrained`，先写 Page Motion Budget；普通 Section 默认 Motion None，不自动全页淡入。 |
+| 83 | New Site / Rebuild 未特别说明动效 | 继承 Design System 的 `Restrained` Layer 1 基础反馈；普通 Section 省略 Motion 字段。没有被用户选择的显式 Layer 2/3 时，不创建 Page Motion Budget。 |
+| 96 | Map 中发现一两个有价值的动态机会 | 作为 `Optional Motion Suggestions` 随原 Map 门禁提出；用户未选择时不进入 Motion Contract，也不阻塞页面设计。 |
 | 84 | 用户说页面太静态、希望增加一点活力 | 只为受影响页面/Section补 Motion Intent；不让 Prototyper 临时创造动画，也不重开无关内容门禁。 |
 | 85 | 首页有三个高动态候选 | 选择最多一个能解释核心价值或建立品牌记忆的 Signature，其余降级或移除，并记录 Page-level rejected motion。 |
 | 86 | 普通内页没有动态叙事需要 | `Signature Moment: None`，只保留基础交互 Feedback。 |
@@ -95,6 +96,11 @@
 | 88 | Layer 2 Reveal 覆盖全部 Section | Motion Fitness 不通过；只保留有顺序、叙事或数据表达价值的 Section，约 30%–50% 只是校准目标。 |
 | 89 | Desktop Signature 在移动端成本过高 | Map 明确 Simplify 或 Remove，并提供保留内容和 CTA 的静态 fallback。 |
 | 90 | 旧版确认 Map 没有 Motion 字段 | 不阻塞既有流程；未要求增强时只交接基础 Hover、Focus 和必要状态。 |
+| 91 | 普通企业首页没有能解释核心价值的动态场景 | `Signature Moment: None`；Layer 3 不是首页必选项。 |
+| 92 | 品牌型 About Us 只有团队图文 | 页面虽属候选类型，仍保持 Layer 1/2，不为页面类型强加 Signature。 |
+| 93 | 活动页有明确品牌叙事与多阶段媒体联动 | 可确认最多一个 Layer 3，只写 Signature purpose、required behavior 与 mobile/reduced fallback。 |
+| 94 | 普通服务页或产品列表页希望“更炫” | 默认不使用 Layer 3；只有可验证的解释需求才能重新进入候选。 |
+| 95 | 核心产品详情页需让工作步骤与产品状态同步 | 可将对应 Section 设为 Layer 3 候选，但 UI Architect 只确认行为，不决定动画库。 |
 
 ## 覆盖核对
 

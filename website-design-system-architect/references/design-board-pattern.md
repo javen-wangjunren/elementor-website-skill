@@ -16,13 +16,14 @@
 - Button、Link、Chip、Icon；
 - Card、List；
 - Tabs、Accordion；
-- Table；
-- 紧凑 Motion Preview Strip。
+- Table。
 
 不展示 Media、Responsive、Hero、Header、Footer、Form、完整 Gallery、CTA、页面级 Signature 或其他业务模块。Board 是基础设计语言参考，不是缩小版页面设计稿。
 
-### Motion Preview Strip
+### 可选 Motion Preview Strip
 
+- 默认不附加；Layer 1 通过 Button、Link、Tabs 和 Accordion 的基础状态即可表达。
+- 只有用户明确要求查看运动方向，或项目已确认 Layer 2 跨页基线时才附加。
 - 只演示一个按钮/链接 Feedback、一个短距离 Content Reveal，以及 Tabs 或 Accordion 的状态过渡。
 - New Site / Rebuild 默认采用 `Motion Level: Restrained` 与 [Motion System Standard](motion-system-standard.md) Token；品牌或用户决定可覆盖。
 - 提供明确的 Replay 或直接交互入口，不依赖持续自动循环展示效果。

@@ -27,7 +27,7 @@ description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既
 
 两条路径汇合后执行同一个实现流程：
 
-1. 确认当前 `SOURCE MODE`、实现边界、真实内容、固定视觉、Motion / 交互、Canonical Module Slug 和 `SITE STYLE CONTEXT`；快速通道的 Slug 在字段卡中提出并由用户确认。
+1. 确认当前 `SOURCE MODE`、实现边界、真实内容、固定视觉、交互、Canonical Module Slug 和 `SITE STYLE CONTEXT`；只有确认的 Layer 3 使用第三方库时才继承 Advanced Motion Runtime。快速通道的 Slug 在字段卡中提出并由用户确认。
 2. 按 [最小字段确认卡](references/spec-card-template.md) 在对话中提出字段初稿和来源解释。
 3. **停止并等待用户增删、微调和确认字段。确认前不得开始 PHP/CSS/JS 实现。**
 4. 读取 [注册基线](references/registration-baseline.md)，确认目标插件已存在并向其增量接入；插件不存在时停止本流程，转交 `elementor-site-initialize`。
@@ -51,7 +51,8 @@ description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既
 - 沿用现有 Flat/Grouped 结构并只做增量注册；Widget 必须继承插件级面板可发现性契约，模块 CSS 必须位于当前 Widget 命名空间，不修改主题。
 - 老站不得因实现一个 Widget 修改 Site Settings、主题或全局 CSS；局部独立风格只作用于当前 Wrapper，也不反向更新站点合同。
 - 无交互不创建 JS；有交互时支持同页多实例和 Elementor 编辑器重新渲染。Observer、定时器、RAF、视频与全局监听必须按实例保存并在重初始化、DOM 移除或页面生命周期结束时停止；无法获得可靠销毁 Hook 时使用会检查 `root.isConnected` 的自终止任务，避免常驻全局资源。
-- Motion 不写入 Elementor Global Style；Style Contract 只负责视觉继承，当前模块的 Motion Source、Layer、Trigger、Mobile、Reduced Motion 与运行要求由字段卡和确认 HTML 传递。
+- 普通模块和原生 Layer 1/2/3 不创建 Runtime 字段。确认的 Layer 3 使用第三方库时，Pipeline 只继承 Advanced Motion Runtime，不得临时换库；GSAP 由插件级统一注册固定版本，Widget 只声明依赖，每个实例独立清理 context、timeline 和 ScrollTrigger。
+- Motion 不写入 Elementor Global Style；Style Contract 只负责视觉继承。普通交互直接继承确认 HTML；只有显式 Layer 2/3 才传递精简 Motion Context，只有第三方 Layer 3 再传递 Advanced Motion Runtime。
 
 ## 输出
 

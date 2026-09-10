@@ -51,6 +51,7 @@ description: Coordinate the custom Elementor Widget site workflow for kickoff, l
 - 目标进入 Elementor 且需要继承站点样式时，必须先确认 Site Mode、Style Authority 和适用的 Elementor Style Contract。
 - New Site / Rebuild 默认从 Design System 继承 `Motion Level: Restrained`；Existing Extension 只继承可验证的现站动态。旧产物缺少 Motion 字段不自动失效。
 - “页面太静态、希望增加活力”若涉及为什么动、强度或 Signature，路由 `website-ui-architect`；已确认意图的 timing、性能和可访问性属于 Prototyper，Elementor 多实例与编辑器生命周期属于 Pipeline。
+- Layer 3 默认 `None`，Motion 是可选增强。普通模块不产生 Runtime 状态；只有确认 Signature 且 Prototyper 提议第三方库时，才随 HTML 动效方案确认一份 Advanced Motion Runtime Note，再原样交给 Elementor 或 WordPress 实现。
 - 用户在 Elementor 中组装整页并对照确认版 HTML 完成最终视觉验收，是保留的人工门禁，不自动扩展为新的核心 Skill。
 - 外部写入、发布、上传、缓存清理和远程后台修改仍需独立范围与授权。
 

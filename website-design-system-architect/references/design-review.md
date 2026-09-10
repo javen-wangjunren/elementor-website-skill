@@ -2,7 +2,7 @@
 
 ## 定义与边界
 
-设计师自查用于提高 Design Board 和 Active Baseline Design System 的首次交付质量。它不是 QA，不产生验收等级，也不检查响应式、溢出、浏览器兼容、性能或生产实现。Motion Preview Strip 只检查运动性格与静态 fallback，完整交互 QA 属于 Prototyper。
+设计师自查用于提高 Design Board 和 Active Baseline Design System 的首次交付质量。它不是 QA，不产生验收等级，也不检查响应式、溢出、浏览器兼容、性能或生产实现。若项目按需附加 Motion Preview Strip，这里只检查运动性格与静态 fallback，完整交互 QA 属于 Prototyper。
 
 模块 HTML 与整页 HTML 的实现 QA 属于 `website-html-prototyper`；视觉方案与方向确认属于 `website-ui-architect`。
 
@@ -36,7 +36,7 @@
 - Button、Card、List、Icon、Tabs、Accordion、Table 的层级与状态是否清晰？
 - 是否存在卡片过大、比例失衡、强调色竞争、表格过重或方框序号？
 - 是否误放了 Media、Responsive、页面区块或完整业务模块？
-- Motion Preview Strip 是否克制、可重播、不持续抢占注意力，并在 Reduced Motion 下保持内容可见？
+- 若已附加 Motion Preview Strip，它是否克制、可重播、不持续抢占注意力，并在 Reduced Motion 下保持内容可见？
 - 是否误把页面级 Signature、视频或滚动叙事放进基础 Board？
 - UI Architect 是否仍需重新猜测基础规则？
 
@@ -49,7 +49,7 @@
 - 所有规则均可追溯到确认版 Board、用户决定或行业研究；
 - 已确认的颜色角色、字体层级、间距、圆角与组件规则准确写入；
 - `Locked / Flexible / Open` 完整，未确认项没有被写成 `Locked`；
-- Board 未确认的 Media、Responsive、Accessibility 与页面级 Motion 细节保留为 `Flexible` 或 `Open`；已确认 Motion Preview Strip 只能支持基础 Motion Foundation；
+- Board 未确认的 Media、Responsive、Accessibility 与页面级 Motion 细节保留为 `Flexible` 或 `Open`；基础组件状态或可选 Motion Preview Strip 只能支持基础 Motion Foundation；
 - Motion Foundation 包含 Level、Token、三层职责、默认禁止项、移动端与 Reduced Motion，且不包含具体 Section、DOM 或 Elementor 实现；
 - 未重新引入用户否决的模式，包括无圆角卡片、黑色重表头、方框序号 List、单张整行大卡片；
 - 不包含页面布局、业务模块、Elementor 控件、PHP 类名或 CSS Selector；

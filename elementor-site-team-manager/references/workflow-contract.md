@@ -9,7 +9,7 @@
 → 按条件形成或复用 Visual Reference Brief
 → 确认 Page Content 与 Design System
 → 若目标进入 Elementor，确认 Elementor Style Contract
-→ 确认 Page UI Architecture Map（含 Page Motion Budget 与 Section Motion Intent）
+→ 确认 Page UI Architecture Map（显式采用 Layer 2/3 时才含 Motion Budget / Intent）
 → 确认覆盖全部 Section 的 Segment Set / Section Correction
 → HTML Prototyper 生成整页优先或模块优先 First Draft
 → HTML Design Review 与 Browser / Implementation QA
@@ -19,7 +19,7 @@
 → 用户在 Elementor 中组装整页并完成最终视觉验收
 ```
 
-- UI Architect 负责 Module Design Solution、UI Map、媒体契约、Page Motion Budget、Section Motion Intent、视觉方向和 Canonical Module Slug。
+- UI Architect 负责 Module Design Solution、UI Map、媒体契约、可选 Motion 建议、视觉方向和 Canonical Module Slug；只有用户确认采用显式 Layer 2/3 时才形成 Page Motion Budget 与 Section Motion Intent。
 - Prototyper 继承设计包与 Motion Contract，不重新设计；整页优先可只维护整页 HTML，模块优先可保留模块 HTML。
 - Pipeline 可使用独立模块 HTML，或确认整页 HTML 中边界明确的当前 Section；两者同时存在时先确认最终版本。
 - Prototype Handoff 只在跨会话、复杂交互或 DOM 结构需要锁定时按需生成。
@@ -40,7 +40,7 @@
 11. 进入 Pipeline 前确认 Canonical Module Slug、Section 边界、最终 HTML 实现源、面板可发现性和 Site Style Context；
 12. 每个 Widget 的最小 Elementor 字段卡确认后才能实现。
 
-New Site / Rebuild 的新产物默认包含 `Motion Level: Restrained`，但 Motion 不增加新的独立用户门禁，随 Design Board 与 UI Map 原门禁确认。旧产物缺少 Motion 字段时不阻塞；只有用户要求增强动态或重新设计受影响页面时才补齐。
+New Site / Rebuild 从 Design System 继承 `Motion Level: Restrained` 的基础反馈性格，但页面不强制生成 Motion 字段。可选建议随 UI Map 原门禁确认；只有用户选择显式 Layer 2/3 时才补 Motion Budget / Intent。旧产物缺少 Motion 字段不阻塞。
 
 文件存在只能证明有候选产物，不能代替用户确认。内容框架与 Design System 可以并行，但进入完整页面 UI 前两者都必须确认。
 
@@ -63,12 +63,11 @@ Site Mode：
 Style Authority：
 Style Contract Status：
 Backend Style Evidence：
-Motion Level：
-Page Motion Budget：
 更新时间：
 ```
 
 - 状态文件只保存当前有效状态，不追加成长日志。
+- 只有当前任务正在设计或实现显式 Layer 2/3 时，才追加一行 `Motion Context`；普通页面、继承的 Layer 1 和无动效任务不记录 Motion 状态。
 - 专项 Skill 不各自创建状态文件。
 - 恢复时用当前对话和实际产物核验状态；无法证明的确认不得继承。
 - 默认不展示固定状态卡，只在启动、恢复、跨阶段、阻塞或用户主动询问时简要说明。
@@ -82,19 +81,17 @@ CONFIRMED INPUTS:
 SOURCE FILE / CONVERSATION INPUT:
 TARGET PLUGIN / OUTPUT:
 LOCKED CONSTRAINTS:
-MOTION LEVEL:
-PAGE MOTION BUDGET:
-CURRENT SECTION MOTION INTENT:
 EXPECTED DELIVERABLE:
 NEXT USER GATE:
 KNOWN RISKS:
 ```
 
 - 只传当前专项工作所需信息，不复制其他 Skill 的完整规则。
+- 只有当前任务存在显式 Layer 2/3 时，派工包才追加 `MOTION CONTEXT`；只有确认的 Layer 3 使用第三方库时，再追加 `ADVANCED MOTION RUNTIME`。
 - 不把未确认推断包装成已确认输入。
 - 页面内容交给 UI 时只传确认文件、Section ID、Section Job、顺序、内容边界、证据状态和开放问题，不提前决定视觉 Form。
-- 视觉包交给 Prototyper 时传确认 Map、Motion Level、Page Motion Budget、当前 Section Motion Intent、最终 Segment Set、必要的 Section Correction、Slug、Correction Notes 和素材真实性边界。
-- 进入 Pipeline 时一次只派发当前模块，并原样传递 Canonical Module Slug、Section 边界、最终实现源、当前 Motion Intent/运行要求、项目面板可发现性、`siteStyle`、Confirmed Style Contract 和必要页面上下文。
+- 视觉包交给 Prototyper 时传确认 Map、最终 Segment Set、必要的 Section Correction、Slug、Correction Notes 和素材真实性边界；只有用户采用显式 Layer 2/3 时才追加 Motion Context，不为普通模块创建 Motion/Runtime 状态，也不替 UI Architect 指定库。
+- 进入 Pipeline 时一次只派发当前模块，并原样传递 Canonical Module Slug、Section 边界、最终实现源、适用的 Motion Intent、项目面板可发现性、`siteStyle`、Confirmed Style Contract 和必要页面上下文。只有确认使用第三方库的 Layer 3 才额外携带 Advanced Motion Runtime Note。
 
 ## 5. 定向回退
 
@@ -107,7 +104,7 @@ KNOWN RISKS:
 | 多处重复出现的颜色、排版、Surface、间距或共享组件规则问题 | Design System Architect |
 | Section Job、核心构图、媒体关系或响应式叙事 | UI Architect |
 | Motion Purpose、Layer、Signature 或移动端动态叙事 | UI Architect |
-| 换行、尺寸、裁切、对齐、断点、timing、Observer、视频、性能、交互和可访问性实现 | HTML Prototyper 自动修正一轮后复验 |
+| 第三方库必要性、换行、尺寸、裁切、对齐、断点、timing、Observer、视频、性能、交互和可访问性实现 | HTML Prototyper；只有提议第三方库时确认 Advanced Motion Runtime Note |
 | Elementor 字段、组件代码、多实例、编辑器重渲染或单 Widget 运行时清理 | Widget Pipeline |
 
 回退遵循最小影响原则：单模块问题不重做整页；单页例外不升级为全局规则；上游修正后只让受影响的下游产物失效并复验。

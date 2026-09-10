@@ -78,7 +78,7 @@ DIRECTION:
 - 公司名称、Logo 和品牌必须来自已确认输入；
 - 示例事实必须已验证，否则使用明显中性的演示文字；
 - 不设置方向切换，不复制多套 CSS 或组件。
-- 增加一个紧凑 Motion Preview Strip，只演示 Layer 1 Feedback、Layer 2 Reveal 和状态切换；不设计页面级 Signature。
+- Layer 1 默认通过现有基础组件状态表达，不单独增加 Motion 区块。只有用户明确要求查看运动方向，或项目已确认 Layer 2 跨页基线时，才附加紧凑 Motion Preview Strip；不设计页面级 Signature。
 
 ## 6. 设计师自查、用户查看与确认
 

@@ -27,7 +27,7 @@
 ## Board and Design System Gates
 
 1. 未确认文字方向时不生成 Board；确认后只生成一个方向。
-2. Board 只展示 Color、Typography、Grid、Spacing、Shape、Button、Link、Chip、Icon、Card、List、Tabs、Accordion、Table 和紧凑 Motion Preview Strip，不出现 Media、Responsive、Form、Header、Footer、Hero、完整 Gallery、CTA Section、页面 Signature 或其他业务模块。
+2. Board 只展示 Color、Typography、Grid、Spacing、Shape、Button、Link、Chip、Icon、Card、List、Tabs、Accordion、Table；只有明确确认运动方向时才附加紧凑 Motion Preview Strip。不出现 Media、Responsive、Form、Header、Footer、Hero、完整 Gallery、CTA Section、页面 Signature 或其他业务模块。
 3. Board 不出现方向切换 Tabs、重复 CSS 系统或多套组件副本。
 4. 公司名称、Logo 和品牌来自已确认输入，不用主题名、仓库名或模板名代替公司。
 5. 不虚构质量数据、认证、交期、客户数量、VR 参观或工厂能力。
@@ -46,7 +46,7 @@
 4. 一轮后仍涉及品牌气质或业务优先级时停止自动调整，把具体选择交给用户。
 5. 交付表述为“已完成设计自查”，不产生任何验收等级。
 6. Board 经用户确认并生成 Active Baseline 后，执行第二次设计师自查：检查追溯性、规则一致性、完整的 `Locked / Flexible / Open` 和已否决模式回退。
-7. 未在 Board 确认的 Media、Responsive、Accessibility 和页面级 Motion 细节在正式系统中保持 `Flexible` 或 `Open`；Preview Strip 只确认基础 Motion Foundation。
+7. 未在 Board 确认的 Media、Responsive、Accessibility 和页面级 Motion 细节在正式系统中保持 `Flexible` 或 `Open`；基础组件状态或可选 Preview Strip 只确认基础 Motion Foundation。
 8. 正式系统不包含页面布局、业务模块、Elementor 控件、PHP 类名或 CSS Selector，UI Architect 可直接据此设计模块。
 9. 正式系统包含 Site Mode 与 Style Authority Intent，但不包含 Elementor Site Settings 映射。
 
@@ -76,7 +76,7 @@
 ## Motion Foundation
 
 1. New Site / Rebuild 未提动效偏好时，Active Baseline 默认 `Motion Level: Restrained`，但不自动为全部 Section 指定 Reveal。
-2. Board 的 Motion Preview Strip 只包含 Layer 1、Layer 2 和状态切换，提供 Replay/交互入口并支持 Reduced Motion，不包含视频或页面 Signature。
+2. 默认 Board 不单独增加 Motion Preview Strip；Layer 1 由基础组件状态表达。用户明确确认运动方向时，可选 Strip 只包含 Layer 1、Layer 2 和状态切换，并支持 Reduced Motion，不包含视频或页面 Signature。
 3. Existing Site 只有静态截图时，具体 Motion 标为 `Unknown / Open`，不凭层叠构图推断视差或自动轮播。
 4. 用户要求更活跃但仍为企业站时，先调整 Motion Level/Token 的跨页面基线；具体 Section 和 Signature 仍交给 UI Architect。
 5. 旧 Design System 缺少 Motion Foundation 时不阻塞既有 HTML；用户要求升级或页面重设计时再受控补齐。

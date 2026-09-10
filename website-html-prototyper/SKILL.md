@@ -12,7 +12,7 @@ description: Build, review, and browser-test interactive website page or module 
 - 完整页面必须具有已确认的 Page Content、Design System、Page UI Architecture Map，以及覆盖全部 Section 的 Structure Approved Segment Set；受影响 Section 可由已确认 Section Correction 覆盖。AI Overview 或 Composite Preview 均不是门禁。方向未确认时返回 `website-ui-architect`。
 - 单模块必须有完整 Module Design Solution，以及已确认方向图或无歧义的强参考。仅有截图/Figma 但内容任务不清时返回 `website-page-content-architect`；任务清楚但方向未确认时返回 `website-ui-architect`。
 - Design System 缺失或冲突时返回 `website-design-system-architect`。
-- New Site / Rebuild 的新 Map 应包含 Motion Foundation、Page Motion Budget 与 Section Motion Intent；旧版已确认产物缺少 Motion 字段时不阻塞，用户未要求增强动态则只实现基础 Hover、Focus 和必要状态。
+- New Site / Rebuild 继承 Motion Foundation；只有用户确认采用显式 Layer 2/3 时 Map 才需要 Page Motion Budget 与对应 Section Motion Intent。没有 Motion 字段不阻塞，默认只实现基础 Hover、Focus 和必要状态。
 - Canonical Module Slug 由 `website-ui-architect` 在视觉确认后生成，本 Skill 原样继承，不擅自重命名。
 
 ## 输入权威
@@ -37,7 +37,7 @@ description: Build, review, and browser-test interactive website page or module 
 ## 唯一流程
 
 1. 执行输入门禁，确认整页或单模块路径、最终源文件、Section 边界和 Canonical Module Slug。
-2. 按输入权威顺序编写真实内容的 HTML First Draft。默认使用原生 HTML/CSS/按需 JS，CSS/JS 内嵌在单一 HTML 文件；用户明确指定技术时才调整。有 Motion Intent 时读取 [Motion Implementation Standard](references/motion-implementation-standard.md)，无已确认意图不临时添加 Reveal 或 Signature。
+2. 按输入权威顺序编写真实内容的 HTML First Draft。默认使用原生 HTML/CSS/按需 JS，CSS/JS 内嵌在单一 HTML 文件；用户明确指定技术时才调整。有 Motion Intent 时读取 [Motion Implementation Standard](references/motion-implementation-standard.md)，无已确认意图不临时添加 Reveal 或 Signature。确认的 Layer 3 需要第三方运行库时，再按条件读取 [GSAP Layer 3 Runtime](references/gsap-layer3-runtime.md)。
 3. 读取 [HTML Design Review](references/html-design-review.md) 和 [Visual QA Standard](references/visual-qa-standard.md)，在真实渲染中依次检查 Full Page、Section + Neighbors、Section，并自动修正一轮明确的实现层问题。视觉判断必须给出可观察证据，不得只使用“高级感”“不好看”等结论。
 4. 读取 [Browser / Implementation QA](references/browser-implementation-qa.md)，验证桌面/移动断点、溢出、真实长内容、资源、键盘与 Focus、交互、Motion/静态 fallback、reduced motion 和基础兼容。
 5. 用户确认 HTML 后，交付最终实现源、Section 边界、Slug 和简短 QA 结论。原始目标包含 Elementor Widget 时，在同一任务中继续采用 `elementor-widget-pipeline`。
@@ -53,6 +53,7 @@ description: Build, review, and browser-test interactive website page or module 
 
 - 整页优先或逐模块拼接时读取 [整页拼接](references/page-composition.md)。
 - 实现任何 Layer 2 / Layer 3、自动媒体或复杂状态交互时读取 [Motion Implementation Standard](references/motion-implementation-standard.md)。
+- 只有确认的 Layer 3 明确选择 GSAP 后才读取 [GSAP Layer 3 Runtime](references/gsap-layer3-runtime.md)；普通页面和原生动效不加载该 Reference，也不产生 Runtime 字段。
 - 默认只维护 `设计稿/pages/<page-slug>.html` 或当前 `设计稿/modules/<module-slug>.html`，不同时制造多个真相源。
 - 只有用户明确要求、需跨会话交接或 DOM/交互必须锁定时，才读取 [可选原型交接](references/prototype-handoff.md)。
 - 需验证路由、输入权威或质量行为时读取 [行为用例](evals/prototype-workflow-cases.md)。
