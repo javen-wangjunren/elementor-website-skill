@@ -1,3 +1,5 @@
+<p align="right"><strong>简体中文</strong> · <a href="./README_EN.md">English</a></p>
+
 <p align="center">
   <img src="./assets/readme/hero.svg" width="100%" alt="Elementor Site Skills：从真实业务与证据、页面设计到可维护 Elementor Widget 的 B2B 建站方法">
 </p>
@@ -251,10 +253,10 @@ Elementor 插件可以把所有组件放在同一层（`Flat`），也可以按�
 
 ## 📚 如果你想再多了解一点
 
-前面的说明偏文字和方法。如果你更喜欢用图文快速理解，我也把两组内容整理成了可顺序浏览的信息卡：一组聊 AI 如何更好地参与网站设计，另一组聊我对 AI 时代个人成长的长期思考。
+如果你想进一步了解这套方法从哪里来，以及它和“一句话生成网站”有什么区别，可以继续阅读这些复盘：
 
-- [AI 辅助网站设计：从“模板味”到设计判断](./复盘反思/AI辅助网站设计/)
-- [AI 时代个人心态：普通人到底该卷什么](./复盘反思/AI时代个人心态/)
+- [AI + WordPress 网站生产体系与一句话生成的区别](./复盘反思/AI-WordPress网站生产体系与一句话生成的区别.md)
+- [分层设计系统](./复盘反思/layered-design-system.md)
 - [完整使用说明与设计复盘](./复盘反思/Elementor自定义组件建站Skills使用说明与设计复盘.md)
 - [B2B 网站模块设计判断框架](./复盘反思/B2B网站模块设计判断框架.md)
 - [从隐性经验到可用 Skill 的复盘](./复盘反思/从隐性经验到可用Skill的复盘.md)

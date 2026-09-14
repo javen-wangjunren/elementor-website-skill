@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Build an Elementor website like a real construction project</title>
+  <desc id="desc">Verify business facts and references, plan content and visual rules, then build a browser prototype and maintainable Elementor Widgets.</desc>
+  <rect width="1200" height="500" rx="28" fill="#f4f7f6"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <text x="56" y="70" fill="#17242c" font-size="42" font-weight="800">Build your Elementor site, one layer at a time</text>
+    <text x="56" y="108" fill="#56646b" font-size="23">Inspect the foundation, plan the design, prototype, build, and verify.</text>
+  </g>
+  <g stroke="#98a8ae" stroke-width="4" fill="none">
+    <path d="M394 282H446"/>
+    <path d="M754 282H806"/>
+  </g>
+  <g fill="#98a8ae">
+    <path d="M446 282l-14-9v18z"/><path d="M806 282l-14-9v18z"/>
+  </g>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <g transform="translate(54 158)">
+      <rect width="340" height="200" rx="20" fill="#ffffff" stroke="#cad3d6" stroke-width="2"/>
+      <text x="28" y="42" fill="#0b83b8" font-size="21" font-weight="800" letter-spacing="2">01 · DISCOVER</text>
+      <text x="28" y="88" fill="#17242c" font-size="28" font-weight="800">Verify the foundation</text>
+      <text x="28" y="128" fill="#56646b" font-size="20">Company facts · reference sites</text>
+      <text x="28" y="158" fill="#56646b" font-size="20">Evidence, assets, constraints</text>
+    </g>
+    <g transform="translate(446 158)">
+      <rect width="308" height="200" rx="20" fill="#17242c"/>
+      <text x="28" y="42" fill="#5ac0e8" font-size="21" font-weight="800" letter-spacing="2">02 · PLAN</text>
+      <text x="28" y="88" fill="#ffffff" font-size="24" font-weight="800">Plan content &amp; visuals</text>
+      <text x="28" y="128" fill="#c7d0d4" font-size="20">Page flow · design system</text>
+      <text x="28" y="158" fill="#f2bd27" font-size="20" font-weight="700">Blueprints &amp; directions</text>
+    </g>
+    <g transform="translate(806 158)">
+      <rect width="340" height="200" rx="20" fill="#ffffff" stroke="#cad3d6" stroke-width="2"/>
+      <text x="28" y="42" fill="#0b83b8" font-size="21" font-weight="800" letter-spacing="2">03 · BUILD</text>
+      <text x="28" y="88" fill="#17242c" font-size="24" font-weight="800">Prototype &amp; implement</text>
+      <text x="28" y="128" fill="#56646b" font-size="20">Browser prototype · Elementor</text>
+      <text x="28" y="158" fill="#56646b" font-size="20">Widgets and real-world QA</text>
+    </g>
+    <g transform="translate(56 431)">
+      <circle cx="10" cy="0" r="8" fill="#f2bd27"/>
+      <text x="32" y="8" fill="#56646b" font-size="20">Yellow marks need your approval; a file alone does not mean the stage has passed.</text>
+    </g>
+  </g>
+</svg>
