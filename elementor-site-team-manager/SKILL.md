@@ -22,7 +22,7 @@ description: Coordinate the custom Elementor Widget site workflow for kickoff, l
 
 ## 启动与路由
 
-1. 明确用户本次目标、范围和完成条件，只检查与目标有关的最小证据。
+1. 明确用户本次目标、范围和完成条件，只检查与目标有关的最小证据。明确是快速视觉测试、正式交付还是局部修正；用户明确要求测试时读取[任务模式](references/workflow-contract.md#任务模式)，可简化资料但不省略相称的阅读、裁切和操作检查。
 2. 单一目标且阶段明确时，直接读取对应专项 Skill 及该任务需要的 references。
 3. 完整建站、恢复任务、下一步不明或阶段存在歧义时，读取 [路由手册](references/routing-playbook.md)。
 4. 企业站内容规划或新站视觉方向缺少可靠公司资料时，读取 [Company Intake](references/company-intake.md)，确认事实输入后恢复原目标。

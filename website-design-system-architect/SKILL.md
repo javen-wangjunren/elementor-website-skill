@@ -7,6 +7,8 @@ description: Create or evolve an implementation-agnostic website design system f
 
 先提出文字方向，再把用户选中的方向整理成临时规则草稿；用单方向 Design Board 验证规则，确认后才写入可继续演进的正式 Design System。
 
+用户明确授权快速视觉测试时，按[任务模式](../elementor-site-team-manager/references/workflow-contract.md#任务模式)提供临时规则并确认其测试用途；不把测试规则写成正式 Active Baseline。以下正式生命周期与门禁仍用于正式交付。
+
 ## 标准生命周期
 
 ```text
@@ -36,7 +38,7 @@ description: Create or evolve an implementation-agnostic website design system f
 2. New Site / Rebuild 只选择性读取适用 Visual Reference Brief 的 `Art Direction`、`Visual System / DESIGN.md` 与迁移边界；需要跨行业研究但简报缺失时返回总控并路由 `website-reference-researcher`，已有简报时不重复研究。Existing Site 的本体提炼仍按现有站证据工作。
 3. Existing Site 涉及网页证据采集时，读取 [共享浏览器研究协议](references/browser-research.md)。
 4. 两条路径都遵守 [Design System 标准](references/design-system-standard.md)；形成临时规则草稿、生成 Design Board 或处理共享视觉规则时读取 [视觉系统原则](references/visual-system-principles.md)。建立或提炼跨页面动效基线时同时读取 [Motion System Standard](references/motion-system-standard.md)。
-5. 生成 Design Board 时读取 [B2B Design Board 默认模式](references/design-board-pattern.md)。
+5. 生成 Design Board 时读取 [Design Board 模式与示例边界](references/design-board-pattern.md)，按当前任务选基础示例，不把 B2B 示例当页面布局模板。
 6. 交付 Design Board 或 Active Baseline 前读取并执行 [设计师自查](references/design-review.md)，并用视觉系统原则验证色彩角色、明度、饱和度、排版、空间、Surface 与组件状态是否形成同一语言。
 7. 当 `website-html-prototyper` 提交 D 类系统问题时，核对它是否在多个位置重复出现且根因属于共享规则；成立时只更新受影响 token、语义角色或共享规则，记录渲染证据和影响范围，再交回原页面复验。单页例外不修改全局系统。
 

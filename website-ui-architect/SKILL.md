@@ -7,6 +7,8 @@ description: Design and visually validate implementation-agnostic website pages 
 
 把已确认的页面内容与视觉规则转化为经视觉验证的 UI 设计方案。本 Skill 在视觉方向确认后结束，不编写 HTML。
 
+以下正式输入与门禁不用于强迫快速测试补齐全站资料。仅当用户明确授权快速视觉测试时，按[任务模式](../elementor-site-team-manager/references/workflow-contract.md#任务模式)使用已确认的测试范围、演示内容和临时视觉规则；测试方向不自动成为正式确认源。
+
 ## 输入与上游
 
 - 完整页面必须读取已确认的 `docs/design-system/design-system.md` 和 `docs/page-content/<page-slug>.md`；缺失时分别返回 `website-design-system-architect` 或 `website-page-content-architect`。

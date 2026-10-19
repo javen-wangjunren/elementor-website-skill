@@ -7,6 +7,8 @@ description: Build, review, and browser-test interactive website page or module 
 
 把已确认的视觉设计包与 Motion Contract 转化为可浏览、可审查、可交给下游的交互 HTML 设计稿。本 Skill 实现设计，不重新决定设计或动效目的。
 
+仅在用户明确授权快速视觉测试时，按[任务模式](../elementor-site-team-manager/references/workflow-contract.md#任务模式)用已确认的测试 Brief、演示内容和临时视觉规则代替正式设计包；仍执行相称的渲染与操作检查，不在 HTML 阶段探索未明确的构图。以下输入门禁用于正式交付，测试 HTML 不直接进入 Widget Pipeline。
+
 ## 输入门禁
 
 - 完整页面必须具有已确认的 Page Content、Design System、Page UI Architecture Map，以及覆盖全部 Section 的 Structure Approved Segment Set；受影响 Section 可由已确认 Section Correction 覆盖。AI Overview 或 Composite Preview 均不是门禁。方向未确认时返回 `website-ui-architect`。

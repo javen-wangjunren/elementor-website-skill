@@ -35,8 +35,8 @@
 7. 正式文件标记 `Status: Active Baseline`，保留 `Locked / Flexible / Open`。
 8. Board 使用单文件 HTML，只用于用户查看风格；设计师自查可使用用户整页截图或一次 Ego Browser 桌面整页渲染，但不执行窄屏、响应式、兼容性或生产实现 QA，也不输出验收等级。
 9. 对用户统一称为 Design Board，`style-board.html` 只作为兼容文件名。
-10. 默认 Button 有柔和圆角和完整状态；Card 为三张并排、4:3 图片与圆角；List 仅 Bullet、Numbered、Semantic Icon；Table 有完整边框、内部单元格分隔、圆角和品牌主色派生表头。
-11. 完整 Gallery 业务模块被排除，但三张并排 Gallery Cards 是允许且推荐的 Card 组件示例。
+10. 默认 Button 有柔和圆角和完整状态；B2B Card 示例可为三张并排、4:3 图片与圆角，其他任务不机械套用；List 仅 Bullet、Numbered、Semantic Icon；Table 有完整边框、内部单元格分隔、圆角和品牌主色派生表头。
+11. 完整 Gallery 业务模块被排除；Gallery Cards 是基础组件示例，不是下游页面布局约束。
 
 ## Designer Review
 
@@ -80,6 +80,12 @@
 3. Existing Site 只有静态截图时，具体 Motion 标为 `Unknown / Open`，不凭层叠构图推断视差或自动轮播。
 4. 用户要求更活跃但仍为企业站时，先调整 Motion Level/Token 的跨页面基线；具体 Section 和 Signature 仍交给 UI Architect。
 5. 旧 Design System 缺少 Motion Foundation 时不阻塞既有 HTML；用户要求升级或页面重设计时再受控补齐。
+
+## 整页配色与示例适用性
+
+1. 色票已确认，但整页含大量绿色服装、植物、绿色文字和背景：结合实际渲染证据判断面积与邻接，不只换按钮色；共享规则失效才受控更新，不固定转成暖中性方案。
+2. B2C 购买型网站正在验证基础语言：允许紧凑价格、按钮和选择状态示例，不强制三列 Gallery；不在 Board 中加入完整 Header、Hero、Footer 或商城。
+3. 只有示例素材或静态文件，尚无整页证据：披露待验证范围，不称页面配色已经通过浏览器验收。
 
 ## Degradation
 

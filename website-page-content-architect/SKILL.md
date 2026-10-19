@@ -7,6 +7,8 @@ description: Create or audit a complete, concise, UI-ready website page content 
 
 在视觉设计前，把真实业务资料转化为可直接排版的页面内容。默认产物是简短、便于人工审核的 **UI-ready Page Content Framework**：先按页面任务与目标客户决策路径完整规划模块，再提供长度适合模块设计的精简参考文案。它不是最终广告文案，不把内部分析过程全部写进文档。
 
+用户明确授权快速视觉测试时，按[任务模式](../elementor-site-team-manager/references/workflow-contract.md#任务模式)提供测试范围内、已确认测试用途的演示内容；其用途不是正式业务事实或正式确认框架。以下事实与确认门槛用于正式交付。
+
 ## 选择模式
 
 - **New Page**：从业务、受众、页面目标和可用证据规划新页面。
@@ -14,6 +16,8 @@ description: Create or audit a complete, concise, UI-ready website page content 
 - **Page Family**：规划一组服务、产品或行业页面的共享骨架、复用边界和差异化要求。
 
 始终读取 [content-framework-method.md](references/content-framework-method.md)。只有当前任务属于 B2B 制造业时才读取 [b2b-manufacturing-page-framework-standard.md](references/b2b-manufacturing-page-framework-standard.md)。需要理解完整产物时可读取 [jdm-solution-page-framework-example.md](references/jdm-solution-page-framework-example.md)，但不得把示例事实或顺序当作模板。
+
+仅当页面承担 B2C 直接购买或选购任务时，读取 [B2C 购买任务参考](references/b2c-purchase-content.md)；普通品牌、资讯或支持页面不因 B2C 标签自动加载。保持通用输出格式，不进入购物车或支付实现。
 
 交付页面框架前始终读取并执行 [Content Architecture Review](references/content-architecture-review.md)。
 
