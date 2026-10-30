@@ -1,21 +1,21 @@
 ---
 name: website-html-prototyper
-description: Build, review, and browser-test interactive website page or module HTML from a confirmed UI Architecture Map and visual direction. Use for HTML First Drafts, restrained motion implementation, full-page or module-first prototypes, rendered design review, responsive and interaction QA, page composition, and implementation handoff. Do not use for design exploration, unconfirmed visual or motion direction, content strategy, Design Systems, Elementor controls, CMS templates, or framework components.
+description: Build, visually refine, review, and browser-test website page or module HTML from confirmed module plans and an approved Design System, with optional rough image references. Use for full-page or module-first prototypes, responsive composition, approved interactions, and implementation handoff. Do not choose unresolved major layouts, invent motion purposes, or implement CMS components.
 ---
 
 # Website HTML Prototyper
 
-把已确认的视觉设计包与 Motion Contract 转化为可浏览、可审查、可交给下游的交互 HTML 设计稿。本 Skill 实现设计，不重新决定设计或动效目的。
+保留已确认的设计决定，主动完善尚未定稿的视觉细节，生成可浏览、可审查的整页或模块 HTML。粗方向图帮助理解布局和主次，不要求逐像素复制；主要布局与动效目的未定时先由 UI Architect 明确方案。
 
 仅在用户明确授权快速视觉测试时，按[任务模式](../elementor-site-team-manager/references/workflow-contract.md#任务模式)用已确认的测试 Brief、演示内容和临时视觉规则代替正式设计包；仍执行相称的渲染与操作检查，不在 HTML 阶段探索未明确的构图。以下输入门禁用于正式交付，测试 HTML 不直接进入 Widget Pipeline。
 
 ## 输入门禁
 
-- 完整页面必须具有已确认的 Page Content、Design System、Page UI Architecture Map，以及覆盖全部 Section 的 Structure Approved Segment Set；受影响 Section 可由已确认 Section Correction 覆盖。AI Overview 或 Composite Preview 均不是门禁。方向未确认时返回 `website-ui-architect`。
-- 单模块必须有完整 Module Design Solution，以及已确认方向图或无歧义的强参考。仅有截图/Figma 但内容任务不清时返回 `website-page-content-architect`；任务清楚但方向未确认时返回 `website-ui-architect`。
+- 完整页面需已确认 Page Content、Design System，以及当前全部拟实现模块的设计方案（维护在 Map 内）：任务、层级、主要布局、媒体用途、手机组织和必要交互。图片可选，不要求覆盖全部 Section 的确认图片。只有这些主要决定未明确时才返回 UI Architect；仅有粗图、没有清楚方案也不能猜写整页。
+- 单模块需当前范围确认的 Module Design Solution，可直接从明确 Brief 开始，不补整页图或全页 Map。任务不清返回 Page Content；主要构图有分歧返回 UI Architect；方案明确就可用粗图或文字方案进入 HTML。
 - Design System 缺失或冲突时返回 `website-design-system-architect`。
 - New Site / Rebuild 继承 Motion Foundation；只有用户确认采用显式 Layer 2/3 时 Map 才需要 Page Motion Budget 与对应 Section Motion Intent。没有 Motion 字段不阻塞，默认只实现基础 Hover、Focus 和必要状态。
-- Canonical Module Slug 由 `website-ui-architect` 在视觉确认后生成，本 Skill 原样继承，不擅自重命名。
+- Canonical Module Slug 由 `website-ui-architect` 在模块方案确认后生成，本 Skill 原样继承，不擅自重命名。
 
 ## 输入权威
 
@@ -25,9 +25,10 @@ description: Build, review, and browser-test interactive website page or module 
 | 颜色、字体、间距、组件基线 | Design System |
 | 结构、主次、证据归属、媒体和响应式叙事 | Architecture Map |
 | 明确的实现修正 | `visual-direction-notes.md` |
-| 当前 Section 的已确认局部修正 | Section Correction |
-| 局部构图、密度和视觉重量 | Segment |
-| 整页 Surface、顺序和节奏 | Architecture Map + 相邻 Segment |
+| 当前 Section 的已确认局部修正 | Map/Brief 中采用的决定；图片 Correction 仅在明确范围内适用 |
+| 局部构图、密度和视觉重量 | 确认模块方案；粗图作参考，未锁定部分在 HTML 主动细化 |
+| 明确要求精确还原的细节 | 用户指定的精细稿与锁定要求 |
+| 整页 Surface、顺序和节奏 | Map + 已采用的相邻模块方向，真实渲染中复核 |
 | 跨页面 Motion Level 与 Token | Design System Motion Foundation |
 | 页面 Motion Budget 与 Section 动效目的 | Architecture Map Motion Intent |
 
@@ -36,17 +37,27 @@ description: Build, review, and browser-test interactive website page or module 
 - 可访问性与硬约束高于所有视觉参考。
 - 不直接读取或研究原始品牌案例、第三方 `DESIGN.md` 或 Visual Reference Brief 来新增设计决策。参考原则必须先由 Page Content、Design System 或 UI Architecture 吸收并经过各自门禁，之后本 Skill 才按上表实现。
 
+## 主动细化与执行路径
+
+按[工作流合同](../elementor-site-team-manager/references/workflow-contract.md#粗方向图到-html)核对图片用途、锁定决定、HTML 可细化内容、整页/模块路径。旧精细稿和明确锁定要求继续有效；现有 HTML 直接延续，不因缺新字段强制重做。
+
+有粗图时先读取现有方案中的综合评估结论：哪些设计应保留、哪些在 HTML 改善、哪些重要选择仍待定。已有明确结论就直接承接，不重复评估审批；缺少记录但方案清楚时，不因缺字段阻塞，自行说明可见的细化判断并继续。若发现粗图中尚未识别的主要设计问题，具体说明并在同一任务交 UI Architect 综合用户意见更新方案，不能静默照搬或擅改。
+
+主动用真实文案、素材和代表性视口优化字号、行宽、换行、间距、卡片高度、按钮对齐、既定图文关系内的比例与视觉重量、精确裁切和手机适配，并实现已确认交互的状态及过渡。不能只给图片加点击效果就宣称完成视觉细化；也不为改动而改变已经合理的布局。
+
+需要增删/重排模块、改变任务或内容主次、卡片改轮播、平铺改图文联动、媒体用途、关键手机顺序或复杂动态目的时，先在同一任务由总控协调 UI Architect 更新受影响方案。重要决定采用后回到 HTML，不自动生图、不重新打开无关确认。
+
 ## 唯一流程
 
 1. 执行输入门禁，确认整页或单模块路径、最终源文件、Section 边界和 Canonical Module Slug。
 2. 按输入权威顺序编写真实内容的 HTML First Draft。默认使用原生 HTML/CSS/按需 JS，CSS/JS 内嵌在单一 HTML 文件；用户明确指定技术时才调整。有 Motion Intent 时读取 [Motion Implementation Standard](references/motion-implementation-standard.md)，无已确认意图不临时添加 Reveal 或 Signature。确认的 Layer 3 需要第三方运行库时，再按条件读取 [GSAP Layer 3 Runtime](references/gsap-layer3-runtime.md)。
-3. 读取 [HTML Design Review](references/html-design-review.md) 和 [Visual QA Standard](references/visual-qa-standard.md)，在真实渲染中依次检查 Full Page、Section + Neighbors、Section，并自动修正一轮明确的实现层问题。视觉判断必须给出可观察证据，不得只使用“高级感”“不好看”等结论。
+3. 读取 [HTML Design Review](references/html-design-review.md) 和 [Visual QA Standard](references/visual-qa-standard.md)，在真实渲染中依次检查 Full Page、Section + Neighbors、Section，并主动细化未锁定的视觉细节、修正一轮明确的实现层问题。视觉判断必须给出可观察证据，不得只使用“高级感”“不好看”等结论。
 4. 读取 [Browser / Implementation QA](references/browser-implementation-qa.md)，验证桌面/移动断点、溢出、真实长内容、资源、键盘与 Focus、交互、Motion/静态 fallback、reduced motion 和基础兼容。
 5. 用户确认 HTML 后，交付最终实现源、Section 边界、Slug 和简短 QA 结论。原始目标包含 Elementor Widget 时，在同一任务中继续采用 `elementor-widget-pipeline`。
 
 ## 问题边界
 
-- A 类：Section Job、信息主次、证据归属、核心构图、媒体契约、Motion Purpose、Layer、Signature 或移动端动态叙事需要变更。停止重新设计，返回 `website-ui-architect`。
+- A 类：Section Job、信息主次、证据归属、核心构图、媒体用途或关键查看要求、Motion Purpose、Layer、Signature 或移动端动态叙事需要变更。停止擅自改动主要设计，在同一任务返回 `website-ui-architect` 更新受影响方案，采用后继续 HTML；不强制重新生图。
 - B 类：真实文案适配、尺寸、间距、换行、对齐、精确裁切、断点、timing、位移、Observer、视频暂停、Focus 或性能实现。在 HTML 内修正。
 - C 类：不影响任务、可读性、交互或响应式的轻微差异。不阻塞交付。
 - D 类：颜色角色、Surface、排版、间距尺度或共享组件规则在真实页面中系统性失效。保留渲染证据并返回 `website-design-system-architect` 受控更新 Active Baseline；更新后重新验证受影响页面。单页例外不得升级为 D 类。
@@ -63,5 +74,5 @@ description: Build, review, and browser-test interactive website page or module 
 ## 交付与排除
 
 - 默认不生成独立 QA 报告或平台交付契约；只报告阻塞问题、已修正的主要问题和最终验证结果。
-- 不重新规划内容、Design System、Module Design Solution 或视觉方向。
+- 不擅自更改内容、Design System 或已锁定的模块主要方案；在这些边界内主动完善视觉设计，而非机械复制粗方向图。
 - 不规划 Elementor Controls，不编写 WordPress/PHP、React 组件、Shopify Section 或 CMS 模板；这些交给对应实现 Skill。

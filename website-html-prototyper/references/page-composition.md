@@ -1,11 +1,11 @@
 # Page Composition
 
-用于整页优先实现，或把已确认的模块 HTML 组合为唯一整页设计稿。拼接只解决实现与上下文协调，不改变 Architect 已确认的设计方案。
+用于整页优先实现，或把已确认的模块 HTML 组合为唯一整页设计稿。拼接保留 Architect 已确认的主要设计，在浏览器中主动细化尚未锁定的比例、排版与相邻节奏；不机械复制粗图。
 
 ## 整页优先
 
-1. 按确认的 Page Content、Design System、Architecture Map、Segment Set 与按需 Section Correction 生成 `设计稿/pages/<page-slug>.html`。
-2. Segment 决定局部构图与密度；Section Correction 仅在指定 Section 内覆盖基础 Segment；Architecture Map 与相邻 Segment 共同决定整页 Surface 和节奏。可选 Composite Preview 不作为权威。
+1. 按确认的 Page Content、Design System、Architecture Map/模块方案及可选图片参考生成 `设计稿/pages/<page-slug>.html`。
+2. 模块方案决定结构、主次、媒体用途和交互；图片按记录用途提供参考或精确约束。粗图的尺寸、密度和换行不自动锁定，主动在真实页面细化。局部修正仅作用于指定 Section，Composite Preview 只作浏览。
 3. 执行 HTML Design Review，再执行 Browser / Implementation QA。
 4. 整页确认前只维护一个整页实现源，不默认抽取独立模块文件。
 5. 确认后记录每个 Section 的边界和继承的 Canonical Module Slug。

@@ -5,7 +5,9 @@
     "我不知道从哪里开始，帮我完整做一套 Elementor B2B 网站",
     "这个老站要增加新页面并保持风格，帮我安排完整流程",
     "继续上次的网站任务，先判断当前处于哪个阶段",
-    "从公司资料、设计到多个 Widgets 全程协调"
+    "从公司资料、设计到多个 Widgets 全程协调",
+    "粗方向图大致认可，部分模块不满意，请协调到整页 HTML 的下一步",
+    "判断当前应该做整页 HTML，还是先精细设计核心模块"
   ],
   "should_not_trigger": [
     "只把确认的 Design System 映射成 Elementor Style Contract",
@@ -15,7 +17,13 @@
     "发布插件到服务器"
   ],
   "near_neighbor": [
-    {"text": "我已明确只需要一个单独的 Design Board", "family": "single_specialist"},
-    {"text": "Style Contract 已确认，只做 CTA Widget", "family": "widget_pipeline"}
+    {
+      "text": "我已明确只需要一个单独的 Design Board",
+      "family": "single_specialist"
+    },
+    {
+      "text": "Style Contract 已确认，只做 CTA Widget",
+      "family": "widget_pipeline"
+    }
   ]
 }

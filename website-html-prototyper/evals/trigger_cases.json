@@ -6,7 +6,10 @@
     "把这几个已经确认的模块 HTML 拼成一个完整页面并检查节奏",
     "检查当前交互 HTML 的桌面、移动端、键盘、动效和 reduced-motion 问题",
     "方向已经确认，请按 Segment 修正当前模块 HTML",
-    "把确认的模块设计和 Motion Intent 实现为一个可浏览的交互 HTML 原型"
+    "把确认的模块设计和 Motion Intent 实现为一个可浏览的交互 HTML 原型",
+    "模块方案、内容和设计规范已确认，图片只是粗方向参考，直接生成整页 HTML 并细化视觉",
+    "当前模块 HTML 的间距、比例和卡片密度需要优化，主要布局保持",
+    "模块方案已确认但没有方向图，先做单一模块 HTML 设计稿"
   ],
   "should_not_trigger": [
     "为首页规划 Architecture Map 并生成视觉方向图",
@@ -21,7 +24,7 @@
       "family": "content_only"
     },
     {
-      "text": "Map 已确认，但 Segment Set 还没完整确认，先完善视觉方向",
+      "text": "页面内容已明确，但主要布局尚未确定，先整理模块设计方案，不要做 HTML",
       "family": "unconfirmed_visual"
     },
     {

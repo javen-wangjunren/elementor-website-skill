@@ -1,7 +1,7 @@
 interface:
   display_name: "Elementor Site Team Manager"
   short_description: "协调新老站设计系统、Elementor 样式契约与 Widget 实现"
-  default_prompt: "Use $elementor-site-team-manager as the single entry point. Determine the site mode and style authority, coordinate content and the Design System, map it through the Elementor Site Style Adapter when implementation requires inheritance, then route confirmed design and one Widget at a time."
+  default_prompt: "Use $elementor-site-team-manager as the single entry point. Determine the site mode and style authority, coordinate content and the Design System, map it through the Elementor Site Style Adapter when implementation requires inheritance, route rough feedback into confirmed module plans, choose page or module HTML by design maturity, and implement one confirmed Widget at a time."
 
 compatibility:
   canonical_format: "agent-skills"

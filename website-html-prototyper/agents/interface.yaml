@@ -1,7 +1,7 @@
 interface:
   display_name: "Website HTML Prototyper"
-  short_description: "将确认的视觉方向转化为可审查的 HTML 设计稿并完成浏览器验证"
-  default_prompt: "Use $website-html-prototyper to turn a confirmed UI Architecture Map and visual direction into a static HTML page or module, review the rendered design, and complete browser implementation QA without redesigning it."
+  short_description: "保留确认的模块方案，主动细化整页或模块 HTML 视觉并完成浏览器验证"
+  default_prompt: "Use $website-html-prototyper to turn confirmed module plans and optional rough directions into visually refined page or module HTML, preserve locked design decisions, and validate actual desktop/mobile rendering and interactions."
 
 compatibility:
   canonical_format: "agent-skills"
@@ -21,6 +21,6 @@ compatibility:
     remote_inline_execution: "forbid"
     remote_metadata_policy: "allow-metadata-only"
   degradation:
-    missing_visual_direction: "Route to website-ui-architect; do not invent a page or module design during HTML implementation."
+    missing_visual_direction: "If major module decisions are unresolved, route to website-ui-architect to settle them; missing or unrefined images alone do not block HTML refinement."
     missing_design_system: "Route to website-design-system-architect; do not invent replacement visual tokens."
     missing_page_content: "For full pages, route to website-page-content-architect; a confirmed single-module brief may continue."

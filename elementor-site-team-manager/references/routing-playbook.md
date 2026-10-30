@@ -54,7 +54,7 @@ URL → Existing Design System + Board → 后台样式证据 → Style Adapter
 - Elementor Style Contract 是平台实现前置，不是纯 UI 或 HTML 前置。
 - 新站或完全重建由项目 Design System 主导；老站扩展且要求保持风格时由 Existing Site 主导。
 - 只有公开 URL 可形成 Existing Design System，但精确继承 Elementor Token 还需要 Site Settings、可信 Kit 或等价后台证据。
-- HTML Prototyper 需要已确认设计包；未完成视觉确认时返回 UI Architect。
+- HTML Prototyper 需要当前范围已确认的模块设计决定；不要求每个模块有确认图片。粗图反馈先整理为方案，重要决定确认后即可交接；具体分流见[工作流合同](workflow-contract.md#粗方向图到-html)。
 - New Site / Rebuild 默认由 Design System 提供 `Motion Level: Restrained`；它不等于全页 Reveal。Existing Extension 的动态证据不足时不新增 Signature。
 - 页面为什么动、Motion Layer、Signature 和移动端动态叙事属于 UI Architect；timing、Observer、视频、性能和可访问性实现属于 Prototyper；Elementor 多实例、重渲染和清理属于 Pipeline。
 - Pipeline 需要插件、确认 HTML 实现源、Canonical Module Slug，以及适用的 Confirmed Style Contract 或用户明确确认的隔离例外。
@@ -74,9 +74,12 @@ URL → Existing Design System + Board → 后台样式证据 → Style Adapter
 | 新站缺视觉基线，或需提炼老站风格 | `website-design-system-architect` | 确认 Style Board 与 Design System |
 | Design System 已确认且目标进入 Elementor | `elementor-site-style-adapter` | 确认 Site Settings Mapping 与继承合同 |
 | 老站保持风格但只有 URL 或视觉证据 | `website-design-system-architect` | 形成 Existing Design System；精确继承时再补后台证据 |
-| 完整页面的 Content 与 Design System 均确认 | `website-ui-architect` | 确认 UI Map、完整视觉方向和 Module Slug |
-| 单模块任务、内容和上下文明确，Design System 已确认 | `website-ui-architect` | 确认模块方案、视觉方向和 Slug |
-| 完整页面或单模块视觉包已确认但没有 HTML | `website-html-prototyper` | 完成 HTML Design Review 与 Browser QA |
+| 完整页面的 Content 与 Design System 均确认 | `website-ui-architect` | 确认 Map 内模块方案、锁定决定与 HTML 细化范围，按需使用图片，确定 Slug |
+| 单模块任务、内容和上下文明确，Design System 已确认 | `website-ui-architect` | 确认模块方案与 Slug；不强制图片或整页 Map |
+| 当前范围模块方案已确认但没有 HTML，图片可有可无 | `website-html-prototyper` | 整页或模块 HTML 视觉细化、真实渲染 Review 与 Browser QA |
+| 粗图大体认可，少数模块不满意 | `website-ui-architect` | 集中更新受影响方案，重要改变确认后做 HTML，不默认重画 |
+| 核心模块主要布局未定 | `website-ui-architect` | 只明确该模块方案后进入模块 HTML，不猜写整页 |
+| 已有 HTML，仅排版、密度或实际适配待优化 | `website-html-prototyper` | 在锁定设计内直接细化并复查，不返回生图 |
 | 已有确认 HTML、插件和适用样式上下文 | `elementor-widget-pipeline` | 确认当前 Widget 最小字段卡后实现与验证 |
 | 截图 / Figma 的内容职责未确认 | `website-page-content-architect` | 先确认内容任务，不直接实现 |
 | 截图 / Figma 的内容明确但视觉方向未确认 | `website-ui-architect` | 先完成设计确认 |

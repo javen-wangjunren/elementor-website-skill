@@ -10,7 +10,9 @@
     "不要重新生 Overview，把已经确认的 Segment 拼成整页预览",
     "这个 Segment 只有 Factory 模块错了，先保留风格并规划局部修正",
     "我想端到端完成首页设计和 HTML，先把视觉方案确认好",
-    "这个页面太静态了，先设计一个克制的主场景和各模块 Motion Intent"
+    "这个页面太静态了，先设计一个克制的主场景和各模块 Motion Intent",
+    "粗方向图的卡片太拥挤，先整理模块设计方案，不要重新生图",
+    "核心模块有两个主要布局，帮我明确方案再做 HTML"
   ],
   "should_not_trigger": [
     "根据已确认的 Segment Set、Map 和 Motion Intent 生成交互 HTML",

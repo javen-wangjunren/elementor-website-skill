@@ -1,39 +1,88 @@
 {
-  "fallback_positive_concepts": ["static_html", "render_review", "browser_qa"],
+  "fallback_positive_concepts": [
+    "static_html",
+    "render_review",
+    "browser_qa"
+  ],
   "positive_concepts": {
     "static_html": {
       "weight": 0.4,
-      "phrases": ["interactive website page or module html", "restrained motion implementation", "html first drafts", "静态 html", "交互 html", "html 设计稿", "模块 html", "生成整页 html", "html 原型"]
+      "phrases": [
+        "interactive website page or module html",
+        "restrained motion implementation",
+        "html first drafts",
+        "静态 html",
+        "交互 html",
+        "html 设计稿",
+        "模块 html",
+        "生成整页 html",
+        "html 原型",
+        "模块方案已确认",
+        "粗方向参考",
+        "html 视觉细化"
+      ]
     },
     "render_review": {
       "weight": 0.3,
-      "phrases": ["rendered design review", "page composition", "拼成一个完整页面", "按 segment 修正", "真实渲染"]
+      "phrases": [
+        "rendered design review",
+        "page composition",
+        "拼成一个完整页面",
+        "按 segment 修正",
+        "真实渲染"
+      ]
     },
     "browser_qa": {
       "weight": 0.3,
-      "phrases": ["browser-test", "browser implementation qa", "browser qa", "移动端", "键盘", "交互问题", "响应式"]
+      "phrases": [
+        "browser-test",
+        "browser implementation qa",
+        "browser qa",
+        "移动端",
+        "键盘",
+        "交互问题",
+        "响应式"
+      ]
     }
   },
   "negative_concepts": {
     "unconfirmed_visual": {
       "weight": 0.9,
       "exclusive": true,
-      "phrases": ["segment set 还没完整确认", "section correction 还没确认", "完善视觉方向", "重新设计", "布局方案", "生成视觉方向图"]
+      "phrases": [
+        "主要布局尚未确定",
+        "核心构图存在分歧",
+        "未确认的图文联动方案",
+        "生成视觉方向图",
+        "先完善视觉方向",
+        "不要做 html"
+      ]
     },
     "content_only": {
       "weight": 0.9,
       "exclusive": true,
-      "phrases": ["整理内容框架", "不要做 html", "英文文案"]
+      "phrases": [
+        "整理内容框架",
+        "不要做 html",
+        "英文文案"
+      ]
     },
     "design_system_only": {
       "weight": 0.9,
       "exclusive": true,
-      "phrases": ["design system", "style board"]
+      "phrases": [
+        "design system",
+        "style board"
+      ]
     },
     "platform_code": {
       "weight": 0.9,
       "exclusive": true,
-      "phrases": ["elementor widget", "controls", "widget php"]
+      "phrases": [
+        "elementor widget",
+        "controls",
+        "widget php"
+      ]
     }
   }
 }

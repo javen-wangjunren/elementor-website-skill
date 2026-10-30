@@ -15,7 +15,7 @@ description: Coordinate the custom Elementor Widget site workflow for kickoff, l
 - `website-design-system-architect`：建立新站或提炼老站视觉系统；
 - `elementor-site-style-adapter`：把确认基线转译为 Elementor 样式合同；
 - `website-ui-architect`：设计页面与模块的构图、媒体关系、Motion Intent 和视觉方向；
-- `website-html-prototyper`：实现确认设计与 Motion Contract 并完成浏览器 QA；
+- `website-html-prototyper`：在确认模块方案内主动完成 HTML 视觉细化、交互实现与浏览器 QA；
 - `elementor-widget-pipeline`：把确认 HTML 顺序实现为单个 Widget。
 
 发布、旧 Widget 排错、主题开发、Elementor 安装及远程 WordPress 管理属于外围流程，不因调用总控而自动纳入。
@@ -38,6 +38,18 @@ description: Coordinate the custom Elementor Widget site workflow for kickoff, l
 缺少必要依赖 → 进入负责该依赖的阶段
 依赖齐备 → 进入直接生产目标产物的阶段
 ```
+
+## 粗方向图到 HTML
+
+先辨认图片用途：粗方向参考、用户明确要求还原的设计稿，或局部风格参考；不因图片已确认就假定其所有细节都锁定。默认采用“粗方向图 → 集中反馈 → 确认模块方案 → 按成熟度选择整页/模块 HTML → 浏览器细化”，已有明确方案时无需先补方向图。
+
+参考粗图前，由 UI Architect 综合用户反馈与独立看图评估，说明保留什么、改善什么、哪些重要选择待定及原因；不只整理用户意见，也不把用户未评论的部分默认判为合理。评估写入现有方案，细则见[方向稿综合评估](../website-ui-architect/references/module-design-review.md#方向稿综合评估)。总控据此选择路径，不代替专项设计判断。
+
+- 整页方向清楚：确认当前方案后做整页 HTML。
+- 大体认可、局部不满意（普通页面默认）：把反馈整理进受影响模块方案，确认重要改变后做 HTML，不默认重画图片。
+- 核心模块未定：先确定该模块方案，再做单模块 HTML；不猜写整页，不重做已接受的模块。
+
+只有用户要求看图，或主要构图难以通过文字判断时才生图。内容、设计规范与当前范围的模块任务、主要布局、媒体用途、手机组织和必要交互明确，才进入 HTML；图片数量不作为前置条件。仅重要设计分歧需要集中确认，字号、间距等细化由 Prototyper 主动处理。跨阶段细则见[工作流合同](references/workflow-contract.md#粗方向图到-html)。
 
 ## 总控不变量
 
