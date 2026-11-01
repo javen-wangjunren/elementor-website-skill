@@ -1,7 +1,7 @@
 interface:
   display_name: "Website HTML Prototyper"
-  short_description: "保留确认的模块方案，主动细化整页或模块 HTML 视觉并完成浏览器验证"
-  default_prompt: "Use $website-html-prototyper to turn confirmed module plans and optional rough directions into visually refined page or module HTML, preserve locked design decisions, and validate actual desktop/mobile rendering and interactions."
+  short_description: "细化 HTML，并对每个设计页面完成分层独立评审"
+  default_prompt: "Use $website-html-prototyper to implement confirmed page/module plans, refine desktop/mobile rendering, and after Browser QA run a one-pass blind review for every designed page. When later user feedback is vague, ask whether they want a fresh subagent to diagnose the affected module; when the requested change is explicit, implement it directly without forcing another review."
 
 compatibility:
   canonical_format: "agent-skills"

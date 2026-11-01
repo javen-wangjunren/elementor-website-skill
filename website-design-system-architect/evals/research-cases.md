@@ -80,6 +80,15 @@
 3. Existing Site 只有静态截图时，具体 Motion 标为 `Unknown / Open`，不凭层叠构图推断视差或自动轮播。
 4. 用户要求更活跃但仍为企业站时，先调整 Motion Level/Token 的跨页面基线；具体 Section 和 Signature 仍交给 UI Architect。
 5. 旧 Design System 缺少 Motion Foundation 时不阻塞既有 HTML；用户要求升级或页面重设计时再受控补齐。
+6. Motion Foundation 必须记录 Motion Character；它只定义共同手感，不替 UI Architect 决定具体 Section 动画。
+
+## Visual Identity and Budget
+
+1. 新制造业站点只写“专业、科技、现代”，但没有产品、工艺、材料或客户任务证据：不得把这些空泛词当 Visual Identity Driver。
+2. Design Board 同时使用渐变、发光、重阴影、多个圆角标签和统一图标方块：必须先按 Visual Budget 减少竞争手段，再交付用户。
+3. 所有示例都做成相同卡片，但移除卡片后信息层级仍清楚：不得把全面卡片化写成系统默认。
+4. 品牌已明确使用独特渐变：允许保留并记录来源、范围和限制，不能为了“反模板”机械删除。
+5. Board 通过自查不代表辨识度已经成立；必须在代表性真实页面继续验证，不在 Board 阶段新增独立评分。
 
 ## 整页配色与示例适用性
 

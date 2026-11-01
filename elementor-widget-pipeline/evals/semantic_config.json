@@ -3,7 +3,7 @@
   "positive_concepts": {
     "widget_implementation": {
       "weight": 0.4,
-      "phrases": ["elementor widget", "widget pipeline", "实现当前", "做成 widget", "开发", "elementor 字段", "继承 style contract", "style contract 已确认", "继承现有 global style"]
+      "phrases": ["elementor widget", "widget pipeline", "实现当前", "做成 widget", "开发", "elementor 字段", "quality review checked", "quality review passed", "标准评审已检查", "加强评审已经通过", "继承 style contract", "style contract 已确认", "继承现有 global style"]
     },
     "confirmed_html": {
       "weight": 0.3,

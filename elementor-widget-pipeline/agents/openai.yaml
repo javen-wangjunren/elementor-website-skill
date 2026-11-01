@@ -1,0 +1,4 @@
+interface:
+  display_name: "Elementor Widget Pipeline"
+  short_description: "按确认设计与站点样式契约实现单个 Elementor Widget"
+  default_prompt: "Use $elementor-widget-pipeline to implement one Widget from confirmed HTML or an eligible simple reference. Require checked context for standard design review and passed or explicitly waived context for enhanced review; preserve desktop/mobile/state fidelity without redesigning or rescoring."

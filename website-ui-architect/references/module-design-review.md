@@ -83,6 +83,9 @@
 - 一个视区是否只有一个主焦点；
 - 素材比例、密度和留白是否让模块可扫读；
 - 移动端降级是否保留原有信息优先级。
+- 加强评审页面的 Distinctive Concept 是否在首屏后继续通过真实证据、构图关系或节奏被理解，而不是后续全部退回相同三列卡片；
+- 是否出现无理由渐变/发光、所有内容卡片化、通用图标方块、重复眉标—标题—描述或相同 Reveal；
+- 保留的常见模式是否有明确的信息、媒体、品牌或操作理由。
 
 ### 5. Motion Fitness（按需）
 
@@ -108,6 +111,7 @@
 在将 Map 交给用户确认之前，先对每个 Section 执行 Module Solution Qualification，再执行四层判断和整页检查：
 
 - 页面顺序是否符合访客理解与决策过程；
+- 加强评审页面的 Page Visual Throughline、Hero Structure、Signature Visual Device 与 Whole-page Continuity 是否具体、可由真实内容支持，并通过同行替换检验；
 - 核心、支撑、辅助与转化模块是否形成合理强弱；
 - 连续 Section 是否重复相同证据、构图或视觉重量；
 - 推荐 Layout 是否有内容关系和证据需求支持；

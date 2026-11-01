@@ -1,0 +1,20 @@
+{
+  "skill": "website-reference-researcher",
+  "recommended_threshold": 0.3,
+  "should_trigger": [
+    "同行网站都很模板化，帮我区分行业基线和应该避开的套路",
+    "找跨行业参考，但必须解决同一个用户任务或决策问题",
+    "分析这个静态参考能证明什么，不能把截图当成动效证据",
+    "检查参考风格是否会造成首屏结构雷同或照搬风险"
+  ],
+  "should_not_trigger": [
+    "直接建立本站 Design System 和 Design Board",
+    "直接决定首页 Hero 和模块布局",
+    "实现 HTML 动效",
+    "把确认 HTML 做成 Elementor Widget"
+  ],
+  "near_neighbor": [
+    {"text": "参考已经研究完，请把机制转成本站首页方案", "family": "ui_architecture"},
+    {"text": "只有老站 URL，要提取它本身的视觉系统", "family": "existing_design_system"}
+  ]
+}

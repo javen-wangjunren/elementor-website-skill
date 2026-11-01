@@ -7,7 +7,9 @@
     "继续上次的网站任务，先判断当前处于哪个阶段",
     "从公司资料、设计到多个 Widgets 全程协调",
     "粗方向图大致认可，部分模块不满意，请协调到整页 HTML 的下一步",
-    "判断当前应该做整页 HTML，还是先精细设计核心模块"
+    "判断当前应该做整页 HTML，还是先精细设计核心模块",
+    "这是新首页，先做一个代表性页面并安排关键页视觉评审",
+    "先判断这是重设计、延续、小改还是只读评审，再安排后续"
   ],
   "should_not_trigger": [
     "只把确认的 Design System 映射成 Elementor Style Contract",
@@ -24,6 +26,10 @@
     {
       "text": "Style Contract 已确认，只做 CTA Widget",
       "family": "widget_pipeline"
+    },
+    {
+      "text": "只把按钮间距改小 4px，不重开完整流程",
+      "family": "explicit_small_change"
     }
   ]
 }

@@ -1,0 +1,20 @@
+{
+  "skill": "website-page-content-architect",
+  "recommended_threshold": 0.3,
+  "should_trigger": [
+    "先规划这个 B2B 页面要讲什么、按什么决策路径展开",
+    "这份文案准确但太通用，帮我保留具体对象、动作、数据和证据",
+    "删除重复眉标和空泛口号，并整理可用于后续设计的真实企业特征",
+    "先做页面内容框架，不决定布局和视觉"
+  ],
+  "should_not_trigger": [
+    "直接设计首页 Hero 和模块布局",
+    "创建 Design System 和 Design Board",
+    "生成交互 HTML",
+    "开发 Elementor Widget"
+  ],
+  "near_neighbor": [
+    {"text": "内容已确认，只需要找页面概念和整页视觉主线", "family": "ui_architecture"},
+    {"text": "只需要提取品牌颜色、字体和组件规则", "family": "design_system"}
+  ]
+}

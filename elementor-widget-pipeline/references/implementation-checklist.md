@@ -26,6 +26,7 @@
 - 网站已经加载正确字体时继承；否则把缺失的网站级能力报告给用户，不修改 Site Settings、主题或在单个 Widget 中重复加载。
 - 独立新风格只能写在当前 Widget Wrapper 内，并在字段卡中标记 `isolated-local-exception`；不得写回全局合同。
 - 避免全局 reset，补齐 hover、focus、长内容、空内容和目标断点。
+- Hover、Focus、Active/Selected、Disabled 与已确认的 Success/Warning/Error 按 Style Contract 的角色和 fallback 实现；Focus 不能只依赖颜色，也不能被 `overflow` 或动画裁掉。
 
 ## JS（仅交互模块）
 
@@ -42,6 +43,7 @@
 - Advanced Motion 的 GSAP 选择器限定在当前根节点；每个实例保存 context、timeline 和 ScrollTrigger，重初始化前执行对应 `revert/kill`。Elementor 编辑器替换 DOM、删除 Widget 或页面结束时完成 teardown；无可靠销毁 Hook 时回调检测 `root.isConnected` 并自终止。
 - 视频只播放当前可见实例中的当前视频，其他视频暂停；保留 poster 与移动端降级。
 - 支持键盘操作、必要的 ARIA 状态、Touch 等价路径和 `prefers-reduced-motion`；核心内容不依赖 JS 初始化后才可见。
+- 状态切换支持快速重复与动画中反向操作，打开/关闭从当前视觉状态继续，最终只保留一个正确状态；不得残留重复 Timer、Observer、类名或 ARIA 值。
 - 禁止劫持滚轮、全局改写滚动、向 `document/body` 添加无法清理的状态，或让多个 Widget 实例共享可变状态。
 
 ## 插件入口
@@ -51,3 +53,4 @@
 - 已有插件缺少共享编辑器角标资产时，按项目配置最小补齐 editor-only CSS 的注册与加载，不把角标样式混入前台资源。
 - 无现有插件时停止实现，转交 `elementor-site-initialize`；初始化完成后再继续。
 - 不在主题 `functions.php` 或模板中加入 Widget 注册代码。
+- 发现需要改变页面概念、信息主次、核心构图、媒体用途或 Motion Purpose 时停止并返回上游，不在 PHP/CSS 阶段重新设计。

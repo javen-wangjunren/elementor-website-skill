@@ -8,7 +8,7 @@
 
 > A layered, AI-assisted workflow for real B2B website projects: verify company facts, plan the page and visual system, prototype in the browser, and turn approved modules into maintainable custom Elementor Widgets.
 
-This is not a “one prompt, one finished website” template pack. It is a team of **one coordinator and eight specialist Skills**. Together, they route each project to the stage it actually needs and keep business decisions, design approval, implementation, and QA in the right places.
+This is not a “one prompt, one finished website” template pack. It is a team of **one coordinator and eight specialist Skills**. Together, they route each project to the stage it actually needs and keep business decisions, design approval, independent review, implementation, and QA in the right places.
 
 ## 🖼️ See the outcome first
 
@@ -80,9 +80,9 @@ I hope this repository helps you work with AI more effectively and avoid common 
 
 ## 🎯 Who this is for
 
-These Skills are for marketers, designers, and international sales teams that want to build professional business websites with Elementor. They are not fixed Widget templates, and they do not replace professional designers. Instead, they standardize the content, design, development, and validation work that often depends on undocumented personal experience.
+These Skills are for marketers, designers, international sales teams, and first-time website builders who want to create professional business websites with Elementor. They are not fixed Widget templates, and they do not replace professional designers. Instead, they turn the content, design, development, and validation work that often depends on undocumented personal experience into a workflow people can follow.
 
-- **General B2B and export teams:** use fact checking, page outlines, visual rules, design reviews, and real browser validation to produce a credible, conversion-ready, maintainable website.
+- **Marketers, export teams, and first-time builders:** use fact checking, page outlines, visual rules, design reviews, and real browser validation to produce a credible, conversion-ready, maintainable website.
 - **Professional designers:** join at the design-system, visual-direction, or design-review stage and focus on the hero, key visuals, typography, and motion that raise the brand ceiling.
 
 As a rough analogy, the workflow aims to stabilize the design and implementation baseline around **70–80%**, while professional designers can push the brand and visual quality beyond **90%**. This describes the intended role of the workflow; it is not a universal score or performance guarantee.
@@ -96,11 +96,25 @@ As a rough analogy, the workflow aims to stabilize the design and implementation
 - Translate the visual system into Elementor-friendly color, typography, and spacing guidance, then turn approved designs into Widgets with only the necessary editable fields.
 - Fix problems at their source: content problems in content, visual-system problems in the design system, layout problems in page design, and rendering problems in code.
 
+## 🔍 Visual directions are not copied all the way into production
+
+A visual-direction image helps confirm layout, module order, information hierarchy, and the broad visual language. It is not treated as a final design. Whenever direction images are used, a fresh AI reviewer who did not create them checks what should be preserved, what must change before HTML, and what should be refined in the browser instead of copied from the image.
+
+After the HTML prototype has passed desktop, mobile, and interaction checks, another fresh reviewer examines the rendered result without seeing the production rationale:
+
+- **Standard design pages:** receive one review without a numeric score; serious issues must be resolved before Widget implementation.
+- **High-impact or high-risk pages:** such as site-wide patterns, primary conversion pages, major redesigns, or complex interactions, receive an enhanced review with a target of 8/10 and no serious issues.
+- **Explicit small changes:** when the requested copy, spacing, or local style change is already clear, the workflow edits and checks only the affected area instead of restarting the full process.
+
+If a finished module simply feels wrong or its motion feels awkward but you do not yet know why, the coordinator first asks whether you want a separate AI reviewer to diagnose it. That reviewer is used only with your approval and helps compare causes and options; it does not make the final design decision for you.
+
 ## 🏢 Why the workflow starts with B2B
 
 B2B websites carry complex business information and support longer buying journeys. “Good design” is therefore not just visual novelty. Buyers need to understand what you do, believe that you can deliver it, and feel confident enough to enquire. Page order, module purpose, evidence, and visual emphasis all need to support that decision.
 
 The final implementation in this repository uses **WordPress + custom Elementor Widgets**, but the methods for page planning, visual systems, design review, and root-cause rework can also be applied to Gutenberg, ACF, Next.js, Astro, React, or another CMS. The principle remains the same: **make the decisions well before choosing the implementation.**
+
+The implementation path in this repository is still designed around custom Elementor Widgets. It works best for company websites focused on presentation, lead generation, and ordinary content maintenance. If a project relies on several CPTs (custom post types—separate content collections for products, materials, processes, industries, and similar objects) with complex relationships, queries, and templates, forcing everything through Elementor is usually the wrong trade-off. The content and design stages remain reusable, while implementation is better handled through ACF, a custom theme, or another full WordPress development workflow.
 
 AI can generate a complete-looking page quickly, but it can also carry unverified assumptions all the way into code. This layered workflow establishes clear sources of truth across facts, content, visual systems, page design, and implementation so expensive mistakes appear earlier and can be corrected within a smaller scope.
 
@@ -135,8 +149,9 @@ Verify company facts and real assets
 → Plan what the page says, in what order, and with what evidence
 → Establish site-wide color, typography, spacing, visual tone, and motion principles
 → Map every module, its commercial job, and any justified motion intent
-→ Review and approve the visual direction
+→ Review the visual direction; when images are used, run an independent direction critique
 → Build a browser-ready HTML prototype
+→ Check desktop, mobile, and interaction behavior, then run an independent visual review
 → Implement one Elementor Widget at a time
 → Assemble and verify the page in a real Elementor environment
 ```
@@ -153,8 +168,8 @@ You do not need to memorize these names. Think of them as a project team: the co
 | `website-page-content-architect` | Page strategist | Defines the audience, message, evidence, and content order |
 | `website-design-system-architect` | Design-system architect | Establishes shared color, typography, spacing, visual tone, and motion principles |
 | `elementor-site-style-adapter` | Platform translator | Maps the visual system into Elementor-compatible site-style guidance |
-| `website-ui-architect` | Page designer | Maps the page and modules, produces visual directions, and identifies justified motion intent |
-| `website-html-prototyper` | Prototype builder | Turns approved design and motion into browser-ready, testable interactive HTML |
+| `website-ui-architect` | Page designer | Maps the page and modules, produces visual directions, and reviews direction images before HTML |
+| `website-html-prototyper` | Prototype builder | Turns approved design and motion into browser-ready HTML, then completes browser QA and independent visual review |
 | `elementor-widget-pipeline` | Widget engineer | Turns approved modules into editable, maintainable Elementor Widgets |
 
 > The coordinator also performs a lightweight Company Intake when source material is incomplete. Reference research is optional and runs only when it can answer a real design question.
@@ -165,7 +180,9 @@ You do not need to memorize these names. Think of them as a project team: the co
 - **Separate content and visual approval:** decide what the page says before deciding how the whole site looks.
 - **Structure before direction:** review module purpose, evidence, and page sequence before generating visual directions.
 - **Directions support decisions:** approve composition, hierarchy, density, and rhythm; leave exact line breaks, spacing, and cropping to HTML.
+- **Review design and implementation separately:** critique direction decisions before HTML, then review the real rendered page so the same mistake does not travel into a Widget.
 - **Motion needs a purpose:** keep feedback lightweight, add content reveals selectively, and approve brand-level scenes separately.
+- **Match review depth to risk:** standard pages receive one review, high-impact work receives enhanced review, and explicit small changes stay lightweight.
 - **Automate implementation fixes, pause for human judgment:** let each Skill correct issues within its authority, but stop for business trade-offs and brand decisions.
 
 ## 🚀 Start here
@@ -207,8 +224,8 @@ You can switch between the two routes. Before Widget implementation begins, conf
 | Page Content | Page objective, content order, real copy, and required assets |
 | Design System | Color, typography, spacing, visual tone, and baseline motion principles |
 | Page Architecture | Where each module belongs, what job it performs, and whether motion is justified |
-| Visual Direction | Composition, hierarchy, density, and overall rhythm |
-| Browser Prototype | Whether desktop and mobile behavior match the approved direction |
+| Visual Direction | Composition, hierarchy, density, and overall rhythm, including the independent direction critique when images are used |
+| Browser Prototype | Whether desktop and mobile behavior match the approved direction and serious independent-review findings are resolved |
 | Elementor Widget | Which fields editors need and which approved design is authoritative |
 
 ## 📁 Artifacts produced along the way
@@ -230,7 +247,8 @@ elementor-project.json
 ├── design-system/style-board.html
 ├── directions/<page-slug>/
 ├── pages/<page-slug>.html
-└── modules/<module-slug>.html
+├── modules/<module-slug>.html
+└── reviews/<page-slug>/           # Created only when enhanced review is triggered
 
 <approved-plugin-path>/
 └── <plugin-slug>/                 # Copy or compress this folder for WordPress
@@ -242,6 +260,7 @@ The Elementor plugin can use a `Flat` structure or group Widgets by business are
 
 - They do not install Elementor, provision WordPress, or search for your site root automatically.
 - They do not mix theme development, production deployment, or cache operations into Widget implementation.
+- They do not model relationships across several CPTs, build complex queries, define ACF field architecture, or develop custom themes; those projects should switch to a fuller WordPress development workflow after design approval.
 - They do not use generated images as fake factories, equipment, clients, certificates, or case studies.
 - They do not expose every color, font, spacing, radius, or animation value as an editor control by default.
 - They do not generate every Widget in bulk simply because a full-page prototype exists.

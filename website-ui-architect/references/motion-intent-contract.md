@@ -35,7 +35,7 @@ Page-level rejected motion:
 Motion 是可选增强，不为每个 Section 创建表单。普通静态 Section 省略 Motion 字段；Layer 1 直接继承 Design System 的基础反馈，也不重复记录。只有确有内容显现或 Signature 时追加：
 
 ```text
-Motion: Layer 2 — <purpose>; <trigger + affected elements>; <mobile / reduced fallback>
+Motion: Layer 2 — <pattern class>; <purpose>; <trigger + affected elements>; <mobile / reduced fallback>
 ```
 
 Layer 3 才展开最小 Signature 合同：
@@ -46,6 +46,15 @@ Required behavior: timeline / scroll-linked / SVG / media-state-sync
 Mobile / reduced-motion fallback:
 ```
 
+`Pattern class` 只选与任务相符的一类：
+
+- `Operation Feedback`：按钮、控件和直接操作反馈；通常继承 Layer 1；
+- `State Transition`：Tabs、Accordion、Viewer、Carousel 等状态切换；
+- `Content Reveal`：显现顺序确实帮助扫读或理解；
+- `Scroll-linked`：滚动进度与工艺、结构、步骤或媒体状态存在可解释关系。
+
+它用于说明动作类型，不锁定动画库、毫秒数、缓动曲线或 DOM。具体 timing、位移、动作先后与中断行为由 Prototyper 根据 Motion Character 实现和验证。
+
 ## 决策顺序
 
 ```text
@@ -53,7 +62,7 @@ Section Job
 → 信息与证据关系
 → 是否需要状态、顺序、承接或解释
 → Motion Purpose
-→ Layer 与 Trigger
+→ Pattern class、Layer 与 Trigger
 → Mobile / Reduced fallback
 → Recommended Layout
 ```

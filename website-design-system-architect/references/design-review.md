@@ -31,10 +31,13 @@
 
 - 整体气质是否统一，并符合目标行业、受众与已选方向？
 - 色彩、字体、间距、圆角、边框和阴影是否属于同一视觉语言？
+- 颜色、字体、形状和材质是否能解释为什么属于当前企业，而不是任意 B2B 模板？
+- 字体、强调色、Surface、圆角、阴影和装饰是否遵守 Visual Budget，没有同时争抢注意力？
 - Board 是否覆盖后续模块设计需要的常见基础组件？
 - 示例是否符合真实网站使用方式，而非装饰性或古怪结构？
 - Button、Card、List、Icon、Tabs、Accordion、Table 的层级与状态是否清晰？
 - 是否存在卡片过大、比例失衡、强调色竞争、表格过重或方框序号？
+- 是否存在无理由渐变/发光、全部内容卡片化、通用图标方块或缺失 Focus/Disabled/语义状态？
 - 是否误放了 Media、Responsive、页面区块或完整业务模块？
 - 若已附加 Motion Preview Strip，它是否克制、可重播、不持续抢占注意力，并在 Reduced Motion 下保持内容可见？
 - 是否误把页面级 Signature、视频或滚动叙事放进基础 Board？
@@ -51,6 +54,7 @@
 - `Locked / Flexible / Open` 完整，未确认项没有被写成 `Locked`；
 - Board 未确认的 Media、Responsive、Accessibility 与页面级 Motion 细节保留为 `Flexible` 或 `Open`；基础组件状态或可选 Motion Preview Strip 只能支持基础 Motion Foundation；
 - Motion Foundation 包含 Level、Token、三层职责、默认禁止项、移动端与 Reduced Motion，且不包含具体 Section、DOM 或 Elementor 实现；
+- Motion Foundation 包含有来源或待验证标记的 Motion Character；Visual Identity Driver 与 Visual Budget 能被代表性真实页面继续验证；
 - 未重新引入用户否决的模式，包括无圆角卡片、黑色重表头、方框序号 List、单张整行大卡片；
 - 不包含页面布局、业务模块、Elementor 控件、PHP 类名或 CSS Selector；
 - 规则之间无冲突，UI Architect 能直接据此设计模块。

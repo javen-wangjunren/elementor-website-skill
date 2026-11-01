@@ -1,6 +1,6 @@
 ---
 name: website-reference-researcher
-description: Research 3–5 confirmed same-industry or cross-industry websites and translate their brand narrative, page architecture, art direction, and visual-system evidence into one reusable Visual Reference Brief. Use when strong references are scarce, a site needs brand-led or premium positioning, a page lacks a narrative spine, or a key module lacks a credible design precedent. Do not create page content, a Design System, UI directions, HTML, or a permanent brand gallery.
+description: Research confirmed website references and produce one Visual Reference Brief that separates category baselines, common tropes, transferable mechanisms, similarity risks, and page versus interaction evidence. Use when references are weak or a page/module lacks a credible precedent; cross-industry examples must match the same user task or decision problem. Do not create content, a Design System, UI directions, HTML, or a brand gallery.
 ---
 
 # Website Reference Researcher
@@ -36,8 +36,8 @@ description: Research 3–5 confirmed same-industry or cross-industry websites a
 1. 定义 Research Scope、触发原因和当前待解决的设计问题；站点、页面和模块研究不得混成无边界的案例集合。
 2. 读取 [跨行业分析方法](references/cross-industry-analysis.md)，根据设计问题相似性建立 5–8 个候选。用户已明确给出最终限定名单时直接使用；否则请用户确认最终 3–5 个后才深度研究。
 3. 使用真实浏览器查看确认网站的首页或与范围直接相关的代表页面。记录 URL、查看日期、可见内容、截图或渲染观察；单一网站只查看解决当前问题所需的最少页面。
-4. 按六层分析参考：Brand Narrative、Narrative Architecture、Content Editing、Page / Module Architecture、Art Direction、Visual System / `DESIGN.md`。当页面动态与当前设计问题有关时，在 Page / Module Architecture 与 Art Direction 中记录 Motion / Interaction Evidence，不把静态截图推断成真实行为。
-5. 将每项结论标记为 `Observed / Inferred / Transferable / Not Transferable`，说明跨行业相似点、迁移理由和适用边界。
+4. 按六层分析参考：Brand Narrative、Narrative Architecture、Content Editing、Page / Module Architecture、Art Direction、Visual System / `DESIGN.md`。先分开记录产品/页面参考与交互参考：前者回答信息、构图和品牌表达，后者必须用真实操作说明触发、对象、反馈和下一状态；不能因视觉相似推断交互。当页面动态与当前设计问题有关时，在 Page / Module Architecture 与 Art Direction 中记录 Motion / Interaction Evidence，不把静态截图推断成真实行为。
+5. 将每项结论标记为 `Observed / Inferred / Transferable / Not Transferable`，并归入 `Category Baseline / Common Trope / Transferable Mechanism / Similarity Risk`：区分用户已熟悉的品类基线、容易产生模板感的常见套路、可解决当前问题的机制，以及会造成首屏骨架、概念或品牌表达雷同的风险。说明跨行业相似点、迁移理由和适用边界。
 6. 按 [共享简报合同](references/visual-reference-brief-contract.md) 写入一份 Visual Reference Brief，并执行证据、职责和反复刻自查。
 7. 把同一简报的最小相关部分分别交给 Page Content、Design System 或 UI Architecture；简报本身不是新的确认门禁。
 
@@ -55,6 +55,8 @@ description: Research 3–5 confirmed same-industry or cross-industry websites a
 - 静态截图不能证明 Hover、Focus、动效、响应式或完整交互；无法观察时标记缺口。真实观察到的动效需记录 Trigger、运动对象、目的、频率、移动端表现、素材/运行成本及 Reduced Motion 证据（若可见）。
 - 外站事实、品牌命题、专属视觉资产、Logo、角色、摄影和文案不得成为当前企业事实或可直接复制资产。
 - 相似色值、圆角或组件不是跨行业迁移的充分理由；必须说明共享的用户任务、决策成本、证据类型或素材角色。
+- 同行业参考主要用于确认可信基线和常见套路；跨行业参考必须命中相同的用户任务、证据类型、内容关系或决策难题，不能只因“看起来高级”而迁移。
+- 不只检查 Logo、图片和文案复制，也要检查是否无理由复刻了同一首屏骨架、核心概念、滚动装置或整页视觉主线。
 - 无法访问的网站保留为 `Unavailable`，不根据记忆补写观察结论。
 
 ## 交付边界

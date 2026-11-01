@@ -1,6 +1,6 @@
 ---
 name: elementor-site-initialize
-description: Initialize a local custom Elementor Widget plugin, design handoff workspace, and pending site-style context, choosing a Flat or Grouped plugin structure from expected Widget scale. Use once before the first custom Widget when no plugin scaffold exists; theme context is optional and read-only. Do not map Elementor Site Settings, design visuals, implement Widgets, deploy, or inspect a live WordPress installation.
+description: Initialize a local custom Elementor Widget plugin, design handoff workspace, pending site-style context, and optional review-evidence path, choosing a Flat or Grouped structure from expected Widget scale. Use once before the first custom Widget when no plugin scaffold exists; create no review folder until a review is triggered. Do not map Site Settings, design visuals, implement Widgets, deploy, or inspect live WordPress.
 ---
 
 # Elementor Site Initialize
@@ -21,10 +21,10 @@ description: Initialize a local custom Elementor Widget plugin, design handoff w
 - `elementor-project.json`
 - `docs/elementor/theme-profile.md`（仅存在主题证据时）
 - `docs/design-system/`
-- `设计稿/modules/` 与 `设计稿/pages/`
+- `设计稿/modules/`、`设计稿/pages/` 与按需使用的 `设计稿/reviews/`
 - 用户确认路径下可被 `elementor-widget-pipeline` 扩展的 Flat 或 Grouped 插件骨架，包含项目专属 Elementor 分类与编辑器角标资产
 
-空目录只需在本地创建，不添加装饰性占位文档。Design System 未建立时只标记 `pending`，不要替用户设计。
+空目录只需在本地创建，不添加装饰性占位文档。`设计稿/reviews/` 只在首次触发加强评审时创建；标准评审和普通初始化不为形式创建它。Design System 未建立时只标记 `pending`，不要替用户设计。
 
 ## 边界
 
@@ -33,5 +33,6 @@ description: Initialize a local custom Elementor Widget plugin, design handoff w
 - 可选主题读取始终只读，只服务于命名和技术集成；不扫描或预判视觉冲突，不修改 `functions.php`、主题资源或线上 `wp-content/plugins/`。
 - 不创建 Design System、HTML 设计稿或具体 Widget。
 - 不生成 Elementor Style Contract；初始化只在项目配置中记录 `siteStyle.status: pending`，正式映射交给 `elementor-site-style-adapter`。
+- 新项目在 `design.reviews` 记录默认评审证据路径；旧配置缺少该字段时下游使用 `设计稿/reviews`，不要求迁移或重建。
 - 不自动把现有 Flat 插件迁移为 Grouped，也不根据后续文件数量偷偷换结构。
 - 不固定推荐 Design System。完成后返回 `elementor-site-team-manager` 或原始任务：已有确认版设计稿与 Confirmed Style Contract 时可直接进入 `elementor-widget-pipeline`；需要视觉规则时进入 `website-design-system-architect`；已有 Design System 但缺 Elementor 映射时进入 `elementor-site-style-adapter`；其他情况由现有依赖决定。

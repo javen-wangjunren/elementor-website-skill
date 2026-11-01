@@ -1,0 +1,4 @@
+interface:
+  display_name: "Website Page Content Architect"
+  short_description: "按客户决策路径完整规划页面结构，并输出精简、可直接排版的文案"
+  default_prompt: "Use $website-page-content-architect before visual design to plan the customer decision flow, remove generic repeated copy patterns, preserve concrete objects, actions, data, and evidence, and conditionally hand off verified business-specific features that can support later design without deciding the layout."

@@ -2,7 +2,7 @@
 
 仅在完整建站、恢复任务、下一步不明或阶段存在歧义时读取。本文只负责判断“当前进入哪个阶段”；跨阶段门禁、状态、交接和回退执行读取 [Workflow Contract](workflow-contract.md)。
 
-用户明确要求快速视觉测试时，先执行 [任务模式](workflow-contract.md#任务模式)，以确认的测试范围和临时输入选择当前唯一专项；以下正式依赖和门禁不用于把测试扩大成完整建站。局部视觉/实现缺陷按根因处理，不为修正清楚的裁切或页头问题重新采集完整公司资料。
+用户明确要求快速视觉测试时，先执行 [任务模式与范围](workflow-contract.md#任务模式与范围)，以确认的测试范围和临时输入选择当前唯一专项；以下正式依赖和门禁不用于把测试扩大成完整建站。局部视觉/实现缺陷按根因处理，不为修正清楚的裁切或页头问题重新采集完整公司资料。用户已经点名元素和改法时按 `Explicit Small Change` 直接进入负责实现的专项。
 
 ## 1. 证据检查
 
@@ -17,6 +17,7 @@
 - `docs/elementor/elementor-style-contract.md`：Site Mode、Style Authority、继承策略和状态；
 - `设计稿/directions/<page-slug>/`：页面或模块视觉方向证据；只有用户采用显式 Layer 2/3 时才含 Page Motion Budget 与 Section Motion Intent；
 - `设计稿/pages/*.html`、`设计稿/modules/*.html`：当前 HTML 与 Section 边界候选；
+- `设计稿/reviews/<page-slug>/`，或 `elementor-project.json.design.reviews` 指定位置：只有加强评审实际触发时才检查；标准评审不因缺少目录而阻塞；
 - 当前对话：用户提供的目标、素材、截图、HTML、版本选择和明确确认。
 
 当前对话中用户明确指定的目标和版本优先于目录里来源不明的候选文件。文件存在只能证明“有产物”，不能证明“已确认”。公司事实、页面框架、Style Board、Design System、Site Mode、Style Authority、Style Contract、UI Map、视觉方向、HTML 实现源、Canonical Module Slug 和 Widget 字段卡若无可靠确认来源，必须停在相应门禁。
@@ -34,7 +35,7 @@
   └─ 插件不存在 → Initialize ──────────────┤
                                            ├→ Widget Pipeline
 完整页面 → Page Content ─┐                 │
-                          ├→ UI Architect → HTML Prototyper ─┘
+                          ├→ UI Architect → HTML Prototyper → 条件式质量评审 ─┘
              Design System ┘
 
 目标进入 Elementor 且需要站点样式继承：
@@ -59,6 +60,8 @@ URL → Existing Design System + Board → 后台样式证据 → Style Adapter
 - 页面为什么动、Motion Layer、Signature 和移动端动态叙事属于 UI Architect；timing、Observer、视频、性能和可访问性实现属于 Prototyper；Elementor 多实例、重渲染和清理属于 Pipeline。
 - Pipeline 需要插件、确认 HTML 实现源、Canonical Module Slug，以及适用的 Confirmed Style Contract 或用户明确确认的隔离例外。
 - 用户目标已经满足时停止，不自动追加后续阶段。
+- 完整新站或重建站先选择一个代表性加强评审页面或模块完成 HTML 和质量评审，再铺开；其余设计页面仍做标准独立检查，但不自动评分。
+- 所有设计页面的独立视觉评审和加强范围的开放式走查由 Prototyper 管理，不增加新的核心 Skill。无法隔离评审时按层级降级并披露，不伪装成独立评审。
 
 ## 3. 路由表
 
@@ -80,6 +83,9 @@ URL → Existing Design System + Board → 后台样式证据 → Style Adapter
 | 粗图大体认可，少数模块不满意 | `website-ui-architect` | 集中更新受影响方案，重要改变确认后做 HTML，不默认重画 |
 | 核心模块主要布局未定 | `website-ui-architect` | 只明确该模块方案后进入模块 HTML，不猜写整页 |
 | 已有 HTML，仅排版、密度或实际适配待优化 | `website-html-prototyper` | 在锁定设计内直接细化并复查，不返回生图 |
+| 标准设计页面已完成 Browser QA，但尚未独立检查 | `website-html-prototyper` | 全新子 Agent 做一次不打分盲审，修正 P0/P1 后记录 checked |
+| 加强评审页面已完成 Browser QA | `website-html-prototyper` | 完成评分盲审；有主要交互时再做开放式走查，修正并复验 |
+| 明确小改或非设计任务已通过相称 QA | 原目标对应阶段 | 不创建设计评审门禁，按用户目标继续或收口 |
 | 已有确认 HTML、插件和适用样式上下文 | `elementor-widget-pipeline` | 确认当前 Widget 最小字段卡后实现与验证 |
 | 截图 / Figma 的内容职责未确认 | `website-page-content-architect` | 先确认内容任务，不直接实现 |
 | 截图 / Figma 的内容明确但视觉方向未确认 | `website-ui-architect` | 先完成设计确认 |

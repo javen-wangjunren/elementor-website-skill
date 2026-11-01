@@ -1,0 +1,4 @@
+interface:
+  display_name: "Elementor Site Team Manager"
+  short_description: "协调方向稿、HTML 分层评审与 Elementor Widget 实现"
+  default_prompt: "Use $elementor-site-team-manager as the single entry point. Classify review level as none, standard, or enhanced; require direction critique when images are used and one-pass blind HTML review for every designed page. After HTML, implement explicit user-directed changes directly; for vague discomfort, ask before dispatching a fresh diagnostic subagent."

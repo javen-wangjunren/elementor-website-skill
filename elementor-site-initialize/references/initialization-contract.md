@@ -81,6 +81,7 @@ Widget Groups: None / <4–8 confirmed group slugs>
 Registration Strategy: explicit-main-file / manifest-registry
 Local Plugin Path:
 Design Root: 设计稿/
+Review Evidence Root: 设计稿/reviews/
 Theme Evidence: detected / user-provided / unavailable
 Site Mode: greenfield / rebuild / existing-extension
 Style Authority: project-design-system / existing-site
@@ -146,7 +147,8 @@ Style Contract Status: pending
     "status": "pending",
     "system": "docs/design-system/design-system.md",
     "modules": "设计稿/modules",
-    "pages": "设计稿/pages"
+    "pages": "设计稿/pages",
+    "reviews": "设计稿/reviews"
   },
   "siteStyle": {
     "mode": "greenfield",
@@ -161,6 +163,8 @@ Style Contract Status: pending
   }
 }
 ```
+
+`design.reviews` 是可选兼容字段。新项目写入该字段，但不在初始化或标准评审时创建空评审目录；首次触发加强评审时再创建。旧项目缺失时统一回退到 `设计稿/reviews`，不得因此判定配置无效或要求重建。
 
 Grouped 项目把对应值改为：
 
@@ -242,7 +246,7 @@ Grouped 主插件入口必须读取 Registry，并按以后每项记录的 `clas
 - Grouped 同时检查 Registry PHP 语法和主入口可以读取空 Registry；
 - 检查 JSON 可解析；
 - 确认插件 slug、类前缀、Text Domain、分类、角标、marker class、基础关键词、路径、Profile、分组和注册策略一致；
-- 确认 `siteStyle.mode`、`authority`、`policy`、合同路径和 `pending` 状态与确认卡一致；
+- 确认 `siteStyle.mode`、`authority`、`policy`、合同路径和 `pending` 状态与确认卡一致，并确认新项目的 `design.reviews` 路径有效；
 - 确认 Flat 没有多余 Registry，Grouped 的所有确认分组在 `widgets/` 与 `assets/` 两侧成对存在；
 - 最终说明这只是本地插件骨架，尚未创建 Design System、设计稿和 Widget。
 

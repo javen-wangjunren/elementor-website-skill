@@ -98,16 +98,18 @@ Layer 1 的运动性格默认由上述基础组件的 Hover、Focus 和状态变
 
 1. `Status: Active Baseline`、版本、来源、最近确认日期、`Site Mode` 与 `Style Authority Intent`；
 2. 希望给人的感觉 / 不希望给人的感觉；
-3. 颜色角色与语义颜色；
-4. Typography 层级；
-5. Container、Grid 与 Spacing；
-6. Surface、Border、Radius 与 Shadow；
-7. 基础组件规则与状态；
-8. 图片比例、裁切、Caption 与 Media Rules；
-9. Evidence Guardrails：事实型媒体必须与已确认资料匹配；
-10. Motion Foundation、Responsive 与 Accessibility 基线；Motion Foundation 至少包含 Motion Level、Token、三层职责、默认禁止项、移动端与 Reduced Motion；
-11. `Locked / Flexible / Open`；
-12. 已知例外与待验证项。
+3. `Visual Identity Driver`：真实来源、可影响的视觉角色与使用边界；
+4. `Visual Budget`：字体、强调色、形状、材质、装饰与高注意力装置的边界；
+5. 颜色角色与语义颜色；
+6. Typography 层级；
+7. Container、Grid 与 Spacing；
+8. Surface、Border、Radius 与 Shadow；
+9. 基础组件规则与状态；
+10. 图片比例、裁切、Caption 与 Media Rules；
+11. Evidence Guardrails：事实型媒体必须与已确认资料匹配；
+12. Motion Foundation、Responsive 与 Accessibility 基线；Motion Foundation 至少包含 Motion Level、Motion Character、Token、三层职责、默认禁止项、移动端与 Reduced Motion；
+13. `Locked / Flexible / Open`；
+14. 已知例外与待验证项。
 
 `Style Authority Intent` 只表达设计权威：`Project Design System` 或 `Existing Site`。它不包含 Elementor Global Token、Theme Style 字段或平台 CSS Variable；这些由 `elementor-site-style-adapter` 映射。
 
@@ -123,6 +125,8 @@ Board 不展示 Media、Responsive 与 Accessibility，也不展示页面级 Sig
 
 - 每条规则可追溯到确认版 Board、用户决定或行业研究；
 - Board 中确认的颜色角色、字体层级、间距、圆角与组件规则准确写入；
+- Visual Identity Driver 和 Visual Budget 有真实依据，且不把页面构图写成全局规则；
+- 没有把无理由渐变、全部卡片化、通用图标方块或缺失组件状态写成系统默认；
 - `Locked / Flexible / Open` 完整且没有把未确认内容写成 `Locked`；
 - 不重新引入用户已否决的无圆角卡片、黑色重表头、方框序号 List 或单张整行大卡片；
 - 不包含页面布局、业务模块或平台实现细节，规则之间没有冲突。

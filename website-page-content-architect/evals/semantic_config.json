@@ -1,0 +1,10 @@
+{
+  "fallback_positive_concepts": ["page_content", "verified_design_inputs"],
+  "positive_concepts": {
+    "page_content": {"weight": 0.65, "phrases": ["页面内容框架", "客户决策路径", "页面要讲什么", "精简文案", "内容规划"]},
+    "verified_design_inputs": {"weight": 0.35, "phrases": ["可用于设计的真实特征", "具体对象", "具体动作", "企业独有", "内容太通用"]}
+  },
+  "negative_concepts": {
+    "visual_execution": {"weight": 0.9, "exclusive": true, "phrases": ["决定布局", "设计 hero", "生成 html", "实现 widget", "design board"]}
+  }
+}

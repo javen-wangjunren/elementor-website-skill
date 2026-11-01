@@ -26,6 +26,7 @@ Confirmed Date:
 ### Form Fields
 ### Images
 ## Layout Mapping
+## Interactive State Inheritance
 ## Widget Inheritance Contract
 ## Allowed Local Overrides
 ## Design System Fallbacks
@@ -92,6 +93,26 @@ Widget Action: inherit / Elementor variable + fallback / approved local override
 - Form 在 Design System 未定义时保持 `Open` 或继承现站，不临时发明。
 - Lightbox、Page Transition、Background 等仅在项目明确需要时加入人工清单。
 - Motion Token、Section Motion Intent 和 Signature 不映射为 Elementor Global Style。合同只注明它们由 Design System、UI Map、确认 HTML 与 Widget Pipeline 继续传递；若 Elementor 没有对应全局能力，不创建伪 Global Token。
+- Motion Character 也不映射为 Elementor Global Style；它只作为 Widget 交互实现时的手感约束继续传递。
+
+## Interactive State Inheritance
+
+基础状态不是可选装饰。合同至少说明以下状态使用哪个 Design System 角色、哪个 Elementor Global 值，以及在 Global 值不可用时使用哪个本地 fallback：
+
+```text
+State: Hover | Focus | Active/Selected | Disabled | Success | Warning | Error
+Design System Role:
+Elementor Source:
+Local Fallback:
+Applies To:
+Confidence: confirmed / probable / open
+```
+
+- Focus 必须有可见指示，不能只依赖颜色变化；
+- Disabled 必须同时表达不可操作状态并保持文字可读；
+- Active/Selected 要与 Hover 区分；
+- Success/Warning/Error 只有 Design System 已确认时才映射，缺失时保持 `Open`，不得临时发明；
+- Existing Extension 无法从后台证据确认状态来源时，可记录渲染结果与 `Observed Only`，不能伪造 Global Token。
 
 ## Widget Inheritance Contract
 
@@ -130,6 +151,7 @@ Active Baseline + Board + 足够平台证据 → Mapping Proposed
 - 没有把推测写成 Elementor Token 事实；
 - 没有把主题存在、子主题目录或静态 CSS 扫描写成默认冲突结论；
 - 没有平台写入、主题修改或 Widget 实现；
+- Hover、Focus、Active/Selected、Disabled 与已确认语义状态均有继承来源或明确 fallback；只有颜色和字体映射正确但状态缺失时，合同不得判为完整；
 - `elementor-project.json.siteStyle` 与合同 Mode、Authority、Policy、Status 一致；
 - 状态映射固定为：`Pending Evidence` 或 `Mapping Proposed` → `pending`，`Observed Only` → `observed`，`Confirmed` → `confirmed`；
 - Pipeline 无需重新判断应该继承哪套样式。

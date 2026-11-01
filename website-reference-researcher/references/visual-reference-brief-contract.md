@@ -31,6 +31,25 @@ Viewed date:
 ### Art Direction
 ### Visual System / DESIGN.md
 
+每个 Scope 在六层发现后收口为：
+
+```text
+Category Baseline:
+- 当前品类用户已熟悉、保留后能降低学习成本的结构或表达
+
+Common Tropes to Avoid:
+- 同行业高频但缺少项目理由、容易造成模板感的骨架、组件或视觉套路
+
+Transferable Mechanism:
+- 要解决的任务、证据关系或理解成本
+- 可迁移的机制及所需内容/素材
+- 何时停止使用
+
+Similarity Risk:
+- 可能与哪个参考在首屏骨架、概念、视觉主线或交互装置上过近
+- 如何保留机制但改变项目表达
+```
+
 与 Scope 直接相关时，在 Page / Module Architecture 或 Art Direction 下增加：
 
 ```text
@@ -94,6 +113,9 @@ Motion / Interaction Evidence:
 - `Observed`、`Inferred` 与缺口没有混写；
 - 静态证据没有被用来声称观察到 Trigger、Hover、滚动动态、移动端降级或 Reduced Motion；
 - 动效建议包含目的、运行/素材成本和停止使用条件，不只描述视觉效果；
+- 产品/页面参考与交互参考已经分开，交互结论有真实操作证据；
+- 已区分品类基线、常见套路、可迁移机制与雷同风险；
+- 没有只换品牌名就复刻参考的首屏骨架、核心概念或滚动装置；
 - `DESIGN.md` 没有成为项目规则或真实页面观察的替代品；
 - 三个 Handoff 没有越过各自职责；
 - 简报没有生成最终内容、设计方向、组件或页面方案；

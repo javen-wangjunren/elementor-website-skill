@@ -1,7 +1,7 @@
 interface:
   display_name: "Elementor Site Initialize"
   short_description: "初始化 Elementor 插件骨架与新站或老站样式上下文"
-  default_prompt: "Use $elementor-site-initialize in the current project workspace. Confirm the plugin path, Flat or Grouped structure, site mode, and style authority; create the local scaffold with a pending site-style context without modifying WordPress or mapping Site Settings."
+  default_prompt: "Use $elementor-site-initialize in the current project workspace. Confirm the plugin path, Flat or Grouped structure, site mode, and style authority; create the local scaffold and record the optional review-evidence path, but create no review folder until a review is actually triggered."
 compatibility:
   canonical_format: "agent-skills"
   adapter_targets:

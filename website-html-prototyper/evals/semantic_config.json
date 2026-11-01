@@ -2,7 +2,8 @@
   "fallback_positive_concepts": [
     "static_html",
     "render_review",
-    "browser_qa"
+    "browser_qa",
+    "quality_review"
   ],
   "positive_concepts": {
     "static_html": {
@@ -43,6 +44,10 @@
         "交互问题",
         "响应式"
       ]
+    },
+    "quality_review": {
+      "weight": 0.25,
+      "phrases": ["独立视觉评审", "标准设计评审", "加强评审", "HTML 盲审", "视觉评分", "quality review", "开放式交互走查", "快速反向操作", "动效手感"]
     }
   },
   "negative_concepts": {

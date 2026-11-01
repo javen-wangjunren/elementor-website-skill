@@ -1,0 +1,4 @@
+interface:
+  display_name: "Website Design System Architect"
+  short_description: "建立有企业辨识度、视觉预算与运动性格的设计系统"
+  default_prompt: "Use $website-design-system-architect to establish or extract a platform-neutral design system with evidence-based Visual Identity Drivers, a restrained Visual Budget, complete component states, and a Motion Character. Validate one selected direction with a Design Board without deciding page layouts or Elementor mappings."

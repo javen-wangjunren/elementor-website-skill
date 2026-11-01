@@ -13,6 +13,11 @@ SOURCE MODE: confirmed-html / strong-reference-fast-path
 SITE MODE: greenfield / rebuild / existing-extension
 STYLE AUTHORITY: project-design-system / existing-site / isolated-local-exception
 STYLE CONTRACT: <path and Confirmed status> / Not applicable with explicit reason
+QUALITY REVIEW CONTEXT:（设计页面追加）
+- Level: standard / enhanced
+- Mode: independent / self-review-fallback / waived
+- Status: checked / passed / waived
+- Evidence or summary:
 STYLE INHERITANCE:
 - Fonts:
 - Colors:
@@ -63,6 +68,7 @@ ASSETS:
 - 输出后停止；用户确认前不创建或修改 Widget 文件。
 - Fast Path 的字段卡同时确认参考解释、固定结构、响应式降级和 Slug，不额外创建 HTML 或设计合同。
 - Site Style Contract 必需但缺失时，不得用字段卡临时创造全局 Token；先返回 Style Adapter。
+- 标准设计页面缺少 `checked` 或仍有 P0/P1 时停止；加强评审页面缺少 `passed` 或明确 `waived` 时停止；`none` 不为了填字段添加空评审块。
 - 默认只在当前对话保留确认结果；用户明确要求时才写 Markdown。
 
 ## Control 选择

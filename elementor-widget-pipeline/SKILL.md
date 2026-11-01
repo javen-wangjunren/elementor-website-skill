@@ -1,6 +1,6 @@
 ---
 name: elementor-widget-pipeline
-description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既有 Elementor 页面中用户明确批准的简单强参考模块，以克制字段实现为插件式 Elementor Widget。用于新增或迁移单个已确认 Widget；不用于设计探索、复杂参考图直做、批量整页实现、旧 Widget 排错、主题开发或发布。
+description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或合格的简单强参考模块，以克制字段实现为 Elementor Widget。用于新增或迁移单个已确认 Widget，并消费标准或加强设计评审上下文，验证同视口保真、完整状态、快速反向操作、编辑器重渲染和多实例；不重新设计或评分，不用于批量整页、旧 Widget 排错、主题开发或发布。
 ---
 
 # Elementor Widget Pipeline
@@ -15,6 +15,7 @@ description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既
 - 同时出现整页稿、模块稿或多个版本时，先确认当前 Widget 使用的最终实现源。
 - 从对话或用户指定中确认目标插件目录、plugin slug、当前 Section 边界、Canonical Module Slug、Widget title，以及项目的 Elementor 分类、角标与基础搜索关键词；不要自行猜测多个可能目标。
 - 确认 `elementor-project.json.siteStyle` 与 `docs/elementor/elementor-style-contract.md`。新站/重建站默认要求 Confirmed 项目合同；老站要求保持现有风格时必须有 Confirmed Existing Site 合同。用户明确要求完全隔离且不继承站点样式的单次模块可记录为局部例外后跳过。
+- 读取派工包中的可选 `QUALITY REVIEW CONTEXT`。`standard` 必须为 `checked` 且没有未解决 P0/P1；`enhanced` 必须为 `passed` 或用户明确 `waived`；`none` 和合格快速通道可以为空。`pending / failed` 不能继续，加强评审的 `self-review-fallback` 不能被静默当作独立通过。
 - 老站缺少 Existing Design System 时转 `website-design-system-architect`；已有系统但合同缺少后台证据或未确认时转 `elementor-site-style-adapter`。不得在当前 Widget 中临时猜一套站点样式。
 - 插件可以在任意本地目录开发，正式使用时完整目录位于 `wp-content/plugins/<plugin>/`。
 
@@ -27,7 +28,7 @@ description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既
 
 两条路径汇合后执行同一个实现流程：
 
-1. 确认当前 `SOURCE MODE`、实现边界、真实内容、固定视觉、交互、Canonical Module Slug 和 `SITE STYLE CONTEXT`；只有确认的 Layer 3 使用第三方库时才继承 Advanced Motion Runtime。快速通道的 Slug 在字段卡中提出并由用户确认。
+1. 确认当前 `SOURCE MODE`、实现边界、真实内容、固定视觉、交互、Canonical Module Slug、`SITE STYLE CONTEXT` 和按需的 `QUALITY REVIEW CONTEXT`；只有确认的 Layer 3 使用第三方库时才继承 Advanced Motion Runtime。快速通道的 Slug 在字段卡中提出并由用户确认。
 2. 按 [最小字段确认卡](references/spec-card-template.md) 在对话中提出字段初稿和来源解释。
 3. **停止并等待用户增删、微调和确认字段。确认前不得开始 PHP/CSS/JS 实现。**
 4. 读取 [注册基线](references/registration-baseline.md)，确认目标插件已存在并向其增量接入；插件不存在时停止本流程，转交 `elementor-site-initialize`。
@@ -42,6 +43,7 @@ description: 把确认版模块 HTML、整页 HTML 中指定的 Section，或既
 - 字体、颜色与基础视觉默认遵守 Confirmed Elementor Style Contract。可直接继承的属性使用 `inherit`；固定 CSS 只使用合同确认的 Elementor CSS Variables，并提供对应 Design System fallback。
 - 确有运营覆盖需求时才新增 Style Control，且使用合同确认的 Elementor Global Style 作为默认绑定；这不改变“默认无 Style Controls”。
 - 已确认的视觉和响应式规则固定在命名空间 CSS；不得为字段实现改变信息结构。
+- Pipeline 不重新做视觉设计或再次打分。若转换中发现页面概念、构图或共享系统问题，携带同视口证据返回对应上游；只在 PHP/CSS/JS 中修复 Elementor 渲染和生命周期问题。
 
 ## 实现原则
 

@@ -3,7 +3,7 @@
   "positive_concepts": {
     "design_solution": {
       "weight": 0.34,
-      "phrases": ["design and visually validate", "module design solutions", "设计模块", "首页设计", "设计方案", "视觉方案", "信息策略", "视觉叙事", "重新评估"]
+      "phrases": ["design and visually validate", "module design solutions", "设计模块", "首页设计", "设计方案", "页面概念", "整页视觉主线", "hero structure", "同行替换检验", "视觉方案", "信息策略", "视觉叙事", "重新评估"]
     },
     "architecture_map": {
       "weight": 0.33,
@@ -11,7 +11,7 @@
     },
     "visual_direction": {
       "weight": 0.33,
-      "phrases": ["visual-direction images", "direction review", "visual direction", "segment", "segment set", "section correction", "composite preview", "视觉方向", "分段方向图", "图片比例", "媒体尺寸", "gallery 布局"]
+      "phrases": ["visual-direction images", "direction review", "independent direction critique", "visual direction", "segment", "segment set", "section correction", "composite preview", "视觉方向", "方向稿独立评审", "分段方向图", "图片比例", "媒体尺寸", "gallery 布局"]
     }
   },
   "negative_concepts": {
@@ -34,6 +34,11 @@
       "weight": 0.9,
       "exclusive": true,
       "phrases": ["elementor controls", "widget php", "开发 widget"]
+    },
+    "finished_html_review": {
+      "weight": 0.9,
+      "exclusive": true,
+      "phrases": ["独立视觉评审", "html 视觉评分", "开放式交互走查"]
     }
   }
 }

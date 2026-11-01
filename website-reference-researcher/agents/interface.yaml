@@ -1,0 +1,21 @@
+interface:
+  display_name: "Website Reference Researcher"
+  short_description: "区分行业基线、模板套路、可迁移机制与雷同风险"
+  default_prompt: "Use $website-reference-researcher to separate category baselines, common tropes, transferable mechanisms, and similarity risks. Keep page/product evidence separate from interaction evidence."
+
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets: [openai, claude, generic, vscode]
+  activation:
+    mode: "manual"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    unavailable_browser: "Disclose the evidence limitation and do not infer interaction behavior from static screenshots."
+    weak_reference_match: "Keep the reference as context only; do not turn visual similarity into a transferable mechanism."

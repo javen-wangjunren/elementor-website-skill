@@ -1,7 +1,7 @@
 interface:
   display_name: "Website UI Architect"
-  short_description: "将粗方向反馈整理成模块方案，明确布局与交互并按需生成参考图片"
-  default_prompt: "Use $website-ui-architect to turn content, a Design System, and optional rough directions into confirmed module plans, locked decisions, and HTML refinement scope; generate direction images only when useful or requested."
+  short_description: "确认页面方案，并在方向稿进入 HTML 前独立评审"
+  default_prompt: "Use $website-ui-architect to turn confirmed content and a Design System into page/module plans. For enhanced-review work, derive a business-specific concept and whole-page throughline. Whenever direction images are generated or used, send the completed scope to one fresh subagent for independent critique before HTML; skip this when no image exists."
 
 compatibility:
   canonical_format: "agent-skills"

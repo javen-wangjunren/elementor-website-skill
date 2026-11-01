@@ -1,0 +1,10 @@
+{
+  "fallback_positive_concepts": ["reference_research", "similarity_risk"],
+  "positive_concepts": {
+    "reference_research": {"weight": 0.6, "phrases": ["跨行业参考", "行业基线", "common tropes", "transferable mechanism", "参考研究"]},
+    "similarity_risk": {"weight": 0.4, "phrases": ["照搬风险", "雷同", "静态截图", "动效证据", "首屏结构相似"]}
+  },
+  "negative_concepts": {
+    "design_execution": {"weight": 0.9, "exclusive": true, "phrases": ["直接设计首页", "生成 html", "实现 widget", "design board"]}
+  }
+}

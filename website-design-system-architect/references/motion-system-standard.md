@@ -8,6 +8,7 @@ New Site / Rebuild 未提出相反要求时使用：
 
 ```text
 Motion Level: Restrained
+Motion Character: Precise
 
 Motion Tokens:
 - Fast feedback: 180ms
@@ -25,6 +26,17 @@ Motion Layers:
 ```
 
 这些值是可复用默认值，不是要求所有组件都运动。品牌规范、Existing Site 证据或用户明确选择可以覆盖；覆盖项必须记录来源并继续满足可访问性与性能边界。
+
+## Motion Character
+
+`Motion Character` 描述跨页面动作给人的共同手感，不决定具体 Section 动画。它必须来自品牌气质、产品动作、用户任务或现站动态证据，常见起点包括：
+
+- `Precise`：短、清楚、停点明确，适合工程、数据和高确定性操作；
+- `Damped`：有轻微惯性感但快速收住，适合实体产品与可操作对象；
+- `Soft`：过渡平缓、位移较小，适合低压力阅读和服务说明；
+- `Emphatic`：少数关键动作更有力度，只用于确有品牌或叙事理由的项目。
+
+可组合为一个主性格和一个辅助性格，例如 `Precise with restrained damping`。没有证据时默认 `Precise` 或 `Soft`，并标记为待代表性页面验证。UI Architect 再为具体模块定义 Motion Intent；Prototyper 负责把性格转成 timing、位移和先后关系。
 
 ## 三层职责
 

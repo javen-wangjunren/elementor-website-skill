@@ -1,0 +1,21 @@
+interface:
+  display_name: "Elementor Site Style Adapter"
+  short_description: "映射 Elementor 全局样式、组件状态与 Widget 继承规则"
+  default_prompt: "Use $elementor-site-style-adapter to map the confirmed Design System to an Elementor Site Settings and Widget inheritance contract, including complete interactive-state fallbacks without mapping page motion into Global Style."
+
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets: [openai, claude, generic, vscode]
+  activation:
+    mode: "manual"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    missing_backend_evidence: "Use Observed Only and do not invent Elementor tokens."
+    missing_states: "Keep the contract incomplete until Focus, Disabled, and required state fallbacks are resolved."

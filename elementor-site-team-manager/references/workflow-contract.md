@@ -2,7 +2,7 @@
 
 在多阶段任务启动或恢复、跨阶段、进入用户门禁、更新 `docs/workflow-status.md`，或根据失败执行定向回退时读取。本文定义跨阶段执行合同，不替代专项 Skill 的内部规则。
 
-## 任务模式
+## 任务模式与范围
 
 从用户目标判断模式，不额外增加例行问卷：
 
@@ -14,6 +14,20 @@
 
 测试产物在说明或文档中标明测试用途和未验证范围，不自动标成正式 Confirmed / Active Baseline，也不直接进入 Widget Pipeline。用户要正式采用时，补齐该产物所需事实与确认门禁、验证当前版本，不强制从零重做已有有效工作。以下完整路径与门禁用于正式交付。
 
+在上述任务模式内再判断本次范围，只把影响当前工作的范围传给专项 Skill：
+
+| Task Scope Mode | 处理方式 |
+| --- | --- |
+| New | 从当前缺失依赖开始建立新页面、模块或系统 |
+| Continue | 沿用已确认输入，只补当前缺项 |
+| Polish | 保留任务与主要结构，先基于真实画面诊断，再修改受影响视觉或实现 |
+| Redesign | 先写锁定与可改范围，允许重开页面概念或主要构图，不自动改变业务事实 |
+| Precise Recreation | 以用户指定稿和视口为视觉基线，不发散新风格 |
+| Read-only Review | 只交付证据与建议，停止在评审，不修改文件或进入修正循环 |
+| Explicit Small Change | 用户已点名元素与改法，直接进入负责实现的专项；不重开内容、研究、Design System 或方向探索 |
+
+只有范围仍会改变页面任务、主要构图、品牌方向或实现授权且无法从证据判断时才询问。局部可逆细节由当前专项处理，不为流程完整扩大范围。
+
 ## 1. 完整页面与 Widget 路径
 
 ```text
@@ -23,9 +37,11 @@
 → 若目标进入 Elementor，确认 Elementor Style Contract
 → UI Architect 明确当前范围的模块任务与候选方案
 → 按需参考粗方向图，综合用户反馈与 AI 独立评估（图片可选）
+→ 使用方向稿图片时，由全新子 Agent 在 HTML 前独立批判一次
 → 确认 Page UI Architecture Map / 当前模块方案、锁定决定与 HTML 可细化范围（显式采用 Layer 2/3 时才含 Motion Budget / Intent）
 → 按设计成熟度进入整页或模块 HTML，主动细化真实排版与交互
 → HTML Design Review 与 Browser / Implementation QA
+→ 所有设计页面完成标准独立视觉检查；加强评审页面完成评分与按需交互走查
 → 确认整页设计、Section 边界与当前实现源
 → Pipeline 一次实现一个 Widget
 → 每个 Widget 独立确认字段卡、实现并验证
@@ -37,6 +53,10 @@
 - Pipeline 可使用独立模块 HTML，或确认整页 HTML 中边界明确的当前 Section；两者同时存在时先确认最终版本。
 - Prototype Handoff 只在跨会话、复杂交互或 DOM 结构需要锁定时按需生成。
 - 用户承担 Elementor 整页组装与最终视觉验收，这是保留的人工门禁，不是 Pipeline 缺口。
+- 所有真正发生设计的新建、重做和视觉精修范围都执行标准评审：方向稿存在时在 HTML 前评一次，HTML 完成 Browser QA 后再由全新子 Agent 盲审一次；不打数字分、不建 reviews 目录，修正 P0/P1 后记为 `checked`。
+- 会成为全站样板、承担主要转化/信任或高流量、采用新概念或重大改版、含复杂媒体交互、设计不确定性高的范围升级为加强评审。目标 `>= 8/10` 且无 P0/P1，最多两轮；主要交互另做开放式走查。完整新站先完成一个代表性加强评审页面或模块再铺开。
+- 明确小改、纯内容替换、Bug 修复、固定模板与精准小范围实现使用 `none`。Existing Extension 的标准评审只对照现站与确认规范，不打通用审美分。
+- 评审后的用户反馈采用可选诊断：明确改法直接执行；只有“感觉怪/不好看/不顺”但原因与方向不清时，先询问用户是否同意派全新子 Agent 诊断当前模块。该诊断不自动改变 Quality Review Level，也不替代用户选择。
 
 ## 粗方向图到 HTML
 
@@ -86,10 +106,11 @@
 6. 目标进入 Elementor 时，确认 Site Mode 与 Style Authority；需要继承全局样式时，Style Contract 必须为 Confirmed；
 7. 老站保持风格时先确认 Existing Design System；精确继承还需要 URL 渲染与 Site Settings / Kit 后台证据；
 8. 完整页面必须确认 Page UI Architecture Map；单模块不强制整页 Map；
-9. 确认当前范围的模块设计决定及允许在 HTML 细化的部分；图片为可选参考，有图时检查其用途和结构偏差，不要求覆盖所有模块的确认图片；
+9. 确认当前范围的模块设计决定及允许在 HTML 细化的部分；图片为可选参考，有方向稿图片时必须在 HTML 前完成一次独立方向评审，不要求覆盖所有模块的确认图片；
 10. HTML First Draft 交付用户前必须完成 HTML Design Review 与 Browser / Implementation QA；
-11. 进入 Pipeline 前确认 Canonical Module Slug、Section 边界、最终 HTML 实现源、面板可发现性和 Site Style Context；
-12. 每个 Widget 的最小 Elementor 字段卡确认后才能实现。
+11. 所有设计页面进入 Pipeline 前必须完成对应评审：标准页面状态为 `checked`；加强评审页面为 `passed` 或用户明确 `waived`，含主要交互时同时完成开放式走查；`none` 不要求评审状态；
+12. 进入 Pipeline 前确认 Canonical Module Slug、Section 边界、最终 HTML 实现源、面板可发现性和 Site Style Context；
+13. 每个 Widget 的最小 Elementor 字段卡确认后才能实现。
 
 New Site / Rebuild 从 Design System 继承 `Motion Level: Restrained` 的基础反馈性格，但页面不强制生成 Motion 字段。可选建议随 UI Map 原门禁确认；只有用户选择显式 Layer 2/3 时才补 Motion Budget / Intent。旧产物缺少 Motion 字段不阻塞。
 
@@ -103,6 +124,7 @@ New Site / Rebuild 从 Design System 继承 `Motion Level: Restrained` 的基础
 当前阶段：
 当前 Skill：
 原始目标：
+Task Scope Mode：
 已确认：
 确认依据：
 图片用途：
@@ -117,6 +139,10 @@ Site Mode：
 Style Authority：
 Style Contract Status：
 Backend Style Evidence：
+Quality Review Level：
+Quality Review Mode：
+Quality Review Status：
+Review Evidence：
 更新时间：
 ```
 
@@ -142,6 +168,7 @@ KNOWN RISKS:
 
 - 只传当前专项工作所需信息，不复制其他 Skill 的完整规则。
 - 只有当前任务存在显式 Layer 2/3 时，派工包才追加 `MOTION CONTEXT`；只有确认的 Layer 3 使用第三方库时，再追加 `ADVANCED MOTION RUNTIME`。
+- 所有设计页面的派工包追加 `QUALITY REVIEW CONTEXT`，包含 Level、Mode、Status 和未解决问题。标准评审只需结论摘要，不要求证据目录；加强评审追加证据路径和轮次；`none` 不创建空字段。
 - 不把未确认推断包装成已确认输入。
 - 页面内容交给 UI 时只传确认文件、Section ID、Section Job、顺序、内容边界、证据状态和开放问题，不提前决定视觉 Form。
 - 设计交给 Prototyper 时传确认 Map/模块方案、已锁定决定、HTML 可细化内容、图片用途与适用范围（有图才传）、Slug、必要修正及素材真实性边界；只有用户采用显式 Layer 2/3 时才追加 Motion Context，不为普通模块创建 Motion/Runtime 状态，也不替 UI Architect 指定库。
@@ -160,6 +187,9 @@ KNOWN RISKS:
 | Motion Purpose、Layer、Signature 或移动端动态叙事 | UI Architect |
 | 第三方库必要性、换行、尺寸、裁切、对齐、断点、timing、Observer、视频、性能、交互和可访问性实现 | HTML Prototyper；只有提议第三方库时确认 Advanced Motion Runtime Note |
 | Elementor 字段、组件代码、多实例、编辑器重渲染或单 Widget 运行时清理 | Widget Pipeline |
+| 独立视觉评审发现页面概念、主构图、媒体角色或 Motion Purpose 问题 | UI Architect；采用后回到 Prototyper 复验 |
+| 独立视觉评审发现多处共享颜色、字体、Surface、形状或 Motion Character 同类问题 | Design System Architect；更新后复验代表页面 |
+| 独立走查发现入口、状态反馈或恢复路径问题 | 先由主 Agent 复现；设计关系返回 UI Architect，实现偏差留在 Prototyper |
 
 回退遵循最小影响原则：单模块问题不重做整页；单页例外不升级为全局规则；上游修正后只让受影响的下游产物失效并复验。
 

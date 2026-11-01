@@ -7,3 +7,5 @@
 5. Design System 未完成：只保存 pending，不发明 Global Colors 或 Fonts。
 6. 已有 Confirmed Style Contract：初始化不覆盖合同或把状态重置为 pending。
 7. 原始任务是 Widget 且合同必需但缺失：插件骨架完成后路由 Style Adapter，而不是直接实现 Widget。
+8. 新项目配置写入可选 `design.reviews: 设计稿/reviews`，但初始化时不创建空的 reviews 目录或占位报告。
+9. 旧项目缺少 `design.reviews`：继续使用，不要求迁移；首次真正触发加强评审时才回退到 `设计稿/reviews`。标准评审不创建该目录。

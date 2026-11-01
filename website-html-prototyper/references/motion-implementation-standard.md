@@ -2,6 +2,8 @@
 
 用于实现已确认的 Motion Foundation、Page Motion Budget 与 Section Motion Intent。它不创造新的动画概念，也不把普通 Section 统一套上淡入。
 
+实现显式 Motion Intent 或主要状态交互时，同时读取[动效手感与连续性标准](motion-craft-standard.md)。Motion Character 决定共同手感；Pattern class 决定动作属于操作反馈、状态过渡、内容显现还是滚动联动。
+
 ## 实现优先级
 
 1. 核心内容在无 JavaScript 时完整可见、可读、可操作。
@@ -70,5 +72,8 @@ JS 失败：内容保持默认可见
 - 相邻 Section 是否重复同一 Reveal；
 - 动画是否造成等待、位移眩晕、滚动锁死或内容闪烁；
 - Desktop、Mobile、Reduced Motion、无 JavaScript 和低性能降级是否都保留理解与操作。
+- 动作是否从触发对象或状态变化位置开始，打开/关闭是否互为可理解的逆过程；
+- 主对象是否先响应、辅助对象随后跟随，且 timing、位移和动作轻重服从 Motion Character；
+- 快速重复或动画中反向操作是否能到达唯一正确终态，不残留中间状态。
 
 改变 Motion Purpose、Layer、Signature 或移动端叙事属于 A 类，返回 UI Architect。修正 timing、位移、Observer、视频暂停、Focus 或运行性能属于 B 类，可在 HTML 内最小修正一轮后复验。

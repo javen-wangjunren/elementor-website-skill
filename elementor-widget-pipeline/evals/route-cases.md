@@ -40,6 +40,11 @@
 - 无交互模块：只生成 PHP/CSS，不创建空 JS 或 `get_script_depends()`。
 - 确认 HTML 含原生 Motion：字段卡只在 `INTERACTION: Native` 中简述已确认行为，不增加 Source、Layer、Runtime 或动画 Controls；只有第三方 Layer 3 追加 Advanced Motion。
 - 用户只说“让 Widget 更有动感”但确认 HTML/Map 没有 Motion Intent：返回 `website-ui-architect`，不在 Pipeline 临时设计。
+- 明确非设计任务的派工包没有 Quality Review Context：可以继续，不补空字段。
+- 标准设计页的 Quality Review Status 为 `checked` 且没有 P0/P1：进入字段卡，不在 Pipeline 重复评审。
+- 加强首页的 Quality Review Status 为 `passed`：继承证据后进入字段卡，不在 Pipeline 重复打分。
+- 评审为 `failed` 或仍有 P1：返回 Prototyper 按根因处理，不能直接实现 Widget。
+- 加强评审没有独立通过，但用户明确记录 `waived`：字段卡保留 waived 与已知风险后可继续，不改写为 passed。
 
 ## 快速通道行为不变量
 
@@ -50,6 +55,8 @@
 - 实现中暴露出需要重新设计的问题时停止，不用 CSS 小修掩盖结构歧义。
 - 同页多个动态 Widget：每个实例独立状态；编辑器重渲染和 DOM 移除时清理或自终止 Observer、Timer、RAF、视频与全局监听。
 - Reduced Motion 或无 JavaScript：核心内容和操作保持可用，滚动绑定、自动轮播和自动视频停用。
+- Tabs、Viewer、Carousel 或 Accordion：验证快速重复、动画中反向操作、编辑器重渲染和同页多实例，不能残留中间状态或共享状态。
+- Elementor 同视口结果与确认 HTML 的字体、颜色、媒体裁切、Focus 或动效明显退化：按实现问题修正；若根因是设计决定，返回上游而不是在 Widget 中重新设计。
 - 确认 HTML 的 Layer 3 使用 GSAP + ScrollTrigger：字段卡才追加 Advanced Motion，固定依赖版本与 cleanup；插件级只加载一次，编辑器重渲染不残留 Trigger。
 - Confirmed HTML 未批准第三方库但 Widget 阶段想临时增加 GSAP：停止并返回 HTML Prototyper确认 Advanced Motion Runtime，不由 Pipeline 换库。
 - 当前模块是 Carousel：可继承确认的 Swiper 依赖，但不把轮播自动升级为 Layer 3 或同时叠加 GSAP。

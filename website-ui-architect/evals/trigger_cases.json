@@ -12,14 +12,17 @@
     "我想端到端完成首页设计和 HTML，先把视觉方案确认好",
     "这个页面太静态了，先设计一个克制的主场景和各模块 Motion Intent",
     "粗方向图的卡片太拥挤，先整理模块设计方案，不要重新生图",
-    "核心模块有两个主要布局，帮我明确方案再做 HTML"
+    "核心模块有两个主要布局，帮我明确方案再做 HTML",
+    "这是新首页，先找一个只属于这家企业的页面概念和整页视觉主线",
+    "不要默认左文右图，帮我比较 Hero Structure 并做同行替换检验"
   ],
   "should_not_trigger": [
     "根据已确认的 Segment Set、Map 和 Motion Intent 生成交互 HTML",
     "检查当前 HTML 在移动端是否溢出并修复键盘交互",
     "规划 Elementor Controls 并开发 Widget PHP",
     "为 About 页面整理内容框架和英文文案",
-    "建立网站 Design System 和 Style Board"
+    "建立网站 Design System 和 Style Board",
+    "对已经完成的关键页面 HTML 做独立视觉评分和交互走查"
   ],
   "near_neighbor": [
     {

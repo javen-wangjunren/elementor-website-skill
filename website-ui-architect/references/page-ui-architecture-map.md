@@ -18,6 +18,18 @@
 
 先写明整页的用户浏览逻辑、Surface 节奏、主要 CTA 与防重复原则。然后为每个 Section 先完成 Module Design Solution，再记录由它推导出的 Layout、媒体和页面衔接决策；Motion 只做轻量机会检查，确认采用显式 Layer 2/3 后才补 Budget / Intent。
 
+被总控标记为加强评审页面时，按[加强评审页面概念与整页主线](key-page-concept.md)在 Section 之前增加：
+
+```text
+Page Visual Throughline:
+Distinctive Concept:
+Hero Structure:
+Signature Visual Device:
+Whole-page Continuity:
+```
+
+标准设计页面、小调整、精准还原和旧版已确认 Map 不强制补这些字段。`Signature Visual Device` 可以为 `None`，不能为了填字段强加动效或装饰。
+
 Motion 默认不增加字段。只有存在有价值的可选建议时记录：
 
 ```text
@@ -47,6 +59,7 @@ Page-level rejected motion:
 - 移动端内容顺序和降级原则；
 - Motion Purpose、Layer、Trigger、Sequence、移动端行为、Reduced Motion / 静态 fallback 与禁止动效；
 - 需要避免的重复形式、模板化结构或虚构证据。
+- 加强评审页面还要说明概念如何从首屏延续到后续关键证据，而不是首屏有特色、后面全部回到相同卡片。
 
 Map 必须能让方向稿执行者不再重新猜测卡片形式、信息主次、证据位置、扫读路径、视觉主线或媒体重量。默认 Active Item 不自动代表业务优先级；并列证据不得在没有理由时被设计成永久一大多小。
 

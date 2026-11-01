@@ -1,6 +1,6 @@
 ---
 name: website-html-prototyper
-description: Build, visually refine, review, and browser-test website page or module HTML from confirmed module plans and an approved Design System, with optional rough image references. Use for full-page or module-first prototypes, responsive composition, approved interactions, and implementation handoff. Do not choose unresolved major layouts, invent motion purposes, or implement CMS components.
+description: Build, visually refine, and browser-test page or module HTML from confirmed plans and a Design System. Use for responsive prototypes, approved interactions, reversible motion behavior, one-pass independent review for every designed page, and enhanced review or interaction walkthroughs for high-impact or high-risk work. Do not choose unresolved major layouts, invent motion purposes, or implement CMS components.
 ---
 
 # Website HTML Prototyper
@@ -31,6 +31,7 @@ description: Build, visually refine, review, and browser-test website page or mo
 | 整页 Surface、顺序和节奏 | Map + 已采用的相邻模块方向，真实渲染中复核 |
 | 跨页面 Motion Level 与 Token | Design System Motion Foundation |
 | 页面 Motion Budget 与 Section 动效目的 | Architecture Map Motion Intent |
+| 设计评审层级与已有状态 | 总控派工包中的 `QUALITY REVIEW CONTEXT`；明确非设计任务可以为空 |
 
 - Section Correction 只在标明的 Section 范围内优先于基础 Segment；不得扩散到相邻模块。
 - 方向图与 Architecture Map 冲突时以 Map 为准；只有明确 Correction Notes 可覆盖方向图中的已知偏差。可选 Composite Preview 只用于浏览，不作为实现权威。
@@ -47,13 +48,16 @@ description: Build, visually refine, review, and browser-test website page or mo
 
 需要增删/重排模块、改变任务或内容主次、卡片改轮播、平铺改图文联动、媒体用途、关键手机顺序或复杂动态目的时，先在同一任务由总控协调 UI Architect 更新受影响方案。重要决定采用后回到 HTML，不自动生图、不重新打开无关确认。
 
+HTML 完成后收到用户的新视觉或动效反馈时，按[用户反馈后的按需诊断](references/independent-visual-review.md#用户反馈后的按需诊断)处理：用户已经说明具体改法就直接修改并定向复查；用户只觉得“怪、不好看、不顺”且方向不明确时，先主动询问是否需要全新子 Agent 辅助诊断，用户同意后才调用。诊断不是强制门禁，也不替用户决定修改方向。
+
 ## 唯一流程
 
 1. 执行输入门禁，确认整页或单模块路径、最终源文件、Section 边界和 Canonical Module Slug。
-2. 按输入权威顺序编写真实内容的 HTML First Draft。默认使用原生 HTML/CSS/按需 JS，CSS/JS 内嵌在单一 HTML 文件；用户明确指定技术时才调整。有 Motion Intent 时读取 [Motion Implementation Standard](references/motion-implementation-standard.md)，无已确认意图不临时添加 Reveal 或 Signature。确认的 Layer 3 需要第三方运行库时，再按条件读取 [GSAP Layer 3 Runtime](references/gsap-layer3-runtime.md)。
+2. 按输入权威顺序编写真实内容的 HTML First Draft。默认使用原生 HTML/CSS/按需 JS，CSS/JS 内嵌在单一 HTML 文件；用户明确指定技术时才调整。有 Motion Intent 时读取 [Motion Implementation Standard](references/motion-implementation-standard.md)与[动效手感与连续性标准](references/motion-craft-standard.md)，无已确认意图不临时添加 Reveal 或 Signature。确认的 Layer 3 需要第三方运行库时，再按条件读取 [GSAP Layer 3 Runtime](references/gsap-layer3-runtime.md)。
 3. 读取 [HTML Design Review](references/html-design-review.md) 和 [Visual QA Standard](references/visual-qa-standard.md)，在真实渲染中依次检查 Full Page、Section + Neighbors、Section，并主动细化未锁定的视觉细节、修正一轮明确的实现层问题。视觉判断必须给出可观察证据，不得只使用“高级感”“不好看”等结论。
 4. 读取 [Browser / Implementation QA](references/browser-implementation-qa.md)，验证桌面/移动断点、溢出、真实长内容、资源、键盘与 Focus、交互、Motion/静态 fallback、reduced motion 和基础兼容。
-5. 用户确认 HTML 后，交付最终实现源、Section 边界、Slug 和简短 QA 结论。原始目标包含 Elementor Widget 时，在同一任务中继续采用 `elementor-widget-pipeline`。
+5. 按[独立视觉评审：标准与加强](references/independent-visual-review.md)执行对应层级：`none` 跳过；`standard` 在 Browser QA 后交给全新子 Agent 做一次不打分的盲审，修正 P0/P1 后记录 `checked`；`enhanced` 准备完整证据、执行最多两轮隔离评分，含主要 Tabs、Viewer、Carousel、Accordion 等交互时再按[开放式交互走查](references/interaction-walkthrough.md)自然操作检查。
+6. 用户确认 HTML 后，交付最终实现源、Section 边界、Slug、简短 QA 结论和 Quality Review Status。标准设计页面达到 `checked`，加强评审页面达到 `passed` 或用户明确 `waived` 后，才进入 Widget Pipeline；原始目标包含 Elementor Widget 时，在同一任务中继续采用 `elementor-widget-pipeline`。
 
 ## 问题边界
 
@@ -66,6 +70,9 @@ description: Build, visually refine, review, and browser-test website page or mo
 
 - 整页优先或逐模块拼接时读取 [整页拼接](references/page-composition.md)。
 - 实现任何 Layer 2 / Layer 3、自动媒体或复杂状态交互时读取 [Motion Implementation Standard](references/motion-implementation-standard.md)。
+- 实现任何显式 Motion Intent 或主要状态交互时同时读取 [动效手感与连续性标准](references/motion-craft-standard.md)。
+- 所有发生设计的页面读取[独立视觉评审：标准与加强](references/independent-visual-review.md)；加强评审范围存在主要交互时再读取[开放式交互走查](references/interaction-walkthrough.md)。
+- HTML 确认后用户重新反馈局部视觉或动效问题时，读取同一协议中的[用户反馈后的按需诊断](references/independent-visual-review.md#用户反馈后的按需诊断)。
 - 只有确认的 Layer 3 明确选择 GSAP 后才读取 [GSAP Layer 3 Runtime](references/gsap-layer3-runtime.md)；普通页面和原生动效不加载该 Reference，也不产生 Runtime 字段。
 - 默认只维护 `设计稿/pages/<page-slug>.html` 或当前 `设计稿/modules/<module-slug>.html`，不同时制造多个真相源。
 - 只有用户明确要求、需跨会话交接或 DOM/交互必须锁定时，才读取 [可选原型交接](references/prototype-handoff.md)。
@@ -73,6 +80,6 @@ description: Build, visually refine, review, and browser-test website page or mo
 
 ## 交付与排除
 
-- 默认不生成独立 QA 报告或平台交付契约；只报告阻塞问题、已修正的主要问题和最终验证结果。
+- 标准设计评审不生成独立 QA 报告或 reviews 目录，只报告主要问题、修正和最终状态；只有加强评审才把最少证据和结论存入配置的 reviews 目录。
 - 不擅自更改内容、Design System 或已锁定的模块主要方案；在这些边界内主动完善视觉设计，而非机械复制粗方向图。
 - 不规划 Elementor Controls，不编写 WordPress/PHP、React 组件、Shopify Section 或 CMS 模板；这些交给对应实现 Skill。

@@ -1,6 +1,6 @@
 ---
 name: website-page-content-architect
-description: Create or audit a complete, concise, UI-ready website page content framework from verified business facts before visual design. Use to define page goals, customer decision flow, section order, realistic draft copy, content and evidence needs, CTAs, or page-family rules; do not use for visual design, HTML, SEO implementation, or platform code.
+description: Create or audit concise, UI-ready page content from verified facts, removing generic repeated copy while preserving concrete objects, actions, data, and evidence. Use before visual design or when accurate content is still too generic; conditionally hand off verified business-specific features that can support later design. Do not choose layout, visual style, motion, HTML, SEO implementation, or platform code.
 ---
 
 # Website Page Content Architect
@@ -84,7 +84,8 @@ UNKNOWN:
 6. 确定完整 Section 顺序，按 `Core / Recommended / Optional` 标记模块优先级；素材尚未整理不自动删除重要模块。
 7. 为每个模块写一句任务、精简 UI-ready 文案、内容与素材要求和必要 CTA。
 8. 按 [Content Architecture Review](references/content-architecture-review.md) 检查客户浏览顺序、整页任务闭环、模块重复与文案可扫读性；明确问题自动修正一轮。
-9. 创建或更新 `docs/page-content/<page-slug>.md`。首次写入标记 `STATUS: Draft`；用户确认后更新为 `STATUS: Confirmed`。
+9. 从已确认事实中按需提炼“可用于设计的真实特征”：企业独有的产品、工艺、文件、数据、场所、工作对象或可观察的真实变化过程；只作为下游概念输入，不决定 Layout、颜色、图片或动效。没有可靠特征时省略，不为设计感编造。
+10. 创建或更新 `docs/page-content/<page-slug>.md`。首次写入标记 `STATUS: Draft`；用户确认后更新为 `STATUS: Confirmed`。
 
 页面文件存在不等于用户已确认。未能证明确认状态时，停在内容框架门禁，不交给 UI。
 
@@ -130,6 +131,7 @@ STATUS: Draft / Confirmed
 - 已确认顺序：
 - 不可改动的事实与主张边界：
 - 文案状态与下一步：
+- 可用于设计的真实特征：（按需；只列已确认对象、过程、文件、数据或场所，不决定视觉形式）
 ```
 
 字段按内容实际需要使用，不得为了模板完整而输出空字段。每个 Section 默认只保留 `Priority、模块任务、页面文案、内容与素材要求`；CTA 直接属于页面文案。以下内容仅在存在真实风险时补充：
@@ -151,6 +153,7 @@ STATUS: Draft / Confirmed
 ## 内容约束
 
 - UI-ready 文案是基于已确认事实的可排版草稿，允许后续精修，但不得使用空泛占位文案代替真实内容。
+- 眉标、标题和说明不能为了填满固定版式反复表达同一件事；优先保留具体对象、动作、数据与证据，删除无法帮助理解或判断的空泛口号。
 - 缺少证据时标记内容要求或待确认主张；模块有独立决策价值时保留为 `Recommended / Optional`，没有真实内容时不编造页面文案。
 - Primary CTA 应对应一个明确转化目标；Transitional CTA 仅在访客尚未准备完成主行动时使用。
 - 同一信息可以在不同决策阶段以不同深度出现，但不能无目的重复。
